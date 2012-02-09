@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Application>
-    <Entry>Test</Entry>
+    <Entry>zij</Entry>
     <Name>
-        <English>Test</English>
-        <eng-GB>Test</eng-GB>
+        <English>Zij</English>
+        <eng-GB>Zij</eng-GB>
     </Name>
     <Vendor/>
     <Description/>
     <Icons>
-        <MainMenu>Test_type4.png<Type1>Test_type4.png</Type1>
+        <MainMenu>zij_type4.png<Type1/>
             <Type2/>
+            <Type3>zij_type3.png</Type3>
+            <Type4>zij_type4.png</Type4>
+            <Type5>zij_type5.png</Type5>
         </MainMenu>
         <Setting/>
         <Ticker/>
         <QuickPanel/>
-        <LaunchImage>Splash_type4.png<Type1>Splash_type4.png</Type1>
+        <LaunchImage>Splash_type4.png<Type1/>
             <Type2/>
+            <Type3>Splash_type3.png</Type3>
+            <Type4>Splash_type4.png</Type4>
+            <Type5>Splash_type5.png</Type5>
         </LaunchImage>
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>
-        <BaseResolution>240x400</BaseResolution>
+        <BaseResolution>NormalSize</BaseResolution>
     </AutoScaling>
 </Application>
