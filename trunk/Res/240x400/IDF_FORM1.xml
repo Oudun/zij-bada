@@ -12,17 +12,17 @@
     </Form>
     <Button id="IDC_BUTTON_OK" parent="IDF_FORM1">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="OK" textSize="16" vAlign="ALIGN_MIDDLE"/>
-        <layout height="45" mode="Portrait" width="71" x="30" y="68"/>
+        <layout height="45" mode="Portrait" width="70" x="30" y="60"/>
         <layout height="51" mode="Landscape" width="200" x="0" y="0"/>
     </Button>
     <Button id="IDC_BUTTON_GPS" parent="IDF_FORM1">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="GPS" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="43" mode="Portrait" width="81" x="130" y="71"/>
+        <layout height="45" mode="Portrait" width="70" x="140" y="60"/>
         <layout height="24" mode="Landscape" width="125" x="275" y="104"/>
     </Button>
     <EditArea id="IDC_EDITAREA1" parent="IDF_FORM1">
         <property InputStyle="INPUT_STYLE_FULLSCREEN" LimitLength="100" disabledBGBitmapPath="" disabledColor="" disabledColorOpacity="100" disabledTextColor="" guideText="" guideTextColor="" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" horizontalMargin="10" keypadAction="" keypadStyle="KEYPAD_STYLE_NORMAL" linkTextColor="" lowerCaseMode="FALSE" normalBGBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedColor="" pressedColorOpacity="100" text="" textHorizontalAlignment="ALIGNMENT_LEFT" textSize="18" verticalMargin="10" viewMode="FALSE"/>
-        <layout height="191" mode="Portrait" width="181" x="30" y="131"/>
+        <layout height="191" mode="Portrait" width="180" x="30" y="131"/>
         <layout height="114" mode="Landscape" width="301" x="50" y="71"/>
     </EditArea>
 </Scene>

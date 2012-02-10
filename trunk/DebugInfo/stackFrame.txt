@@ -1,0 +1,24 @@
+PC: 0xA45ABEAA LR: 0x804995C5 Stack PTR : 0x790FE9B0 
+0xA45ABEAA Form1::OnLocationUpdated(Osp::Locations::Location&)
+0xA45AD000 __static_initialization_and_destruction_0(int, int)
+0xA45AC0A0 _ZThn460_N5Form117OnLocationUpdatedERN3Osp9Locations8Locat
+0xA45AC0A0 _ZThn460_N5Form117OnLocationUpdatedERN3Osp9Locations8Locat
+0xA2FF0BF9 _ZN3Osp9Locations13_LocationUtil15ConvertLocationEPK9MLoca
+0xA2FE81DF _ZN3Osp9Locations17__locationUpdatedEPK18_ILocationListene
+0xA2176573 __Location_eventHandler4
+0xA2020AEB Event_fire2
+0xA1FBD341 Mem_allocEx
+0xA202151B MEventProcessor_processEvent
+0xA2022AD9 __ActorEventHandlerProc
+0xA2022BF7 __ActorEventHandlerProc
+0xA2022EA0 ActorPi_deleteEx
+0xA2176559 __Location_eventHandler3
+0xA2022AD9 __ActorEventHandlerProc
+0xA2022AD9 __ActorEventHandlerProc
+0xA2022AD9 __ActorEventHandlerProc
+0xA2023459 Event_processPi
+0xA2020B2D Event_process
+0xA2020B67 Event_iterate
+0xA2176559 __Location_eventHandler3
+0xA2020B8B Event_runMainloopEx
+0xA2FCD60D _ZN3Osp3App17__BaseApplication7OnStartERKNS_4Bas
