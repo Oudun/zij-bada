@@ -112,19 +112,26 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 
 void
 Form1::OnLocationUpdated(Osp::Locations::Location& location) {
-	AppLog("Location Updated\n");
-	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
-	AppLog("Latitude = %f", (float)(coordinates->GetLatitude()));
-	AppLog("Longitude = %f", (float)(coordinates->GetLongitude()));
-	AppLog("Altitude = %f", (float)(coordinates->GetAltitude()));
-	locProvider.CancelLocationUpdates();
 	EditArea *pText = static_cast<EditArea *>(GetControl("IDC_EDITAREA1"));
-	String str;
-	str.Format(256, L"Latitude = %f\nLongitude = %f\nAltitude = %f",
-			(float)(coordinates->GetLatitude()),
-			(float)(coordinates->GetLongitude()),
-			(float)(coordinates->GetAltitude()));
-	pText->SetText(str);
+	pText->SetText("Location Updated");
+	pText->Show();
+//	AppLog("Location Updated\n");
+//	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
+//	AppLog("Coordinates taken\n");
+//	double latd = coordinates->GetLatitude();
+//	AppLog("Latitude (double) taken\n");
+//	float latf = (float)latd;
+//	AppLog("Latitude (float) taken\n");
+//	AppLog("Latitude = %f", latf);
+//	AppLog("Longitude = %f", (float)(coordinates->GetLongitude()));
+//	AppLog("Altitude = %f", (float)(coordinates->GetAltitude()));
+//	locProvider.CancelLocationUpdates();
+//	String str;
+//	str.Format(256, L"Latitude = %f\nLongitude = %f\nAltitude = %f",
+//			(float)(coordinates->GetLatitude()),
+//			(float)(coordinates->GetLongitude()),
+//			(float)(coordinates->GetAltitude()));
+//	pText->SetText(str);
 }
 
 void
