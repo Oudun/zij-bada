@@ -99,10 +99,10 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_GPS:
 		{
 			AppLog("GPS Button is clicked! \n");
-			LocationProvider locProvider;
 			locProvider.Construct(LOC_METHOD_HYBRID);
 			AppLog("Location Provider! \n");
 			locProvider.RequestLocationUpdates(*this, 5, true);
+			//locProvider.GetLastKnownLocationN();
 		}
 		break;
 	default:
@@ -113,11 +113,32 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 void
 Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
+	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
+	AppLog("Latitude = %f", (float)(coordinates->GetLatitude()));
+	AppLog("Longitude = %f", (float)(coordinates->GetLongitude()));
+	AppLog("Altitude = %f", (float)(coordinates->GetAltitude()));
+	locProvider.CancelLocationUpdates();
+	EditArea *pText = static_cast<EditArea *>(GetControl("IDC_EDITAREA1"));
+	String str;
+	str.Format(256, L"Latitude = %f\nLongitude = %f\nAltitude = %f",
+			(float)(coordinates->GetLatitude()),
+			(float)(coordinates->GetLongitude()),
+			(float)(coordinates->GetAltitude()));
+	pText->SetText(str);
 }
 
 void
 Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
-
+	AppLog("Location Provider state changed\n");
+	if (newState == LOC_PROVIDER_AVAILABLE) {
+		AppLog("LOC_PROVIDER_AVAILABLE");
+	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
+		AppLog("LOC_PROVIDER_AVAILABLE");
+	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
+		AppLog("LOC_PROVIDER_TEMPORARILY_UNAVAILABLE");
+	} else {
+		AppLog("State unknown");
+	}
 }
 
 

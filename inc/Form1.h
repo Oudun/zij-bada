@@ -12,7 +12,6 @@
 #include <FSystem.h>
 #include <FLocations.h>
 
-
 class Form1 :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
@@ -25,12 +24,12 @@ public:
 	virtual ~Form1(void);
 	bool Initialize(void);
 
-
 // Implementation
 protected:
 	static const int ID_BUTTON_OK = 101;
 	static const int ID_BUTTON_GPS = 1;
 	Osp::Ui::Controls::Button *__pButtonOk;
+	Osp::Locations::LocationProvider locProvider;
 
 public:
 	virtual result OnInitializing(void);
