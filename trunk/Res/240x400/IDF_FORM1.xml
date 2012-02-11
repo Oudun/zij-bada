@@ -20,9 +20,9 @@
         <layout height="45" mode="Portrait" width="70" x="140" y="60"/>
         <layout height="24" mode="Landscape" width="125" x="275" y="104"/>
     </Button>
-    <EditArea id="IDC_EDITAREA1" parent="IDF_FORM1">
-        <property InputStyle="INPUT_STYLE_FULLSCREEN" LimitLength="100" disabledBGBitmapPath="" disabledColor="" disabledColorOpacity="100" disabledTextColor="" guideText="" guideTextColor="" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" horizontalMargin="10" keypadAction="" keypadStyle="KEYPAD_STYLE_NORMAL" linkTextColor="" lowerCaseMode="FALSE" normalBGBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedColor="" pressedColorOpacity="100" text="" textHorizontalAlignment="ALIGNMENT_LEFT" textSize="18" verticalMargin="10" viewMode="FALSE"/>
-        <layout height="191" mode="Portrait" width="180" x="30" y="131"/>
-        <layout height="114" mode="Landscape" width="301" x="50" y="71"/>
-    </EditArea>
+    <Label id="IDC_LABEL1" parent="IDF_FORM1">
+        <property BGBitmapPath="" BGColor="#C0C0C0" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="#000000" textSize="12" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
+        <layout height="141" mode="Portrait" width="180" x="30" y="121"/>
+        <layout height="84" mode="Landscape" width="300" x="50" y="65"/>
+    </Label>
 </Scene>

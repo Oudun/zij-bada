@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------
+----------------------------- Application Information ----------------------------
+----------------------------------------------------------------------------------
+ Application Name    : Zij
+ Application ID      : 93bt1p123e
+ Application Version : 1.0.0
+ API Version         : 1.1
+ Platform Version    : 2.0.0
+ Firmware Version    : WaveWQ-EXXKC4
+ Crashed Time        : 2012/02/12 03:52:37
+ Crashed Module      : FOsp.so
+----------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------
+----------------------------- Recent AppLog Messages -----------------------------
+----------------------------------------------------------------------------------
+[0] 0287.455,INFO,P35,T00,A135,OspMain (32) > Application started.
+[1] 0290.406,INFO,P35,T00,A138,Form1::OnActionPerformed (103) > GPS Button is clicked! 
+[2] 0290.422,INFO,P35,T00,A138,Form1::OnActionPerformed (105) > Location Provider! 
+[3] 0290.628,INFO,P35,T00,A138,Form1::OnLocationUpdated (117) > Location Updated
+[4] 0290.629,INFO,P35,T00,A138,Form1::OnLocationUpdated (119) > Coordinates taken
