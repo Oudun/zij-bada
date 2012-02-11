@@ -16,6 +16,7 @@ using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 using namespace Osp::Locations;
 
+
 Form1::Form1(void)
 {
 }
@@ -154,6 +155,9 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 
 float
 Form1::GetLocalSIderialTime() {
+
+	TimeZone timeZone(60, L"Europe/Moscow");
+	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
 
 //    calendar.setTime(new Date());
 //    calendar.add(Calendar.HOUR, -calendar.get(Calendar.ZONE_OFFSET)/3600000);
