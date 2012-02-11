@@ -55,12 +55,17 @@ Form1::OnInitializing(void)
 		pButton_gps->SetActionId(1);
 		pButton_gps->AddActionEventListener(*this);
 	}
-	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
-	if (pButton1)
-	{
-		pButton1->SetActionId(102);
-		pButton1->AddActionEventListener(*this);
-	}
+//	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));
+//	if (pButton1)
+//	{
+//		pButton1->SetActionId(102);
+//		pButton1->AddActionEventListener(*this);
+//	}
+
+	__pLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
+	__pLabel -> SetText("Initialized");
+	__pLabel -> SetText("Again Initialized");
+
 	return r;
 }
 
@@ -95,6 +100,8 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			__pCanvas->SetForegroundColor(Color::COLOR_BLACK);
 //			__pCanvas->Clear();
 			__pCanvas->Show();
+			__pLabel->SetText("OK");
+			__pLabel->RequestRedraw();
 		}
 		break;
 	case ID_BUTTON_GPS:
@@ -112,12 +119,12 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 
 void
 Form1::OnLocationUpdated(Osp::Locations::Location& location) {
-	EditArea *pText = static_cast<EditArea *>(GetControl("IDC_EDITAREA1"));
-	pText->SetText("Location Updated");
-	pText->Show();
+	//EditArea *pText = static_cast<EditArea *>(GetControl("IDC_EDITAREA1"));
 	AppLog("Location Updated\n");
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 	AppLog("Coordinates taken\n");
+	__pLabel->SetText("Location Updated");
+	AppLog("Label\n");
 	String str;
 	if (coordinates != 0) {
 		double latd = coordinates->GetLatitude();
@@ -135,8 +142,11 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 	} else {
 		str = "*";
 	}
-	pText->AppendText(str);
-	pText->Show();
+	str.Append(__pLabel->GetText());
+	str.Append('\n');
+	str.Append(GetLocalSiderialTime());
+//	__pLabel->SetText(str);
+//	__pLabel->RequestRedraw();
 }
 
 void
@@ -154,10 +164,24 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 }
 
 float
-Form1::GetLocalSIderialTime() {
+Form1::GetLocalSiderialTime() {
 
-	TimeZone timeZone(60, L"Europe/Moscow");
-	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
+	float result;
+
+	//TimeZone timeZone(60, L"Europe/Prague");
+	calendar = Calendar::CreateInstanceN(CALENDAR_GREGORIAN);
+	calendar->SetDate();
+	float hrs = calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY);
+	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
+	float dayFract = (hrs + minHrs)/24.0;
+	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
+	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
+	String time = L"";
+	time.Append((calendar->GetTime()).ToString());
+	AppLog("%s", &time);
+	__pLabel->SetText(time);
+	__pLabel->RequestRedraw();
+	result = year;
 
 //    calendar.setTime(new Date());
 //    calendar.add(Calendar.HOUR, -calendar.get(Calendar.ZONE_OFFSET)/3600000);
@@ -177,7 +201,7 @@ Form1::GetLocalSIderialTime() {
 //    System.out.println("LST = "+ lstDeg + " degrees");
 //    System.out.println("LST = "+ (lstDeg/15) + " hours");
 
-	return 0;
+	return result;
 
 }
 

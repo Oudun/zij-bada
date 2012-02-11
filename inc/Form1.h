@@ -30,6 +30,7 @@ protected:
 	static const int ID_BUTTON_OK = 101;
 	static const int ID_BUTTON_GPS = 1;
 	Osp::Ui::Controls::Button *__pButtonOk;
+	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
 
@@ -41,7 +42,7 @@ public:
 	virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 
 private:
-	float GetLocalSIderialTime(void);
+	float GetLocalSiderialTime(void);
 
 };
 

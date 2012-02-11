@@ -1,24 +1,22 @@
-PC: 0xA45ABEAA LR: 0x804995C5 Stack PTR : 0x790FE9B0 
-0xA45ABEAA Form1::OnLocationUpdated(Osp::Locations::Location&)
-0xA45AD000 __static_initialization_and_destruction_0(int, int)
-0xA45AC0A0 _ZThn460_N5Form117OnLocationUpdatedERN3Osp9Locations8Locat
-0xA45AC0A0 _ZThn460_N5Form117OnLocationUpdatedERN3Osp9Locations8Locat
-0xA2FF0BF9 _ZN3Osp9Locations13_LocationUtil15ConvertLocationEPK9MLoca
-0xA2FE81DF _ZN3Osp9Locations17__locationUpdatedEPK18_ILocationListene
-0xA2176573 __Location_eventHandler4
-0xA2020AEB Event_fire2
-0xA1FBD341 Mem_allocEx
-0xA202151B MEventProcessor_processEvent
-0xA2022AD9 __ActorEventHandlerProc
-0xA2022BF7 __ActorEventHandlerProc
-0xA2022EA0 ActorPi_deleteEx
-0xA2176559 __Location_eventHandler3
-0xA2022AD9 __ActorEventHandlerProc
-0xA2022AD9 __ActorEventHandlerProc
-0xA2022AD9 __ActorEventHandlerProc
-0xA2023459 Event_processPi
-0xA2020B2D Event_process
-0xA2020B67 Event_iterate
-0xA2176559 __Location_eventHandler3
-0xA2020B8B Event_runMainloopEx
-0xA2FCD60D _ZN3Osp3App17__BaseApplication7OnStartERKNS_4Bas
+PC: 0x6D5F890E LR: 0x6D5F890F Stack PTR : 0x0A5FE818 
+0x6D5F890E Osp::Ui::Controls::Label::SetText(Osp::Base::String const&)
+0x6D5F890E Osp::Ui::Controls::Label::SetText(Osp::Base::String const&)
+0x4004DFEA [Platform Fns]
+0x689D5FF2 Form1::OnLocationUpdated(Osp::Locations::Location&)
+0x6D514462 Osp::Locations::__locationUpdated(_ILocationListener const*, MLocation*)
+0x6AA6C8CE 0x000878CE+mosp.so
+0x6A6E2CC6 __Actor_processType1Events
+0x6A6E2EB6 __Actor_processFilter
+0x6A6E669A 0x0005B69A+mbase.so
+0x400201AA [Platform Fns]
+0x40028466 [Platform Fns]
+0x6A6E6A40 Event_processPi
+0x6A6E3B44 Event_runMainloopEx
+0x6D4E398C Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
+0x6D4E4ED6 virtual thunk to Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
+0x6D41AE84 Osp::Base::Runtime::__EventDispatcherCore::Start()
+0x6D4E2430 Osp::App::__AppExecutable::Run()
+0x6D4EA0C0 Osp::App::Application::Execute(Osp::App::Application* (*)(), Osp::Base::Collection::IList const*, Osp::App::AppAttributeType)
+0x4005394C [Platform Fns]
+0x40202AE8 [Platform Fns]
+0x00000000 [Platform Fns]
