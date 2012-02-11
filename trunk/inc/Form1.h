@@ -11,6 +11,7 @@
 #include <FUi.h>
 #include <FSystem.h>
 #include <FLocations.h>
+#include <FLocales.h>
 
 class Form1 :
 	public Osp::Ui::Controls::Form,
@@ -30,6 +31,7 @@ protected:
 	static const int ID_BUTTON_GPS = 1;
 	Osp::Ui::Controls::Button *__pButtonOk;
 	Osp::Locations::LocationProvider locProvider;
+	Osp::Locales::Calendar* calendar;
 
 public:
 	virtual result OnInitializing(void);
