@@ -37,6 +37,10 @@ public:
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 	virtual void OnLocationUpdated(Osp::Locations::Location& location);
 	virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
+
+private:
+	float GetLocalSIderialTime(void);
+
 };
 
 #endif	//_FORM1_H_

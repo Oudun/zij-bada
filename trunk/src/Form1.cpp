@@ -102,7 +102,6 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			locProvider.Construct(LOC_METHOD_HYBRID);
 			AppLog("Location Provider! \n");
 			locProvider.RequestLocationUpdates(*this, 5, true);
-			//locProvider.GetLastKnownLocationN();
 		}
 		break;
 	default:
@@ -124,7 +123,7 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 		AppLog("Latitude (double) taken\n");
 		float latf = (float)latd;
 		AppLog("Latitude (float) taken\n");
-		AppLog("Latitude = %f", latf);
+		AppLog("\nLatitude = %f", latf);
 		AppLog("Longitude = %f", (float)(coordinates->GetLongitude()));
 		AppLog("Altitude = %f", (float)(coordinates->GetAltitude()));
 		locProvider.CancelLocationUpdates();
@@ -133,9 +132,10 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 				(float)(coordinates->GetLongitude()),
 				(float)(coordinates->GetAltitude()));
 	} else {
-		str = "Coordinates are empty";
+		str = "*";
 	}
-	pText->SetText(str);
+	pText->AppendText(str);
+	pText->Show();
 }
 
 void
@@ -150,6 +150,31 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 	} else {
 		AppLog("State unknown");
 	}
+}
+
+float
+Form1::GetLocalSIderialTime() {
+
+//    calendar.setTime(new Date());
+//    calendar.add(Calendar.HOUR, -calendar.get(Calendar.ZONE_OFFSET)/3600000);
+//    float hrs = calendar.get(Calendar.HOUR_OF_DAY);
+//    float minHrs = calendar.get(Calendar.MINUTE)/60F;
+//    float dayFract = (hrs + minHrs)/24F;
+//    System.out.println(dayFract);
+//    int dayNum = calendar.get(Calendar.DAY_OF_YEAR);
+//    int year = calendar.get(Calendar.YEAR);
+//    float daysSinceJ2000 = -1.5F + dayNum + (year-2000)*365 + (int)((year-2000)/4);
+//    System.out.println(daysSinceJ2000);
+//    daysSinceJ2000 += dayFract;
+//    System.out.println(daysSinceJ2000);
+//
+//    float lst = 100.46F + 0.985647F * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
+//    lstDeg = lst%360;
+//    System.out.println("LST = "+ lstDeg + " degrees");
+//    System.out.println("LST = "+ (lstDeg/15) + " hours");
+
+	return 0;
+
 }
 
 
