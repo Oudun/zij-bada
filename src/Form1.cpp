@@ -132,6 +132,7 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 		Log("Latitude = ",(float)(coordinates->GetLatitude()));
 		Log("Longitude = ",(float)(coordinates->GetLongitude()));
 		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLatitude())));
+		locProvider.CancelLocationUpdates();
 	} else {
 		//float lst = GetLocalSiderialTime((float)(55.75578));
 		LogSameLine("#");
