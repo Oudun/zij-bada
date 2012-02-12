@@ -42,7 +42,10 @@ public:
 	virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 
 private:
-	float GetLocalSiderialTime(void);
+	float GetLocalSiderialTime(float aLon);
+	void Log(const Osp::Base::String& text);
+	void Log(const Osp::Base::String& text, float value);
+	void LogSameLine(const Osp::Base::String& text);
 
 };
 

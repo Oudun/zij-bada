@@ -100,7 +100,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			__pCanvas->SetForegroundColor(Color::COLOR_BLACK);
 //			__pCanvas->Clear();
 			__pCanvas->Show();
-			__pLabel->SetText("OK");
+			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
 		}
 		break;
@@ -123,65 +123,74 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 	AppLog("Coordinates taken\n");
-	__pLabel->SetText("Location Updated");
 	AppLog("Label\n");
 	String str;
 	if (coordinates != 0) {
 		double latd = coordinates->GetLatitude();
 		AppLog("Latitude (double) taken\n");
-		float latf = (float)latd;
 		AppLog("Latitude (float) taken\n");
-		AppLog("\nLatitude = %f", latf);
-		AppLog("Longitude = %f", (float)(coordinates->GetLongitude()));
-		AppLog("Altitude = %f", (float)(coordinates->GetAltitude()));
-		locProvider.CancelLocationUpdates();
-		str.Format(256, L"Latitude = %f\nLongitude = %f\nAltitude = %f",
-				(float)(coordinates->GetLatitude()),
-				(float)(coordinates->GetLongitude()),
-				(float)(coordinates->GetAltitude()));
+		Log("Latitude = ",(float)(coordinates->GetLatitude()));
+		Log("Longitude = ",(float)(coordinates->GetLongitude()));
+		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLatitude())));
 	} else {
-		str = "*";
+		//float lst = GetLocalSiderialTime((float)(55.75578));
+		LogSameLine("#");
 	}
-	str.Append(__pLabel->GetText());
-	str.Append('\n');
-	str.Append(GetLocalSiderialTime());
-//	__pLabel->SetText(str);
-//	__pLabel->RequestRedraw();
 }
 
 void
 Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 	AppLog("Location Provider state changed\n");
+	Log("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
 		AppLog("LOC_PROVIDER_AVAILABLE");
+		Log("LOC_PROVIDER_AVAILABLE");
 	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
 		AppLog("LOC_PROVIDER_AVAILABLE");
+		Log("LOC_PROVIDER_AVAILABLE");
 	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
 		AppLog("LOC_PROVIDER_TEMPORARILY_UNAVAILABLE");
+		Log("LOC_PROVIDER_TEMPORARILY_UNAVAILABLE");
 	} else {
 		AppLog("State unknown");
+		Log("State unknown");
 	}
 }
 
 float
-Form1::GetLocalSiderialTime() {
+Form1::GetLocalSiderialTime(float longitude) {
 
 	float result;
 
-	//TimeZone timeZone(60, L"Europe/Prague");
-	calendar = Calendar::CreateInstanceN(CALENDAR_GREGORIAN);
-	calendar->SetDate();
+	TimeZone timeZone(60, L"Europe/London");
+	DateTime* currTime = new DateTime();
+	SystemTime::GetCurrentTime(*currTime);
+	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
+	calendar->SetTime(*currTime);
 	float hrs = calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY);
+	Log("hrs=",hrs);
 	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
+	Log("minHrs=",minHrs);
 	float dayFract = (hrs + minHrs)/24.0;
+	Log("dayFract=",dayFract);
 	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
+	Log("dayNum=",dayNum);
 	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
-	String time = L"";
-	time.Append((calendar->GetTime()).ToString());
-	AppLog("%s", &time);
-	__pLabel->SetText(time);
-	__pLabel->RequestRedraw();
-	result = year;
+	Log("year=",year);
+	float daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
+	Log("daysSinceJ2000=",daysSinceJ2000);
+	float lst = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
+	Log("lst=",lst);
+	int lstInt = (int)(lst/360);
+	Log("lstInt=",lstInt);
+
+	result = (lst-(360*lstInt))/15;
+
+//	AppLog("\n%f\n", year);
+//
+//	__pLabel->SetText((calendar->GetTime()).ToString());
+//	__pLabel->RequestRedraw();
+//	result = year;
 
 //    calendar.setTime(new Date());
 //    calendar.add(Calendar.HOUR, -calendar.get(Calendar.ZONE_OFFSET)/3600000);
@@ -202,7 +211,38 @@ Form1::GetLocalSiderialTime() {
 //    System.out.println("LST = "+ (lstDeg/15) + " hours");
 
 	return result;
+}
 
+void
+Form1::Log(const Osp::Base::String& aText, const float value) {
+	String str;
+	String text;
+	text = aText;
+	str = __pLabel->GetText();
+	text.Append(value);
+	str.Append(text);
+	str.Append('\n');
+	__pLabel->SetText(str);
+	__pLabel->RequestRedraw();
+}
+
+void
+Form1::Log(const Osp::Base::String& text) {
+	String str;
+	str = __pLabel->GetText();
+	str.Append(text);
+	str.Append('\n');
+	__pLabel->SetText(str);
+	__pLabel->RequestRedraw();
+}
+
+void
+Form1::LogSameLine(const Osp::Base::String& text) {
+	String str;
+	str = __pLabel->GetText();
+	str.Append(text);
+	__pLabel->SetText(str);
+	__pLabel->RequestRedraw();
 }
 
 
