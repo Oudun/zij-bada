@@ -131,7 +131,7 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 		AppLog("Latitude (float) taken\n");
 		Log("Latitude = ",(float)(coordinates->GetLatitude()));
 		Log("Longitude = ",(float)(coordinates->GetLongitude()));
-		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLatitude())));
+		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLongitude())));
 		locProvider.CancelLocationUpdates();
 	} else {
 		//float lst = GetLocalSiderialTime((float)(55.75578));
@@ -166,9 +166,12 @@ Form1::GetLocalSiderialTime(float longitude) {
 	TimeZone timeZone(60, L"Europe/London");
 	DateTime* currTime = new DateTime();
 	SystemTime::GetCurrentTime(*currTime);
+//	currTime->SetValue(2012,2,13,15,5,33);
+	LogSameLine("currTime=");
+	Log(currTime->ToString());
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
 	calendar->SetTime(*currTime);
-	float hrs = calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY);
+	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;
 	Log("hrs=",hrs);
 	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
 	Log("minHrs=",minHrs);
@@ -178,14 +181,18 @@ Form1::GetLocalSiderialTime(float longitude) {
 	Log("dayNum=",dayNum);
 	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
 	Log("year=",year);
-	float daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
-	Log("daysSinceJ2000=",daysSinceJ2000);
-	float lst = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-	Log("lst=",lst);
-	int lstInt = (int)(lst/360);
-	Log("lstInt=",lstInt);
+	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
+	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
+	Log("0.985647 * daysSinceJ2000=", 0.985647 * daysSinceJ2000);
+	Log("longitude", longitude);
+	Log("15*(hrs + minHrs)=", 15*(hrs + minHrs));
+	Log("slt=",slt);
+	int sltInt = (int)(slt/360);
+	Log("lstInt=",sltInt);
 
-	result = (lst-(360*lstInt))/15;
+	float sltHrs = (slt-(360*sltInt))/15;
+	Log("lstHours=",sltHrs);
+	result = sltHrs;
 
 //	AppLog("\n%f\n", year);
 //
