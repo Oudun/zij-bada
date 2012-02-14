@@ -47,6 +47,17 @@ Form1::OnInitializing(void)
 	{
 		__pButtonOk->SetActionId(ID_BUTTON_OK);
 		__pButtonOk->AddActionEventListener(*this);
+		__pButtonOk->RequestRedraw();
+		Canvas* __pCanvas;
+		__pCanvas = __pButtonOk->GetCanvasN();
+		__pCanvas -> SetBackgroundColor(Color::COLOR_RED);
+		Rectangle rect = __pButtonOk->GetBounds();
+		__pCanvas -> Clear();
+		__pCanvas -> FillRectangle(Color::COLOR_WHITE, rect);
+		__pCanvas -> SetForegroundColor(Color::COLOR_CYAN);
+		__pCanvas -> DrawRectangle(rect);
+		__pCanvas -> Show();
+		__pButtonOk -> RequestRedraw();
 	}
 
 	Button *pButton_gps = static_cast<Button *>(GetControl("IDC_BUTTON_GPS"));  
@@ -54,6 +65,7 @@ Form1::OnInitializing(void)
 	{
 		pButton_gps->SetActionId(1);
 		pButton_gps->AddActionEventListener(*this);
+		pButton_gps->RequestRedraw();
 	}
 //	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));
 //	if (pButton1)
@@ -89,16 +101,29 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			AppLog("OK Button is clicked! \n");
 			Canvas* __pCanvas;
 			Control* control = GetControl(L"IDF_FORM1");
+			//__pCanvas = source.GetCanvasN();
 			__pCanvas = control->GetCanvasN();
-			Point point1, point2;
-			point1.x = 0;
-			point1.y = 0;
-			point2.x = 200;
-			point2.y = 200;
+//			Point point1, point2;
+//			point1.x = 0;
+//			point1.y = 0;
+//			point2.x = 200;
+//			point2.y = 200;
 			__pCanvas->SetLineWidth(1);
-			__pCanvas->DrawLine(point1, point2);
-			__pCanvas->SetForegroundColor(Color::COLOR_BLACK);
-//			__pCanvas->Clear();
+//			__pCanvas->DrawLine(point1, point2);
+			__pCanvas->SetForegroundColor(Color::COLOR_CYAN);
+
+			int x, y, width, height, r;
+			int margin = 20;
+			Application::GetInstance()->GetAppFrame()->GetFrame()->GetBounds(x, y, width, height);
+			AppLog("x=%d",x);
+			AppLog("y=%d",y);
+			AppLog("width=%d",width);
+			AppLog("height=%d",height);
+			r = (Math::Min(width, height) - margin*2)/2;
+			Rectangle rect (margin, 2*margin, 2*r, 2*r);
+			__pCanvas->DrawEllipse(rect);
+
+
 			__pCanvas->Show();
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
