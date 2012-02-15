@@ -101,17 +101,11 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			AppLog("OK Button is clicked! \n");
 			Canvas* __pCanvas;
 			Control* control = GetControl(L"IDF_FORM1");
-			//__pCanvas = source.GetCanvasN();
+			Color COLOR_CHOST(48,48,144);
+			Color COLOR_NIGHT(24,24,72);
 			__pCanvas = control->GetCanvasN();
-//			Point point1, point2;
-//			point1.x = 0;
-//			point1.y = 0;
-//			point2.x = 200;
-//			point2.y = 200;
 			__pCanvas->SetLineWidth(1);
-//			__pCanvas->DrawLine(point1, point2);
-			__pCanvas->SetForegroundColor(Color::COLOR_CYAN);
-
+			__pCanvas->SetForegroundColor(COLOR_CHOST);
 			int x, y, width, height, r;
 			int margin = 20;
 			Application::GetInstance()->GetAppFrame()->GetFrame()->GetBounds(x, y, width, height);
@@ -121,10 +115,19 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			AppLog("height=%d",height);
 			r = (Math::Min(width, height) - margin*2)/2;
 			Rectangle rect (margin, 2*margin, 2*r, 2*r);
+			//Rectangle rect (0,0,20,20);
 			__pCanvas->DrawEllipse(rect);
-
-
 			__pCanvas->Show();
+			Canvas* __pButtonCanvas;
+			__pButtonCanvas = source.GetCanvasN();
+			AppLog("source.GetBounds().x=%d", source.GetBounds().x);
+			AppLog("source.GetBounds().y=%d", source.GetBounds().y);
+			AppLog("source.GetBounds().height=%d", source.GetBounds().height);
+			AppLog("source.GetBounds().width=%d", source.GetBounds().width);
+			Rectangle buttonRect = source.GetBounds();
+			buttonRect.SetPosition(0,0);
+			__pButtonCanvas->FillRectangle(COLOR_NIGHT, buttonRect);
+			__pButtonCanvas->DrawRectangle(buttonRect);
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
 		}
@@ -185,9 +188,6 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 
 float
 Form1::GetLocalSiderialTime(float longitude) {
-
-	float result;
-
 	TimeZone timeZone(60, L"Europe/London");
 	DateTime* currTime = new DateTime();
 	SystemTime::GetCurrentTime(*currTime);
@@ -197,53 +197,16 @@ Form1::GetLocalSiderialTime(float longitude) {
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
 	calendar->SetTime(*currTime);
 	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;
-	Log("hrs=",hrs);
 	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
-	Log("minHrs=",minHrs);
 	float dayFract = (hrs + minHrs)/24.0;
-	Log("dayFract=",dayFract);
 	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
-	Log("dayNum=",dayNum);
 	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
-	Log("year=",year);
 	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
 	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-	Log("0.985647 * daysSinceJ2000=", 0.985647 * daysSinceJ2000);
-	Log("longitude", longitude);
-	Log("15*(hrs + minHrs)=", 15*(hrs + minHrs));
-	Log("slt=",slt);
 	int sltInt = (int)(slt/360);
-	Log("lstInt=",sltInt);
-
 	float sltHrs = (slt-(360*sltInt))/15;
 	Log("lstHours=",sltHrs);
-	result = sltHrs;
-
-//	AppLog("\n%f\n", year);
-//
-//	__pLabel->SetText((calendar->GetTime()).ToString());
-//	__pLabel->RequestRedraw();
-//	result = year;
-
-//    calendar.setTime(new Date());
-//    calendar.add(Calendar.HOUR, -calendar.get(Calendar.ZONE_OFFSET)/3600000);
-//    float hrs = calendar.get(Calendar.HOUR_OF_DAY);
-//    float minHrs = calendar.get(Calendar.MINUTE)/60F;
-//    float dayFract = (hrs + minHrs)/24F;
-//    System.out.println(dayFract);
-//    int dayNum = calendar.get(Calendar.DAY_OF_YEAR);
-//    int year = calendar.get(Calendar.YEAR);
-//    float daysSinceJ2000 = -1.5F + dayNum + (year-2000)*365 + (int)((year-2000)/4);
-//    System.out.println(daysSinceJ2000);
-//    daysSinceJ2000 += dayFract;
-//    System.out.println(daysSinceJ2000);
-//
-//    float lst = 100.46F + 0.985647F * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-//    lstDeg = lst%360;
-//    System.out.println("LST = "+ lstDeg + " degrees");
-//    System.out.println("LST = "+ (lstDeg/15) + " hours");
-
-	return result;
+	return sltHrs;
 }
 
 void
