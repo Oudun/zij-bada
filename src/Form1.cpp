@@ -239,6 +239,12 @@ Form1::Log(const Osp::Base::String& text) {
 }
 
 void
+Form1::ClearLog(const Osp::Base::String& text) {
+	__pLabel->SetText(text);
+	__pLabel->RequestRedraw();
+}
+
+void
 Form1::LogSameLine(const Osp::Base::String& text) {
 	String str;
 	str = __pLabel->GetText();
@@ -254,10 +260,17 @@ Form1::IterateStars (void) {
 	File file;
 	result r = file.Construct(fileName, L"r+");
 	char buffer[1];
+	String* line = new String();
 	r = E_SUCCESS;
 	do {
-		AppLog("char=%s", buffer);
 		file.Read(buffer, 1);
+		if(buffer[0]!='\n') {
+			line->Append(buffer[0]);
+		} else {
+			ClearLog(*line);
+			AppLog("%s",line);
+			line->Clear();
+		}
 		r = GetLastResult();
 	} while (!IsFailed(r));
 

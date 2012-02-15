@@ -7,8 +7,8 @@
  API Version         : 1.1
  Platform Version    : 2.0.0
  Firmware Version    : WaveWQ-EXXKC4
- Crashed Time        : 2012/02/12 03:52:37
- Crashed Module      : FOsp.so
+ Crashed Time        : 2012/02/15 19:46:24
+ Crashed Module      : 
 ----------------------------------------------------------------------------------
 
 
@@ -16,8 +16,5 @@
 ----------------------------------------------------------------------------------
 ----------------------------- Recent AppLog Messages -----------------------------
 ----------------------------------------------------------------------------------
-[0] 0287.455,INFO,P35,T00,A135,OspMain (32) > Application started.
-[1] 0290.406,INFO,P35,T00,A138,Form1::OnActionPerformed (103) > GPS Button is clicked! 
-[2] 0290.422,INFO,P35,T00,A138,Form1::OnActionPerformed (105) > Location Provider! 
-[3] 0290.628,INFO,P35,T00,A138,Form1::OnLocationUpdated (117) > Location Updated
-[4] 0290.629,INFO,P35,T00,A138,Form1::OnLocationUpdated (119) > Coordinates taken
+[0] 5310.386,INFO,P37,T00,A143,OspMain (32) > Application started.
+[1] 5482.395,INFO,P37,T00,A146,Form1::OnActionPerformed (145) > STARS Button is clicked! 

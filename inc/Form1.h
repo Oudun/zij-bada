@@ -48,7 +48,9 @@ private:
 	void Log(const Osp::Base::String& text);
 	void Log(const Osp::Base::String& text, float value);
 	void LogSameLine(const Osp::Base::String& text);
+	void ClearLog(const Osp::Base::String& text);
 	void IterateStars(void);
+
 
 };
 
