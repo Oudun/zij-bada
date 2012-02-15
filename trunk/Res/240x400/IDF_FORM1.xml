@@ -12,12 +12,12 @@
     </Form>
     <Button id="IDC_BUTTON_OK" parent="IDF_FORM1">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="OK" textSize="16" vAlign="ALIGN_MIDDLE"/>
-        <layout height="40" mode="Portrait" width="91" x="20" y="262"/>
+        <layout height="40" mode="Portrait" width="61" x="20" y="262"/>
         <layout height="51" mode="Landscape" width="200" x="0" y="0"/>
     </Button>
     <Button id="IDC_BUTTON_GPS" parent="IDF_FORM1">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="GPS" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="40" mode="Portrait" width="91" x="130" y="262"/>
+        <layout height="40" mode="Portrait" width="51" x="170" y="262"/>
         <layout height="24" mode="Landscape" width="125" x="275" y="104"/>
     </Button>
     <Label id="IDC_LABEL1" parent="IDF_FORM1">
@@ -25,4 +25,9 @@
         <layout height="51" mode="Portrait" width="201" x="20" y="311"/>
         <layout height="84" mode="Landscape" width="300" x="50" y="65"/>
     </Label>
+    <Button id="IDC_BUTTON_STARS" parent="IDF_FORM1">
+        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="40" mode="Portrait" width="61" x="96" y="263"/>
+        <layout height="24" mode="Landscape" width="101" x="150" y="150"/>
+    </Button>
 </Scene>

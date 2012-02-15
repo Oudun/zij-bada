@@ -12,6 +12,7 @@
 #include <FSystem.h>
 #include <FLocations.h>
 #include <FLocales.h>
+#include <FIo.h>
 
 class Form1 :
 	public Osp::Ui::Controls::Form,
@@ -28,7 +29,8 @@ public:
 // Implementation
 protected:
 	static const int ID_BUTTON_OK = 101;
-	static const int ID_BUTTON_GPS = 1;
+	static const int ID_BUTTON_GPS = 102;
+	static const int ID_BUTTON_STARS = 103;
 	Osp::Ui::Controls::Button *__pButtonOk;
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Locations::LocationProvider locProvider;
@@ -46,6 +48,7 @@ private:
 	void Log(const Osp::Base::String& text);
 	void Log(const Osp::Base::String& text, float value);
 	void LogSameLine(const Osp::Base::String& text);
+	void IterateStars(void);
 
 };
 

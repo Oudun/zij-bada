@@ -1,22 +1,18 @@
-PC: 0x6D5F890E LR: 0x6D5F890F Stack PTR : 0x0A5FE818 
-0x6D5F890E Osp::Ui::Controls::Label::SetText(Osp::Base::String const&)
-0x6D5F890E Osp::Ui::Controls::Label::SetText(Osp::Base::String const&)
-0x4004DFEA [Platform Fns]
-0x689D5FF2 Form1::OnLocationUpdated(Osp::Locations::Location&)
-0x6D514462 Osp::Locations::__locationUpdated(_ILocationListener const*, MLocation*)
-0x6AA6C8CE 0x000878CE+mosp.so
-0x6A6E2CC6 __Actor_processType1Events
-0x6A6E2EB6 __Actor_processFilter
-0x6A6E669A 0x0005B69A+mbase.so
-0x400201AA [Platform Fns]
-0x40028466 [Platform Fns]
-0x6A6E6A40 Event_processPi
-0x6A6E3B44 Event_runMainloopEx
-0x6D4E398C Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
-0x6D4E4ED6 virtual thunk to Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
-0x6D41AE84 Osp::Base::Runtime::__EventDispatcherCore::Start()
-0x6D4E2430 Osp::App::__AppExecutable::Run()
-0x6D4EA0C0 Osp::App::Application::Execute(Osp::App::Application* (*)(), Osp::Base::Collection::IList const*, Osp::App::AppAttributeType)
-0x4005394C [Platform Fns]
-0x40202AE8 [Platform Fns]
-0x00000000 [Platform Fns]
+PC: 0xA300EA34 LR: 0xA2F6B607 Stack PTR : 0x798BE9E0 
+0xA300EA34 Osp::Graphics::Canvas::SetBackgroundColor(Osp::Graphics::Color const&)
+0xA2F6B607 Form1::OnInitializing()
+0xA2F6B607 Form1::OnInitializing()
+0xA30A5459 Osp::Ui::Controls::Form::AddToParent(Osp::Ui::Container const&, int, int, int)
+0xA30A525D Osp::Ui::Controls::Form::AddControlImplAt(Osp::Ui::Control const&)
+0xA30874B5 Osp::Ui::Control::AddNotify()
+0xA308500D Osp::Ui::Container::AddNotify()
+0xA30A78FF _ZN3Osp2Ui8Controls5Frame16AddControlImplAtERKNS0_7Control
+0xA3084883 Osp::Ui::Container::AddControl(Osp::Ui::Control const&)
+0xA30A77F9 Osp::Ui::Controls::Frame::AddControl(Osp::Ui::Control const&)
+0xA2F6DCDD Test::OnAppInitializing(Osp::App::AppRegistry&)
+0xA302DD3B _ZN3Osp3App19__NativeApplication15AppInitializingERNS0_11A
+0xA302DD4B virtual thunk to Osp::App::__NativeApplication::AppInitializing
+0xA303156D Osp::App::__BaseApplication::OnAppInitializing(bool)
+0xA2C42769 _ZN3Osp3App22__NativeApplicationShp10InitializeEbRKNS_4Bas
+0xA302DE47 Osp::App::__NativeApplication::Start()
+0xA302DEBD _Z
