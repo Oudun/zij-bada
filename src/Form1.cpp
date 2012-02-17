@@ -1,4 +1,5 @@
 #include "Form1.h"
+#include "SkyObject.h"
 
 //using namespace Osp::Base;
 //using namespace Osp::Ui;
@@ -28,9 +29,7 @@ Form1::~Form1(void)
 bool
 Form1::Initialize()
 {
-	// Construct an XML form
 	Construct(L"IDF_FORM1");
-
 	return true;
 }
 
@@ -39,25 +38,11 @@ Form1::OnInitializing(void)
 {
 	result r = E_SUCCESS;
 
-	// TODO: Add your initialization code here
-
-	// Get a button via resource ID
 	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_OK"));
 	if (__pButtonOk != null)
 	{
 		__pButtonOk->SetActionId(ID_BUTTON_OK);
 		__pButtonOk->AddActionEventListener(*this);
-//		__pButtonOk->RequestRedraw();
-//		Canvas* __pCanvas;
-//		__pCanvas = __pButtonOk->GetCanvasN();
-//		__pCanvas -> SetBackgroundColor(Color::COLOR_RED);
-//		Rectangle rect = __pButtonOk->GetBounds();
-//		__pCanvas -> Clear();
-//		__pCanvas -> FillRectangle(Color::COLOR_WHITE, rect);
-//		__pCanvas -> SetForegroundColor(Color::COLOR_CYAN);
-//		__pCanvas -> DrawRectangle(rect);
-//		__pCanvas -> Show();
-//		__pButtonOk -> RequestRedraw();
 	}
 
 	Button *pButton_gps = static_cast<Button *>(GetControl("IDC_BUTTON_GPS"));  
@@ -84,9 +69,6 @@ result
 Form1::OnTerminating(void)
 {
 	result r = E_SUCCESS;
-
-	// TODO: Add your termination code here
-
 	return r;
 }
 
@@ -100,34 +82,17 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			AppLog("OK Button is clicked! \n");
 			Canvas* __pCanvas;
 			Control* control = GetControl(L"IDF_FORM1");
-//			Color COLOR_CHOST = Color::COLOR_WHITE; //(48,48,144);
 			Color COLOR_CHOST = Color(48,48,144);
-//			Color COLOR_NIGHT = Color::COLOR_BLACK; //(24,24,72);
 			__pCanvas = control->GetCanvasN();
 			__pCanvas->SetLineWidth(1);
 			__pCanvas->SetForegroundColor(COLOR_CHOST);
 			int x, y, width, height, r;
 			int margin = 20;
 			Application::GetInstance()->GetAppFrame()->GetFrame()->GetBounds(x, y, width, height);
-//			AppLog("x=%d",x);
-//			AppLog("y=%d",y);
-//			AppLog("width=%d",width);
-//			AppLog("height=%d",height);
 			r = (Math::Min(width, height) - margin*2)/2;
 			Rectangle rect (margin, 2*margin, 2*r, 2*r);
-//			//Rectangle rect (0,0,20,20);
 			__pCanvas->DrawEllipse(rect);
 			__pCanvas->Show();
-//			Canvas* __pButtonCanvas;
-//			__pButtonCanvas = source.GetCanvasN();
-//			AppLog("source.GetBounds().x=%d", source.GetBounds().x);
-//			AppLog("source.GetBounds().y=%d", source.GetBounds().y);
-//			AppLog("source.GetBounds().height=%d", source.GetBounds().height);
-//			AppLog("source.GetBounds().width=%d", source.GetBounds().width);
-//			Rectangle buttonRect = source.GetBounds();
-//			buttonRect.SetPosition(0,0);
-//			__pButtonCanvas->FillRectangle(COLOR_NIGHT, buttonRect);
-//			__pButtonCanvas->DrawRectangle(buttonRect);
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
 		}
@@ -153,7 +118,6 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 
 void
 Form1::OnLocationUpdated(Osp::Locations::Location& location) {
-	//EditArea *pText = static_cast<EditArea *>(GetControl("IDC_EDITAREA1"));
 	AppLog("Location Updated\n");
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 	AppLog("Coordinates taken\n");
@@ -168,7 +132,6 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLongitude())));
 		locProvider.CancelLocationUpdates();
 	} else {
-		//float lst = GetLocalSiderialTime((float)(55.75578));
 		LogSameLine("#");
 	}
 }
@@ -197,7 +160,6 @@ Form1::GetLocalSiderialTime(float longitude) {
 	TimeZone timeZone(60, L"Europe/London");
 	DateTime* currTime = new DateTime();
 	SystemTime::GetCurrentTime(*currTime);
-//	currTime->SetValue(2012,2,13,15,5,33);
 	LogSameLine("currTime=");
 	Log(currTime->ToString());
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
@@ -260,25 +222,28 @@ Form1::IterateStars (void) {
 	File file;
 	result r = file.Construct(fileName, L"r+");
 	char buffer[1];
-	String line (L"sssss");
+	String substr(L"");
+	String line(L"");
 	r = E_SUCCESS;
-	int count = 0;
+	SkyObject skyObj;
 	do {
 		file.Read(buffer, 1);
 		if(buffer[0]!='\n') {
 			line.Append(buffer[0]);
-//			AppLog("aaaa%c",buffer[0]);
-////			LogSameLine(buffer[0]);
-//			LogSameLine("+");
 		} else {
-////			Log("Read Line ", ++count);
-////			ClearLog(*line);
 			AppLog("%ls",line.GetPointer());
+			Log(line.GetPointer());
+			//    String rahStr = str.substring(75,77);
+			//    String ramStr = str.substring(77,79);
+			//    String rasStr = str.substring(79,83);
+			line.SubString(75,77,substr);
+			skyObj.setRA(substr,substr,substr);
 			line.Clear();
 		}
 		r = GetLastResult();
 	} while (!IsFailed(r));
 	Log("\nReading ended");
+
 }
 
 

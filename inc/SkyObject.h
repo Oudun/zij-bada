@@ -8,16 +8,28 @@
 #ifndef SKYOBJECT_H_
 #define SKYOBJECT_H_
 
+#include <FBase.h>
+#include <FGraphics.h>
+#include <FMedia.h>
+#include <FApp.h>
+#include <FUi.h>
+#include <FSystem.h>
+#include <FLocations.h>
+#include <FLocales.h>
+#include <FIo.h>
+
 class SkyObject
 {
 
 public:
-	SkyObject(void);
-	void setRA(String raH, String raM, String raS);
+	SkyObject();
+	virtual ~SkyObject();
+	void setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS);
+	void test(void);
 
 private:
-	String name;
-	String draperName;
+	Osp::Base::String name;
+	Osp::Base::String draperName;
 	float RAH;
 	float RAM;
 	float RAS;
@@ -31,6 +43,7 @@ private:
 //    String desStr = str.substring(88,90);
 //    String sign = str.substring(83,84);
 
-}
+};
 
 #endif /* SKYOBJECT_H_ */
+
