@@ -255,26 +255,30 @@ Form1::LogSameLine(const Osp::Base::String& text) {
 
 void
 Form1::IterateStars (void) {
-
+	ClearLog("Start Reading Catalog");
 	String fileName(L"/Home/catalog");
 	File file;
 	result r = file.Construct(fileName, L"r+");
 	char buffer[1];
-	String* line = new String();
+	String line (L"sssss");
 	r = E_SUCCESS;
+	int count = 0;
 	do {
 		file.Read(buffer, 1);
 		if(buffer[0]!='\n') {
-			line->Append(buffer[0]);
+			line.Append(buffer[0]);
+//			AppLog("aaaa%c",buffer[0]);
+////			LogSameLine(buffer[0]);
+//			LogSameLine("+");
 		} else {
-			ClearLog(*line);
-			AppLog("%s",line);
-			line->Clear();
+////			Log("Read Line ", ++count);
+////			ClearLog(*line);
+			AppLog("%ls",line.GetPointer());
+			line.Clear();
 		}
 		r = GetLastResult();
 	} while (!IsFailed(r));
-
-
+	Log("\nReading ended");
 }
 
 
