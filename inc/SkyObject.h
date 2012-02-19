@@ -26,6 +26,7 @@ public:
 	virtual ~SkyObject();
 	void setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS);
 	void test(void);
+	float getRAH(void);
 
 private:
 	Osp::Base::String name;

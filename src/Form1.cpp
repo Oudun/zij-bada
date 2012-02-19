@@ -222,7 +222,9 @@ Form1::IterateStars (void) {
 	File file;
 	result r = file.Construct(fileName, L"r+");
 	char buffer[1];
-	String substr(L"");
+	String substr1;
+	String substr2;
+	String substr3;
 	String line(L"");
 	r = E_SUCCESS;
 	SkyObject skyObj;
@@ -231,13 +233,17 @@ Form1::IterateStars (void) {
 		if(buffer[0]!='\n') {
 			line.Append(buffer[0]);
 		} else {
-			AppLog("%ls",line.GetPointer());
-			Log(line.GetPointer());
+//			AppLog("%ls",line.GetPointer());
+			//Log(line.GetPointer());
 			//    String rahStr = str.substring(75,77);
 			//    String ramStr = str.substring(77,79);
 			//    String rasStr = str.substring(79,83);
-			line.SubString(75,77,substr);
-			skyObj.setRA(substr,substr,substr);
+			line.SubString(75, 2, substr1);
+			line.SubString(77, 2, substr2);
+			line.SubString(79, 4, substr3);
+			AppLog("RA=%ls", substr3.GetPointer());
+			skyObj.setRA(substr1, substr2, substr3);
+			Log("RAH=%f", skyObj.getRAH());
 			line.Clear();
 		}
 		r = GetLastResult();
