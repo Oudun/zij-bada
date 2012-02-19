@@ -22,8 +22,16 @@ SkyObject::test(void) {
 }
 
 void
-setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS)
+SkyObject::setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS)
 {
-	float f;
-	Osp::Base::Float::Parse(raM, f);
+	float f1, f2, f3;
+	Osp::Base::Float::Parse(raH, f1);
+	Osp::Base::Float::Parse(raM, f2);
+	Osp::Base::Float::Parse(raS, f3);
+	RAH = f1 + (f2/60) + (f3/3600);
+}
+
+float
+SkyObject::getRAH(void) {
+	return RAH;
 }
