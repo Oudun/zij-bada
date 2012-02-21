@@ -228,22 +228,39 @@ Form1::IterateStars (void) {
 	String line(L"");
 	r = E_SUCCESS;
 	SkyObject skyObj;
+	int counter = 0;
 	do {
 		file.Read(buffer, 1);
 		if(buffer[0]!='\n') {
 			line.Append(buffer[0]);
 		} else {
-//			AppLog("%ls",line.GetPointer());
-			//Log(line.GetPointer());
-			//    String rahStr = str.substring(75,77);
-			//    String ramStr = str.substring(77,79);
-			//    String rasStr = str.substring(79,83);
-			line.SubString(75, 2, substr1);
-			line.SubString(77, 2, substr2);
-			line.SubString(79, 4, substr3);
-			AppLog("RA=%ls", substr3.GetPointer());
-			skyObj.setRA(substr1, substr2, substr3);
-			Log("RAH=%f", skyObj.getRAH());
+			if (line.GetLength()>108) {
+				++counter;
+				line.SubString(5, 9, substr1);
+				substr1.Trim();
+				skyObj.setName(substr1);
+				line.SubString(25, 6, substr1);
+				substr1.Trim();
+				skyObj.setDraperName(substr1);
+				line.SubString(102, 5, substr1);
+				substr1.Trim();
+				skyObj.setMagnitude(substr1);
+				line.SubString(83, 1, substr1);
+				skyObj.setSign(substr1.Equals("+", false));
+				skyObj.setDraperName(substr1);
+				line.SubString(75, 2, substr1);
+				line.SubString(77, 2, substr2);
+				line.SubString(79, 4, substr3);
+				AppLog("%dRA=%lsh%lsm%lss", counter, substr1.GetPointer(),substr2.GetPointer(),substr3.GetPointer());
+				skyObj.setRA(substr1, substr2, substr3);
+				line.SubString(84, 2, substr1 );
+				line.SubString(86, 2, substr2 );
+				line.SubString(88, 2, substr3 );
+				skyObj.setDE(substr1, substr2, substr3);
+				AppLog("%dDE=%ls°%ls'%ls\"", counter, substr1.GetPointer(), substr2.GetPointer(), substr3.GetPointer());
+				Log("RAH=", skyObj.getRAH());
+				Log("DED=", skyObj.getDED());
+			}
 			line.Clear();
 		}
 		r = GetLastResult();
