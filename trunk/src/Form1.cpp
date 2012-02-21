@@ -217,6 +217,15 @@ Form1::LogSameLine(const Osp::Base::String& text) {
 
 void
 Form1::IterateStars (void) {
+
+    String dbName(L"/Storagecard/Media/Others/sampleDb");
+    Database* pDatabase = new Database();
+    pDatabase->Construct(dbName, true);
+    AppLog("Create database table:");
+    String sql;
+    sql.Append(L"CREATE TABLE IF NOT EXISTS myTable1 ( column0 INTEGER PRIMARY KEY, column1 DOUBLE, column2 TEXT )");
+    pDatabase->ExecuteSql(sql, true);
+
 	ClearLog("Start Reading Catalog");
 	String fileName(L"/Home/catalog");
 	File file;
@@ -258,8 +267,8 @@ Form1::IterateStars (void) {
 				line.SubString(88, 2, substr3 );
 				skyObj.setDE(substr1, substr2, substr3);
 				AppLog("%dDE=%ls°%ls'%ls\"", counter, substr1.GetPointer(), substr2.GetPointer(), substr3.GetPointer());
-				Log("RAH=", skyObj.getRAH());
-				Log("DED=", skyObj.getDED());
+//				Log("RAH=", skyObj.getRAH());
+//				Log("DED=", skyObj.getDED());
 			}
 			line.Clear();
 		}

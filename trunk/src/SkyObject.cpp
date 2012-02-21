@@ -24,12 +24,17 @@ SkyObject::setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::Str
 	Osp::Base::Float::Parse(raM, f2);
 	Osp::Base::Float::Parse(raS, f3);
 	RAH = f1 + (f2/60) + (f3/3600);
-	AppLog("Right Accentation is %f", RAH);
+	AppLog("Right Ascentation is %f", RAH);
 }
 
 float
 SkyObject::getRAH(void) {
 	return RAH;
+}
+
+float
+SkyObject::getDED(void) {
+	return DED;
 }
 
 void
