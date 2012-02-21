@@ -13,6 +13,7 @@
 #include <FLocations.h>
 #include <FLocales.h>
 #include <FIo.h>
+#include "Sky.h"
 
 class Form1 :
 	public Osp::Ui::Controls::Form,
@@ -35,6 +36,7 @@ protected:
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
+	Sky* sky;
 
 public:
 	virtual result OnInitializing(void);
@@ -50,8 +52,6 @@ private:
 	void LogSameLine(const Osp::Base::String& text);
 	void ClearLog(const Osp::Base::String& text);
 	void IterateStars(void);
-
-
 };
 
 #endif	//_FORM1_H_
