@@ -48,6 +48,11 @@ SkyObject::setDE(Osp::Base::String& deD, Osp::Base::String&  deM, Osp::Base::Str
 	AppLog("Declination is %f", DED);
 }
 
+float
+SkyObject::getDED(void) {
+	return DED;
+}
+
 void
 SkyObject::setMagnitude(Osp::Base::String& magnitudeStr) {
 	float f;

@@ -1,5 +1,6 @@
 #include "Form1.h"
 #include "SkyObject.h"
+#include "Sky.h"
 
 //using namespace Osp::Base;
 //using namespace Osp::Ui;
@@ -80,19 +81,9 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_OK:
 		{
 			AppLog("OK Button is clicked! \n");
-			Canvas* __pCanvas;
 			Control* control = GetControl(L"IDF_FORM1");
-			Color COLOR_CHOST = Color(48,48,144);
-			__pCanvas = control->GetCanvasN();
-			__pCanvas->SetLineWidth(1);
-			__pCanvas->SetForegroundColor(COLOR_CHOST);
-			int x, y, width, height, r;
-			int margin = 20;
-			Application::GetInstance()->GetAppFrame()->GetFrame()->GetBounds(x, y, width, height);
-			r = (Math::Min(width, height) - margin*2)/2;
-			Rectangle rect (margin, 2*margin, 2*r, 2*r);
-			__pCanvas->DrawEllipse(rect);
-			__pCanvas->Show();
+			sky = new Sky(control->GetCanvasN());
+			sky->paintBorders();
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
 		}
