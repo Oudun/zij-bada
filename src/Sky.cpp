@@ -40,3 +40,30 @@ Sky::paintBorders(void) {
 			Rectangle(zenithX-radius, zenithY-radius, 2*radius, 2*radius));
 	canvas->Show();
 }
+
+Osp::Graphics::Canvas*
+Sky::getCanvas(void) {
+	return canvas;
+}
+
+int Sky::getRadius() const
+{
+    return radius;
+}
+
+int Sky::getZenithX() const
+{
+    return zenithX;
+}
+
+int Sky::getZenithY() const
+{
+    return zenithY;
+}
+
+void Sky::setRadius(int radius)
+{
+    this->radius = radius;
+}
+
+

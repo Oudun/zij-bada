@@ -7,6 +7,8 @@
 
 #include "SkyObject.h"
 
+using namespace Osp::Graphics;
+
 SkyObject::SkyObject() {
 	// TODO Auto-generated constructor stub
 
@@ -88,4 +90,37 @@ SkyObject::isNorthern(void) {
 float
 SkyObject::getMagnitude(void) {
 	return magnitude;
+}
+
+void
+SkyObject::draw(Sky* sky) {
+	Canvas* canvas = sky -> getCanvas();
+
+//    double r = (R * p.getCosAlt());
+//    int top = (int)(R - r * p.getCosAz());
+//    int left = (int)(R + r *p.getSinAz());
+
+//public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
+	float raDeg = RAH * 15;
+	float ha = (360 + lstDeg - raDeg)%360;
+//    double sinAlt =
+//        Math.sin(Math.toRadians(aDec))*Math.sin(Math.toRadians(latitude))
+//        +Math.cos(Math.toRadians(aDec))*Math.cos(Math.toRadians(latitude))*Math.cos(Math.toRadians(ha));
+//    double cosAlt =
+//        Math.sqrt(1-sinAlt*sinAlt);
+//    double sinAz =
+//        -(Math.sin(Math.toRadians(ha))*Math.cos(Math.toRadians(aDec)))/cosAlt;
+//    double cosAz =
+//        (Math.sin(Math.toRadians(aDec))-Math.sin(Math.toRadians(latitude))*sinAlt)/
+//            (Math.cos(Math.toRadians(latitude))*cosAlt);
+//    PositionTrig positionTrig = new PositionTrig();
+//    positionTrig.setCosAlt(cosAlt);
+//    positionTrig.setSinAlt(sinAlt);
+//    positionTrig.setCosAz(cosAz);
+//    positionTrig.setSinAz(sinAz);
+//    return positionTrig;
+//}
+
+
+
 }
