@@ -1,5 +1,7 @@
 #include "Form1.h"
 #include "SkyObject.h"
+#include "SkyFactory.h"
+#include "SkyIterator.h"
 #include "Sky.h"
 
 //using namespace Osp::Base;
@@ -99,7 +101,11 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_STARS:
 		{
 			AppLog("STARS Button is clicked! \n");
-			IterateStars();
+//			IterateStars();
+			SkyIterator* stars = SkyFactory::getStars(1);
+			while(stars->hasNext()) {
+				stars->getNext();
+			}
 		}
 		break;
 	default:
