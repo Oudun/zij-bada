@@ -17,6 +17,11 @@ public:
 	Sky(Osp::Graphics::Canvas* canvas);
 	void paintBorders(void);
 	virtual ~Sky();
+	Osp::Graphics::Canvas* getCanvas(void);
+    int getRadius() const;
+    int getZenithX() const;
+    int getZenithY() const;
+    void setRadius(int radius);
 
 private:
 	int zenithX;

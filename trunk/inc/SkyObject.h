@@ -18,6 +18,9 @@
 #include <FLocales.h>
 #include <FIo.h>
 
+#include "Sky.h"
+
+
 class SkyObject
 {
 
@@ -50,6 +53,8 @@ public:
 	bool isNorthern(void);
 	// Returns visual magnitude (brightness). Lesser values have brighter stars
 	float getMagnitude(void);
+	// Draws object on canvas
+	void draw(Sky* sky);
 
 private:
 	Osp::Base::String name;
