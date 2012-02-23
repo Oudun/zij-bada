@@ -10,6 +10,11 @@
 
 #include <FBase.h>
 #include <FGraphics.h>
+#include <FSystem.h>
+#include <FApp.h>
+#include <FLocations.h>
+#include <FLocales.h>
+#include <FGraphics.h>
 
 class Sky {
 public:
@@ -22,13 +27,22 @@ public:
     int getZenithX() const;
     int getZenithY() const;
     void setRadius(int radius);
+    float getLatitude() const;
+    float getLongitude() const;
+    void setLatitude(float latitude);
+    void setLongitude(float longitude);
+    float getSiderialHours() const;
+    void setSiderialHours(float siderialHours);
 
 private:
+	Osp::Graphics::Canvas* canvas;
+	static const int margin = 20;
 	int zenithX;
 	int zenithY;
 	int radius;
-	static const int margin = 20;
-	Osp::Graphics::Canvas* canvas;
+	float longitude;
+	float latitude;
+	float siderialHours;
 };
 
 #endif /* SKY_H_ */

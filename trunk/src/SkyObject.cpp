@@ -101,8 +101,9 @@ SkyObject::draw(Sky* sky) {
 //    int left = (int)(R + r *p.getSinAz());
 
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
-	float raDeg = RAH * 15;
-	float ha = (360 + lstDeg - raDeg)%360;
+//	float lstDeg = sky -> siderialHours;
+//	float raDeg = RAH * 15;
+//	float ha = (360 + lstDeg - raDeg)%360;
 //    double sinAlt =
 //        Math.sin(Math.toRadians(aDec))*Math.sin(Math.toRadians(latitude))
 //        +Math.cos(Math.toRadians(aDec))*Math.cos(Math.toRadians(latitude))*Math.cos(Math.toRadians(ha));

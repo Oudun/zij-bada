@@ -100,8 +100,10 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		break;
 	case ID_BUTTON_STARS:
 		{
+			sky->setLatitude(55.75578F);
+			sky->setLongitude(37.8632F);
+			AppLog("Local Siderial Hours is ", sky->getSiderialHours());
 			AppLog("STARS Button is clicked! \n");
-//			IterateStars();
 			SkyIterator* stars = SkyFactory::getStars(1);
 			while(stars->hasNext()) {
 				stars->getNext();
@@ -126,7 +128,10 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 		AppLog("Latitude (float) taken\n");
 		Log("Latitude = ",(float)(coordinates->GetLatitude()));
 		Log("Longitude = ",(float)(coordinates->GetLongitude()));
-		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLongitude())));
+		sky->setLatitude(coordinates->GetLatitude());
+		sky->setLongitude(coordinates->GetLongitude());
+		AppLog("Local Siderial Hours is ", sky->getSiderialHours());
+		//		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLongitude())));
 		locProvider.CancelLocationUpdates();
 	} else {
 		LogSameLine("#");
@@ -212,67 +217,6 @@ Form1::LogSameLine(const Osp::Base::String& text) {
 	__pLabel->RequestRedraw();
 }
 
-void
-Form1::IterateStars (void) {
 
-    String dbName(L"/Storagecard/Media/Others/sampleDb");
-    Database* pDatabase = new Database();
-    pDatabase->Construct(dbName, true);
-    AppLog("Create database table:");
-    String sql;
-    sql.Append(L"CREATE TABLE IF NOT EXISTS myTable1 ( column0 INTEGER PRIMARY KEY, column1 DOUBLE, column2 TEXT )");
-    pDatabase->ExecuteSql(sql, true);
-
-	ClearLog("Start Reading Catalog");
-	String fileName(L"/Home/catalog");
-	File file;
-	result r = file.Construct(fileName, L"r+");
-	char buffer[1];
-	String substr1;
-	String substr2;
-	String substr3;
-	String line(L"");
-	r = E_SUCCESS;
-	SkyObject skyObj;
-	int counter = 0;
-	do {
-		file.Read(buffer, 1);
-		if(buffer[0]!='\n') {
-			line.Append(buffer[0]);
-		} else {
-			if (line.GetLength()>108) {
-				++counter;
-				line.SubString(5, 9, substr1);
-				substr1.Trim();
-				skyObj.setName(substr1);
-				line.SubString(25, 6, substr1);
-				substr1.Trim();
-				skyObj.setDraperName(substr1);
-				line.SubString(102, 5, substr1);
-				substr1.Trim();
-				skyObj.setMagnitude(substr1);
-				line.SubString(83, 1, substr1);
-				skyObj.setSign(substr1.Equals("+", false));
-				skyObj.setDraperName(substr1);
-				line.SubString(75, 2, substr1);
-				line.SubString(77, 2, substr2);
-				line.SubString(79, 4, substr3);
-				AppLog("%dRA=%lsh%lsm%lss", counter, substr1.GetPointer(),substr2.GetPointer(),substr3.GetPointer());
-				skyObj.setRA(substr1, substr2, substr3);
-				line.SubString(84, 2, substr1 );
-				line.SubString(86, 2, substr2 );
-				line.SubString(88, 2, substr3 );
-				skyObj.setDE(substr1, substr2, substr3);
-				AppLog("%dDE=%ls°%ls'%ls\"", counter, substr1.GetPointer(), substr2.GetPointer(), substr3.GetPointer());
-//				Log("RAH=", skyObj.getRAH());
-//				Log("DED=", skyObj.getDED());
-			}
-			line.Clear();
-		}
-		r = GetLastResult();
-	} while (!IsFailed(r));
-	Log("\nReading ended");
-
-}
 
 
