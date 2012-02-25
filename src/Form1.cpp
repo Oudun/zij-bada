@@ -65,6 +65,10 @@ Form1::OnInitializing(void)
 		pButton1->SetActionId(103);
 		pButton1->AddActionEventListener(*this);
 	}
+
+	Control* control = GetControl(L"IDF_FORM1");
+	sky = new Sky(control->GetCanvasN());
+
 	return r;
 }
 
@@ -83,8 +87,6 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_OK:
 		{
 			AppLog("OK Button is clicked! \n");
-			Control* control = GetControl(L"IDF_FORM1");
-			sky = new Sky(control->GetCanvasN());
 			sky->paintBorders();
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
@@ -104,10 +106,10 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			sky->setLongitude(37.8632F);
 			AppLog("Local Siderial Hours is ", sky->getSiderialHours());
 			AppLog("STARS Button is clicked! \n");
-//			SkyIterator* stars = SkyFactory::getStars(1);
-//			while(stars->hasNext()) {
-//				stars->getNext();
-//			}
+			SkyIterator* stars = SkyFactory::getStars(1);
+			while(stars->hasNext()) {
+				stars->getNext();
+			}
 		}
 		break;
 	default:

@@ -27,6 +27,7 @@ private:
 	Osp::Base::String line;
 	result r;
 	SkyObject* nextObject;
+	int counter;
 };
 
 #endif /* SKYITERATOR_H_ */
