@@ -27,6 +27,7 @@ private:
 	Osp::Base::String line;
 	result r;
 	SkyObject* nextObject;
+	long fileSize;
 	int counter;
 };
 

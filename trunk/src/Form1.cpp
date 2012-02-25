@@ -110,6 +110,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			while(stars->hasNext()) {
 				stars->getNext();
 			}
+			AppLog("Iteration done");
 		}
 		break;
 	default:
