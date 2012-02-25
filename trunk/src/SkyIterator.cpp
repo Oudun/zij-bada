@@ -33,7 +33,8 @@ SkyIterator::hasNext() {
 
 SkyObject*
 SkyIterator::getNext() {
-	AppLog("Getting next star");
+	counter++;
+	AppLog("Getting next star %d", counter);
 	while (line.GetLength()<108) {
 		line.Clear();
 		AppLog("Getting next star1");
@@ -42,7 +43,7 @@ SkyIterator::getNext() {
 			line.Append(buffer[0]);
 		} while (buffer[0]!='\n');
 	}
-	AppLog("Getting next star2");
+	AppLog("Getting next star2%d", counter);
 	line.SubString(5, 9, substr1);
 	substr1.Trim();
 	nextObject->setName(substr1);
