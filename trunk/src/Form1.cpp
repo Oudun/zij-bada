@@ -104,10 +104,10 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			sky->setLongitude(37.8632F);
 			AppLog("Local Siderial Hours is ", sky->getSiderialHours());
 			AppLog("STARS Button is clicked! \n");
-			SkyIterator* stars = SkyFactory::getStars(1);
-			while(stars->hasNext()) {
-				stars->getNext();
-			}
+//			SkyIterator* stars = SkyFactory::getStars(1);
+//			while(stars->hasNext()) {
+//				stars->getNext();
+//			}
 		}
 		break;
 	default:
