@@ -8,6 +8,7 @@
 #include "SkyObject.h"
 
 using namespace Osp::Graphics;
+using namespace Osp::Base::Utility;
 
 SkyObject::SkyObject() {
 	// TODO Auto-generated constructor stub
@@ -95,15 +96,17 @@ SkyObject::getMagnitude(void) {
 void
 SkyObject::draw(Sky* sky) {
 	Canvas* canvas = sky -> getCanvas();
-
+//	double r = (sky->getRadius())*
 //    double r = (R * p.getCosAlt());
 //    int top = (int)(R - r * p.getCosAz());
 //    int left = (int)(R + r *p.getSinAz());
 
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
+
 //	float lstDeg = sky -> siderialHours;
 //	float raDeg = RAH * 15;
 //	float ha = (360 + lstDeg - raDeg)%360;
+
 //    double sinAlt =
 //        Math.sin(Math.toRadians(aDec))*Math.sin(Math.toRadians(latitude))
 //        +Math.cos(Math.toRadians(aDec))*Math.cos(Math.toRadians(latitude))*Math.cos(Math.toRadians(ha));
