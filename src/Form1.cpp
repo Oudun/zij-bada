@@ -107,7 +107,9 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			SkyIterator* stars = SkyFactory::getStars(1);
 			while(stars->hasNext()) {
 				SkyObject* star = stars->getNext();
-				star -> draw(sky);
+				if ((star->getMagnitude())<2) {
+					star -> draw(sky);
+				}
 			}
 			AppLog("Iteration done");
 
