@@ -103,7 +103,7 @@ SkyObject::draw(Sky* sky) {
 
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
 
-	float lstDeg = 15 * (sky -> getSiderialHours());
+	float lstDeg = sky -> getSiderialHours();
 	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
 	double radInDegree = 0.0174532925;
@@ -123,6 +123,12 @@ SkyObject::draw(Sky* sky) {
     double r = R * cosAlt;
     int top = (int)(R - r * cosAz);
     int left = (int)(R + r * sinAz);
+
+    //AppLog("Position on screen left %d top %d", left, top);
+
+    sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+    sky->getCanvas()->Show();
+
 //    PositionTrig positionTrig = new PositionTrig();
 //    positionTrig.setCosAlt(cosAlt);
 //    positionTrig.setSinAlt(sinAlt);
@@ -130,7 +136,5 @@ SkyObject::draw(Sky* sky) {
 //    positionTrig.setSinAz(sinAz);
 //    return positionTrig;
 //}
-
-
 
 }

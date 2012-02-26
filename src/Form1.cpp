@@ -103,6 +103,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			sky->setLongitude(37.8632F);
 			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
 			Log("Local Siderial Hours is ", sky->getSiderialHours());
+			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(100,200,1,1));
 			SkyIterator* stars = SkyFactory::getStars(1);
 			while(stars->hasNext()) {
 				SkyObject* star = stars->getNext();
