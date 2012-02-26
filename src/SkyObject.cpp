@@ -103,21 +103,34 @@ SkyObject::draw(Sky* sky) {
 
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
 
-	float lstDeg = sky -> getSiderialHours();
+	float lstDeg = 15*(sky -> getSiderialHours());
+	AppLog("lstDeg = %f", lstDeg);
 	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
+	AppLog("raDeg = %f", raDeg);
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
+	AppLog("ha = %f", ha);
 	double radInDegree = 0.0174532925;
 
     double sinAlt =
         Math::Sin(radInDegree*DED)*Math::Sin(radInDegree*(sky->getLatitude()))
         +Math::Cos(radInDegree*DED)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
+	AppLog("sinAlt = %f", sinAlt);
+
     double cosAlt =
         Math::Sqrt(1-sinAlt*sinAlt);
+	AppLog("cosAlt = %f", cosAlt);
+
     double sinAz =
         -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(DED)))/cosAlt;
+	AppLog("sinAz = %f", sinAz);
+
     double cosAz =
         (Math::Sin(radInDegree*DED)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
             (Math::Cos(radInDegree*(sky->getLatitude()))*cosAlt);
+	AppLog("cosAz = %f", cosAz);
+
+    AppLog("Azimuth = %f", Math::Acos(cosAz));
+    AppLog("Altitude = %f", Math::Acos(cosAlt));
 
     double R = sky->getRadius();
     double r = R * cosAlt;
@@ -138,3 +151,16 @@ SkyObject::draw(Sky* sky) {
 //}
 
 }
+
+void SkyObject::setDED(float DED)
+{
+    this->DED = DED;
+}
+
+void SkyObject::setRAH(float RAH)
+{
+    this->RAH = RAH;
+}
+
+
+

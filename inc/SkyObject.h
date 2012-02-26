@@ -55,23 +55,15 @@ public:
 	float getMagnitude(void);
 	// Draws object on canvas
 	void draw(Sky* sky);
-
+    void setDED(float DED);
+    void setRAH(float RAH);
 private:
-	Osp::Base::String name;
-	Osp::Base::String draperName;
-	float RAH;
-	float DED;
-	float magnitude;
-	bool sign;
-//    String name = str.substring(5, 14);
-//    String draperName = str.substring(25, 31);
-//    String rahStr = str.substring(75,77);
-//    String ramStr = str.substring(77,79);
-//    String rasStr = str.substring(79,83);
-//    String dedStr = str.substring(84,86);
-//    String demStr = str.substring(86,88);
-//    String desStr = str.substring(88,90);
-//    String sign = str.substring(83,84);
+    Osp::Base::String name;
+    Osp::Base::String draperName;
+    float RAH;
+    float DED;
+    float magnitude;
+    bool sign;
 
 };
 

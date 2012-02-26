@@ -105,7 +105,8 @@ void Sky::setLongitude(float longitude)
 	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
 	int sltInt = (int)(slt/360);
 	this -> siderialHours = (slt-(360*sltInt))/15;
-	AppLog("Local Siderial Time ", siderialHours);
+	AppLog("Local Siderial Time is %f hrs", siderialHours);
+	AppLog("Local Siderial Time is %f degrees", slt);
 }
 
 float Sky::getSiderialHours() const

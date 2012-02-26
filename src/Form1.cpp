@@ -110,6 +110,14 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 				star -> draw(sky);
 			}
 			AppLog("Iteration done");
+
+//		    static final float VEGA_RAH = 18.615639F;
+//		    static final float VEGA_DEC = 38.78361F;
+//		    SkyObject* vega = new SkyObject();
+//		    vega->setRAH(18.615639); //setting Vega righ ascenation
+//		    vega->setDED(38.78361); // setting Vega declination
+//		    vega->draw(sky);
+
 		}
 		break;
 	default:
