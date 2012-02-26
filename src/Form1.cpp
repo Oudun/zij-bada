@@ -51,7 +51,7 @@ Form1::OnInitializing(void)
 	Button *pButton_gps = static_cast<Button *>(GetControl("IDC_BUTTON_GPS"));  
 	if (pButton_gps)
 	{
-		pButton_gps->SetActionId(102);
+		pButton_gps->SetActionId(ID_BUTTON_GPS);
 		pButton_gps->AddActionEventListener(*this);
 	}
 
@@ -86,7 +86,6 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case ID_BUTTON_OK:
 		{
-			AppLog("OK Button is clicked! \n");
 			sky->paintBorders();
 			__pLabel->SetText("OK\n");
 			__pLabel->RequestRedraw();
@@ -94,9 +93,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		break;
 	case ID_BUTTON_GPS:
 		{
-			AppLog("GPS Button is clicked! \n");
 			locProvider.Construct(LOC_METHOD_HYBRID);
-			AppLog("Location Provider! \n");
 			locProvider.RequestLocationUpdates(*this, 5, true);
 		}
 		break;
@@ -104,8 +101,8 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		{
 			sky->setLatitude(55.75578F);
 			sky->setLongitude(37.8632F);
-			AppLog("Local Siderial Hours is ", sky->getSiderialHours());
-			AppLog("STARS Button is clicked! \n");
+			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
+			Log("Local Siderial Hours is ", sky->getSiderialHours());
 			SkyIterator* stars = SkyFactory::getStars(1);
 			while(stars->hasNext()) {
 				stars->getNext();
@@ -146,14 +143,14 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 	AppLog("Location Provider state changed\n");
 	Log("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
-		AppLog("LOC_PROVIDER_AVAILABLE");
-		Log("LOC_PROVIDER_AVAILABLE");
+		AppLog("The location provider is available");
+		Log("The location provider is available");
 	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
-		AppLog("LOC_PROVIDER_AVAILABLE");
-		Log("LOC_PROVIDER_AVAILABLE");
+		AppLog("The location provider is out of service");
+		Log("The location provider is out of service");
 	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
-		AppLog("LOC_PROVIDER_TEMPORARILY_UNAVAILABLE");
-		Log("LOC_PROVIDER_TEMPORARILY_UNAVAILABLE");
+		AppLog("The location provider is temporarily unavailable");
+		Log("The location provider is temporarily unavailable");
 	} else {
 		AppLog("State unknown");
 		Log("State unknown");
