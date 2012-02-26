@@ -120,7 +120,6 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 	AppLog("Coordinates taken\n");
-	AppLog("Label\n");
 	String str;
 	if (coordinates != 0) {
 		double latd = coordinates->GetLatitude();
