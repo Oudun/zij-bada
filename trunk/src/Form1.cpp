@@ -105,7 +105,8 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			Log("Local Siderial Hours is ", sky->getSiderialHours());
 			SkyIterator* stars = SkyFactory::getStars(1);
 			while(stars->hasNext()) {
-				stars->getNext();
+				SkyObject* star = stars->getNext();
+				star -> draw(sky);
 			}
 			AppLog("Iteration done");
 		}
