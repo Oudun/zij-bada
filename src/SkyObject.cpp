@@ -103,20 +103,26 @@ SkyObject::draw(Sky* sky) {
 
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
 
-//	float lstDeg = sky -> siderialHours;
-//	float raDeg = RAH * 15;
-//	float ha = (360 + lstDeg - raDeg)%360;
+	float lstDeg = 15 * (sky -> getSiderialHours());
+	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
+	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
+	double radInDegree = 0.0174532925;
 
-//    double sinAlt =
-//        Math.sin(Math.toRadians(aDec))*Math.sin(Math.toRadians(latitude))
-//        +Math.cos(Math.toRadians(aDec))*Math.cos(Math.toRadians(latitude))*Math.cos(Math.toRadians(ha));
-//    double cosAlt =
-//        Math.sqrt(1-sinAlt*sinAlt);
-//    double sinAz =
-//        -(Math.sin(Math.toRadians(ha))*Math.cos(Math.toRadians(aDec)))/cosAlt;
-//    double cosAz =
-//        (Math.sin(Math.toRadians(aDec))-Math.sin(Math.toRadians(latitude))*sinAlt)/
-//            (Math.cos(Math.toRadians(latitude))*cosAlt);
+    double sinAlt =
+        Math::Sin(radInDegree*DED)*Math::Sin(radInDegree*(sky->getLatitude()))
+        +Math::Cos(radInDegree*DED)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
+    double cosAlt =
+        Math::Sqrt(1-sinAlt*sinAlt);
+    double sinAz =
+        -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(DED)))/cosAlt;
+    double cosAz =
+        (Math::Sin(radInDegree*DED)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
+            (Math::Cos(radInDegree*(sky->getLatitude()))*cosAlt);
+
+    double R = sky->getRadius();
+    double r = R * cosAlt;
+    int top = (int)(R - r * cosAz);
+    int left = (int)(R + r * sinAz);
 //    PositionTrig positionTrig = new PositionTrig();
 //    positionTrig.setCosAlt(cosAlt);
 //    positionTrig.setSinAlt(sinAlt);
