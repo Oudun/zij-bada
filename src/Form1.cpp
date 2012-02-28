@@ -104,14 +104,17 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
 			Log("Local Siderial Hours is ", sky->getSiderialHours());
 			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(100,200,1,1));
-			SkyIterator* stars = SkyFactory::getStars(1);
-			while(stars->hasNext()) {
-				SkyObject* star = stars->getNext();
-				if ((star->getMagnitude())<2) {
-					star -> draw(sky);
-				}
-			}
-			AppLog("Iteration done");
+			sky->draw();
+//			SkyIterator* stars;
+//			stars = SkyFactory::getStars(1);
+//			while(stars->hasNext()) {
+//				stars->getNext()-> draw(sky);
+//			}
+//			stars = SkyFactory::getStars(2);
+//			while(stars->hasNext()) {
+//				stars->getNext()-> draw(sky);
+//			}
+//			AppLog("Iteration done");
 
 //		    static final float VEGA_RAH = 18.615639F;
 //		    static final float VEGA_DEC = 38.78361F;

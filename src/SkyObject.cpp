@@ -134,12 +134,19 @@ SkyObject::draw(Sky* sky) {
 
     double R = sky->getRadius();
     double r = R * cosAlt;
-    int top = (int)(R - r * cosAz);
-    int left = (int)(R + r * sinAz);
+    int top  = (int)((sky->getZenithY()) - r * cosAz);
+    int left = (int)((sky->getZenithX()) + r * sinAz);
 
     //AppLog("Position on screen left %d top %d", left, top);
 
-    sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+    if (magnitude < 1) {
+    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,3,3));
+    } else if (magnitude < 2) {
+    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
+    } else {
+    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+    }
+
     sky->getCanvas()->Show();
 
 //    PositionTrig positionTrig = new PositionTrig();
