@@ -32,10 +32,11 @@ public:
     void setLatitude(float latitude);
     void setLongitude(float longitude);
     float getSiderialHours() const;
-    void setSiderialHours(float siderialHours);
+    void draw();
 
 private:
-	Osp::Graphics::Canvas* canvas;
+    void setSiderialHours(float siderialHours);
+    Osp::Graphics::Canvas* canvas;
 	static const int margin = 20;
 	int zenithX;
 	int zenithY;

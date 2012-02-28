@@ -6,6 +6,8 @@
  */
 
 #include "Sky.h"
+#include "SkyIterator.h"
+#include "SkyFactory.h"
 
 using namespace Osp::System;
 using namespace Osp::App;
@@ -109,16 +111,35 @@ void Sky::setLongitude(float longitude)
 	AppLog("Local Siderial Time is %f degrees", slt);
 }
 
-float Sky::getSiderialHours() const
+float
+Sky::getSiderialHours() const
 {
     return siderialHours;
 }
 
-void Sky::setSiderialHours(float siderialHours)
+void
+Sky::setSiderialHours(float siderialHours)
 {
     this->siderialHours = siderialHours;
 }
 
+void
+Sky::draw(void)
+{
+	SkyIterator* stars;
+	stars = SkyFactory::getStars(1);
+	while(stars->hasNext()) {
+		stars->getNext()-> draw(this);
+	}
+	stars = SkyFactory::getStars(2);
+	while(stars->hasNext()) {
+		stars->getNext()-> draw(this);
+	}
+	stars = SkyFactory::getStars(3);
+	while(stars->hasNext()) {
+		stars->getNext()-> draw(this);
+	}
+}
 
 
 

@@ -20,8 +20,9 @@ SkyFactory::~SkyFactory() {
 SkyIterator*
 SkyFactory::getStars(float magnitude)
 {
-	AppLog("Getting stars");
-	Osp::Base::String fileName(L"/Home/catalog");
+	AppLog("Getting stars with magnitude < ", magnitude);
+	Osp::Base::String fileName(L"/Home/catalogue-");
+	fileName.Append(magnitude);
 	return new SkyIterator(fileName);
 }
 
