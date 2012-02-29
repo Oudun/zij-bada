@@ -126,6 +126,7 @@ Sky::setSiderialHours(float siderialHours)
 void
 Sky::draw(void)
 {
+	paintBorders();
 	SkyIterator* stars;
 	stars = SkyFactory::getStars(1);
 	while(stars->hasNext()) {
@@ -136,6 +137,10 @@ Sky::draw(void)
 		stars->getNext()-> draw(this);
 	}
 	stars = SkyFactory::getStars(3);
+	while(stars->hasNext()) {
+		stars->getNext()-> draw(this);
+	}
+	stars = SkyFactory::getStars(4);
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
