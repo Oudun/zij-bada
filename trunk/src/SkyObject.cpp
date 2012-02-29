@@ -111,9 +111,11 @@ SkyObject::draw(Sky* sky) {
 	AppLog("ha = %f", ha);
 	double radInDegree = 0.0174532925;
 
+	float decSigned = isNorthern() ? DED : -DED;
+
     double sinAlt =
-        Math::Sin(radInDegree*DED)*Math::Sin(radInDegree*(sky->getLatitude()))
-        +Math::Cos(radInDegree*DED)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
+        Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(sky->getLatitude()))
+        +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
 	AppLog("sinAlt = %f", sinAlt);
 
     double cosAlt =
@@ -121,11 +123,11 @@ SkyObject::draw(Sky* sky) {
 	AppLog("cosAlt = %f", cosAlt);
 
     double sinAz =
-        -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(DED)))/cosAlt;
+        -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(decSigned)))/cosAlt;
 	AppLog("sinAz = %f", sinAz);
 
     double cosAz =
-        (Math::Sin(radInDegree*DED)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
+        (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
             (Math::Cos(radInDegree*(sky->getLatitude()))*cosAlt);
 	AppLog("cosAz = %f", cosAz);
 
@@ -135,16 +137,24 @@ SkyObject::draw(Sky* sky) {
     double R = sky->getRadius();
     double r = R * cosAlt;
     int top  = (int)((sky->getZenithY()) - r * cosAz);
-    int left = (int)((sky->getZenithX()) + r * sinAz);
+    int left = (int)((sky->getZenithX()) - r * sinAz);
 
     //AppLog("Position on screen left %d top %d", left, top);
 
-    if (magnitude < 1) {
-    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,3,3));
-    } else if (magnitude < 2) {
-    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
-    } else {
-    	sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+    if (sinAlt > 0) {
+		if (magnitude < 1) {
+			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,6,6));
+			Font pFont;
+			pFont.Construct(FONT_STYLE_PLAIN, 12);
+			sky->getCanvas()->SetFont(pFont);
+			sky->getCanvas()->DrawText(Point(left+4, top-2), name);
+		} else if (magnitude < 2) {
+			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,4,4));
+		} else if (magnitude < 3) {
+			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
+		} else {
+			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+		}
     }
 
     sky->getCanvas()->Show();
