@@ -147,7 +147,7 @@ SkyObject::draw(Sky* sky) {
 			Font pFont;
 			pFont.Construct(FONT_STYLE_PLAIN, 12);
 			sky->getCanvas()->SetFont(pFont);
-			sky->getCanvas()->DrawText(Point(left+4, top-2), name);
+			sky->getCanvas()->DrawText(Point(left-8, top+8), name);
 		} else if (magnitude < 2) {
 			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,4,4));
 		} else if (magnitude < 3) {
