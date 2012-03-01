@@ -87,8 +87,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_OK:
 		{
 			sky->paintBorders();
-			__pLabel->SetText("OK\n");
-			__pLabel->RequestRedraw();
+			__pLabel->SetText("");
 		}
 		break;
 	case ID_BUTTON_GPS:
@@ -103,26 +102,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			sky->setLongitude(37.8632F);
 			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
 			Log("Local Siderial Hours is ", sky->getSiderialHours());
-			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(100,200,1,1));
 			sky->draw();
-//			SkyIterator* stars;
-//			stars = SkyFactory::getStars(1);
-//			while(stars->hasNext()) {
-//				stars->getNext()-> draw(sky);
-//			}
-//			stars = SkyFactory::getStars(2);
-//			while(stars->hasNext()) {
-//				stars->getNext()-> draw(sky);
-//			}
-//			AppLog("Iteration done");
-
-//		    static final float VEGA_RAH = 18.615639F;
-//		    static final float VEGA_DEC = 38.78361F;
-//		    SkyObject* vega = new SkyObject();
-//		    vega->setRAH(18.615639); //setting Vega righ ascenation
-//		    vega->setDED(38.78361); // setting Vega declination
-//		    vega->draw(sky);
-
 		}
 		break;
 	default:

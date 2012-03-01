@@ -20,7 +20,8 @@ using namespace Osp::Base::Utility;
 using namespace Osp::Locales;
 using namespace Osp::Graphics;
 
-static Osp::Graphics::Color COLOR_CHOST = Osp::Graphics::Color(48,48,144);
+//static Osp::Graphics::Color COLOR_CHOST = Osp::Graphics::Color(48,48,144);
+static Osp::Graphics::Color COLOR_CHOST = Osp::Graphics::Color(67,136,204);
 
 Sky::Sky() {
 	// TODO Auto-generated constructor stub
@@ -46,7 +47,7 @@ Sky::paintBorders(void) {
 	canvas->SetForegroundColor(COLOR_CHOST);
 //	canvas->DrawEllipse(Rectangle(margin, 2*margin, 2*radius, 2*radius));
 	canvas->DrawEllipse(
-			Rectangle(zenithX-radius, zenithY-radius, 2*radius, 2*radius));
+			Rectangle(zenithX-radius, zenithY-radius, 2+2*radius, 2+2*radius));
 	canvas->Show();
 }
 
