@@ -6,8 +6,8 @@
  */
 
 
-#include "Test.h"
-#include "Form1.h"
+#include "Zij.h"
+#include "SkyForm.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -15,23 +15,23 @@ using namespace Osp::System;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 
-Test::Test()
+Zij::Zij()
 {
 }
 
-Test::~Test()
+Zij::~Zij()
 {
 }
 
 Application*
-Test::CreateInstance(void)
+Zij::CreateInstance(void)
 {
 	// Create the instance through the constructor.
-	return new Test();
+	return new Zij();
 }
 
 bool
-Test::OnAppInitializing(AppRegistry& appRegistry)
+Zij::OnAppInitializing(AppRegistry& appRegistry)
 {
 	// TODO:
 	// Initialize UI resources and application specific data.
@@ -44,25 +44,25 @@ Test::OnAppInitializing(AppRegistry& appRegistry)
 	//PowerManager::SetScreenEventListener(*this);
 
 	// Create a form
-	Form1 *pForm1 = new Form1();
-	pForm1->Initialize();
+	SkyForm *pSkyForm = new SkyForm();
+	pSkyForm->Initialize();
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
-	pFrame->AddControl(*pForm1);
+	pFrame->AddControl(*pSkyForm);
 
 	// Set the current form
-	pFrame->SetCurrentForm(*pForm1);
+	pFrame->SetCurrentForm(*pSkyForm);
 
 	// Draw and Show the form
-	pForm1->Draw();
-	pForm1->Show();
+	pSkyForm->Draw();
+	pSkyForm->Show();
 
 	return true;
 }
 
 bool
-Test::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
+Zij::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 {
 	// TODO:
 	// Deallocate resources allocated by this application for termination.
@@ -71,28 +71,28 @@ Test::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 }
 
 void
-Test::OnForeground(void)
+Zij::OnForeground(void)
 {
 	// TODO:
 	// Start or resume drawing when the application is moved to the foreground.
 }
 
 void
-Test::OnBackground(void)
+Zij::OnBackground(void)
 {
 	// TODO:
 	// Stop drawing when the application is moved to the background.
 }
 
 void
-Test::OnLowMemory(void)
+Zij::OnLowMemory(void)
 {
 	// TODO:
 	// Free unused resources or close the application.
 }
 
 void
-Test::OnBatteryLevelChanged(BatteryLevel batteryLevel)
+Zij::OnBatteryLevelChanged(BatteryLevel batteryLevel)
 {
 	// TODO:
 	// Handle any changes in battery level here.
@@ -100,14 +100,14 @@ Test::OnBatteryLevelChanged(BatteryLevel batteryLevel)
 }
 
 void
-Test::OnScreenOn (void)
+Zij::OnScreenOn (void)
 {
 	// TODO:
 	// Get the released resources or resume the operations that were paused or stopped in OnScreenOff().
 }
 
 void
-Test::OnScreenOff (void)
+Zij::OnScreenOff (void)
 {
 	// TODO:
 	//  Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.

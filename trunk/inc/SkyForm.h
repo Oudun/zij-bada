@@ -15,7 +15,7 @@
 #include <FIo.h>
 #include "Sky.h"
 
-class Form1 :
+class SkyForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
 	public Osp::Locations::ILocationListener
@@ -23,8 +23,8 @@ class Form1 :
 
 // Construction
 public:
-	Form1(void);
-	virtual ~Form1(void);
+	SkyForm(void);
+	virtual ~SkyForm(void);
 	bool Initialize(void);
 
 // Implementation

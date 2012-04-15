@@ -10,7 +10,7 @@
  * [Test] application must inherit from Application class
  * which provides basic features necessary to define an application.
  */
-class Test :
+class Zij :
 	public Osp::App::Application,
 	public Osp::System::IScreenEventListener
 {
@@ -23,8 +23,8 @@ public:
 
 
 public:
-	Test();
-	~Test();
+	Zij();
+	~Zij();
 
 
 public:

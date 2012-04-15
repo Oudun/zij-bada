@@ -1,8 +1,10 @@
-#include "Form1.h"
+#include "Zij.h"
 #include "SkyObject.h"
 #include "SkyFactory.h"
 #include "SkyIterator.h"
 #include "Sky.h"
+#include "SkyForm.h"
+
 
 //using namespace Osp::Base;
 //using namespace Osp::Ui;
@@ -21,23 +23,23 @@ using namespace Osp::Ui::Controls;
 using namespace Osp::Locations;
 using namespace Osp::Io;
 
-Form1::Form1(void)
+SkyForm::SkyForm(void)
 {
 }
 
-Form1::~Form1(void)
+SkyForm::~SkyForm(void)
 {
 }
 
 bool
-Form1::Initialize()
+SkyForm::Initialize()
 {
 	Construct(L"IDF_FORM1");
 	return true;
 }
 
 result
-Form1::OnInitializing(void)
+SkyForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
 
@@ -66,21 +68,21 @@ Form1::OnInitializing(void)
 		pButton1->AddActionEventListener(*this);
 	}
 
-	Control* control = GetControl(L"IDF_FORM1");
+	Control* control = GetControl(L"IDF_SkyForm");
 	sky = new Sky(control->GetCanvasN());
 
 	return r;
 }
 
 result
-Form1::OnTerminating(void)
+SkyForm::OnTerminating(void)
 {
 	result r = E_SUCCESS;
 	return r;
 }
 
 void
-Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
+SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 {
 	switch(actionId)
 	{
@@ -111,7 +113,7 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 }
 
 void
-Form1::OnLocationUpdated(Osp::Locations::Location& location) {
+SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 	AppLog("Coordinates taken\n");
@@ -133,7 +135,7 @@ Form1::OnLocationUpdated(Osp::Locations::Location& location) {
 }
 
 void
-Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
+SkyForm::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 	AppLog("Location Provider state changed\n");
 	Log("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
@@ -152,7 +154,7 @@ Form1::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 }
 
 float
-Form1::GetLocalSiderialTime(float longitude) {
+SkyForm::GetLocalSiderialTime(float longitude) {
 	TimeZone timeZone(60, L"Europe/London");
 	DateTime* currTime = new DateTime();
 	SystemTime::GetCurrentTime(*currTime);
@@ -174,7 +176,7 @@ Form1::GetLocalSiderialTime(float longitude) {
 }
 
 void
-Form1::Log(const Osp::Base::String& aText, const float value) {
+SkyForm::Log(const Osp::Base::String& aText, const float value) {
 	String str;
 	String text;
 	text = aText;
@@ -187,7 +189,7 @@ Form1::Log(const Osp::Base::String& aText, const float value) {
 }
 
 void
-Form1::Log(const Osp::Base::String& text) {
+SkyForm::Log(const Osp::Base::String& text) {
 	String str;
 	str = __pLabel->GetText();
 	str.Append(text);
@@ -197,13 +199,13 @@ Form1::Log(const Osp::Base::String& text) {
 }
 
 void
-Form1::ClearLog(const Osp::Base::String& text) {
+SkyForm::ClearLog(const Osp::Base::String& text) {
 	__pLabel->SetText(text);
 	__pLabel->RequestRedraw();
 }
 
 void
-Form1::LogSameLine(const Osp::Base::String& text) {
+SkyForm::LogSameLine(const Osp::Base::String& text) {
 	String str;
 	str = __pLabel->GetText();
 	str.Append(text);

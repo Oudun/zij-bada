@@ -1,7 +1,7 @@
 /**
  * This file contains the bada application entry point.
  */
-#include "Test.h"
+#include "Zij.h"
 
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;
@@ -36,7 +36,7 @@ OspMain(int argc, char *pArgv[])
 		pArgs->Add(*(new String(pArgv[i])));
 
 	start_profile();
-	r = Osp::App::Application::Execute(Test::CreateInstance, pArgs);
+	r = Osp::App::Application::Execute(Zij::CreateInstance, pArgs);
 	if (IsFailed(r))
 	{
 		AppLogException("Application execution failed-[%s].", GetErrorMessage(r));
