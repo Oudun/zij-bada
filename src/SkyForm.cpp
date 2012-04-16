@@ -68,7 +68,7 @@ SkyForm::OnInitializing(void)
 		pButton1->AddActionEventListener(*this);
 	}
 
-	Control* control = GetControl(L"IDF_SkyForm");
+	Control* control = GetControl(L"IDF_FORM1");
 	sky = new Sky(control->GetCanvasN());
 
 	return r;
