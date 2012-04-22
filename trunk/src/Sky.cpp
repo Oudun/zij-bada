@@ -32,9 +32,10 @@ Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	canvas = aCanvas;
 	Osp::Graphics::Rectangle rect1 = canvas->GetBounds();
 	AppLog("Settng sky %d %d %d %d", rect1.x, rect1.y, rect1.width, rect1.height);
-	radius = (Math::Min(rect1.width, rect1.height) - margin*2)/2;
-	zenithX = rect1.x + margin + radius;
-	zenithY = rect1.y + 2*margin + radius;
+	//radius = (Math::Min(rect1.width, rect1.height) - margin*2)/2;
+	radius = (Math::Min(rect1.width, rect1.height) - margin*2);
+	zenithX = rect1.width/2; //rect1.x + margin + radius;
+	zenithY = rect1.height/2; //rect1.y + 2*margin + radius;
 }
 
 Sky::~Sky() {
@@ -45,7 +46,6 @@ void
 Sky::paintBorders(void) {
 	canvas->SetLineWidth(1);
 	canvas->SetForegroundColor(COLOR_CHOST);
-//	canvas->DrawEllipse(Rectangle(margin, 2*margin, 2*radius, 2*radius));
 	canvas->DrawEllipse(
 			Rectangle(zenithX-radius, zenithY-radius, 2+2*radius, 2+2*radius));
 	canvas->Show();
