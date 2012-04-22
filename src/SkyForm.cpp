@@ -57,9 +57,9 @@ SkyForm::OnInitializing(void)
 		pButton_gps->AddActionEventListener(*this);
 	}
 
-	__pLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
-	__pLabel -> SetText("Initialized");
-	__pLabel -> SetText("Again Initialized");
+//	__pLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
+//	__pLabel -> SetText("Initialized");
+//	__pLabel -> SetText("Again Initialized");
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON_STARS"));
 	if (pButton1)
@@ -70,6 +70,9 @@ SkyForm::OnInitializing(void)
 
 	Control* control = GetControl(L"IDF_FORM1");
 	sky = new Sky(control->GetCanvasN());
+	sky->paintBorders();
+	locProvider.Construct(LOC_METHOD_HYBRID);
+	locProvider.RequestLocationUpdates(*this, 5, true);
 
 	return r;
 }
@@ -88,23 +91,23 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case ID_BUTTON_OK:
 		{
-			sky->paintBorders();
-			__pLabel->SetText("");
+//			sky->paintBorders();
+//			__pLabel->SetText("");
 		}
 		break;
 	case ID_BUTTON_GPS:
 		{
-			locProvider.Construct(LOC_METHOD_HYBRID);
-			locProvider.RequestLocationUpdates(*this, 5, true);
+//			locProvider.Construct(LOC_METHOD_HYBRID);
+//			locProvider.RequestLocationUpdates(*this, 5, true);
 		}
 		break;
 	case ID_BUTTON_STARS:
 		{
-			sky->setLatitude(55.75578F);
-			sky->setLongitude(37.8632F);
-			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
-			Log("Local Siderial Hours is ", sky->getSiderialHours());
-			sky->draw();
+//			sky->setLatitude(55.75578F);
+//			sky->setLongitude(37.8632F);
+//			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
+//			Log("Local Siderial Hours is ", sky->getSiderialHours());
+//			sky->draw();
 		}
 		break;
 	default:
@@ -129,6 +132,11 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		AppLog("Local Siderial Hours is ", sky->getSiderialHours());
 		//		Log("SLT = ", GetLocalSiderialTime((float)(coordinates->GetLongitude())));
 		locProvider.CancelLocationUpdates();
+//		sky->setLatitude(55.75578F);
+//		sky->setLongitude(37.8632F);
+		AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
+		Log("Local Siderial Hours is ", sky->getSiderialHours());
+		sky->draw();
 	} else {
 		LogSameLine("#");
 	}
@@ -177,40 +185,40 @@ SkyForm::GetLocalSiderialTime(float longitude) {
 
 void
 SkyForm::Log(const Osp::Base::String& aText, const float value) {
-	String str;
-	String text;
-	text = aText;
-	str = __pLabel->GetText();
-	text.Append(value);
-	str.Append(text);
-	str.Append('\n');
-	__pLabel->SetText(str);
-	__pLabel->RequestRedraw();
+//	String str;
+//	String text;
+//	text = aText;
+//	str = __pLabel->GetText();
+//	text.Append(value);
+//	str.Append(text);
+//	str.Append('\n');
+//	__pLabel->SetText(str);
+//	__pLabel->RequestRedraw();
 }
 
 void
 SkyForm::Log(const Osp::Base::String& text) {
-	String str;
-	str = __pLabel->GetText();
-	str.Append(text);
-	str.Append('\n');
-	__pLabel->SetText(str);
-	__pLabel->RequestRedraw();
+//	String str;
+//	str = __pLabel->GetText();
+//	str.Append(text);
+//	str.Append('\n');
+//	__pLabel->SetText(str);
+//	__pLabel->RequestRedraw();
 }
 
 void
 SkyForm::ClearLog(const Osp::Base::String& text) {
-	__pLabel->SetText(text);
-	__pLabel->RequestRedraw();
+//	__pLabel->SetText(text);
+//	__pLabel->RequestRedraw();
 }
 
 void
 SkyForm::LogSameLine(const Osp::Base::String& text) {
-	String str;
-	str = __pLabel->GetText();
-	str.Append(text);
-	__pLabel->SetText(str);
-	__pLabel->RequestRedraw();
+//	String str;
+//	str = __pLabel->GetText();
+//	str.Append(text);
+//	__pLabel->SetText(str);
+//	__pLabel->RequestRedraw();
 }
 
 
