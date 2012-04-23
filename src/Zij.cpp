@@ -114,3 +114,9 @@ Zij::OnScreenOff (void)
 	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a callback before the device enters the sleep mode.
 	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
 }
+
+void
+Zij::OnOrientationChanged(const Osp::Ui::Control& source, Osp::Ui::OrientationStatus orientationStatus) {
+	AppLog("Orientation Changed");
+}
+
