@@ -12,7 +12,8 @@
  */
 class Zij :
 	public Osp::App::Application,
-	public Osp::System::IScreenEventListener
+	public Osp::System::IScreenEventListener,
+	public Osp::Ui::IOrientationEventListener
 {
 public:
 
@@ -55,6 +56,9 @@ public:
 
 	// Called when the screen turns off.
 	void OnScreenOff (void);
+
+	void OnOrientationChanged(const Osp::Ui::Control& source, Osp::Ui::OrientationStatus orientationStatus);
+
 };
 
 #endif
