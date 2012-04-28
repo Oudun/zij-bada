@@ -31,9 +31,11 @@ Sky::Sky() {
 Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	canvas = aCanvas;
 	Osp::Graphics::Rectangle rect1 = canvas->GetBounds();
-	AppLog("Settng sky %d %d %d %d", rect1.x, rect1.y, rect1.width, rect1.height);
-	//radius = (Math::Min(rect1.width, rect1.height) - margin*2)/2;
-	radius = (Math::Min(rect1.width, rect1.height) - margin*2);
+	zoom = 1;
+	busy = false;
+	AppLog("Settng sky %d %d %d %d %d", rect1.x, rect1.y, rect1.width, rect1.height, zoom);
+	originalRadius = (Math::Min(rect1.width, rect1.height) - margin*2)/2;
+	radius = zoom * originalRadius;
 	zenithX = rect1.width/2; //rect1.x + margin + radius;
 	zenithY = rect1.height/2; //rect1.y + 2*margin + radius;
 }
@@ -127,6 +129,9 @@ Sky::setSiderialHours(float siderialHours)
 void
 Sky::draw(void)
 {
+	AppLog(">>Sky::draw with zoom %d", zoom);
+	busy = true;
+	canvas->Clear();
 	paintBorders();
 	SkyIterator* stars;
 	stars = SkyFactory::getStars(1);
@@ -137,17 +142,63 @@ Sky::draw(void)
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
-	stars = SkyFactory::getStars(3);
-	while(stars->hasNext()) {
-		stars->getNext()-> draw(this);
+	if (zoom > 1) {
+		stars = SkyFactory::getStars(3);
+		while(stars->hasNext()) {
+			stars->getNext()-> draw(this);
+		}
+		stars = SkyFactory::getStars(4);
+		while(stars->hasNext()) {
+			stars->getNext()-> draw(this);
+		}
 	}
-	stars = SkyFactory::getStars(4);
-	while(stars->hasNext()) {
-		stars->getNext()-> draw(this);
+	if (zoom > 2) {
+		stars = SkyFactory::getStars(5);
+		while(stars->hasNext()) {
+			stars->getNext()-> draw(this);
+		}
+		stars = SkyFactory::getStars(6);
+		while(stars->hasNext()) {
+			stars->getNext()-> draw(this);
+		}
+	}
+	busy = false;
+	AppLog("<<Sky::draw with zoom %d", zoom);
+}
+
+void
+Sky::zoomIn() {
+	if (!busy) {
+		zoom *= 2;
+		radius = zoom * originalRadius;
+		AppLog("Zoom In %d", zoom);
+		draw();
+	} else {
+		AppLog("busy");
 	}
 }
 
+void
+Sky::zoomOut() {
+	if (!busy) {
+		zoom = (int)(zoom/2);
+		radius = zoom * originalRadius;
+		AppLog("Zoom In %d", zoom);
+		draw();
+	} else {
+		AppLog("busy");
+	}
+}
 
+bool
+Sky::canZoomIn() {
+	return zoom < max_zoom;
+}
+
+bool
+Sky::canZoomOut() {
+	return zoom > min_zoom;
+}
 
 
 

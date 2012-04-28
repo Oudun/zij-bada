@@ -33,17 +33,27 @@ public:
     void setLongitude(float longitude);
     float getSiderialHours() const;
     void draw();
+    void zoomIn();
+    void zoomOut();
+    bool canZoomIn();
+    bool canZoomOut();
+    int getZoom() {return zoom;};
 
 private:
     void setSiderialHours(float siderialHours);
     Osp::Graphics::Canvas* canvas;
 	static const int margin = 20;
+	static const int min_zoom = 1;
+	static const int max_zoom = 4;
 	int zenithX;
 	int zenithY;
 	int radius;
+	int originalRadius;
 	float longitude;
 	float latitude;
 	float siderialHours;
+	int zoom;
+	bool busy;
 };
 
 #endif /* SKY_H_ */
