@@ -43,30 +43,35 @@ SkyForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
 
-	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_OK"));
-	if (__pButtonOk != null)
+	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
+	if (__pButtonZoomIn != null)
 	{
-		__pButtonOk->SetActionId(ID_BUTTON_OK);
-		__pButtonOk->AddActionEventListener(*this);
+		__pButtonZoomIn->SetActionId(ID_BUTTON_ZOOM_IN);
+		__pButtonZoomIn->AddActionEventListener(*this);
 	}
 
-	Button *pButton_gps = static_cast<Button *>(GetControl("IDC_BUTTON_GPS"));  
-	if (pButton_gps)
+	__pButtonZoomOut = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_OUT"));
+	if (__pButtonZoomOut != null)
 	{
-		pButton_gps->SetActionId(ID_BUTTON_GPS);
-		pButton_gps->AddActionEventListener(*this);
+		__pButtonZoomOut->SetActionId(ID_BUTTON_ZOOM_IN);
+		__pButtonZoomOut->AddActionEventListener(*this);
 	}
 
-//	__pLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
-//	__pLabel -> SetText("Initialized");
-//	__pLabel -> SetText("Again Initialized");
+//	Button *pButton_gps = static_cast<Button *>(GetControl("IDC_BUTTON_GPS"));
+//	if (pButton_gps)
+//	{
+//		pButton_gps->SetActionId(ID_BUTTON_GPS);
+//		pButton_gps->AddActionEventListener(*this);
+//	}
 
-	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON_STARS"));
-	if (pButton1)
-	{
-		pButton1->SetActionId(103);
-		pButton1->AddActionEventListener(*this);
-	}
+	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
+
+//	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON_STARS"));
+//	if (pButton1)
+//	{
+//		pButton1->SetActionId(103);
+//		pButton1->AddActionEventListener(*this);
+//	}
 
 	Control* control = GetControl(L"IDF_FORM1");
 	sky = new Sky(control->GetCanvasN());
@@ -74,6 +79,12 @@ SkyForm::OnInitializing(void)
 	locProvider.Construct(LOC_METHOD_HYBRID);
 	locProvider.RequestLocationUpdates(*this, 5, true);
 
+	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
+	if (pButton1)
+	{
+		pButton1->SetActionId(1);
+		pButton1->AddActionEventListener(*this);
+	}
 	return r;
 }
 
@@ -89,25 +100,27 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 {
 	switch(actionId)
 	{
-	case ID_BUTTON_OK:
+	case ID_BUTTON_ZOOM_IN:
 		{
-//			sky->paintBorders();
-//			__pLabel->SetText("");
+			String str = "X";
+			str.Append(sky->getZoom());
+			__pZoomLabel->SetText(str);
+			if (sky->canZoomIn()) {
+				sky->zoomIn();
+				String str = "X";
+				str.Append(sky->getZoom());
+				__pZoomLabel->SetText(str);
+			}
 		}
 		break;
-	case ID_BUTTON_GPS:
+	case ID_BUTTON_ZOOM_OUT:
 		{
-//			locProvider.Construct(LOC_METHOD_HYBRID);
-//			locProvider.RequestLocationUpdates(*this, 5, true);
-		}
-		break;
-	case ID_BUTTON_STARS:
-		{
-//			sky->setLatitude(55.75578F);
-//			sky->setLongitude(37.8632F);
-//			AppLog("Local Siderial Hours is %f", sky->getSiderialHours());
-//			Log("Local Siderial Hours is ", sky->getSiderialHours());
-//			sky->draw();
+			if (sky->canZoomOut()) {
+				sky->zoomOut();
+				String str = "X";
+				str.Append(sky->getZoom());
+				__pZoomLabel->SetText(str);
+			}
 		}
 		break;
 	default:

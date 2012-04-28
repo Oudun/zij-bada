@@ -27,7 +27,7 @@ SkyObject::setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::Str
 	Osp::Base::Float::Parse(raM, f2);
 	Osp::Base::Float::Parse(raS, f3);
 	RAH = f1 + (f2/60) + (f3/3600);
-	AppLog("Right Ascentation is %f", RAH);
+//	AppLog("Right Ascentation is %f", RAH);
 }
 
 float
@@ -48,7 +48,7 @@ SkyObject::setDE(Osp::Base::String& deD, Osp::Base::String&  deM, Osp::Base::Str
 	Osp::Base::Float::Parse(deM, f2);
 	Osp::Base::Float::Parse(deS, f3);
 	DED = f1 + (f2/60) + (f3/3600);
-	AppLog("Declination is %f", DED);
+//	AppLog("Declination is %f", DED);
 }
 
 void
@@ -104,11 +104,11 @@ SkyObject::draw(Sky* sky) {
 //public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
 
 	float lstDeg = 15*(sky -> getSiderialHours());
-	AppLog("lstDeg = %f", lstDeg);
+//	AppLog("lstDeg = %f", lstDeg);
 	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
-	AppLog("raDeg = %f", raDeg);
+//	AppLog("raDeg = %f", raDeg);
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
-	AppLog("ha = %f", ha);
+//	AppLog("ha = %f", ha);
 	double radInDegree = 0.0174532925;
 
 	float decSigned = isNorthern() ? DED : -DED;
@@ -116,33 +116,37 @@ SkyObject::draw(Sky* sky) {
     double sinAlt =
         Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(sky->getLatitude()))
         +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
-	AppLog("sinAlt = %f", sinAlt);
+//	AppLog("sinAlt = %f", sinAlt);
 
     double cosAlt =
         Math::Sqrt(1-sinAlt*sinAlt);
-	AppLog("cosAlt = %f", cosAlt);
+//	AppLog("cosAlt = %f", cosAlt);
 
     double sinAz =
         -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(decSigned)))/cosAlt;
-	AppLog("sinAz = %f", sinAz);
+//	AppLog("sinAz = %f", sinAz);
 
     double cosAz =
         (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
             (Math::Cos(radInDegree*(sky->getLatitude()))*cosAlt);
-	AppLog("cosAz = %f", cosAz);
+//	AppLog("cosAz = %f", cosAz);
 
-    AppLog("Azimuth = %f", Math::Acos(cosAz));
-    AppLog("Altitude = %f", Math::Acos(cosAlt));
+//    AppLog("Azimuth = %f", Math::Acos(cosAz));
+//    AppLog("Altitude = %f", Math::Acos(cosAlt));
 
     double R = sky->getRadius();
     double r = R * cosAlt;
     int top  = (int)((sky->getZenithY()) - r * cosAz);
     int left = (int)((sky->getZenithX()) - r * sinAz);
-
+    int width = sky->getCanvas()->GetBounds().width;
+    int height = sky->getCanvas()->GetBounds().height;
     //AppLog("Position on screen left %d top %d", left, top);
 
     if (sinAlt > 0) {
-		if (magnitude < 1) {
+    	if (left<0||top<0||left>width||top>height) {
+    		return;
+    	}
+    	if (magnitude < 1) {
 			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,6,6));
 			Font pFont;
 			pFont.Construct(FONT_STYLE_PLAIN, 12);

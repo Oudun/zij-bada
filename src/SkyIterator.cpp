@@ -19,26 +19,25 @@ SkyIterator::~SkyIterator() {
 }
 
 SkyIterator::SkyIterator(Osp::Base::String &path) {
-	AppLog("Building star iterator");
+	AppLog(">>SkyIterator");
 	nextObject = new SkyObject();
-	AppLog("Building star iterator1");
 	r = file.Construct(path, L"r+");
-	AppLog("Building star iterator2");
 	Osp::Io::FileAttributes fileAttributes;
 	file.GetAttributes(path, fileAttributes);
 	fileSize = fileAttributes.GetFileSize();
+	AppLog("<<SkyIterator");
 }
 
 bool
 SkyIterator::hasNext() {
-	AppLog("%d < %d", file.Tell(), fileSize);
+//	AppLog("%d < %d", file.Tell(), fileSize);
 	return file.Tell() < fileSize;
 }
 
 SkyObject*
 SkyIterator::getNext() {
 	counter++;
-	AppLog("Getting next star %d cursor position is %d", counter, file.Tell());
+//	AppLog("Getting next star %d cursor position is %d", counter, file.Tell());
 	line.Clear();
 	while (line.GetLength()<108) {
 		//AppLog("Getting next star1");
@@ -46,9 +45,9 @@ SkyIterator::getNext() {
 			file.Read(buffer, 1);
 			line.Append(buffer[0]);
 		} while (buffer[0]!='\n'&&(file.Tell() < fileSize));
-		AppLog("Line is: %s position is %d", line.GetPointer(), file.Tell());
+//		AppLog("Line is: %s position is %d", line.GetPointer(), file.Tell());
 	}
-	AppLog("Getting next star2%d", counter);
+//	AppLog("Getting next star2%d", counter);
 	line.SubString(5, 9, substr1);
 	substr1.Trim();
 	nextObject->setName(substr1);

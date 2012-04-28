@@ -32,8 +32,14 @@ protected:
 	static const int ID_BUTTON_OK = 101;
 	static const int ID_BUTTON_GPS = 102;
 	static const int ID_BUTTON_STARS = 103;
+	static const int ID_BUTTON_ZOOM_IN = 1;
+	static const int ID_BUTTON_ZOOM_OUT = 2;
+
 	Osp::Ui::Controls::Button *__pButtonOk;
+	Osp::Ui::Controls::Button *__pButtonZoomIn;
+	Osp::Ui::Controls::Button *__pButtonZoomOut;
 	Osp::Ui::Controls::Label* __pLabel;
+	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
 	Sky* sky;
