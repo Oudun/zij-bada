@@ -95,72 +95,73 @@ SkyObject::getMagnitude(void) {
 
 void
 SkyObject::draw(Sky* sky) {
-	Canvas* canvas = sky -> getCanvas();
-//	double r = (sky->getRadius())*
-//    double r = (R * p.getCosAlt());
-//    int top = (int)(R - r * p.getCosAz());
-//    int left = (int)(R + r *p.getSinAz());
-
-//public static edu.astro.PositionTrig getObjectTrigPosition(float aRah, float aDec) {
-
 	float lstDeg = 15*(sky -> getSiderialHours());
-//	AppLog("lstDeg = %f", lstDeg);
 	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
-//	AppLog("raDeg = %f", raDeg);
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
-//	AppLog("ha = %f", ha);
 	double radInDegree = 0.0174532925;
-
 	float decSigned = isNorthern() ? DED : -DED;
-
     double sinAlt =
         Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(sky->getLatitude()))
         +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(sky->getLatitude()))*Math::Cos(radInDegree*(ha));
-//	AppLog("sinAlt = %f", sinAlt);
-
     double cosAlt =
         Math::Sqrt(1-sinAlt*sinAlt);
-//	AppLog("cosAlt = %f", cosAlt);
-
     double sinAz =
         -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(decSigned)))/cosAlt;
-//	AppLog("sinAz = %f", sinAz);
-
     double cosAz =
         (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(sky->getLatitude()))*sinAlt)/
             (Math::Cos(radInDegree*(sky->getLatitude()))*cosAlt);
-//	AppLog("cosAz = %f", cosAz);
-
-//    AppLog("Azimuth = %f", Math::Acos(cosAz));
-//    AppLog("Altitude = %f", Math::Acos(cosAlt));
-
     double R = sky->getRadius();
     double r = R * cosAlt;
     int top  = (int)((sky->getZenithY()) - r * cosAz);
     int left = (int)((sky->getZenithX()) - r * sinAz);
     int width = sky->getCanvas()->GetBounds().width;
     int height = sky->getCanvas()->GetBounds().height;
-    //AppLog("Position on screen left %d top %d", left, top);
-
+    int zoom = sky->getZoom();
+    Osp::Graphics::Canvas* bufferedCanvas = sky->getBufferedCanvas(zoom);
+    if (bufferedCanvas == null) {
+    	bufferedCanvas = new Canvas();
+    	Osp::Graphics::Rectangle* rect = new Osp::Graphics::Rectangle();
+    	rect->SetBounds(0, 0 , width, height);
+    	result r = bufferedCanvas->Construct(*rect);
+    	if(r == E_SUCCESS) {
+    		AppLog("The method is successful.");
+    	} else if (r == E_INVALID_ARG) {
+    		AppLog("A specified input parameter is invalid.");
+    	} else if (r == E_OUT_OF_RANGE) {
+    		AppLog("The value of the argument is outside the valid range defined by the method.");
+    	} else if (r == E_OUT_OF_MEMORY) {
+    		AppLog("The memory is insufficient.");
+    	} else if (r == E_INVALID_STATE) {
+    		AppLog("This instance is in an invalid state.");
+    	}
+    	sky->setBufferedCanvas(bufferedCanvas, zoom);
+    }
     if (sinAlt > 0) {
     	if (left<0||top<0||left>width||top>height) {
     		return;
     	}
-    	if (magnitude < 1) {
-			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,6,6));
-			Font pFont;
-			pFont.Construct(FONT_STYLE_PLAIN, 12);
-			sky->getCanvas()->SetFont(pFont);
-			sky->getCanvas()->DrawText(Point(left-8, top+8), name);
-		} else if (magnitude < 2) {
-			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,4,4));
-		} else if (magnitude < 3) {
-			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
-		} else {
-			sky->getCanvas()->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
-		}
-    }
+//    	if (magnitude < 1) {
+    		int size = (int)((8 * zoom) / (2 + magnitude));
+    		if (size < 1) {
+    			return;
+    		}
+    		bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,size,size));
 
+    		//			Font pFont;
+//			pFont.Construct(FONT_STYLE_PLAIN, 12);
+//			bufferedCanvas->SetFont(pFont);
+//			bufferedCanvas->DrawText(Point(left-8, top+8), name);
+
+//		} else if (magnitude < 2) {
+//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,4,4));
+//		} else if (magnitude < 3) {
+//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
+//		} else {
+//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
+//		}
+    }
+    Osp::Graphics::Rectangle rect = sky->getCanvas()->GetBounds();
+    sky->getCanvas()->Copy(rect, *bufferedCanvas, rect);
     sky->getCanvas()->Show();
 
 //    PositionTrig positionTrig = new PositionTrig();

@@ -1,18 +1,23 @@
-PC: 0xA300EA34 LR: 0xA2F6B607 Stack PTR : 0x798BE9E0 
-0xA300EA34 Osp::Graphics::Canvas::SetBackgroundColor(Osp::Graphics::Color const&)
-0xA2F6B607 Form1::OnInitializing()
-0xA2F6B607 Form1::OnInitializing()
-0xA30A5459 Osp::Ui::Controls::Form::AddToParent(Osp::Ui::Container const&, int, int, int)
-0xA30A525D Osp::Ui::Controls::Form::AddControlImplAt(Osp::Ui::Control const&)
-0xA30874B5 Osp::Ui::Control::AddNotify()
-0xA308500D Osp::Ui::Container::AddNotify()
-0xA30A78FF _ZN3Osp2Ui8Controls5Frame16AddControlImplAtERKNS0_7Control
-0xA3084883 Osp::Ui::Container::AddControl(Osp::Ui::Control const&)
-0xA30A77F9 Osp::Ui::Controls::Frame::AddControl(Osp::Ui::Control const&)
-0xA2F6DCDD Test::OnAppInitializing(Osp::App::AppRegistry&)
-0xA302DD3B _ZN3Osp3App19__NativeApplication15AppInitializingERNS0_11A
-0xA302DD4B virtual thunk to Osp::App::__NativeApplication::AppInitializing
-0xA303156D Osp::App::__BaseApplication::OnAppInitializing(bool)
-0xA2C42769 _ZN3Osp3App22__NativeApplicationShp10InitializeEbRKNS_4Bas
-0xA302DE47 Osp::App::__NativeApplication::Start()
-0xA302DEBD _Z
+PC: 0x6BD216C0 LR: 0x6A662643 Stack PTR : 0x09A7E8A0 
+0x6BD216C0 Osp::Ui::Control::GetCanvasN(Osp::Graphics::Rectangle const&) const
+0x6BD216C0 Osp::Ui::Control::GetCanvasN(Osp::Graphics::Rectangle const&) const
+0x4004DFEA [Platform Fns]
+0x6AA8496C GWES::CWmWindowManagerImpl::SetShowState(int, WmShowState)
+0x6BD717F8 Osp::Ui::Controls::Form::AddToParent(Osp::Ui::Container const&, int, int, int, int)
+0x6BD212C0 Osp::Ui::Control::AddNotify()
+0x6BD1F2C0 Osp::Ui::Container::DrawChildControls()
+0x6BD1F50C Osp::Ui::Container::AddControl(Osp::Ui::Control const&)
+0x6BD80E5E Osp::Ui::Controls::Frame::AddControl(Osp::Ui::Control const&)
+0x6A668BF4 Zij::OnAppInitializing(Osp::App::AppRegistry&)
+0x6BC8B13E Osp::App::ApplicationEx::OnAppInitializing(Osp::App::AppRegistry&)
+0x6BC8C416 virtual thunk to Osp::App::ApplicationEx::OnAppInitializing(Osp::App::AppRegistry&)
+0x6BC89772 Osp::App::__NativeUiApplication::OnAppInitializing(Osp::App::AppRegistry&)
+0x6BC8784E Osp::App::__AppExecutable::AppInitializing()
+0x6BC87922 Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
+0x6BC88ED6 virtual thunk to Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
+0x6BBBEE84 Osp::Base::Runtime::__EventDispatcherCore::Start()
+0x6BC86430 Osp::App::__AppExecutable::Run()
+0x6BC8E0C0 Osp::App::Application::Execute(Osp::App::Application* (*)(), Osp::Base::Collection::IList const*, Osp::App::AppAttributeType)
+0x4005394C [Platform Fns]
+0x40202AE8 [Platform Fns]
+0x00000000 [Platform Fns]
