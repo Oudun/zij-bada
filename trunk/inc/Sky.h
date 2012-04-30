@@ -23,6 +23,8 @@ public:
 	void paintBorders(void);
 	virtual ~Sky();
 	Osp::Graphics::Canvas* getCanvas(void);
+	Osp::Graphics::Canvas* getBufferedCanvas(int zoom);
+	void setBufferedCanvas(Osp::Graphics::Canvas* canvas, int zoom);
     int getRadius() const;
     int getZenithX() const;
     int getZenithY() const;
@@ -54,6 +56,9 @@ private:
 	float siderialHours;
 	int zoom;
 	bool busy;
+	Osp::Graphics::Canvas* bufferedCanvas;
+	Osp::Graphics::Canvas* bufferedCanvas2;
+	Osp::Graphics::Canvas* bufferedCanvas4;
 };
 
 #endif /* SKY_H_ */

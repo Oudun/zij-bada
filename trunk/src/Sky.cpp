@@ -132,6 +132,13 @@ Sky::draw(void)
 	AppLog(">>Sky::draw with zoom %d", zoom);
 	busy = true;
 	canvas->Clear();
+	if (getBufferedCanvas(zoom)!=null) {
+		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
+		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
+		canvas->Copy(rect, *bufferedCanvas, rect);
+	    canvas->Show();
+	    return;
+	}
 	paintBorders();
 	SkyIterator* stars;
 	stars = SkyFactory::getStars(1);
@@ -198,6 +205,45 @@ Sky::canZoomIn() {
 bool
 Sky::canZoomOut() {
 	return zoom > min_zoom;
+}
+
+Osp::Graphics::Canvas*
+Sky::getBufferedCanvas(int zoom) {
+	switch(zoom) {
+		case 1:
+		{
+			return bufferedCanvas;
+		}
+		case 2:
+		{
+			return bufferedCanvas2;
+		}
+		case 4:
+		{
+			return bufferedCanvas4;
+		}
+	}
+}
+
+void
+Sky::setBufferedCanvas(Osp::Graphics::Canvas* aCanvas, int zoom) {
+	switch(zoom) {
+		case 1:
+		{
+			bufferedCanvas = aCanvas;
+		}
+		break;
+		case 2:
+		{
+			bufferedCanvas2 = aCanvas;
+		}
+		break;
+		case 4:
+		{
+			bufferedCanvas4 = aCanvas;
+		}
+		break;
+	}
 }
 
 

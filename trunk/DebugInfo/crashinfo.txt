@@ -7,8 +7,8 @@
  API Version         : 1.1
  Platform Version    : 2.0.0
  Firmware Version    : WaveWQ-EXXKC4
- Crashed Time        : 2012/02/15 19:46:24
- Crashed Module      : 
+ Crashed Time        : 2012/02/25 13:17:05
+ Crashed Module      : zij.exe
 ----------------------------------------------------------------------------------
 
 
@@ -16,5 +16,4 @@
 ----------------------------------------------------------------------------------
 ----------------------------- Recent AppLog Messages -----------------------------
 ----------------------------------------------------------------------------------
-[0] 5310.386,INFO,P37,T00,A143,OspMain (32) > Application started.
-[1] 5482.395,INFO,P37,T00,A146,Form1::OnActionPerformed (145) > STARS Button is clicked! 
+[0] 50816.501,INFO,P34,T00,A131,OspMain (32) > Application started.

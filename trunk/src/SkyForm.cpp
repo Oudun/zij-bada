@@ -53,7 +53,7 @@ SkyForm::OnInitializing(void)
 	__pButtonZoomOut = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_OUT"));
 	if (__pButtonZoomOut != null)
 	{
-		__pButtonZoomOut->SetActionId(ID_BUTTON_ZOOM_IN);
+		__pButtonZoomOut->SetActionId(ID_BUTTON_ZOOM_OUT);
 		__pButtonZoomOut->AddActionEventListener(*this);
 	}
 
@@ -102,6 +102,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case ID_BUTTON_ZOOM_IN:
 		{
+			AppLog("Zoom in ?");
 			String str = "X";
 			str.Append(sky->getZoom());
 			__pZoomLabel->SetText(str);
@@ -115,6 +116,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		break;
 	case ID_BUTTON_ZOOM_OUT:
 		{
+			AppLog("Zoom out ?");
 			if (sky->canZoomOut()) {
 				sky->zoomOut();
 				String str = "X";
