@@ -30,6 +30,8 @@
 							<builder buildPath="${workspace_loc:/zij/.Target-Debug}" command="cs-make" id="cdt.managedbuild.target.osp.gnu.target.builder.exe.debug.898769683" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="bada Builder" superClass="cdt.managedbuild.target.osp.gnu.target.builder.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.osp.gnu.arm.archiver.base.1662810680" name="bada Archiver" superClass="cdt.managedbuild.tool.osp.gnu.arm.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.cpp.compiler.exe.debug.857462919" name="bada C++ Compiler" superClass="cdt.managedbuild.tool.osp.gnu.target.cpp.compiler.exe.debug">
+								<option id="osp.gnu.target.cpp.compiler.exe.debug.option.debugging.level.1273973214" name="Debug Level" superClass="osp.gnu.target.cpp.compiler.exe.debug.option.debugging.level" value="osp.gnu.cpp.compiler.debugging.level.default" valueType="enumerated"/>
+								<option id="osp.gnu.cpp.compiler.option.debugging.other.686698029" name="Other debugging flags" superClass="osp.gnu.cpp.compiler.option.debugging.other" value="-p" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.osp.gnu.cpp.compiler.input.213658492" superClass="cdt.managedbuild.tool.osp.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.c.compiler.exe.debug.1591439714" name="bada C Compiler" superClass="cdt.managedbuild.tool.osp.gnu.target.c.compiler.exe.debug">
@@ -37,6 +39,13 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.c.linker.exe.debug.1022619097" name="bada C Linker" superClass="cdt.managedbuild.tool.osp.gnu.target.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.cpp.linker.exe.debug.2049444052" name="bada C++ Linker" superClass="cdt.managedbuild.tool.osp.gnu.target.cpp.linker.exe.debug">
+								<option id="osp.gnu.cpp.link.option.other.1105968267" name="Other options (-Xlinker [option])" superClass="osp.gnu.cpp.link.option.other" valueType="stringList"/>
+								<option id="osp.gnu.target.cpp.link.debug.exe.option.userobjs.428751940" name="Other objects" superClass="osp.gnu.target.cpp.link.debug.exe.option.userobjs" valueType="userObjs">
+									<listOptionValue builtIn="false" value="&quot;${TARGET_LIB_PATH}/osp_rt0.a&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${TARGET_LIB_PATH}/libprofiler.so&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${TARGET_LIB_PATH}/FOsp.so&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${TARGET_LIB_PATH}/StubDynCast.so&quot;"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.osp.gnu.cpp.linker.input.842819211" superClass="cdt.managedbuild.tool.osp.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

@@ -95,6 +95,7 @@ SkyObject::getMagnitude(void) {
 
 void
 SkyObject::draw(Sky* sky) {
+	AppLog(">>SkyObject.Draw()");
 	float lstDeg = 15*(sky -> getSiderialHours());
 	float raDeg = RAH * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
@@ -163,6 +164,8 @@ SkyObject::draw(Sky* sky) {
     Osp::Graphics::Rectangle rect = sky->getCanvas()->GetBounds();
     sky->getCanvas()->Copy(rect, *bufferedCanvas, rect);
     sky->getCanvas()->Show();
+
+    AppLog("<<SkyObject.Draw()");
 
 //    PositionTrig positionTrig = new PositionTrig();
 //    positionTrig.setCosAlt(cosAlt);

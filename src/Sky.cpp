@@ -137,6 +137,7 @@ Sky::draw(void)
 		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
 		canvas->Copy(rect, *bufferedCanvas, rect);
 	    canvas->Show();
+	    busy = false;
 	    return;
 	}
 	paintBorders();
