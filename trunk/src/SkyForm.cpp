@@ -107,10 +107,10 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			str.Append(sky->getZoom());
 			__pZoomLabel->SetText(str);
 			if (sky->canZoomIn()) {
-				sky->zoomIn();
 				String str = "X";
 				str.Append(sky->getZoom());
 				__pZoomLabel->SetText(str);
+				sky->zoomIn();
 			}
 		}
 		break;
@@ -118,10 +118,10 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		{
 			AppLog("Zoom out ?");
 			if (sky->canZoomOut()) {
-				sky->zoomOut();
 				String str = "X";
 				str.Append(sky->getZoom());
 				__pZoomLabel->SetText(str);
+				sky->zoomOut();
 			}
 		}
 		break;

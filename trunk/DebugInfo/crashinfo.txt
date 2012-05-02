@@ -7,8 +7,8 @@
  API Version         : 1.1
  Platform Version    : 2.0.0
  Firmware Version    : WaveWQ-EXXKC4
- Crashed Time        : 2012/02/25 13:17:05
- Crashed Module      : zij.exe
+ Crashed Time        : 2012/05/02 15:07:16
+ Crashed Module      : 
 ----------------------------------------------------------------------------------
 
 
@@ -16,4 +16,47 @@
 ----------------------------------------------------------------------------------
 ----------------------------- Recent AppLog Messages -----------------------------
 ----------------------------------------------------------------------------------
-[0] 50816.501,INFO,P34,T00,A131,OspMain (32) > Application started.
+[0] 0032.990,INFO,P32,T00,A121,OspMain (32) > Application started.
+[1] 0034.596,INFO,P32,T00,A125,Sky::Sky (36) > Settng sky 0 0 240 400 1
+[2] 0035.314,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[3] 0035.315,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[4] 0039.862,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[5] 0039.863,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[6] 0044.898,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[7] 0044.899,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[8] 0049.899,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[9] 0049.900,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[10] 0054.903,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[11] 0054.903,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[12] 0059.919,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[13] 0059.919,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[14] 0064.944,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[15] 0064.945,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[16] 0070.068,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[17] 0070.068,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[18] 0075.089,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[19] 0075.090,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[20] 0080.108,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[21] 0080.109,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[22] 0085.156,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[23] 0085.156,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[24] 0090.249,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[25] 0090.250,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[26] 0095.269,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[27] 0095.270,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[28] 0100.277,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[29] 0100.278,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[30] 0106.729,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[31] 0106.730,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[32] 0111.776,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[33] 0111.779,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[34] 0111.779,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (141) > Latitude (double) taken
+[35] 0111.779,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (142) > Latitude (float) taken
+[36] 0112.185,INFO,P32,T00,A125,Sky::setLongitude (113) > Local Siderial Time is 22.927980 hrs
+[37] 0112.185,INFO,P32,T00,A125,Sky::setLongitude (114) > Local Siderial Time is 4663.919708 degrees
+[38] 0112.186,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (147) > Local Siderial Hours is 
+[39] 0112.213,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (152) > Local Siderial Hours is 22.927980
+[40] 0112.213,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 1
+[41] 0112.232,INFO,P32,T00,A125,SkyFactory::getStars (24) > Getting stars with magnitude < 
+[42] 0112.239,INFO,P32,T00,A125,SkyFileIterator::SkyFileIterator (11) > >>SkyIterator
+[43] 0112.255,INFO,P32,T00,A125,SkyFileIterator::SkyFileIterator (17) > <<SkyIterator

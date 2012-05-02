@@ -21,6 +21,8 @@ extern void end_profile (void);
 #endif
 
 
+
+
 /**
  * The entry function of bada application called by the operating system.
  */
