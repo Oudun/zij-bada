@@ -1,23 +1,3 @@
-PC: 0x00000000 LR: 0x6A6A3C35 Stack PTR : 0x09A7E840 
-0x00000000 [Platform Fns]
-0x4004DFEA [Platform Fns]
-0x6A6A925A SkyForm::OnLocationUpdated(Osp::Locations::Location&)
-0x40001F80 [Platform Fns]
-0x6BCD2462 Osp::Locations::__locationUpdated(_ILocationListener const*, MLocation*)
-0x6A34C248 __LocationProvider_timerExpired
-0x69D1A05A 0x0005B05A+mbase.so
-0x69D17A70 Event_fire2
-0x69D1B694 ThreadPi_getStackSize
-0x69D1B694 ThreadPi_getStackSize
-0x40028130 [Platform Fns]
-0x69D1AA40 Event_processPi
-0x69D1B694 ThreadPi_getStackSize
-0x400B5F62 [Platform Fns]
-0x69D17B44 Event_runMainloopEx
-0x6BCA198C Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
-0x6BCA2ED6 virtual thunk to Osp::App::__AppExecutable::OnStart(Osp::Base::Runtime::_EventDispatcherEventArg const&)
-0x6BBD8E84 Osp::Base::Runtime::__EventDispatcherCore::Start()
-0x6BCA0430 Osp::App::__AppExecutable::Run()
-0x6BCA80C0 Osp::App::Application::Execute(Osp::App::Application* (*)(), Osp::Base::Collection::IList const*, Osp::App::AppAttributeType)
-0x4005394C [Platform Fns]
-0x40202AE8 [Platform Fns]
+PC: 0x804FCF34 LR: 0x801366BD Stack PTR : 0x798FDF80 
+0xA267443D AppFrmwkDispatchOSP
+0xA4318A57 WsClearGlobalVariable()

@@ -46,7 +46,7 @@ private:
     Osp::Graphics::Canvas* canvas;
 	static const int margin = 20;
 	static const int min_zoom = 1;
-	static const int max_zoom = 4;
+	static const int max_zoom = 2;
 	int zenithX;
 	int zenithY;
 	int radius;
@@ -59,6 +59,7 @@ private:
 	Osp::Graphics::Canvas* bufferedCanvas;
 	Osp::Graphics::Canvas* bufferedCanvas2;
 	Osp::Graphics::Canvas* bufferedCanvas4;
+	Osp::Graphics::Bitmap* bitmap;
 };
 
 #endif /* SKY_H_ */

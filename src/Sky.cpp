@@ -30,6 +30,7 @@ Sky::Sky() {
 
 Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	canvas = aCanvas;
+	bitmap = new Bitmap();
 	Osp::Graphics::Rectangle rect1 = canvas->GetBounds();
 	zoom = 1;
 	busy = false;
@@ -135,7 +136,11 @@ Sky::draw(void)
 	if (getBufferedCanvas(zoom)!=null) {
 		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
 		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
-		canvas->Copy(rect, *bufferedCanvas, rect);
+		bitmap->Construct(*bufferedCanvas, bufferedCanvas->GetBounds());
+		//canvas->Copy(rect, *bufferedCanvas, rect);
+		Osp::Graphics::Point* point = new Point(120, 200);
+		//canvas->DrawBitmap(rect, *bitmap);
+		canvas->DrawBitmap(*point, *bitmap, *point, 90);
 	    canvas->Show();
 	    busy = false;
 	    return;
