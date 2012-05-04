@@ -136,11 +136,23 @@ Sky::draw(void)
 	if (getBufferedCanvas(zoom)!=null) {
 		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
 		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
-		bitmap->Construct(*bufferedCanvas, bufferedCanvas->GetBounds());
+
+		AppLog("Buffered canvas width:%d, height:%d", bufferedCanvas->GetBounds().width, bufferedCanvas->GetBounds().height);
+		AppLog("Canvas width:%d, height:%d", canvas->GetBounds().width, canvas->GetBounds().height);
+		AppLog("Rect width:%d, height:%d", rect.width, rect.height);
+
+		AppLog("Buffered canvas lineStyle:%d", bufferedCanvas->GetLineStyle());
+		AppLog("Canvas lineStyle:%d", canvas->GetLineStyle());
+
+		Osp::Graphics::Point point(0, 0);
 		//canvas->Copy(rect, *bufferedCanvas, rect);
-		Osp::Graphics::Point* point = new Point(120, 200);
-		//canvas->DrawBitmap(rect, *bitmap);
-		canvas->DrawBitmap(*point, *bitmap, *point, 90);
+		canvas->Copy(point, *bufferedCanvas, rect);
+
+//		Font pFont;
+//		pFont.Construct(FONT_STYLE_PLAIN, 72);
+//		canvas->SetFont(pFont);
+//		canvas->DrawText(Point(100, 100), "W");
+
 	    canvas->Show();
 	    busy = false;
 	    return;
@@ -155,21 +167,21 @@ Sky::draw(void)
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
+	stars = SkyFactory::getStars(3);
+	while(stars->hasNext()) {
+		stars->getNext()-> draw(this);
+	}
 	if (zoom > 1) {
-		stars = SkyFactory::getStars(3);
+		stars = SkyFactory::getStars(4);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
 		}
-		stars = SkyFactory::getStars(4);
+		stars = SkyFactory::getStars(5);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
 		}
 	}
 	if (zoom > 2) {
-		stars = SkyFactory::getStars(5);
-		while(stars->hasNext()) {
-			stars->getNext()-> draw(this);
-		}
 		stars = SkyFactory::getStars(6);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);

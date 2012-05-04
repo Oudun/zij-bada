@@ -119,47 +119,50 @@ SkyObject::draw(Sky* sky) {
     int height = sky->getCanvas()->GetBounds().height;
     int zoom = sky->getZoom();
     Osp::Graphics::Canvas* bufferedCanvas = sky->getBufferedCanvas(zoom);
+
     if (bufferedCanvas == null) {
     	bufferedCanvas = new Canvas();
     	Osp::Graphics::Rectangle* rect = new Osp::Graphics::Rectangle();
     	rect->SetBounds(0, 0 , width, height);
-    	result r = bufferedCanvas->Construct(*rect);
-    	if(r == E_SUCCESS) {
-    		AppLog("The method is successful.");
-    	} else if (r == E_INVALID_ARG) {
-    		AppLog("A specified input parameter is invalid.");
-    	} else if (r == E_OUT_OF_RANGE) {
-    		AppLog("The value of the argument is outside the valid range defined by the method.");
-    	} else if (r == E_OUT_OF_MEMORY) {
-    		AppLog("The memory is insufficient.");
-    	} else if (r == E_INVALID_STATE) {
-    		AppLog("This instance is in an invalid state.");
-    	}
+    	bufferedCanvas->Construct(*rect);
     	sky->setBufferedCanvas(bufferedCanvas, zoom);
     }
+    int addition = zoom == 1 ? 0 : (zoom == 2) ? 1 : 2;
+    Font pFont;
+	pFont.Construct(FONT_STYLE_PLAIN, 12);
+    bufferedCanvas->SetFont(pFont);
+
+    Osp::Graphics::Color starColor;
+    if (name.EndsWith("UMa")) {
+    	starColor = Color::COLOR_YELLOW;
+    } else if (name.EndsWith("Ori")) {
+    	starColor = Color::COLOR_MAGENTA;
+    } else if (name.EndsWith("Lyr")) {
+    	starColor = Color::COLOR_GREEN;
+    } else if (name.EndsWith("Cas")) {
+    	starColor = Color::COLOR_MAGENTA;
+    } else if (name.EndsWith("Peg")) {
+    	starColor = Color::COLOR_CYAN;
+    } else {
+    	starColor = Color::COLOR_WHITE;
+    }
+
     if (sinAlt > 0) {
     	if (left<0||top<0||left>width||top>height) {
     		return;
     	}
-//    	if (magnitude < 1) {
-    		int size = (int)((8 * zoom) / (2 + magnitude));
-    		if (size < 1) {
-    			return;
-    		}
-    		bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,size,size));
-
-    		//			Font pFont;
-//			pFont.Construct(FONT_STYLE_PLAIN, 12);
-//			bufferedCanvas->SetFont(pFont);
-//			bufferedCanvas->DrawText(Point(left-8, top+8), name);
-
-//		} else if (magnitude < 2) {
-//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,4,4));
-//		} else if (magnitude < 3) {
-//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,2,2));
-//		} else {
-//			bufferedCanvas->FillEllipse(Color::COLOR_WHITE, Rectangle(left,top,1,1));
-//		}
+    	if (magnitude < 1) {
+    		bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,3+addition,3+addition));
+			bufferedCanvas->DrawText(Point(left-8, top+8), name);
+		} else if (magnitude < 2) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,2+addition,2+addition));
+		} else if (magnitude < 3) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,1+addition,1+addition));
+		} else if (magnitude < 4) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,addition,addition));
+		} else {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,-1+addition,-1+addition));
+		}
     }
     Osp::Graphics::Rectangle rect = sky->getCanvas()->GetBounds();
     sky->getCanvas()->Copy(rect, *bufferedCanvas, rect);
