@@ -34,10 +34,12 @@ protected:
 	static const int ID_BUTTON_STARS = 103;
 	static const int ID_BUTTON_ZOOM_IN = 1;
 	static const int ID_BUTTON_ZOOM_OUT = 2;
+	static const int ID_BUTTON_REFRESH = 3;
 
 	Osp::Ui::Controls::Button *__pButtonOk;
 	Osp::Ui::Controls::Button *__pButtonZoomIn;
 	Osp::Ui::Controls::Button *__pButtonZoomOut;
+	Osp::Ui::Controls::Button *__pButtonRefresh;
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Locations::LocationProvider locProvider;

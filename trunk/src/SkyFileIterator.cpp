@@ -35,7 +35,7 @@ SkyFileIterator::hasNext() {
 SkyObject*
 SkyFileIterator::getNext() {
 	counter++;
-	AppLog(">>SkyFileIterator.getNext");
+	AppLog(">>SkyFileIterator.getNext #%d", counter);
 	//AppLog("Getting next star %d cursor position is %d", counter, file.Tell());
 	line.Clear();
 	while (line.GetLength()<108) {

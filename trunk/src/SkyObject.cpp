@@ -131,6 +131,7 @@ SkyObject::draw(Sky* sky) {
     Font pFont;
 	pFont.Construct(FONT_STYLE_PLAIN, 12);
     bufferedCanvas->SetFont(pFont);
+    bufferedCanvas->SetForegroundColor(Color::COLOR_GREY);
 
     Osp::Graphics::Color starColor;
     if (name.EndsWith("UMa")) {
@@ -168,7 +169,7 @@ SkyObject::draw(Sky* sky) {
     sky->getCanvas()->Copy(rect, *bufferedCanvas, rect);
     sky->getCanvas()->Show();
 
-    AppLog("<<SkyObject.Draw()");
+    AppLog("<<SkyObject.Draw() zoom=%d magnitude=%f", zoom, magnitude);
 
 //    PositionTrig positionTrig = new PositionTrig();
 //    positionTrig.setCosAlt(cosAlt);
