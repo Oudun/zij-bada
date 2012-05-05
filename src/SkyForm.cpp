@@ -57,6 +57,15 @@ SkyForm::OnInitializing(void)
 		__pButtonZoomOut->AddActionEventListener(*this);
 	}
 
+	__pButtonRefresh = static_cast<Button *>(GetControl(L"IDC_BUTTON_REFRESH"));
+	if (__pButtonRefresh != null)
+	{
+		__pButtonRefresh->SetActionId(ID_BUTTON_REFRESH);
+		__pButtonRefresh->AddActionEventListener(*this);
+	}
+
+
+
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
 	Control* control = GetControl(L"IDF_FORM1");
@@ -69,6 +78,12 @@ SkyForm::OnInitializing(void)
 	{
 		pButton1->SetActionId(1);
 		pButton1->AddActionEventListener(*this);
+	}
+	Button *pButton_refresh = static_cast<Button *>(GetControl("IDC_BUTTON_REFRESH"));  
+	if (pButton_refresh)
+	{
+		pButton_refresh->SetActionId(3);
+		pButton_refresh->AddActionEventListener(*this);
 	}
 	return r;
 }
@@ -108,6 +123,11 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 				__pZoomLabel->SetText(str);
 				sky->zoomOut();
 			}
+		}
+		break;
+	case ID_BUTTON_REFRESH:
+		{
+			sky->draw();
 		}
 		break;
 	default:

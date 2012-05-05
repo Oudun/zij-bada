@@ -34,7 +34,7 @@ Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	Osp::Graphics::Rectangle rect1 = canvas->GetBounds();
 	zoom = 1;
 	busy = false;
-	AppLog("Settng sky %d %d %d %d %d", rect1.x, rect1.y, rect1.width, rect1.height, zoom);
+	AppLog("Setting sky %d %d %d %d %d", rect1.x, rect1.y, rect1.width, rect1.height, zoom);
 	originalRadius = (Math::Min(rect1.width, rect1.height) - margin*2)/2;
 	radius = zoom * originalRadius;
 	zenithX = rect1.width/2; //rect1.x + margin + radius;
@@ -167,21 +167,21 @@ Sky::draw(void)
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
-	stars = SkyFactory::getStars(3);
-	while(stars->hasNext()) {
-		stars->getNext()-> draw(this);
-	}
 	if (zoom > 1) {
-		stars = SkyFactory::getStars(4);
+		stars = SkyFactory::getStars(3);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
 		}
-		stars = SkyFactory::getStars(5);
+		stars = SkyFactory::getStars(4);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
 		}
 	}
 	if (zoom > 2) {
+		stars = SkyFactory::getStars(5);
+		while(stars->hasNext()) {
+			stars->getNext()-> draw(this);
+		}
 		stars = SkyFactory::getStars(6);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
