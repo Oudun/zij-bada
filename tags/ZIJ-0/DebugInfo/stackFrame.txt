@@ -1,0 +1,12 @@
+PC: 0x694E776A LR: 0x694EAFCD Stack PTR : 0x0ADFE818 
+0x694E776A Sky::~Sky()
+0x694E776A Sky::~Sky()
+0x4004DFEA [Platform Fns]
+0x694EB1CE 0x0000A1CE+zij.exe
+0x40092868 [Platform Fns]
+0x400932F0 [Platform Fns]
+0x4001EEE6 [Platform Fns]
+0x4001EF1C [Platform Fns]
+0x4005338C [Platform Fns]
+0x40202AE8 [Platform Fns]
+0x00000000 [Platform Fns]

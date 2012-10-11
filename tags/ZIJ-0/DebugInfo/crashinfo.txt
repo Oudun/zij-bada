@@ -1,0 +1,168 @@
+----------------------------------------------------------------------------------
+----------------------------- Application Information ----------------------------
+----------------------------------------------------------------------------------
+ Application Name    : Zij
+ Application ID      : 93bt1p123e
+ Application Version : 1.0.0
+ API Version         : 1.1
+ Platform Version    : 2.0.0
+ Firmware Version    : WaveWQ-EXXKC4
+ Crashed Time        : 2012/05/02 21:33:38
+ Crashed Module      : 
+----------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------
+----------------------------- Recent AppLog Messages -----------------------------
+----------------------------------------------------------------------------------
+[0] 9551.580,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[1] 9551.581,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[2] 9556.583,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[3] 9556.584,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[4] 9561.586,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[5] 9561.587,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[6] 9566.590,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[7] 9566.590,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[8] 9571.593,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[9] 9571.595,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[10] 9576.597,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[11] 9576.598,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[12] 9581.600,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[13] 9581.602,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[14] 9586.604,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[15] 9586.605,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[16] 9591.607,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[17] 9591.608,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[18] 9596.611,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[19] 9596.612,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[20] 9602.544,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[21] 9602.545,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[22] 9607.548,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[23] 9607.549,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[24] 9612.552,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[25] 9612.553,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[26] 9617.574,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[27] 9617.574,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[28] 9622.578,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[29] 9622.579,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[30] 9627.585,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[31] 9627.586,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[32] 9632.589,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[33] 9632.590,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[34] 9637.597,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[35] 9637.598,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[36] 9642.599,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[37] 9642.600,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[38] 9647.602,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[39] 9647.603,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[40] 9652.605,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[41] 9652.606,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[42] 9657.609,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[43] 9657.610,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[44] 9662.613,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[45] 9662.614,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[46] 9667.616,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[47] 9667.617,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[48] 9672.625,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[49] 9672.626,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[50] 9677.640,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[51] 9677.641,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[52] 9682.645,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[53] 9682.646,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[54] 9687.647,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[55] 9687.648,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[56] 9692.651,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[57] 9692.652,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[58] 9697.654,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[59] 9697.655,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[60] 9702.928,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[61] 9702.929,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[62] 9706.563,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[63] 9706.565,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 2
+[64] 9706.565,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[65] 9708.446,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[66] 9708.447,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[67] 9708.447,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[68] 9709.009,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[69] 9709.011,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[70] 9714.025,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[71] 9714.026,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[72] 9714.458,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[73] 9714.458,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[74] 9714.459,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[75] 9716.065,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[76] 9716.066,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 1
+[77] 9716.066,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 1
+[78] 9717.365,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[79] 9717.367,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 2
+[80] 9717.367,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[81] 9718.249,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[82] 9718.250,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[83] 9718.251,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[84] 9719.832,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[85] 9719.833,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[86] 9721.426,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[87] 9721.427,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[88] 9721.427,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[89] 9724.986,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[90] 9724.987,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[91] 9724.987,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[92] 9725.076,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[93] 9725.076,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[94] 9729.478,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[95] 9729.479,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[96] 9729.479,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[97] 9730.543,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[98] 9730.544,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[99] 9735.554,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[100] 9735.555,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[101] 9735.787,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[102] 9735.788,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[103] 9735.789,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[104] 9739.148,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[105] 9739.149,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[106] 9739.149,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[107] 9740.981,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[108] 9740.982,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[109] 9742.000,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[110] 9742.001,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[111] 9742.001,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[112] 9744.575,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[113] 9744.576,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[114] 9744.576,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[115] 9746.417,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[116] 9746.418,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[117] 9748.679,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[118] 9748.680,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 1
+[119] 9748.680,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 1
+[120] 9751.979,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[121] 9751.980,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[122] 9752.444,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[123] 9752.445,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 2
+[124] 9752.445,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[125] 9757.491,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[126] 9757.491,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[127] 9757.673,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[128] 9757.675,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[129] 9757.675,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[130] 9760.421,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[131] 9760.422,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[132] 9760.422,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[133] 9762.940,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[134] 9762.941,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[135] 9765.389,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[136] 9765.391,INFO,P32,T00,A125,Sky::zoomIn (182) > Zoom In 4
+[137] 9765.391,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 4
+[138] 9768.160,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[139] 9768.161,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[140] 9768.758,INFO,P32,T00,A125,SkyForm::OnActionPerformed (105) > Zoom in ?
+[141] 9773.395,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (135) > Location Updated
+[142] 9773.396,INFO,P32,T00,A125,SkyForm::OnLocationUpdated (137) > Coordinates taken
+[143] 9773.975,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[144] 9773.976,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 2
+[145] 9773.976,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 2
+[146] 9775.553,INFO,P32,T00,A125,SkyForm::OnActionPerformed (119) > Zoom out ?
+[147] 9775.554,INFO,P32,T00,A125,Sky::zoomOut (194) > Zoom In 1
+[148] 9775.554,INFO,P32,T00,A125,Sky::draw (132) > >>Sky::draw with zoom 1
+[149] 9778.392,INFO,P32,T00,A121,OspMain (51) > Application finished.
