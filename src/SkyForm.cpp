@@ -63,8 +63,8 @@ SkyForm::OnInitializing(void)
 		__pButtonRefresh->SetActionId(ID_BUTTON_REFRESH);
 		__pButtonRefresh->AddActionEventListener(*this);
 	}
-
-
+	__pLabelLocation = static_cast<Label *>(GetControl(L"IDC_LABEL1"));
+	__pLabelLocation ->SetText(L"Location");
 
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
@@ -142,9 +142,13 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	String str;
 	if (coordinates != 0) {
 		AppLog("Coordinates taken\n");
+		String locationStr;
+		locationStr.Format(64, L"%f %f", coordinates->GetLatitude(), coordinates->GetLongitude());
+		__pLabelLocation->SetText(locationStr.GetPointer());
+		__pLabelLocation->Draw();
 		sky->setLatitude(coordinates->GetLatitude());
 		sky->setLongitude(coordinates->GetLongitude());
-		locProvider.CancelLocationUpdates();
+//		locProvider.CancelLocationUpdates();
 		sky->draw();
 	} else {
 		AppLog("#");
