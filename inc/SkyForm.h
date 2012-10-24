@@ -42,6 +42,8 @@ protected:
 	Osp::Ui::Controls::Button *__pButtonRefresh;
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
+	Osp::Ui::Controls::Label* __pLabelLocation;
+
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
 	Sky* sky;
@@ -55,6 +57,7 @@ public:
 
 private:
 	float GetLocalSiderialTime(float aLon);
+	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 };
 
 #endif	//_FORM1_H_
