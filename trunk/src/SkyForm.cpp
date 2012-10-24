@@ -143,7 +143,9 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	if (coordinates != 0) {
 		AppLog("Coordinates taken\n");
 		String locationStr;
-		locationStr.Format(64, L"%f %f", coordinates->GetLatitude(), coordinates->GetLongitude());
+		locationStr.Format(21, L"%S %S",
+				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
+				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
 		__pLabelLocation->SetText(locationStr.GetPointer());
 		__pLabelLocation->Draw();
 		sky->setLatitude(coordinates->GetLatitude());
@@ -186,6 +188,24 @@ SkyForm::GetLocalSiderialTime(float longitude) {
 	int sltInt = (int)(slt/360);
 	float sltHrs = (slt-(360*sltInt))/15;
 	return sltHrs;
+}
+
+// Converts from decimal format -12,34456789 to N12°34'56
+String*
+SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix) {
+	const char* prefix = angle < 0 ? negPrefix : posPrefix;
+	AppLog("orig: %f", angle);
+	float latAbs = angle * 1000000;
+	float deg = Math::Abs(Math::Floor(latAbs/1000000));
+	AppLog("deg: %f", deg);
+	float min = Math::Floor(((latAbs/1000000) - Math::Floor(latAbs/1000000))*60);
+	AppLog("min: %f", min);
+	float sec = Math::Floor(((((latAbs/1000000) - Math::Floor(latAbs/1000000))*60) - Math::Floor(((latAbs/1000000) - Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
+	AppLog("sec: %f", sec);
+	String* result = new String();
+//	result->Format(10, L"%c%f°%f\'%f\"", prefix, deg, min, sec);
+	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
+	return result;
 }
 
 
