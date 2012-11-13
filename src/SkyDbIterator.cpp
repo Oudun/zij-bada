@@ -7,31 +7,42 @@
 
 #include "SkyDbIterator.h"
 
-SkyDbIterator::SkyDbIterator() {
-	// TODO Auto-generated constructor stub
+using namespace Osp::Base;
+using namespace Osp::Io;
 
+SkyDbIterator::SkyDbIterator(float magnitude) {
+	String databaseName(L"/Home/stars.db");
+	Database database;
+	database.Construct(databaseName, false);
+	String query(L"select * from stars where magnitude > ");
+	query.Append(magnitude);
+	DbStatement* stat = database.CreateStatementN(query);
+	dataSet = database.ExecuteStatementN(*stat);
+	delete stat;
+	database.~Database();
+	databaseName.~String();
 }
 
 SkyDbIterator::~SkyDbIterator() {
-	// TODO Auto-generated destructor stub
+	delete dataSet;
 }
 
 bool
 SkyDbIterator::hasNext() {
-
+	result r = E_SUCCESS;
+	r = dataSet->MoveNext();
+	return IsFailed(r);
 }
 
-SkyObject* getNext() {
+SkyObject*
+SkyDbIterator::getNext() {
+	String greek;
+	dataSet->GetStringAt(1, greek);
+	AppLog("Greek name is %S", greek.GetPointer());
 	return null;
 }
 
-//AppLog("App initialized");
-//String pDatabaseName(L"/Home/test.db");
-//Database myDatabase;
-//String sql;
-//result r = E_SUCCESS;
-//AppLog("1");
-//r = myDatabase.Construct(pDatabaseName, false);
+
 //AppLog("DB creation result is %S", GetErrorMessage(r));
 //sql.Append(L"select * from tbl1");
 //DbStatement* stat = myDatabase.CreateStatementN(sql);
