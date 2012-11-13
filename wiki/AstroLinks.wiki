@@ -1,0 +1,5 @@
+#summary Mostly open databases with astronomy info
+
+= List of useful links =
+
+  * Constellation boundaries - http://www.iau.org/public/constellations/
