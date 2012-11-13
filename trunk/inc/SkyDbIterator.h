@@ -10,18 +10,21 @@
 
 #include "SkyIterator.h"
 #include "SkyObject.h"
+#include "FIo.h"
 
 class SkyDbIterator : public SkyIterator {
 
 public:
 	SkyDbIterator();
+	SkyDbIterator(float magnitude);
 	virtual ~SkyDbIterator();
 
 public:
-	virtual ~SkyFileIterator();
 	bool hasNext();
 	SkyObject* getNext();
 
+private:
+	Osp::Io::DbEnumerator* dataSet;
 };
 
 #endif /* SKYDBITERATOR_H_ */
