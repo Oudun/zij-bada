@@ -59,6 +59,11 @@ SkyObject::setMagnitude(Osp::Base::String& magnitudeStr) {
 }
 
 void
+SkyObject::setMagnitude(float pMagnitude) {
+	this -> magnitude = pMagnitude;
+}
+
+void
 SkyObject::setSign(bool isNorthern) {
 	sign = isNorthern;
 }
