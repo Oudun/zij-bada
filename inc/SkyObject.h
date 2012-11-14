@@ -40,7 +40,7 @@ public:
 	void setSign(bool isNorthern);
 	// Sets visual magnitude, i.e. brightness of object
 	void setMagnitude(Osp::Base::String& magnitudeStr);
-
+	void setMagnitude(float magnitude);
 	// Returns right ascension in hours in decimal format
 	float getRAH(void);
 	// Returns declination in degrees in decimal format

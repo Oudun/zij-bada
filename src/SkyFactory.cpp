@@ -6,8 +6,6 @@
  */
 
 #include "SkyFactory.h"
-#include "SkyFileIterator.h"
-#include "SkyMemoryIterator.h"
 #include "SkyDbIterator.h"
 
 SkyFactory::SkyFactory() {
@@ -18,16 +16,6 @@ SkyFactory::SkyFactory() {
 SkyFactory::~SkyFactory() {
 	// TODO Auto-generated destructor stub
 }
-
-//SkyIterator*
-//SkyFactory::getStars(float magnitude)
-//{
-//	AppLog("Getting stars with magnitude < %f", magnitude);
-//	Osp::Base::String fileName(L"/Home/catalogue-");
-//	fileName.Append(magnitude);
-//	SkyFileIterator* iterator = new SkyFileIterator(fileName);
-//	return iterator;
-//}
 
 SkyIterator*
 SkyFactory::getStars(float magnitude)

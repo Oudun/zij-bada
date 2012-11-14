@@ -25,6 +25,8 @@ public:
 
 private:
 	Osp::Io::DbEnumerator* dataSet;
+	Osp::Io::Database* database;
+	SkyObject* nextObject;
 };
 
 #endif /* SKYDBITERATOR_H_ */
