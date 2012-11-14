@@ -27,13 +27,13 @@ SkyDbIterator::SkyDbIterator(float magnitude) {
 	AppLogDebug("DB creation result is %S", GetErrorMessage(r));
 	String query(L"select * from stars where magnitude < ");
 	query.Append(magnitude);
-//	String query(L"select * from stars");
 	DbStatement* stat = database->CreateStatementN(query);
 	dataSet = database->ExecuteStatementN(*stat);
 }
 
 SkyDbIterator::~SkyDbIterator() {
-//	delete dataSet;
+	delete database;
+	delete dataSet;
 }
 
 bool

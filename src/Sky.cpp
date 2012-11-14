@@ -163,15 +163,11 @@ Sky::draw(void)
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
-	stars = SkyFactory::getStars(2);
+	stars = SkyFactory::getStars(3);
 	while(stars->hasNext()) {
 		stars->getNext()-> draw(this);
 	}
 	if (zoom > 1) {
-		stars = SkyFactory::getStars(3);
-		while(stars->hasNext()) {
-			stars->getNext()-> draw(this);
-		}
 		stars = SkyFactory::getStars(4);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
