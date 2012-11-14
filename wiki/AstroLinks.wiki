@@ -2,4 +2,5 @@
 
 = List of useful links =
 
-  * Constellation boundaries - http://www.iau.org/public/constellations/
+ * Constellation boundaries - http://www.iau.org/public/constellations/
+ * Calculation of planet's position - http://www.davidcolarusso.com/astro/
