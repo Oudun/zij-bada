@@ -25,41 +25,38 @@ class SkyObject
 {
 
 public:
+
 	SkyObject();
+
 	virtual ~SkyObject();
 
-	// Setting right ascension using whole hour and minute and seconds with decimals as input
-	void setRA(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS);
-	// Setting declination
-	void setDE(Osp::Base::String& raH, Osp::Base::String&  raM, Osp::Base::String&  raS);
-	// Sets name
+	// Sets and gets name
 	void setName(Osp::Base::String& name);
-	// sets Draper name
-	void setDraperName(Osp::Base::String& draperName);
+	Osp::Base::String& getName(void);
+
 	// Sets true if object in northern hemisphere
 	void setSign(bool isNorthern);
+
 	// Sets visual magnitude, i.e. brightness of object
-	void setMagnitude(Osp::Base::String& magnitudeStr);
 	void setMagnitude(float magnitude);
-	// Returns right ascension in hours in decimal format
-	float getRAH(void);
-	// Returns declination in degrees in decimal format
-	float getDED(void);
-	// Returns name
-	Osp::Base::String& getName(void);
-	// Returns Draper name
-	Osp::Base::String& getDraperName(void);
-	// Returns true id object in Northern hemisphere
-	bool isNorthern(void);
-	// Returns visual magnitude (brightness). Lesser values have brighter stars
 	float getMagnitude(void);
+
+	// Gets and sets right ascension in hours in decimal format
+	float getRAH(void);
+    void setRAH(float RAH);
+
+	// Gets and sets declination in degrees in decimal format
+	float getDED(void);
+    void setDED(float DED);
+
+	// Whether object is in Northern hemisphere?
+	bool isNorthern(void);
+
 	// Draws object on canvas
 	void draw(Sky* sky);
-    void setDED(float DED);
-    void setRAH(float RAH);
+
 private:
     Osp::Base::String name;
-    Osp::Base::String draperName;
     float RAH;
     float DED;
     float magnitude;
