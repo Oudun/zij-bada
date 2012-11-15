@@ -5,11 +5,6 @@
 #include "Sky.h"
 #include "SkyForm.h"
 
-
-//using namespace Osp::Base;
-//using namespace Osp::Ui;
-//using namespace Osp::Ui::Controls;
-
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
 using namespace Osp::Base::Runtime;
@@ -203,7 +198,6 @@ SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix)
 	float sec = Math::Floor(((((latAbs/1000000) - Math::Floor(latAbs/1000000))*60) - Math::Floor(((latAbs/1000000) - Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
 	AppLog("sec: %f", sec);
 	String* result = new String();
-//	result->Format(10, L"%c%f°%f\'%f\"", prefix, deg, min, sec);
 	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
 	return result;
 }

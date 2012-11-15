@@ -127,6 +127,10 @@ Sky::setSiderialHours(float siderialHours)
     this->siderialHours = siderialHours;
 }
 
+/**
+ * If sky instance is cached for given zoom value, use this
+ * If not - get current stars set and draw them, display and place result to cache
+ */
 void
 Sky::draw(void)
 {
@@ -134,57 +138,34 @@ Sky::draw(void)
 	busy = true;
 	canvas->Clear();
 	if (getBufferedCanvas(zoom)!=null) {
-		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
-		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
-
-		AppLog("Buffered canvas width:%d, height:%d", bufferedCanvas->GetBounds().width, bufferedCanvas->GetBounds().height);
-		AppLog("Canvas width:%d, height:%d", canvas->GetBounds().width, canvas->GetBounds().height);
-		AppLog("Rect width:%d, height:%d", rect.width, rect.height);
-
-		AppLog("Buffered canvas lineStyle:%d", bufferedCanvas->GetLineStyle());
-		AppLog("Canvas lineStyle:%d", canvas->GetLineStyle());
-
-		Osp::Graphics::Point point(0, 0);
-		//canvas->Copy(rect, *bufferedCanvas, rect);
-		canvas->Copy(point, *bufferedCanvas, rect);
-
-//		Font pFont;
-//		pFont.Construct(FONT_STYLE_PLAIN, 72);
-//		canvas->SetFont(pFont);
-//		canvas->DrawText(Point(100, 100), "W");
-
+		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();			//Getting size of current canvas
+		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
+		Osp::Graphics::Point point(0, 0);									//Setting start point as top left
+		canvas->Copy(point, *bufferedCanvas, rect);							//Copy buffered canvas into current
 	    canvas->Show();
 	    busy = false;
-	    return;
-	}
-	paintBorders();
-	SkyIterator* stars;
-	stars = SkyFactory::getStars(1);
-	while(stars->hasNext()) {
-		stars->getNext()-> draw(this);
-	}
-	stars = SkyFactory::getStars(3);
-	while(stars->hasNext()) {
-		stars->getNext()-> draw(this);
-	}
-	if (zoom > 1) {
-		stars = SkyFactory::getStars(4);
+	} else {
+		paintBorders();
+		SkyIterator* stars;
+		stars = SkyFactory::getStars(3);
 		while(stars->hasNext()) {
 			stars->getNext()-> draw(this);
 		}
-	}
-	if (zoom > 2) {
-		stars = SkyFactory::getStars(5);
-		while(stars->hasNext()) {
-			stars->getNext()-> draw(this);
+		if (zoom > 1) {
+			stars = SkyFactory::getStars(4);
+			while(stars->hasNext()) {
+				stars->getNext()-> draw(this);
+			}
 		}
-		stars = SkyFactory::getStars(6);
-		while(stars->hasNext()) {
-			stars->getNext()-> draw(this);
+		if (zoom > 2) {
+			stars = SkyFactory::getStars(6);
+			while(stars->hasNext()) {
+				stars->getNext()-> draw(this);
+			}
 		}
+		busy = false;
+		AppLog("<<Sky::draw with zoom %d", zoom);
 	}
-	busy = false;
-	AppLog("<<Sky::draw with zoom %d", zoom);
 }
 
 void
