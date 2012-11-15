@@ -1,6 +1,7 @@
-#summary Mostly open databases with astronomy info
+#summary List of useful links
 
 = List of useful links =
 
  * Constellation boundaries - http://www.iau.org/public/constellations/
  * Calculation of planet's position - http://www.davidcolarusso.com/astro/
+ * Current sky view - http://www.fourmilab.ch/cgi-bin/Yoursky
