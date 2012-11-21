@@ -40,6 +40,7 @@ public:
     bool canZoomIn();
     bool canZoomOut();
     int getZoom() {return zoom;};
+    Osp::Base::Collection::IList* getConst(void);
 
 private:
     void setSiderialHours(float siderialHours);
@@ -60,6 +61,7 @@ private:
 	Osp::Graphics::Canvas* bufferedCanvas2;
 	Osp::Graphics::Canvas* bufferedCanvas4;
 	Osp::Graphics::Bitmap* bitmap;
+	Osp::Base::Collection::IList* visibleConst;
 };
 
 #endif /* SKY_H_ */

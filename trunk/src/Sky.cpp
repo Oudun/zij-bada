@@ -17,6 +17,7 @@ using namespace Osp::Locations;
 using namespace Osp::Io;
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
+using namespace Osp::Base::Collection;
 using namespace Osp::Locales;
 using namespace Osp::Graphics;
 
@@ -39,6 +40,7 @@ Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	radius = zoom * originalRadius;
 	zenithX = rect1.width/2; //rect1.x + margin + radius;
 	zenithY = rect1.height/2; //rect1.y + 2*margin + radius;
+	visibleConst = new ArrayList();
 }
 
 Sky::~Sky() {
@@ -240,6 +242,12 @@ Sky::setBufferedCanvas(Osp::Graphics::Canvas* aCanvas, int zoom) {
 		break;
 	}
 }
+
+Osp::Base::Collection::IList*
+Sky::getConst(void) {
+	return visibleConst;
+}
+
 
 
 

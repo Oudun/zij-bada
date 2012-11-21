@@ -43,6 +43,7 @@ protected:
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
+	Osp::Ui::Controls::List* __pConstList;
 
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
@@ -58,6 +59,7 @@ public:
 private:
 	float GetLocalSiderialTime(float aLon);
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
+	void updateConstList(Osp::Base::Collection::IList* list);
 };
 
 #endif	//_FORM1_H_
