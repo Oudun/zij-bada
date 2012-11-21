@@ -8,6 +8,7 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
 using namespace Osp::Base::Runtime;
+using namespace Osp::Base::Collection;
 using namespace Osp::Graphics;
 using namespace Osp::Media;
 using namespace Osp::Locales;
@@ -63,6 +64,8 @@ SkyForm::OnInitializing(void)
 
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
+	__pConstList = static_cast<List *>(GetControl("IDC_LIST1"));
+
 	Control* control = GetControl(L"IDF_FORM1");
 	sky = new Sky(control->GetCanvasN());
 	locProvider.Construct(LOC_METHOD_HYBRID);
@@ -106,6 +109,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 				str.Append(sky->getZoom());
 				__pZoomLabel->SetText(str);
 				sky->zoomIn();
+				updateConstList(sky->getConst());
 			}
 		}
 		break;
@@ -117,12 +121,14 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 				str.Append(sky->getZoom());
 				__pZoomLabel->SetText(str);
 				sky->zoomOut();
+				updateConstList(sky->getConst());
 			}
 		}
 		break;
 	case ID_BUTTON_REFRESH:
 		{
 			sky->draw();
+			updateConstList(sky->getConst());
 		}
 		break;
 	default:
@@ -202,6 +208,19 @@ SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix)
 	return result;
 }
 
+void
+SkyForm::updateConstList(IList* list) {
+	AppLog("!!!Updating constellations list");
+	__pConstList -> RemoveAllItems();
+	IEnumerator* constEnum = list->GetEnumeratorN();
+	while (constEnum->MoveNext()==E_SUCCESS) {
+		String* constName = (String*)(constEnum->GetCurrent());
+		__pConstList -> AddItem(constName, constName, null, null, null);
+	}
+
+	__pConstList->Draw();
+	__pConstList->Show();
+}
 
 
 

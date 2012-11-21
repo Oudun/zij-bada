@@ -7,8 +7,9 @@
 
 #include "SkyObject.h"
 
-using namespace Osp::Graphics;
+using namespace Osp::Base;
 using namespace Osp::Base::Utility;
+using namespace Osp::Graphics;
 
 SkyObject::SkyObject() {
 
@@ -114,8 +115,16 @@ SkyObject::draw(Sky* sky) {
     }
 
     if (sinAlt > 0) {
-    	if (left<0||top<0||left>width||top>height) {
-    		return;
+//    	if (left<0||top<0||left>width||top>height) {
+//    		return;
+//    	}
+    	String* constName = new String(name);
+    	if (sky->getConst()->Contains(*constName)) {
+    		AppLog("!!!Constellation %S is in list %d", name.GetPointer(), sky->getConst()->GetCount());
+    		delete constName;
+    	} else {
+    		AppLog("!!!Constellation %S is added to list %d", name.GetPointer(), name.GetPointer(), sky->getConst()->GetCount());
+    		sky->getConst()->Add(*constName);
     	}
     	if (magnitude < 1) {
     		bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,3+addition,3+addition));
