@@ -14,6 +14,7 @@
 #include <FLocales.h>
 #include <FIo.h>
 #include "Sky.h"
+#include "ConstellationForm.h"
 
 class SkyForm :
 	public Osp::Ui::Controls::Form,
@@ -35,15 +36,17 @@ protected:
 	static const int ID_BUTTON_ZOOM_IN = 1;
 	static const int ID_BUTTON_ZOOM_OUT = 2;
 	static const int ID_BUTTON_REFRESH = 3;
+	static const int ID_BUTTON_CONSTELLATIONS = 4;
 
 	Osp::Ui::Controls::Button *__pButtonOk;
 	Osp::Ui::Controls::Button *__pButtonZoomIn;
 	Osp::Ui::Controls::Button *__pButtonZoomOut;
 	Osp::Ui::Controls::Button *__pButtonRefresh;
+	Osp::Ui::Controls::Button *__pButtonConstellations;
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
-	Osp::Ui::Controls::List* __pConstList;
+	ConstellationForm* __pConstForm;
 
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;

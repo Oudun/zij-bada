@@ -4,6 +4,7 @@
 #include "SkyIterator.h"
 #include "Sky.h"
 #include "SkyForm.h"
+#include "ConstellationForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
@@ -59,12 +60,27 @@ SkyForm::OnInitializing(void)
 		__pButtonRefresh->SetActionId(ID_BUTTON_REFRESH);
 		__pButtonRefresh->AddActionEventListener(*this);
 	}
+
+	__pButtonConstellations = static_cast<Button *>(GetControl(L"IDC_BUTTON_CONSTELLATIONS"));
+	if (__pButtonConstellations != null)
+	{
+		__pButtonConstellations->SetActionId(1);
+		__pButtonConstellations->AddActionEventListener(*this);
+		__pButtonConstellations->SetActionId(ID_BUTTON_CONSTELLATIONS);
+		__pButtonConstellations->AddActionEventListener(*this);
+	}
+
+	//IDC_BUTTON_CONSTELLATIONS
+
 	__pLabelLocation = static_cast<Label *>(GetControl(L"IDC_LABEL1"));
 	__pLabelLocation ->SetText(L"Location");
 
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
-	__pConstList = static_cast<List *>(GetControl("IDC_LIST1"));
+	__pConstForm = new ConstellationForm();
+	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
+	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
+//	__pConstForm -> Construct(L"CONSTELLATIONS_FORM");
 
 	Control* control = GetControl(L"IDF_FORM1");
 	sky = new Sky(control->GetCanvasN());
@@ -131,6 +147,18 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			updateConstList(sky->getConst());
 		}
 		break;
+	case ID_BUTTON_CONSTELLATIONS:
+			{
+				//AppLog("!!!ID_BUTTON_CONSTELLATIONS");
+				Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
+				if (!frame -> GetControls()->Contains(*__pConstForm)) {
+					frame -> AddControl(*__pConstForm);
+				}
+				frame -> SetCurrentForm(*__pConstForm);
+				__pConstForm -> RequestRedraw(true);
+				__pConstForm -> Show();
+			}
+			break;
 	default:
 		break;
 	}
@@ -151,7 +179,7 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pLabelLocation->Draw();
 		sky->setLatitude(coordinates->GetLatitude());
 		sky->setLongitude(coordinates->GetLongitude());
-//		locProvider.CancelLocationUpdates();
+		locProvider.CancelLocationUpdates();
 		sky->draw();
 	} else {
 		AppLog("#");
@@ -210,16 +238,7 @@ SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix)
 
 void
 SkyForm::updateConstList(IList* list) {
-	AppLog("!!!Updating constellations list");
-	__pConstList -> RemoveAllItems();
-	IEnumerator* constEnum = list->GetEnumeratorN();
-	while (constEnum->MoveNext()==E_SUCCESS) {
-		String* constName = (String*)(constEnum->GetCurrent());
-		__pConstList -> AddItem(constName, constName, null, null, null);
-	}
-
-	__pConstList->Draw();
-	__pConstList->Show();
+	__pConstForm -> UpdateConstellationList(list);
 }
 
 
