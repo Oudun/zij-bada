@@ -115,9 +115,9 @@ SkyObject::draw(Sky* sky) {
     }
 
     if (sinAlt > 0) {
-//    	if (left<0||top<0||left>width||top>height) {
-//    		return;
-//    	}
+    	if (left<0||top<0||left>width||top>height) {
+    		return;
+    	}
     	String* constName = new String(name);
     	if (sky->getConst()->Contains(*constName)) {
     		AppLog("!!!Constellation %S is in list %d", name.GetPointer(), sky->getConst()->GetCount());
