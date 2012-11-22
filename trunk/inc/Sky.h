@@ -8,13 +8,9 @@
 #ifndef SKY_H_
 #define SKY_H_
 
-#include <FBase.h>
-#include <FGraphics.h>
-#include <FSystem.h>
-#include <FApp.h>
 #include <FLocations.h>
 #include <FLocales.h>
-#include <FGraphics.h>
+#include "SkyObject.h"
 
 class Sky {
 public:
@@ -41,6 +37,7 @@ public:
     bool canZoomOut();
     int getZoom() {return zoom;};
     Osp::Base::Collection::IList* getConst(void);
+    void draw(SkyObject* skyObject);
 
 private:
     void setSiderialHours(float siderialHours);

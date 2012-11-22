@@ -1,18 +1,6 @@
 #ifndef _FORM1_H_
 #define _FORM1_H_
 
-//#include <FBase.h>
-//#include <FUi.h>
-
-#include <FBase.h>
-#include <FGraphics.h>
-#include <FMedia.h>
-#include <FApp.h>
-#include <FUi.h>
-#include <FSystem.h>
-#include <FLocations.h>
-#include <FLocales.h>
-#include <FIo.h>
 #include "Sky.h"
 #include "ConstellationForm.h"
 

@@ -18,9 +18,6 @@
 #include <FLocales.h>
 #include <FIo.h>
 
-#include "Sky.h"
-
-
 class SkyObject
 {
 
@@ -52,8 +49,9 @@ public:
 	// Whether object is in Northern hemisphere?
 	bool isNorthern(void);
 
-	// Draws object on canvas
-	void draw(Sky* sky);
+	// Draws object on canvas -
+	//todo - this should be moved to Sky class
+//	void draw(Sky* sky);
 
 private:
     Osp::Base::String name;
