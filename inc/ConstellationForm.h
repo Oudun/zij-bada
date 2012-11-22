@@ -9,7 +9,7 @@
 #define CONSTELLATIONFORM_H_
 
 #include <FUi.h>
-#include <FBase.h>
+#include <FApp.h>
 
 class ConstellationForm :
 	public Osp::Ui::Controls::Form,

@@ -1,10 +1,4 @@
-#include "Zij.h"
-#include "SkyObject.h"
-#include "SkyFactory.h"
-#include "SkyIterator.h"
-#include "Sky.h"
 #include "SkyForm.h"
-#include "ConstellationForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;

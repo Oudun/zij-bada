@@ -6,7 +6,6 @@
  */
 
 #include "Sky.h"
-#include "SkyIterator.h"
 #include "SkyFactory.h"
 
 using namespace Osp::System;
@@ -151,24 +150,117 @@ Sky::draw(void)
 		SkyIterator* stars;
 		stars = SkyFactory::getStars(3);
 		while(stars->hasNext()) {
-			stars->getNext()-> draw(this);
+			//stars->getNext()-> draw(this);
+			draw(stars->getNext());
 		}
 		if (zoom > 1) {
 			stars = SkyFactory::getStars(4);
 			while(stars->hasNext()) {
-				stars->getNext()-> draw(this);
+				//stars->getNext()-> draw(this);
+				draw(stars->getNext());
 			}
 		}
 		if (zoom > 2) {
 			stars = SkyFactory::getStars(6);
 			while(stars->hasNext()) {
-				stars->getNext()-> draw(this);
+				//stars->getNext()-> draw(this);
+				draw(stars->getNext());
 			}
 		}
 		busy = false;
 		AppLog("<<Sky::draw with zoom %d", zoom);
 	}
 }
+
+void
+Sky::draw(SkyObject* skyObject) {
+	AppLog(">>SkyObject.Draw()");
+	float lstDeg = 15*(getSiderialHours());
+	float raDeg = skyObject->getRAH() * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
+	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
+	double radInDegree = 0.0174532925;
+	float decSigned = skyObject->isNorthern() ? skyObject->getDED(): -(skyObject->getDED());
+    double sinAlt =
+        Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(getLatitude()))
+        +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(getLatitude()))*Math::Cos(radInDegree*(ha));
+    double cosAlt =
+        Math::Sqrt(1-sinAlt*sinAlt);
+    double sinAz =
+        -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(decSigned)))/cosAlt;
+    double cosAz =
+        (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(getLatitude()))*sinAlt)/
+            (Math::Cos(radInDegree*(getLatitude()))*cosAlt);
+    double R = getRadius();
+    double r = R * cosAlt;
+    int top  = (int)((getZenithY()) - r * cosAz);
+    int left = (int)((getZenithX()) - r * sinAz);
+    int width = getCanvas()->GetBounds().width;
+    int height = getCanvas()->GetBounds().height;
+    int zoom = getZoom();
+    Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
+
+    if (bufferedCanvas == null) {
+    	bufferedCanvas = new Canvas();
+    	Osp::Graphics::Rectangle* rect = new Osp::Graphics::Rectangle();
+    	rect->SetBounds(0, 0 , width, height);
+    	bufferedCanvas->Construct(*rect);
+    	setBufferedCanvas(bufferedCanvas, zoom);
+    }
+    int addition = zoom == 1 ? 0 : (zoom == 2) ? 1 : 2;
+    Font pFont;
+	pFont.Construct(FONT_STYLE_PLAIN, 12);
+    bufferedCanvas->SetFont(pFont);
+    bufferedCanvas->SetForegroundColor(Color::COLOR_GREY);
+
+    Osp::Graphics::Color starColor;
+    if (skyObject->getName().EndsWith("UMa")) {
+    	starColor = Color::COLOR_YELLOW;
+    } else if (skyObject->getName().EndsWith("Ori")) {
+    	starColor = Color::COLOR_MAGENTA;
+    } else if (skyObject->getName().EndsWith("Lyr")) {
+    	starColor = Color::COLOR_GREEN;
+    } else if (skyObject->getName().EndsWith("Cas")) {
+    	starColor = Color::COLOR_MAGENTA;
+    } else if (skyObject->getName().EndsWith("Peg")) {
+    	starColor = Color::COLOR_CYAN;
+    } else if (skyObject->getName().EndsWith("Ind")) {
+        	starColor = Color::COLOR_RED;
+    } else {
+    	starColor = Color::COLOR_WHITE;
+    }
+
+    if (sinAlt > 0) {
+    	if (left<0||top<0||left>width||top>height) {
+    		return;
+    	}
+    	String* constName = new String(skyObject->getName());
+    	if (getConst()->Contains(*constName)) {
+    		AppLog("!!!Constellation %S is in list %d", skyObject->getName().GetPointer(), getConst()->GetCount());
+    		delete constName;
+    	} else {
+    		AppLog("!!!Constellation %S is added to list %d", skyObject->getName().GetPointer(), skyObject->getName().GetPointer(), getConst()->GetCount());
+    		getConst()->Add(*constName);
+    	}
+    	if (skyObject->getMagnitude() < 1) {
+    		bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,3+addition,3+addition));
+			bufferedCanvas->DrawText(Point(left-8, top+8), skyObject->getName());
+		} else if (skyObject->getMagnitude() < 2) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,2+addition,2+addition));
+		} else if (skyObject->getMagnitude() < 3) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,1+addition,1+addition));
+		} else if (skyObject->getMagnitude() < 4) {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,addition,addition));
+		} else {
+			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,-1+addition,-1+addition));
+		}
+    }
+    Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
+    getCanvas()->Copy(rect, *bufferedCanvas, rect);
+    getCanvas()->Show();
+
+    AppLog("<<SkyObject.Draw() zoom=%d magnitude=%f", zoom, skyObject->getMagnitude());
+}
+
 
 void
 Sky::zoomIn() {
