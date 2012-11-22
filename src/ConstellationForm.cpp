@@ -11,12 +11,13 @@ using namespace Osp::Base;
 using namespace Osp::Base::Collection;
 using namespace Osp::Graphics;
 using namespace Osp::Ui::Controls;
+using namespace Osp::App;
 
 ConstellationForm::ConstellationForm() {
 	list = new ArrayList();
 	__pConstList = new List();
 	__pConstList -> Construct(
-			Rectangle(0, 0, 300, 200),
+			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
 			LIST_ITEM_SINGLE_TEXT, 20, 20, 100, 100);
 	__pConstList -> AddItemEventListener(*this);
@@ -43,6 +44,16 @@ ConstellationForm::UpdateConstellationList(Osp::Base::Collection::IList* pList) 
 
 void
 ConstellationForm::OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status) {
+	AppLog("Index is %d", index);
+	AppLog("Id is %d", itemId);
+	AppLog("Constellation list size is %d", list->GetCount());
 	String* selectedConstellation = (String*)list->GetAt(index);
-	AppLog("!!!Selected constellation is %S", selectedConstellation);
+	AppLog("!!!Selected constellation is %S", selectedConstellation->GetPointer());
+	AppLog("!!!Selected constellation is %S", selectedConstellation->GetPointer());
+    String hello;
+    AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+    if (pAppResource)
+        pAppResource->GetString(*selectedConstellation, hello);
+    AppLog("Name is %S", hello.GetPointer());
+
 }

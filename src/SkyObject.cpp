@@ -110,6 +110,8 @@ SkyObject::draw(Sky* sky) {
     	starColor = Color::COLOR_MAGENTA;
     } else if (name.EndsWith("Peg")) {
     	starColor = Color::COLOR_CYAN;
+    } else if (name.EndsWith("Ind")) {
+        	starColor = Color::COLOR_RED;
     } else {
     	starColor = Color::COLOR_WHITE;
     }
