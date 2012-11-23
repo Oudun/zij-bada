@@ -54,11 +54,9 @@ private:
 	float siderialHours;
 	int zoom;
 	bool busy;
-	Osp::Graphics::Canvas* bufferedCanvas;
-	Osp::Graphics::Canvas* bufferedCanvas2;
-	Osp::Graphics::Canvas* bufferedCanvas4;
 	Osp::Graphics::Bitmap* bitmap;
 	Osp::Base::Collection::IList* visibleConst;
+	Osp::Base::Collection::IList* bufferedCanvases;
 };
 
 #endif /* SKY_H_ */

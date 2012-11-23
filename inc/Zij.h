@@ -11,9 +11,9 @@
  * which provides basic features necessary to define an application.
  */
 class Zij :
-	public Osp::App::Application,
-	public Osp::System::IScreenEventListener,
-	public Osp::Ui::IOrientationEventListener
+	public Osp::App::Application
+//	public Osp::System::IScreenEventListener,
+//	public Osp::Ui::IOrientationEventListener
 {
 public:
 
@@ -38,26 +38,26 @@ public:
 	bool OnAppTerminating(Osp::App::AppRegistry& appRegistry, bool forcedTermination = false);
 
 
-	// Called when the application's frame moves to the top of the screen.
-	void OnForeground(void);
-
-
-	// Called when this application's frame is moved from top of the screen to the background.
-	void OnBackground(void);
-
-	// Called when the system memory is not sufficient to run the application any further.
-	void OnLowMemory(void);
-
-	// Called when the battery level changes.
-	void OnBatteryLevelChanged(Osp::System::BatteryLevel batteryLevel);
-
-	// Called when the screen turns on.
-	void OnScreenOn (void);
-
-	// Called when the screen turns off.
-	void OnScreenOff (void);
-
-	void OnOrientationChanged(const Osp::Ui::Control& source, Osp::Ui::OrientationStatus orientationStatus);
+//	// Called when the application's frame moves to the top of the screen.
+//	void OnForeground(void);
+//
+//
+//	// Called when this application's frame is moved from top of the screen to the background.
+//	void OnBackground(void);
+//
+//	// Called when the system memory is not sufficient to run the application any further.
+//	void OnLowMemory(void);
+//
+//	// Called when the battery level changes.
+//	void OnBatteryLevelChanged(Osp::System::BatteryLevel batteryLevel);
+//
+//	// Called when the screen turns on.
+//	void OnScreenOn (void);
+//
+//	// Called when the screen turns off.
+//	void OnScreenOff (void);
+//
+//	void OnOrientationChanged(const Osp::Ui::Control& source, Osp::Ui::OrientationStatus orientationStatus);
 
 };
 
