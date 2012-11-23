@@ -30,11 +30,6 @@
         <layout height="21" mode="Portrait" width="201" x="23" y="4"/>
         <layout height="13" mode="Landscape" width="366" x="33" y="0"/>
     </Label>
-    <List id="IDC_LIST1" parent="IDF_FORM1">
-        <property ListItemFormat="LIST_ITEM_SINGLE_TEXT" colorOfEmptyListText="#80FFFF" column1Width="50" column2Width="50" row1Height="40" row2Height="50" textOfEmptyList="Empty"/>
-        <layout height="40" mode="Portrait" style="LIST_STYLE_NORMAL" width="161" x="39" y="271"/>
-        <layout height="36" mode="Landscape" style="LIST_STYLE_NORMAL" width="270" x="50" y="185"/>
-    </List>
     <Button id="IDC_BUTTON_CONSTELLATIONS" parent="IDF_FORM1">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
         <layout height="38" mode="Portrait" width="139" x="50" y="341"/>
