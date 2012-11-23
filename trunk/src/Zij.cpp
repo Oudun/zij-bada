@@ -70,53 +70,5 @@ Zij::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 	return true;
 }
 
-//void
-//Zij::OnForeground(void)
-//{
-//	// TODO:
-//	// Start or resume drawing when the application is moved to the foreground.
-//}
-//
-//void
-//Zij::OnBackground(void)
-//{
-//	// TODO:
-//	// Stop drawing when the application is moved to the background.
-//}
-//
-//void
-//Zij::OnLowMemory(void)
-//{
-//	// TODO:
-//	// Free unused resources or close the application.
-//}
-//
-//void
-//Zij::OnBatteryLevelChanged(BatteryLevel batteryLevel)
-//{
-//	// TODO:
-//	// Handle any changes in battery level here.
-//	// Stop using multimedia features(camera, mp3 etc.) if the battery level is CRITICAL.
-//}
-//
-//void
-//Zij::OnScreenOn (void)
-//{
-//	// TODO:
-//	// Get the released resources or resume the operations that were paused or stopped in OnScreenOff().
-//}
-//
-//void
-//Zij::OnScreenOff (void)
-//{
-//	// TODO:
-//	//  Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.
-//	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a callback before the device enters the sleep mode.
-//	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
-//}
-//
-//void
-//Zij::OnOrientationChanged(const Osp::Ui::Control& source, Osp::Ui::OrientationStatus orientationStatus) {
-//	AppLog("Orientation Changed");
-//}
+
 
