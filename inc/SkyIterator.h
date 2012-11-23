@@ -13,8 +13,6 @@
 class SkyIterator {
 
 public:
-	SkyIterator();
-	virtual ~SkyIterator();
 	virtual bool hasNext();
 	virtual SkyObject* getNext();
 };
