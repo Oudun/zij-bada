@@ -11,6 +11,7 @@ using namespace Osp::Locations;
 
 LocationForm::LocationForm(TimeAndPlace* pTimeAndPlace) {
 	timeAndPlace = pTimeAndPlace;
+	locProvider = new LocationProvider();
 	locProvider -> Construct(LOC_METHOD_HYBRID);
 	locProvider -> RequestLocationUpdates(*this, 5, true);
 }
