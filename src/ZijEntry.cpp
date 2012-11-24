@@ -31,7 +31,7 @@ OspMain(int argc, char *pArgv[])
 {
 	result r = E_SUCCESS;
 
-	AppLog("Application started.");
+	AppLog("Application started?.");
 	ArrayList* pArgs = new ArrayList();
 	pArgs->Construct();
 	for (int i = 0; i < argc; i++)
