@@ -71,7 +71,7 @@ SkyForm::OnInitializing(void)
 
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
-	__pConstForm = new ConstellationForm();
+	__pConstForm = new ConstellationForm(this);
 	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
 	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
 //	__pConstForm -> Construct(L"CONSTELLATIONS_FORM");
@@ -235,6 +235,15 @@ SkyForm::updateConstList(IList* list) {
 	__pConstForm -> UpdateConstellationList(list);
 }
 
+void
+SkyForm::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+	AppLog("OnUserEventReceivedN");
+	Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
+	frame -> SetCurrentForm(*this);
+	RequestRedraw(true);
+	Show();
+	sky->draw();
+}
 
 
 

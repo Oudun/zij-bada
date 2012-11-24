@@ -13,7 +13,8 @@ using namespace Osp::Graphics;
 using namespace Osp::Ui::Controls;
 using namespace Osp::App;
 
-ConstellationForm::ConstellationForm() {
+ConstellationForm::ConstellationForm(Form* pParent) {
+	parent = pParent;
 	list = new ArrayList();
 	__pConstList = new List();
 	__pConstList -> Construct(
@@ -55,5 +56,12 @@ ConstellationForm::OnItemStateChanged(const Osp::Ui::Control& source, int index,
     if (pAppResource)
         pAppResource->GetString(*selectedConstellation, hello);
     AppLog("Name is %S", hello.GetPointer());
-
+    IList* args = new ArrayList();
+    args -> Add(*selectedConstellation);
+    parent->SendUserEvent(1, args);
 }
+
+//void
+//ConstellationForm::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+//	AppLog("Event Received");
+//}
