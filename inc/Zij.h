@@ -6,6 +6,10 @@
 #include <FSystem.h>
 #include <FUi.h>
 
+#include "TimeAndPlace.h"
+#include "LocationForm.h"
+#include "SkyForm.h"
+
 /**
  * [Test] application must inherit from Application class
  * which provides basic features necessary to define an application.
@@ -22,6 +26,11 @@ class Zij : public Osp::App::Application {
 	public:
 		bool OnAppInitializing(Osp::App::AppRegistry& appRegistry);
 		bool OnAppTerminating(Osp::App::AppRegistry& appRegistry, bool forcedTermination = false);
+
+	private:
+		TimeAndPlace* timeAndPlace;
+		LocationForm* locationForm;
+		SkyForm* skyForm;
 
 };
 
