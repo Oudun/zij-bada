@@ -5,9 +5,7 @@
  * Description : 
  */
 
-
 #include "Zij.h"
-#include "SkyForm.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -31,32 +29,26 @@ Zij::CreateInstance(void)
 }
 
 bool
-Zij::OnAppInitializing(AppRegistry& appRegistry)
-{
-	// TODO:
-	// Initialize UI resources and application specific data.
-	// The application's permanent data and context can be obtained from the appRegistry.
-	//
-	// If this method is successful, return true; otherwise, return false.
-	// If this method returns false, the application will be terminated.
+Zij::OnAppInitializing(AppRegistry& appRegistry) {
 
-	// Uncomment the following statement to listen to the screen on/off events.
-	//PowerManager::SetScreenEventListener(*this);
+	//Create context;
+	timeAndPlace = new TimeAndPlace();
 
-	// Create a form
-	SkyForm *pSkyForm = new SkyForm();
-	pSkyForm->Initialize();
+	// Create forms
+	skyForm = new SkyForm();
+	skyForm -> Initialize();
+	locationForm = new LocationForm(timeAndPlace);
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
-	pFrame->AddControl(*pSkyForm);
+	pFrame->AddControl(*skyForm);
 
 	// Set the current form
-	pFrame->SetCurrentForm(*pSkyForm);
+	pFrame->SetCurrentForm(*skyForm);
 
 	// Draw and Show the form
-	pSkyForm->Draw();
-	pSkyForm->Show();
+	skyForm->Draw();
+	skyForm->Show();
 
 	return true;
 }
