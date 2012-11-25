@@ -30,7 +30,12 @@ class LocationForm :
 		virtual void OnLocationUpdated(Osp::Locations::Location& location);
 		virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 
+		Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
+
 	private:
+		Osp::Ui::Controls::Label* __pActionLabel;
+		Osp::Ui::Controls::Label* __pActionAttemptLabel;
+		Osp::Ui::Controls::Label* __pGpsProviderStatusLabel;
 		Osp::Locations::LocationProvider* locProvider;
 		TimeAndPlace* timeAndPlace;
 		int maxAttempts;

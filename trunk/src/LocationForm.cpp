@@ -8,19 +8,22 @@
 
 #include "LocationForm.h"
 
+using namespace Osp::Base;
+using namespace Osp::Base::Utility;
 using namespace Osp::Locations;
+using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm(TimeAndPlace* pTimeAndPlace) {
-//	timeAndPlace = pTimeAndPlace;
-//	locProvider = new LocationProvider();
-//	locProvider -> Construct(LOC_METHOD_HYBRID);
-//	locProvider -> RequestLocationUpdates(*this, 5, true);
-//	maxAttempts = 5;
-//	attemptsCounter = 1;
+	maxAttempts = 5;
+	attemptsCounter = 1;
+	timeAndPlace = pTimeAndPlace;
+	locProvider = new LocationProvider();
+	locProvider -> Construct(LOC_METHOD_HYBRID);
+	locProvider -> RequestLocationUpdates(*this, 5, true);
 }
 
 LocationForm::~LocationForm() {
-	// TODO Auto-generated destructor stub
+	delete locProvider;
 }
 
 bool
@@ -32,6 +35,9 @@ LocationForm::Initialize() {
 result
 LocationForm::OnInitializing(void) {
 	AppLog("LocationForm::OnInitializing(void)");
+	__pActionLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
+	__pActionAttemptLabel = static_cast<Label *>(GetControl("IDC_LABEL2"));
+	__pGpsProviderStatusLabel = static_cast<Label *>(GetControl("IDC_LABEL3"));
 	return E_SUCCESS;
 }
 
@@ -53,19 +59,22 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 //	String str;
 	if (coordinates != 0) {
 		AppLog("Coordinates taken\n");
-//		String locationStr;
-//		locationStr.Format(21, L"%S %S",
-//				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
-//				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
-//		__pLabelLocation->SetText(locationStr.GetPointer());
-//		__pLabelLocation->Draw();
-//		sky->setLatitude(coordinates->GetLatitude());
-//		sky->setLongitude(coordinates->GetLongitude());
-//		locProvider.CancelLocationUpdates();
-//		sky->draw();
+		__pActionAttemptLabel -> SetText("Coordinates taken");
+		__pActionAttemptLabel -> RequestRedraw(true);
+
+		String locationStr;
+		locationStr.Format(21, L"%S \n%S",
+				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
+				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
+		__pGpsProviderStatusLabel->SetText(locationStr.GetPointer());
+		__pGpsProviderStatusLabel -> RequestRedraw(true);
+		locProvider -> CancelLocationUpdates();
 	} else {
-		AppLog("#");
 		attemptsCounter++;
+		Osp::Base::String str("Attempt #");
+		str.Append(attemptsCounter);
+		__pActionAttemptLabel -> SetText(str);
+		__pActionAttemptLabel -> RequestRedraw(true);
 	}
 }
 
@@ -73,12 +82,37 @@ void
 LocationForm::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
 	AppLog("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
+		__pGpsProviderStatusLabel -> SetText("The location provider is available");
+		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is available");
 	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
+		__pGpsProviderStatusLabel -> SetText("The location provider is out of service");
+		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is out of service");
 	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
+		__pGpsProviderStatusLabel -> SetText("The location provider is temporarily unavailable");
+		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is temporarily unavailable");
 	} else {
+		__pGpsProviderStatusLabel -> SetText("State unknown");
+		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("State unknown");
 	}
+}
+
+// Converts from decimal format -12,34456789 to N12°34'56
+String*
+LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix) {
+	const char* prefix = angle < 0 ? negPrefix : posPrefix;
+	float latAbs = angle * 1000000;
+	float deg = Math::Abs(Math::Floor(latAbs/1000000));
+	float min = Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60);
+	float sec = Math::Floor(((((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60)
+			- Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
+	String* result = new String();
+	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
+	return result;
 }
