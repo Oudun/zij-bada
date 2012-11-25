@@ -61,7 +61,6 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		AppLog("Coordinates taken\n");
 		__pActionAttemptLabel -> SetText("Coordinates taken");
 		__pActionAttemptLabel -> RequestRedraw(true);
-
 		String locationStr;
 		locationStr.Format(21, L"%S \n%S",
 				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
@@ -115,4 +114,25 @@ LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPr
 	String* result = new String();
 	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
 	return result;
+}
+
+void
+LocationForm::SetTimeAndPlace(float longitude, float latitude, ) {
+	timeAndPlace -> SetLongitude(longitude);
+	timeAndPlace -> SetLatitude(latitude);
+	TimeZone timeZone(60, L"Europe/London");
+	DateTime* currTime = new DateTime();
+	SystemTime::GetCurrentTime(*currTime);
+	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
+	calendar->SetTime(*currTime);
+	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;
+	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
+	float dayFract = (hrs + minHrs)/24.0;
+	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
+	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
+	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
+	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
+	int sltInt = (int)(slt/360);
+	float sltHrs = (slt-(360*sltInt))/15;
+	timeAndPlace -> SetSiderialTime (sltHrs);
 }

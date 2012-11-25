@@ -31,6 +31,7 @@ class LocationForm :
 		virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 
 		Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
+		void SetTimeAndPlace(float longitude, float latitude);
 
 	private:
 		Osp::Ui::Controls::Label* __pActionLabel;
