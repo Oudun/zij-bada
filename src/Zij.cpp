@@ -38,17 +38,23 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 	locationForm = new LocationForm(timeAndPlace);
+	locationForm -> Initialize();
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
-	pFrame->AddControl(*skyForm);
+//	pFrame -> AddControl(*skyForm);
+	pFrame -> AddControl(*locationForm);
 
 	// Set the current form
-	pFrame->SetCurrentForm(*skyForm);
+//	pFrame->SetCurrentForm(*skyForm);
+	pFrame->SetCurrentForm(*locationForm);
+
+	locationForm -> Draw();
+	locationForm -> Show();
 
 	// Draw and Show the form
-	skyForm->Draw();
-	skyForm->Show();
+//	skyForm->Draw();
+//	skyForm->Show();
 
 	return true;
 }
