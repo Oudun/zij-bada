@@ -52,6 +52,7 @@ public:
 	// Draws object on canvas -
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
+	void Print(void);
 
 private:
     Osp::Base::String name;

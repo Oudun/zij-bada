@@ -25,10 +25,19 @@ SkyDbIterator::SkyDbIterator(float magnitude) {
 	database = new Database();
 	r = database->Construct(databaseName, false);
 	AppLogDebug("DB creation result is %S", GetErrorMessage(r));
-	String query(L"select * from stars where magnitude < ");
-	query.Append(magnitude);
-	DbStatement* stat = database->CreateStatementN(query);
-	dataSet = database->ExecuteStatementN(*stat);
+
+	String countQuery(L"select count(*) from stars where magnitude < ");
+	countQuery.Append(magnitude);
+	DbStatement* counterStat = database->CreateStatementN(countQuery);
+	dataSet = database->ExecuteStatementN(*counterStat);
+	dataSet -> MoveNext();
+	dataSet -> GetIntAt(0, counter);
+
+	String iteratorQuery(L"select * from stars where magnitude < ");
+	iteratorQuery.Append(magnitude);
+	DbStatement* iteratorStat = database->CreateStatementN(iteratorQuery);
+	dataSet = database->ExecuteStatementN(*iteratorStat);
+
 }
 
 SkyDbIterator::~SkyDbIterator() {
@@ -60,4 +69,9 @@ SkyDbIterator::getNext() {
 	dataSet->GetIntAt(5, intHolder);
 	nextObject->setSign(intHolder == 1);
 	return nextObject;
+}
+
+int
+SkyDbIterator::GetSize(void) {
+	return counter;
 }

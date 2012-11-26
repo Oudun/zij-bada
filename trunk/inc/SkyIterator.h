@@ -15,6 +15,7 @@ class SkyIterator {
 public:
 	virtual bool hasNext();
 	virtual SkyObject* getNext();
+	virtual int GetSize(void);
 };
 
 #endif /* SKYITERATOR_H_ */
