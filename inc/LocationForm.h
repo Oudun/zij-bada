@@ -9,7 +9,11 @@
 #define LOCATIONFORM_H_
 
 #include <FUi.h>
+#include <FBase.h>
 #include <FLocations.h>
+#include <FLocales.h>
+#include <FSystem.h>
+#include <FApp.h>
 
 #include "TimeAndPlace.h"
 
@@ -31,7 +35,10 @@ class LocationForm :
 		virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 
 		Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
-		void SetTimeAndPlace(float longitude, float latitude);
+		void SetTimeAndPlace(float longitude, float latitude, Osp::Base::DateTime* currTime);
+
+	public:
+		static const int LOCATION_SET = 1;
 
 	private:
 		Osp::Ui::Controls::Label* __pActionLabel;

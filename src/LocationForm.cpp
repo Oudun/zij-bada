@@ -11,6 +11,8 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
 using namespace Osp::Locations;
+using namespace Osp::Locales;
+using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm(TimeAndPlace* pTimeAndPlace) {
@@ -62,15 +64,18 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pActionAttemptLabel -> SetText("Coordinates taken");
 		__pActionAttemptLabel -> RequestRedraw(true);
 		String locationStr;
-		locationStr.Format(21, L"%S \n%S",
+		locationStr.Format(22, L"%S\n%S",
 				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
 				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
 		__pGpsProviderStatusLabel->SetText(locationStr.GetPointer());
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		locProvider -> CancelLocationUpdates();
+		SetTimeAndPlace(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
+		//parent->SendUserEvent(1, args);
+		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 	} else {
 		attemptsCounter++;
-		Osp::Base::String str("Attempt #");
+		Osp::Base::String str("555Attempt #");
 		str.Append(attemptsCounter);
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
@@ -112,17 +117,17 @@ LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPr
 			- Math::Floor(((latAbs/1000000)
 			- Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
 	String* result = new String();
-	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
+	result->Format(11, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
 	return result;
 }
 
 void
-LocationForm::SetTimeAndPlace(float longitude, float latitude, ) {
+LocationForm::SetTimeAndPlace(float longitude, float latitude, DateTime* currTime) {
 	timeAndPlace -> SetLongitude(longitude);
 	timeAndPlace -> SetLatitude(latitude);
 	TimeZone timeZone(60, L"Europe/London");
-	DateTime* currTime = new DateTime();
 	SystemTime::GetCurrentTime(*currTime);
+	Calendar* calendar;
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
 	calendar->SetTime(*currTime);
 	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;

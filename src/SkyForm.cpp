@@ -25,7 +25,7 @@ SkyForm::~SkyForm(void)
 bool
 SkyForm::Initialize()
 {
-	Construct(L"IDF_FORM1");
+	Construct(L"SKY_FORM");
 	return true;
 }
 
@@ -74,10 +74,10 @@ SkyForm::OnInitializing(void)
 	__pConstForm = new ConstellationForm(this);
 	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
 	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
-//	__pConstForm -> Construct(L"CONSTELLATIONS_FORM");
 
-	Control* control = GetControl(L"IDF_FORM1");
+	Control* control = GetControl(L"SKY_FORM");
 	sky = new Sky(control->GetCanvasN());
+	AppLog("B");
 	locProvider.Construct(LOC_METHOD_HYBRID);
 	locProvider.RequestLocationUpdates(*this, 5, true);
 

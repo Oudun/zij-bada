@@ -17,15 +17,12 @@
 class Zij : public Osp::App::Application {
 
 	public:
-		static Osp::App::Application* CreateInstance(void);
-
-	public:
 		Zij();
 		~Zij();
-
-	public:
+		static Osp::App::Application* CreateInstance(void);
 		bool OnAppInitializing(Osp::App::AppRegistry& appRegistry);
 		bool OnAppTerminating(Osp::App::AppRegistry& appRegistry, bool forcedTermination = false);
+		virtual void OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 	private:
 		TimeAndPlace* timeAndPlace;
