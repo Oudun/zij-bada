@@ -15,6 +15,8 @@ public:
 	SkyFactory();
 	virtual ~SkyFactory();
 	static SkyIterator* getStars(float magnitude);
+	static SkyIterator* getStars();
+
 };
 
 #endif /* SKYFACTORY_H_ */

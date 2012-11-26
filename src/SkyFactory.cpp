@@ -18,11 +18,16 @@ SkyFactory::~SkyFactory() {
 }
 
 SkyIterator*
-SkyFactory::getStars(float magnitude)
-{
+SkyFactory::getStars(float magnitude) {
 	AppLog("Getting stars with magnitude < %f", magnitude);
 	SkyDbIterator* iterator = new SkyDbIterator(magnitude);
 	return iterator;
 }
+
+SkyIterator*
+SkyFactory::getStars() {
+	return getStars(7);
+}
+
 
 

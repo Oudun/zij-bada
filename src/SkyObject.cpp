@@ -59,13 +59,22 @@ SkyObject::getMagnitude(void) {
 	return magnitude;
 }
 
-void SkyObject::setDED(float DED) {
+void
+SkyObject::setDED(float DED) {
     this->DED = DED;
 }
 
-void SkyObject::setRAH(float RAH) {
+void
+SkyObject::setRAH(float RAH) {
     this->RAH = RAH;
 }
 
+void
+SkyObject::Print(void) {
+	if (name==null) {
+		AppLog("NAME IS NULL");
+	}
+	AppLog("Object name=%S, magnitude=%f, ra=%f, de=%f, north=%d", name.GetPointer(), magnitude, RAH, DED);
+}
 
 

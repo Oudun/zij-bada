@@ -9,6 +9,8 @@
 #include "TimeAndPlace.h"
 #include "LocationForm.h"
 #include "SkyForm.h"
+#include "SkyBuilderForm.h"
+#include "SkyBuilder.h"
 
 /**
  * [Test] application must inherit from Application class
@@ -27,6 +29,7 @@ class Zij : public Osp::App::Application {
 	private:
 		TimeAndPlace* timeAndPlace;
 		LocationForm* locationForm;
+		SkyBuilderForm* skyBuilderForm;
 		SkyForm* skyForm;
 
 };
