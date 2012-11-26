@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Application>
-    <Entry>zij</Entry>
+    <Entry>StarGuide</Entry>
     <Name>
-        <English>Zij</English>
-        <eng-GB>Zij</eng-GB>
+        <English>StarGuide</English>
+        <eng-GB>StarGuide</eng-GB>
     </Name>
     <Vendor/>
     <Description/>
     <Icons>
-        <MainMenu>zij_type4.png<Type1>zij_type4.png</Type1>
-            <Type2/>
-        </MainMenu>
+        <MainMenu>Icon.png</MainMenu>
         <Setting/>
         <Ticker/>
         <QuickPanel/>
-        <LaunchImage>Splash_type4.png<Type1>Splash_type4.png</Type1>
-            <Type2/>
-        </LaunchImage>
+        <LaunchImage>Splash.png</LaunchImage>
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>
