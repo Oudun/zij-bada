@@ -13,16 +13,16 @@ class TimeAndPlace {
 	public:
 		TimeAndPlace();
 		virtual ~TimeAndPlace();
-		public void SetLongitude(float longitude);
-		public void SetLatitude(float latitude);
-		public void SetSiderialTime(float siderialTime);
-		public float GetLongitude(void);
-		public float GetLatitude(void);
-		public float GetSiderialTime(void);
+		void SetLongitude(float longitude);
+		void SetLatitude(float latitude);
+		void SetSiderialTime(float siderialTime);
+		float GetLongitude(void);
+		float GetLatitude(void);
+		float GetSiderialTime(void);
 
 	private:
-		float rightAccentation;
-		float declination;
+		float longitude;
+		float latitude;
 		float siderialTime;
 
 };
