@@ -11,11 +11,12 @@
 #include <FBase.h>
 #include <FUi.h>
 #include "SkyCanvas.h"
+#include "Projector.h"
 
 class SkyBuilder : public Osp::Base::Runtime::Thread {
 
 	public:
-		SkyBuilder(SkyCanvas* skyCanvas);
+		SkyBuilder(TimeAndPlace* timeAndPlace, SkyCanvas* skyCanvas);
 		virtual ~SkyBuilder();
 //		void SetParent(Osp::Ui::Controls::Form* form);
 		Object* Run(void);
@@ -27,6 +28,8 @@ class SkyBuilder : public Osp::Base::Runtime::Thread {
 
 	private:
 		SkyCanvas* skyCanvas;
+		TimeAndPlace* timeAndPlace;
+		Projector* projector;
 
 };
 

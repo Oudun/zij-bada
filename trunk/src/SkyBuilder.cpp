@@ -12,8 +12,10 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;
 
-SkyBuilder::SkyBuilder(SkyCanvas* aSkyCanvas) {
+SkyBuilder::SkyBuilder(TimeAndPlace* aTimeAndPlace, SkyCanvas* aSkyCanvas) {
 	skyCanvas = aSkyCanvas;
+	timeAndPlace = aTimeAndPlace;
+	projector = new Projector(aTimeAndPlace);
 }
 
 SkyBuilder::~SkyBuilder() {
@@ -31,9 +33,8 @@ SkyBuilder::Run() {
 	int counter = 0;
 	while (skyIterator -> hasNext()) {
 		SkyObject* skyObject = skyIterator -> getNext();
-		skyObject -> Draw(skyCanvas);
+		skyObject -> Draw(skyCanvas, projector);
 		counter++;
-		skyObject -> Print();
 		AppLog("Setting Progress value %d", counter);
 		if (counter%100 == 0) {
 			args = new ArrayList();
