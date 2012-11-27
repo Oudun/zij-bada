@@ -14,8 +14,8 @@ using namespace Osp::Ui::Controls;
 using namespace Osp::Locations;
 using namespace Osp::Io;
 
-SkyForm::SkyForm(void)
-{
+SkyForm::SkyForm(SkyCanvas* aSkyCanvas) {
+	skyCanvas = aSkyCanvas;
 }
 
 SkyForm::~SkyForm(void)
@@ -76,7 +76,7 @@ SkyForm::OnInitializing(void)
 	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
 
 	Control* control = GetControl(L"SKY_FORM");
-	sky = new Sky(control->GetCanvasN());
+	sky = new Sky(control->GetCanvasN(), skyCanvas);
 	AppLog("B");
 	locProvider.Construct(LOC_METHOD_HYBRID);
 	locProvider.RequestLocationUpdates(*this, 5, true);

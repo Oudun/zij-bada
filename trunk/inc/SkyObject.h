@@ -18,6 +18,8 @@
 #include <FLocales.h>
 #include <FIo.h>
 
+#include "SkyCanvas.h"
+
 class SkyObject
 {
 
@@ -53,6 +55,7 @@ public:
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
 	void Print(void);
+	void Draw(SkyCanvas* skyCanvas);
 
 private:
     Osp::Base::String name;

@@ -33,12 +33,13 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 
 	//Create context;
 	timeAndPlace = new TimeAndPlace();
+	skyCanvas = new SkyCanvas();
 
 	// Create forms
 	locationForm = new LocationForm(timeAndPlace);
 	locationForm -> Initialize();
 
-	skyBuilderForm = new SkyBuilderForm(timeAndPlace);
+	skyBuilderForm = new SkyBuilderForm(timeAndPlace, skyCanvas);
 	skyBuilderForm -> Initialize();
 
 //	skyForm = new SkyForm();
@@ -105,7 +106,7 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(1000);
-			skyForm = new SkyForm();
+			skyForm = new SkyForm(skyCanvas);
 			skyForm -> Initialize();
 			pFrame -> AddControl(*skyForm);
 			pFrame -> SetCurrentForm(*skyForm);

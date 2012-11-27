@@ -7,6 +7,7 @@
 
 #include "TimeAndPlace.h"
 #include "SkyBuilder.h"
+#include "SkyCanvas.h"
 
 class SkyBuilderForm :
 	public Osp::Ui::Controls::Form
@@ -14,7 +15,7 @@ class SkyBuilderForm :
 
 // Construction
 public:
-	SkyBuilderForm(TimeAndPlace* timeAndPlace);
+	SkyBuilderForm(TimeAndPlace* timeAndPlace, SkyCanvas* skyCanvas);
 	virtual ~SkyBuilderForm(void);
 	bool Initialize();
 	result OnInitializing(void);
@@ -27,6 +28,7 @@ private:
 	TimeAndPlace* timeAndPlace;
 	Osp::Ui::Controls::Progress* __pStarsProgress;
 	SkyBuilder* skyBuilder;
+	SkyCanvas* skyCanvas;
 
 };
 

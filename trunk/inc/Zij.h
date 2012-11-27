@@ -11,6 +11,7 @@
 #include "SkyForm.h"
 #include "SkyBuilderForm.h"
 #include "SkyBuilder.h"
+#include "SkyCanvas.h"
 
 /**
  * [Test] application must inherit from Application class
@@ -31,7 +32,7 @@ class Zij : public Osp::App::Application {
 		LocationForm* locationForm;
 		SkyBuilderForm* skyBuilderForm;
 		SkyForm* skyForm;
-
+		SkyCanvas* skyCanvas;
 };
 
 #endif

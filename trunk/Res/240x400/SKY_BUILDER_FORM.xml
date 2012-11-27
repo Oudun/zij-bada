@@ -16,7 +16,7 @@
         <layout height="36" mode="Landscape" width="301" x="50" y="4"/>
     </Label>
     <Progress id="IDC_PROGRESS1" parent="SKY_BUILDER_FORM">
-        <property BGColor="" bShowValueState="TRUE" barColor="" leftText="" max="100" min="0" rightText="" value="50"/>
+        <property BGColor="" bShowValueState="TRUE" barColor="" leftText="" max="100" min="0" rightText="" value="0"/>
         <layout height="21" mode="Portrait" style="PROGRESS_STYLE_NONE" width="181" x="30" y="137"/>
         <layout height="12" mode="Landscape" style="PROGRESS_STYLE_NONE" width="301" x="50" y="52"/>
     </Progress>

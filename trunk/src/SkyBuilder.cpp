@@ -12,8 +12,8 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;
 
-SkyBuilder::SkyBuilder() {
-
+SkyBuilder::SkyBuilder(SkyCanvas* aSkyCanvas) {
+	skyCanvas = aSkyCanvas;
 }
 
 SkyBuilder::~SkyBuilder() {
@@ -22,7 +22,7 @@ SkyBuilder::~SkyBuilder() {
 
 Osp::Base::Object*
 SkyBuilder::Run() {
-	SkyIterator* skyIterator = SkyFactory::getStars();
+	SkyIterator* skyIterator = SkyFactory::getStars(2);
 	ArrayList* args = new ArrayList();
 	args -> Add(*(new Integer(0)));
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
@@ -31,6 +31,7 @@ SkyBuilder::Run() {
 	int counter = 0;
 	while (skyIterator -> hasNext()) {
 		SkyObject* skyObject = skyIterator -> getNext();
+		skyObject -> Draw(skyCanvas);
 		counter++;
 		skyObject -> Print();
 		AppLog("Setting Progress value %d", counter);
