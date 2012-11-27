@@ -22,6 +22,7 @@ class SkyBuilder : public Osp::Base::Runtime::Thread {
 	public:
 		static const int BUILD_PROGRESS_RANGE_SET = 20;
 		static const int BUILD_PROGRESS_SET = 21;
+		static const int BUILD_PROGRESS_DONE = 22;
 
 };
 

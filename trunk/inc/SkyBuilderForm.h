@@ -21,6 +21,7 @@ public:
 	result OnTerminating(void);
 	void SetRange(int min, int max);
 	void SetProgress(int value);
+	void Start(void);
 
 private:
 	TimeAndPlace* timeAndPlace;

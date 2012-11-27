@@ -81,20 +81,36 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	switch (requestId) {
 		case LocationForm::LOCATION_SET: {
+			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(3000);
 			pFrame->SetCurrentForm(*skyBuilderForm);
 			skyBuilderForm -> RequestRedraw(true);
+			skyBuilderForm -> Start();
 			break;
 		}
 		case SkyBuilder::BUILD_PROGRESS_RANGE_SET: {
-			Integer* arg1 = (Integer*)(pArgs -> GetAt(1));
-			Integer* arg2 = (Integer*)(pArgs -> GetAt(2));
+			Integer* arg1 = (Integer*)(pArgs -> GetAt(0));
+			Integer* arg2 = (Integer*)(pArgs -> GetAt(1));
 			skyBuilderForm -> SetRange(arg1 -> ToInt(), arg2 -> ToInt());
 			delete pArgs;
+			break;
 		}
 		case SkyBuilder::BUILD_PROGRESS_SET: {
-			Integer* arg = (Integer*)(pArgs -> GetAt(1));
+			Integer* arg = (Integer*)(pArgs -> GetAt(0));
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
+			break;
+		}
+		case SkyBuilder::BUILD_PROGRESS_DONE: {
+			Integer* arg = (Integer*)(pArgs -> GetAt(0));
+			skyBuilderForm -> SetProgress(arg -> ToInt());
+			delete pArgs;
+			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(1000);
+			skyForm = new SkyForm();
+			skyForm -> Initialize();
+			pFrame -> AddControl(*skyForm);
+			pFrame -> SetCurrentForm(*skyForm);
+			skyForm -> RequestRedraw(true);
+			break;
 		}
 	}
 }

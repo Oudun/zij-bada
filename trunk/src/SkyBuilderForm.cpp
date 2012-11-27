@@ -26,9 +26,14 @@ result
 SkyBuilderForm::OnInitializing(void) {
 	result r = E_SUCCESS;
 	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
-	r = skyBuilder -> Start();
+	__pStarsProgress -> SetBarColor(Osp::Graphics::Color::COLOR_VIOLET);
 	AppLog("");
 	return r;
+}
+
+void
+SkyBuilderForm::Start(void) {
+	skyBuilder -> Start();
 }
 
 result
@@ -40,11 +45,18 @@ SkyBuilderForm::OnTerminating(void) {
 void
 SkyBuilderForm::SetRange(int min, int max) {
 	__pStarsProgress -> SetRange(min, max);
+	__pStarsProgress -> SetValue(min);
+	__pStarsProgress -> RequestRedraw(true);
 }
 
 void
 SkyBuilderForm::SetProgress(int value) {
+	int max;
+	int min;
+	__pStarsProgress -> GetRange(min, max);
+	AppLog("Real min = %d, max=%d", min, max);
 	__pStarsProgress -> SetValue(value);
+	__pStarsProgress -> RequestRedraw(true);
 }
 
 

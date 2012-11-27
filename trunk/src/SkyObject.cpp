@@ -74,7 +74,7 @@ SkyObject::Print(void) {
 	if (name==null) {
 		AppLog("NAME IS NULL");
 	}
-	AppLog("Object name=%S, magnitude=%f, ra=%f, de=%f, north=%d", name.GetPointer(), magnitude, RAH, DED);
+	AppLog("Object name=%S, magnitude=%f, ra=%f, de=%f, north=%d", name.GetPointer(), magnitude, RAH, DED, sign);
 }
 
 
