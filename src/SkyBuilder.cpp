@@ -35,11 +35,14 @@ SkyBuilder::Run() {
 		skyObject -> Print();
 		AppLog("Setting Progress value %d", counter);
 		if (counter%100 == 0) {
-			args -> RemoveAll(false);
+			args = new ArrayList();
 			args -> Add(*(new Integer(counter)));
 			Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_SET, args);
 		}
 	}
+	args = new ArrayList();
+	args -> Add(*(new Integer(skyIterator -> GetSize())));
+	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_DONE, args);
 	return null;
 }
 

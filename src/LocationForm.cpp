@@ -75,7 +75,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 	} else {
 		attemptsCounter++;
-		Osp::Base::String str("555Attempt #");
+		Osp::Base::String str("Attempt #");
 		str.Append(attemptsCounter);
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
