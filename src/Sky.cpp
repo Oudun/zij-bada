@@ -143,9 +143,6 @@ Sky::draw(void)
 		AppLog("Canvas for zoom %d is buffered", zoom);
 		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();			//Getting size of current canvas
 		Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
-		bufferedCanvas -> Show();
-		bufferedCanvas -> FillEllipse(Color::COLOR_YELLOW, Rectangle(50, 50, 16, 16));
-		bufferedCanvas -> Show();
 		Osp::Graphics::Point point(0, 0);									//Setting start point as top left
 		canvas->Copy(point, *bufferedCanvas, rect);							//Copy buffered canvas into current
 	    canvas->Show();

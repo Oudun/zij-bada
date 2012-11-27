@@ -22,7 +22,7 @@ SkyBuilder::~SkyBuilder() {
 
 Osp::Base::Object*
 SkyBuilder::Run() {
-	SkyIterator* skyIterator = SkyFactory::getStars(2);
+	SkyIterator* skyIterator = SkyFactory::getStars();
 	ArrayList* args = new ArrayList();
 	args -> Add(*(new Integer(0)));
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
