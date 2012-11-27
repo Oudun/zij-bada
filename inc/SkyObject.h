@@ -19,6 +19,7 @@
 #include <FIo.h>
 
 #include "SkyCanvas.h"
+#include "Projector.h"
 
 class SkyObject
 {
@@ -55,7 +56,10 @@ public:
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
 	void Print(void);
-	void Draw(SkyCanvas* skyCanvas);
+	void Draw(SkyCanvas* skyCanvas, Projector* projector);
+
+private:
+	void DrawCanvas(Osp::Graphics::Canvas* canvas, Projector* projector);
 
 private:
     Osp::Base::String name;
