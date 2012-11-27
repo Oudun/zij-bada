@@ -11,16 +11,15 @@
 #include <FLocations.h>
 #include <FLocales.h>
 #include "SkyObject.h"
+#include "SkyCanvas.h"
 
 class Sky {
 public:
 	Sky();
-	Sky(Osp::Graphics::Canvas* canvas);
+	Sky(Osp::Graphics::Canvas* canvas, SkyCanvas* skyCanvas);
 	void paintBorders(void);
 	virtual ~Sky();
 	Osp::Graphics::Canvas* getCanvas(void);
-	Osp::Graphics::Canvas* getBufferedCanvas(int zoom);
-	void setBufferedCanvas(Osp::Graphics::Canvas* canvas, int zoom);
     int getRadius() const;
     int getZenithX() const;
     int getZenithY() const;
@@ -56,7 +55,7 @@ private:
 	bool busy;
 	Osp::Graphics::Bitmap* bitmap;
 	Osp::Base::Collection::IList* visibleConst;
-	Osp::Base::Collection::IList* bufferedCanvases;
+	SkyCanvas* skyCanvas;
 };
 
 #endif /* SKY_H_ */

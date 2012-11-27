@@ -2,6 +2,7 @@
 #define _FORM1_H_
 
 #include "Sky.h"
+#include "SkyCanvas.h"
 #include "ConstellationForm.h"
 
 class SkyForm :
@@ -13,7 +14,7 @@ class SkyForm :
 
 // Construction
 public:
-	SkyForm(void);
+	SkyForm(SkyCanvas* skyCanvas);
 	virtual ~SkyForm(void);
 	bool Initialize(void);
 
@@ -53,6 +54,7 @@ private:
 	float GetLocalSiderialTime(float aLon);
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 	void updateConstList(Osp::Base::Collection::IList* list);
+	SkyCanvas* skyCanvas;
 };
 
 #endif	//_FORM1_H_

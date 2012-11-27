@@ -10,11 +10,12 @@
 
 #include <FBase.h>
 #include <FUi.h>
+#include "SkyCanvas.h"
 
 class SkyBuilder : public Osp::Base::Runtime::Thread {
 
 	public:
-		SkyBuilder();
+		SkyBuilder(SkyCanvas* skyCanvas);
 		virtual ~SkyBuilder();
 //		void SetParent(Osp::Ui::Controls::Form* form);
 		Object* Run(void);
@@ -23,6 +24,9 @@ class SkyBuilder : public Osp::Base::Runtime::Thread {
 		static const int BUILD_PROGRESS_RANGE_SET = 20;
 		static const int BUILD_PROGRESS_SET = 21;
 		static const int BUILD_PROGRESS_DONE = 22;
+
+	private:
+		SkyCanvas* skyCanvas;
 
 };
 

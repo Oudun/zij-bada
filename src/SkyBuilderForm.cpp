@@ -6,9 +6,9 @@ using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 
 
-SkyBuilderForm::SkyBuilderForm(TimeAndPlace* pTimeAndPlace) {
+SkyBuilderForm::SkyBuilderForm(TimeAndPlace* pTimeAndPlace, SkyCanvas* skyCanvas) {
 	timeAndPlace = pTimeAndPlace;
-	skyBuilder = new SkyBuilder();
+	skyBuilder = new SkyBuilder(skyCanvas);
 	skyBuilder -> Construct();
 }
 

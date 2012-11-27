@@ -77,4 +77,29 @@ SkyObject::Print(void) {
 	AppLog("Object name=%S, magnitude=%f, ra=%f, de=%f, north=%d", name.GetPointer(), magnitude, RAH, DED, sign);
 }
 
+void
+SkyObject::Draw(SkyCanvas* skyCanvas) {
+	result r = E_SUCCESS;
+	AppLog("A");
+	Canvas* canvas1 = skyCanvas -> GetBufferedCanvas(1);
+	AppLog("B");
+	if (canvas1 == null) {
+		AppLog("C");
+		canvas1 = new Canvas();
+		AppLog("D");
+		r = canvas1 -> Construct(Rectangle(0, 0, 240, 400));
+		AppLog("Canvas construction result is %S", GetErrorMessage(r));
+		canvas1 -> FillEllipse(Color::COLOR_GREEN, Rectangle(150, 150, 16, 16));
+		canvas1 -> Show();
+		AppLog("E");
+		skyCanvas -> SetBufferedCanvas(canvas1, 1);
+		AppLog("F");
+	}
+	AppLog("G");
+	canvas1 -> FillEllipse(Color::COLOR_MAGENTA, Rectangle(100, 100, 16, 16));
+	canvas1 -> Show();
+	AppLog("H");
+}
+
+
 

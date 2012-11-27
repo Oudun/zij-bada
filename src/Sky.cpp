@@ -28,7 +28,8 @@ Sky::Sky() {
 
 }
 
-Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
+Sky::Sky(Osp::Graphics::Canvas* aCanvas, SkyCanvas* aSkyCanvas) {
+	skyCanvas = aSkyCanvas;
 	canvas = aCanvas;
 	bitmap = new Bitmap();
 	Osp::Graphics::Rectangle rect1 = canvas->GetBounds();
@@ -40,7 +41,6 @@ Sky::Sky(Osp::Graphics::Canvas* aCanvas) {
 	zenithX = rect1.width/2; //rect1.x + margin + radius;
 	zenithY = rect1.height/2; //rect1.y + 2*margin + radius;
 	visibleConst = new ArrayList();
-	bufferedCanvases = new ArrayList();
 }
 
 Sky::~Sky() {
@@ -139,14 +139,19 @@ Sky::draw(void)
 	AppLog(">>Sky::draw with zoom %d", zoom);
 	busy = true;
 	canvas->Clear();
-	if (getBufferedCanvas(zoom)!=null) {
+	if (skyCanvas -> GetBufferedCanvas(zoom)) {
+		AppLog("Canvas for zoom %d is buffered", zoom);
 		Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();			//Getting size of current canvas
-		Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
+		Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
+		bufferedCanvas -> Show();
+		bufferedCanvas -> FillEllipse(Color::COLOR_YELLOW, Rectangle(50, 50, 16, 16));
+		bufferedCanvas -> Show();
 		Osp::Graphics::Point point(0, 0);									//Setting start point as top left
 		canvas->Copy(point, *bufferedCanvas, rect);							//Copy buffered canvas into current
 	    canvas->Show();
 	    busy = false;
 	} else {
+		AppLog("Canvas for zoom %d is not buffered", zoom);
 		paintBorders();
 		SkyIterator* stars;
 		stars = SkyFactory::getStars(7);
@@ -183,18 +188,19 @@ Sky::draw(SkyObject* skyObject) {
     int width = getCanvas()->GetBounds().width;
     int height = getCanvas()->GetBounds().height;
     int zoom = getZoom();
-    Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
+//    Osp::Graphics::Canvas* bufferedCanvas = getBufferedCanvas(zoom);
+    Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);
 
     if (bufferedCanvas == null) {
     	bufferedCanvas = new Canvas();
     	Osp::Graphics::Rectangle* rect = new Osp::Graphics::Rectangle();
     	rect->SetBounds(0, 0 , width, height);
     	bufferedCanvas->Construct(*rect);
-    	setBufferedCanvas(bufferedCanvas, zoom);
+//    	setBufferedCanvas(bufferedCanvas, zoom);
+    	skyCanvas -> SetBufferedCanvas(bufferedCanvas, zoom);
     }
-    int addition = zoom == 1 ? 0 : (zoom == 2) ? 2 : 4;
     Font pFont;
-	pFont.Construct(FONT_STYLE_PLAIN, 12);
+	pFont.Construct(FONT_STYLE_PLAIN, 10);
     bufferedCanvas->SetFont(pFont);
     bufferedCanvas->SetForegroundColor(Color::COLOR_GREY);
 
@@ -227,20 +233,17 @@ Sky::draw(SkyObject* skyObject) {
     		AppLog("!!!Constellation %S is added to list %d", skyObject->getName().GetPointer(), skyObject->getName().GetPointer(), getConst()->GetCount());
     		getConst()->Add(*constName);
     	}
-//    	if (skyObject->getMagnitude() < 1) {
-//    		bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,3+addition,3+addition));
-//			bufferedCanvas->DrawText(Point(left-8, top+8), skyObject->getName());
-//		} else if (skyObject->getMagnitude() < 2) {
-//			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,2+addition,2+addition));
-//		} else if (skyObject->getMagnitude() < 3) {
-//			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,1+addition,1+addition));
-//		} else if (skyObject->getMagnitude() < 4) {
-//			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,addition,addition));
-//		} else {
-//			bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,-1+addition,-1+addition));
-//		}
     	int diameter = (int)((7 - skyObject->getMagnitude())/2);
-    	bufferedCanvas->FillEllipse(starColor, Rectangle(left,top,diameter*diameter,diameter*diameter));
+    	if (diameter*diameter < 7) {
+    	bufferedCanvas->FillEllipse(starColor,
+    			Rectangle(left, top, diameter*diameter, diameter*diameter));
+    	} else {
+    		bufferedCanvas->FillEllipse(starColor,
+    				Rectangle((int)(left-(diameter/2)), (int)(top-(diameter/2)), diameter*diameter, diameter*diameter));
+    		bufferedCanvas->DrawText(Point((int)(left-8-(diameter/2)), (int)(top+8-(diameter/2))), skyObject->getName());
+    	}
+
+
     }
     Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();
     getCanvas()->Copy(rect, *bufferedCanvas, rect);
@@ -284,15 +287,17 @@ Sky::canZoomOut() {
 	return zoom > min_zoom;
 }
 
-Osp::Graphics::Canvas*
-Sky::getBufferedCanvas(int zoom) {
-	return (Canvas*) bufferedCanvases -> GetAt(zoom);
-}
-
-void
-Sky::setBufferedCanvas(Osp::Graphics::Canvas* aCanvas, int zoom) {
-	bufferedCanvases->Add(*aCanvas);
-}
+//Osp::Graphics::Canvas*
+//Sky::getBufferedCanvas(int zoom) {
+////	return (Canvas*) bufferedCanvases -> GetAt(zoom);
+//	return skyCanvas -> getBufferedCanvas(zoom);
+//}
+//
+//void
+//Sky::setBufferedCanvas(Osp::Graphics::Canvas* aCanvas, int zoom) {
+////	bufferedCanvases->Add(*aCanvas);
+//	return skyCanvas -> setBufferedCanvas(aCanvas, zoom);
+//}
 
 Osp::Base::Collection::IList*
 Sky::getConst(void) {
