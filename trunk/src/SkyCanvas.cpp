@@ -17,8 +17,6 @@ SkyCanvas::SkyCanvas() {
 
 	Canvas* canvas1 = new Canvas();
 	canvas1 -> Construct(Rectangle(0, 0, 240, 400));
-	canvas1 -> FillEllipse(Color::COLOR_CYAN, Rectangle(50, 150, 16, 16));
-	canvas1 -> Show();
 	bufferedCanvases -> Add(1, canvas1);
 
 	Canvas* canvas2 = new Canvas();
@@ -28,9 +26,6 @@ SkyCanvas::SkyCanvas() {
 	Canvas* canvas4 = new Canvas();
 	canvas4 -> Construct(Rectangle(0, 0, 960, 1600));
 	bufferedCanvases -> Add(4, canvas4);
-
-	Canvas* canvas = GetBufferedCanvas(1);
-	canvas -> FillEllipse(Color::COLOR_VIOLET, Rectangle(150, 50, 16, 16));
 
 }
 
