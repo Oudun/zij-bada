@@ -14,7 +14,7 @@
 class Projector {
 
 	public:
-		Projector(TimeAndPlace* timeAndPlace);
+		Projector();
 		virtual ~Projector();
 		Osp::Graphics::Point* GetProjection(
 				float accentation,
@@ -23,8 +23,6 @@ class Projector {
 				int width,
 				int height);
 
-	private:
-		TimeAndPlace* timeAndPlace;
 };
 
 #endif /* PROJECTOR_H_ */

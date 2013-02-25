@@ -8,12 +8,11 @@
 #include "TimeAndPlace.h"
 
 TimeAndPlace::TimeAndPlace() {
-	// TODO Auto-generated constructor stub
-
+	AppLog("TimeAndPlace constructed");
 }
 
 TimeAndPlace::~TimeAndPlace() {
-	// TODO Auto-generated destructor stub
+	AppLog("TimeAndPlace destroyed");
 }
 
 void
