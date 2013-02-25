@@ -32,14 +32,14 @@ bool
 Zij::OnAppInitializing(AppRegistry& appRegistry) {
 
 	//Create context;
-	timeAndPlace = new TimeAndPlace();
+	//timeAndPlace = new TimeAndPlace();
 	skyCanvas = new SkyCanvas();
 
 	// Create forms
-	locationForm = new LocationForm(timeAndPlace);
+	locationForm = new LocationForm();
 	locationForm -> Initialize();
 
-	skyBuilderForm = new SkyBuilderForm(timeAndPlace, skyCanvas);
+	skyBuilderForm = new SkyBuilderForm(skyCanvas);
 	skyBuilderForm -> Initialize();
 
 //	skyForm = new SkyForm();

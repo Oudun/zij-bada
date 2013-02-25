@@ -10,8 +10,7 @@
 using namespace Osp::Base::Utility;
 using namespace Osp::Graphics;
 
-Projector::Projector(TimeAndPlace* aTimeAndPlace) {
-	timeAndPlace = aTimeAndPlace;
+Projector::Projector() {
 }
 
 Projector::~Projector() {
@@ -20,14 +19,14 @@ Projector::~Projector() {
 
 Osp::Graphics::Point*
 Projector::GetProjection(float accentation, float declination, int sign, int width, int height) {
-	float lstDeg = 15*(timeAndPlace -> GetSiderialTime());
+	float lstDeg = 15*(TimeAndPlace::GetSiderialTime());
 	float raDeg = accentation * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
 	float ha = lstDeg > raDeg ? lstDeg - raDeg : 360 + lstDeg - raDeg;
 	double radInDegree = 0.0174532925;
 	float decSigned = sign ? declination : -declination;
     double sinAlt =
-        Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(timeAndPlace -> GetLatitude()))
-        +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(timeAndPlace -> GetLatitude()))*Math::Cos(radInDegree*(ha));
+        Math::Sin(radInDegree*decSigned)*Math::Sin(radInDegree*(TimeAndPlace::GetLatitude()))
+        +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(TimeAndPlace::GetLatitude()))*Math::Cos(radInDegree*(ha));
     if (sinAlt < 0) {
     	return null;
     }
@@ -36,8 +35,8 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
     double sinAz =
         -(Math::Sin(radInDegree*(ha))*Math::Cos(radInDegree*(decSigned)))/cosAlt;
     double cosAz =
-        (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(timeAndPlace -> GetLatitude()))*sinAlt)/
-            (Math::Cos(radInDegree*(timeAndPlace -> GetLatitude()))*cosAlt);
+        (Math::Sin(radInDegree*decSigned)-Math::Sin(radInDegree*(TimeAndPlace::GetLatitude()))*sinAlt)/
+            (Math::Cos(radInDegree*(TimeAndPlace::GetLatitude()))*cosAlt);
     double R = Math::Floor(width/2);
     double r = R * cosAlt;
     int top  = (int)((Math::Floor(height/2)) - r * cosAz);

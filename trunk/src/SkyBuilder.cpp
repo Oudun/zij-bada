@@ -12,10 +12,9 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;
 
-SkyBuilder::SkyBuilder(TimeAndPlace* aTimeAndPlace, SkyCanvas* aSkyCanvas) {
+SkyBuilder::SkyBuilder(SkyCanvas* aSkyCanvas) {
 	skyCanvas = aSkyCanvas;
-	timeAndPlace = aTimeAndPlace;
-	projector = new Projector(aTimeAndPlace);
+	projector = new Projector();
 }
 
 SkyBuilder::~SkyBuilder() {

@@ -8,23 +8,27 @@
 #ifndef TIMEANDPLACE_H_
 #define TIMEANDPLACE_H_
 
+#include <FBase.h>
+
 class TimeAndPlace {
 
 	public:
 		TimeAndPlace();
 		virtual ~TimeAndPlace();
-		void SetLongitude(float longitude);
-		void SetLatitude(float latitude);
-		void SetSiderialTime(float siderialTime);
-		float GetLongitude(void);
-		float GetLatitude(void);
-		float GetSiderialTime(void);
+		static void SetLongitude(float longitude);
+		static void SetLatitude(float latitude);
+		static void SetSiderialTime(float siderialTime);
+		static float GetLongitude(void);
+		static float GetLatitude(void);
+		static float GetSiderialTime(void);
 
 	private:
-		float longitude;
-		float latitude;
-		float siderialTime;
 
 };
+
+static float longitude = 0.0F;
+static float latitude = 0.0F;
+static float siderialTime = 0.0F;
+
 
 #endif /* TIMEANDPLACE_H_ */

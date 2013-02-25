@@ -15,7 +15,7 @@ class SkyBuilderForm :
 
 // Construction
 public:
-	SkyBuilderForm(TimeAndPlace* timeAndPlace, SkyCanvas* skyCanvas);
+	SkyBuilderForm(SkyCanvas* skyCanvas);
 	virtual ~SkyBuilderForm(void);
 	bool Initialize();
 	result OnInitializing(void);
@@ -25,7 +25,6 @@ public:
 	void Start(void);
 
 private:
-	TimeAndPlace* timeAndPlace;
 	Osp::Ui::Controls::Progress* __pStarsProgress;
 	SkyBuilder* skyBuilder;
 	SkyCanvas* skyCanvas;

@@ -15,10 +15,9 @@ using namespace Osp::Locales;
 using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
-LocationForm::LocationForm(TimeAndPlace* pTimeAndPlace) {
+LocationForm::LocationForm() {
 	maxAttempts = 5;
 	attemptsCounter = 1;
-	timeAndPlace = pTimeAndPlace;
 	locProvider = new LocationProvider();
 	locProvider -> Construct(LOC_METHOD_HYBRID);
 	locProvider -> RequestLocationUpdates(*this, 5, true);
@@ -123,8 +122,11 @@ LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPr
 
 void
 LocationForm::SetTimeAndPlace(float longitude, float latitude, DateTime* currTime) {
-	timeAndPlace -> SetLongitude(longitude);
-	timeAndPlace -> SetLatitude(latitude);
+	AppLog("Trying to access TimeAndPlace");
+	TimeAndPlace::SetLongitude(longitude);
+	AppLog("Trying to access TimeAndPlace 1");
+	TimeAndPlace::SetLatitude(latitude);
+	AppLog("Trying to access TimeAndPlace 2");
 	TimeZone timeZone(60, L"Europe/London");
 	SystemTime::GetCurrentTime(*currTime);
 	Calendar* calendar;
@@ -139,5 +141,5 @@ LocationForm::SetTimeAndPlace(float longitude, float latitude, DateTime* currTim
 	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
 	int sltInt = (int)(slt/360);
 	float sltHrs = (slt-(360*sltInt))/15;
-	timeAndPlace -> SetSiderialTime (sltHrs);
+	TimeAndPlace::SetSiderialTime (sltHrs);
 }

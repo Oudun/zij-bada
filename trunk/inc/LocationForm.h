@@ -23,7 +23,7 @@ class LocationForm :
 	public Osp::Ui::IActionEventListener {
 
 	public:
-		LocationForm(TimeAndPlace* timeAndPlace);
+		LocationForm();
 		virtual ~LocationForm();
 		bool Initialize(void);
 
@@ -45,10 +45,11 @@ class LocationForm :
 		Osp::Ui::Controls::Label* __pActionAttemptLabel;
 		Osp::Ui::Controls::Label* __pGpsProviderStatusLabel;
 		Osp::Locations::LocationProvider* locProvider;
-		TimeAndPlace* timeAndPlace;
 		int maxAttempts;
 		int attemptsCounter;
 
 };
+
+
 
 #endif /* LOCATIONFORM_H_ */
