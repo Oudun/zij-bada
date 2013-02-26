@@ -8,7 +8,6 @@
 class SkyForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
-	public Osp::Locations::ILocationListener,
 	public Osp::Base::Runtime::IEventListener
 {
 
@@ -47,11 +46,9 @@ public:
 	virtual result OnTerminating(void);
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 	virtual void OnLocationUpdated(Osp::Locations::Location& location);
-	virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 private:
-	float GetLocalSiderialTime(float aLon);
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 	void updateConstList(Osp::Base::Collection::IList* list);
 	SkyCanvas* skyCanvas;

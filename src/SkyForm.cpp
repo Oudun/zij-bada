@@ -78,8 +78,6 @@ SkyForm::OnInitializing(void)
 	Control* control = GetControl(L"SKY_FORM");
 	sky = new Sky(control->GetCanvasN(), skyCanvas);
 	AppLog("B");
-	locProvider.Construct(LOC_METHOD_HYBRID);
-	locProvider.RequestLocationUpdates(*this, 5, true);
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
 	if (pButton1)
@@ -171,51 +169,20 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
 		__pLabelLocation->SetText(locationStr.GetPointer());
 		__pLabelLocation->Draw();
-		sky->setLatitude(coordinates->GetLatitude());
-		sky->setLongitude(coordinates->GetLongitude());
-		locProvider.CancelLocationUpdates();
+//		sky->setLatitude(coordinates->GetLatitude());
+//		sky->setLongitude(coordinates->GetLongitude());
+//		locProvider.CancelLocationUpdates();
 		sky->draw();
 	} else {
 		AppLog("#");
 	}
 }
 
-void
-SkyForm::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
-	AppLog("Location Provider state changed\n");
-	if (newState == LOC_PROVIDER_AVAILABLE) {
-		AppLog("The location provider is available");
-	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
-		AppLog("The location provider is out of service");
-	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
-		AppLog("The location provider is temporarily unavailable");
-	} else {
-		AppLog("State unknown");
-	}
-}
-
-float
-SkyForm::GetLocalSiderialTime(float longitude) {
-	TimeZone timeZone(60, L"Europe/London");
-	DateTime* currTime = new DateTime();
-	SystemTime::GetCurrentTime(*currTime);
-	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
-	calendar->SetTime(*currTime);
-	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;
-	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
-	float dayFract = (hrs + minHrs)/24.0;
-	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
-	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
-	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
-	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-	int sltInt = (int)(slt/360);
-	float sltHrs = (slt-(360*sltInt))/15;
-	return sltHrs;
-}
 
 // Converts from decimal format -12,34456789 to N12°34'56
 String*
 SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix) {
+	AppLog("Converting degrees to grad");
 	const char* prefix = angle < 0 ? negPrefix : posPrefix;
 	AppLog("orig: %f", angle);
 	float latAbs = angle * 1000000;
@@ -234,16 +201,5 @@ void
 SkyForm::updateConstList(IList* list) {
 	__pConstForm -> UpdateConstellationList(list);
 }
-
-void
-SkyForm::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
-	AppLog("OnUserEventReceivedN");
-	Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
-	frame -> SetCurrentForm(*this);
-	RequestRedraw(true);
-	Show();
-	sky->draw();
-}
-
 
 
