@@ -20,15 +20,15 @@ public:
 	void paintBorders(void);
 	virtual ~Sky();
 	Osp::Graphics::Canvas* getCanvas(void);
-    int getRadius() const;
-    int getZenithX() const;
-    int getZenithY() const;
-    void setRadius(int radius);
-    float getLatitude() const;
-    float getLongitude() const;
-    void setLatitude(float latitude);
-    void setLongitude(float longitude);
-    float getSiderialHours() const;
+//    int getRadius() const;
+//    int getZenithX() const;
+//    int getZenithY() const;
+//    void setRadius(int radius);
+//    float getLatitude() const;
+//    float getLongitude() const;
+//    void setLatitude(float latitude);
+//    void setLongitude(float longitude);
+//    float getSiderialHours() const;
     void draw();
     void zoomIn();
     void zoomOut();
@@ -36,10 +36,9 @@ public:
     bool canZoomOut();
     int getZoom() {return zoom;};
     Osp::Base::Collection::IList* getConst(void);
-    void draw(SkyObject* skyObject);
 
 private:
-    void setSiderialHours(float siderialHours);
+//    void setSiderialHours(float siderialHours);
     Osp::Graphics::Canvas* canvas;
 	static const int margin = 20;
 	static const int min_zoom = 1;

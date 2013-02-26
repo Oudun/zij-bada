@@ -49,7 +49,7 @@ bool
 SkyDbIterator::hasNext() {
 	result r = E_SUCCESS;
 	r = dataSet->MoveNext();
-	AppLog("Iteration result is %S", GetErrorMessage(r));
+//	AppLog("Iteration result is %S", GetErrorMessage(r));
 	return !IsFailed(r);
 }
 
