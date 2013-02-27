@@ -56,10 +56,10 @@ public:
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
 	void Print(void);
-	void Draw(SkyCanvas* skyCanvas, Projector* projector);
+	void Draw(SkyCanvas* skyCanvas);
 
 private:
-	void DrawCanvas(Osp::Graphics::Canvas* canvas, Projector* projector);
+	void DrawCanvas(Osp::Graphics::Canvas* canvas);
 
 private:
     Osp::Base::String name;

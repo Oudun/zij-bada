@@ -16,7 +16,7 @@ class Projector {
 	public:
 		Projector();
 		virtual ~Projector();
-		Osp::Graphics::Point* GetProjection(
+		static Osp::Graphics::Point* GetProjection(
 				float accentation,
 				float declination,
 				int sign,

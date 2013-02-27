@@ -78,40 +78,33 @@ SkyObject::Print(void) {
 }
 
 void
-SkyObject::Draw(SkyCanvas* skyCanvas, Projector* projector) {
+SkyObject::Draw(SkyCanvas* skyCanvas) {
 	Canvas* canvas;
 	canvas = skyCanvas -> GetBufferedCanvas(1);
-	DrawCanvas(canvas, projector);
+	DrawCanvas(canvas);
 	canvas = skyCanvas -> GetBufferedCanvas(2);
-	DrawCanvas(canvas, projector);
+	DrawCanvas(canvas);
 	canvas = skyCanvas -> GetBufferedCanvas(4);
-	DrawCanvas(canvas, projector);
+	DrawCanvas(canvas);
 }
 
 void
-SkyObject::DrawCanvas(Canvas* canvas, Projector* projector) {
-	Point* point = projector ->
+SkyObject::DrawCanvas(Canvas* canvas) {
+
+	Point* point = Projector::
 			GetProjection(RAH, DED, sign,
 					canvas->GetBounds().width,
 					canvas->GetBounds().height);
+
 	if (point == null) {
 		return;
 	}
-//	canvas -> FillEllipse(Color::COLOR_WHITE, Rectangle(point->x, point->y, 2, 2));
+
 	int diameter = (int)(7 - magnitude);
-//	if (diameter*diameter < 7) {
+
 		canvas ->FillEllipse(Color::COLOR_WHITE,
 			Rectangle(point->x, point->y, diameter, diameter));
-//	} else {
-//		canvas -> FillEllipse(Color::COLOR_WHITE,
-//				Rectangle(
-//						(int)(point->x-(diameter/2)),
-//						(int)(point->y-(diameter/2)),
-//						diameter*diameter,
-//						diameter*diameter));
-//		canvas->DrawText(Point((int)(point->x-8-(diameter/2)),
-//				(int)(point->y+8-(diameter/2))), name);
-//	}
+
 
 }
 
