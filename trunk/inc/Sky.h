@@ -20,15 +20,6 @@ public:
 	void paintBorders(void);
 	virtual ~Sky();
 	Osp::Graphics::Canvas* getCanvas(void);
-//    int getRadius() const;
-//    int getZenithX() const;
-//    int getZenithY() const;
-//    void setRadius(int radius);
-//    float getLatitude() const;
-//    float getLongitude() const;
-//    void setLatitude(float latitude);
-//    void setLongitude(float longitude);
-//    float getSiderialHours() const;
     void draw();
     void zoomIn();
     void zoomOut();

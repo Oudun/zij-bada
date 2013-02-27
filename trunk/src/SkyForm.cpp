@@ -133,12 +133,6 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			}
 		}
 		break;
-	case ID_BUTTON_REFRESH:
-		{
-			sky->draw();
-			updateConstList(sky->getConst());
-		}
-		break;
 	case ID_BUTTON_CONSTELLATIONS:
 			{
 				//AppLog("!!!ID_BUTTON_CONSTELLATIONS");
@@ -169,10 +163,9 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
 		__pLabelLocation->SetText(locationStr.GetPointer());
 		__pLabelLocation->Draw();
-//		sky->setLatitude(coordinates->GetLatitude());
-//		sky->setLongitude(coordinates->GetLongitude());
-//		locProvider.CancelLocationUpdates();
 		sky->draw();
+		sky->draw(); // to force showing
+//		RequestRedraw();
 	} else {
 		AppLog("#");
 	}

@@ -32,7 +32,7 @@ SkyBuilder::Run() {
 	int counter = 0;
 	while (skyIterator -> hasNext()) {
 		SkyObject* skyObject = skyIterator -> getNext();
-		skyObject -> Draw(skyCanvas, projector);
+		skyObject -> Draw(skyCanvas);
 		counter++;
 //		AppLog("Setting Progress value %d", counter);
 		if (counter%100 == 0) {
