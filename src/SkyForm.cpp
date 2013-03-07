@@ -16,6 +16,9 @@ using namespace Osp::Io;
 
 SkyForm::SkyForm(SkyCanvas* aSkyCanvas) {
 	skyCanvas = aSkyCanvas;
+	zoom = 1;
+	shiftX = 0;
+	shiftY = 0;
 }
 
 SkyForm::~SkyForm(void)
@@ -33,6 +36,8 @@ result
 SkyForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
+	AddTouchModeChangedEventListener(*this);
+	AddTouchEventListener(*this);
 
 	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
 	if (__pButtonZoomIn != null)
@@ -76,6 +81,9 @@ SkyForm::OnInitializing(void)
 	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
 
 	Control* control = GetControl(L"SKY_FORM");
+	destWidth = control -> GetWidth();
+	destHeight = control -> GetHeight();
+
 	sky = new Sky(control->GetCanvasN(), skyCanvas);
 	sky -> draw();
 	AppLog("B");
@@ -110,28 +118,38 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case ID_BUTTON_ZOOM_IN:
 		{
-			AppLog("Zoom in ?");
-			String str = "X";
-			str.Append(sky->getZoom());
-			__pZoomLabel->SetText(str);
-			if (sky->canZoomIn()) {
-				String str = "X";
-				str.Append(sky->getZoom());
-				__pZoomLabel->SetText(str);
-				sky->zoomIn();
-				updateConstList(sky->getConst());
+//			AppLog("Zoom in ?");
+//			String str = "X";
+//			str.Append(sky->getZoom());
+//			__pZoomLabel->SetText(str);
+//			if (sky->canZoomIn()) {
+//				String str = "X";
+//				str.Append(sky->getZoom());
+//				__pZoomLabel->SetText(str);
+//				sky->zoomIn();
+//				updateConstList(sky->getConst());
+//			}
+			if (zoom < 8) {
+				zoom = zoom * 2;
+				AppLog("Zooming out with zoom %d", zoom);
+				Update();
 			}
 		}
 		break;
 	case ID_BUTTON_ZOOM_OUT:
 		{
-			AppLog("Zoom out ?");
-			if (sky->canZoomOut()) {
-				String str = "X";
-				str.Append(sky->getZoom());
-				__pZoomLabel->SetText(str);
-				sky->zoomOut();
-				updateConstList(sky->getConst());
+//			AppLog("Zoom out ?");
+//			if (sky->canZoomOut()) {
+//				String str = "X";
+//				str.Append(sky->getZoom());
+//				__pZoomLabel->SetText(str);
+//				sky->zoomOut();
+//				updateConstList(sky->getConst());
+//			}
+			if (zoom > 1) {
+				zoom = (int)(zoom/2);
+				AppLog("Zooming out with zoom %d", zoom);
+				Update();
 			}
 		}
 		break;
@@ -198,13 +216,69 @@ SkyForm::updateConstList(IList* list) {
 }
 
 void
-SkyForm::DoIt(void) {
+SkyForm::Update(void) {
 	Osp::Graphics::Canvas* canvas;
 	Control* control = GetControl(L"SKY_FORM");
 	canvas = control -> GetCanvasN();
+	canvas -> Clear();
 	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas
-	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(1);	//Getting buffered canvas for given zoom
+	int zoomedShiftX = zoom == 1 ? 0 : (int)(shiftX * zoom);
+	int zoomedShiftY = zoom == 1 ? 0 : (int)(shiftY * zoom);
+	AppLog("Zoomed shift to %d, %d", zoomedShiftX, zoomedShiftY);
+	zoomedShiftX += destWidth*(zoom-1)/2;
+	zoomedShiftY += destHeight*(zoom-1)/2;
+	zoomedShiftX = zoomedShiftX < 0 ? 0 : zoomedShiftX;
+	zoomedShiftX = zoomedShiftX > (destWidth * (zoom -1)) ? (destWidth * (zoom -1)) : zoomedShiftX;
+	zoomedShiftY = zoomedShiftY < 0 ? 0 : zoomedShiftY;
+	zoomedShiftY = zoomedShiftY > (destHeight * (zoom-1)) ? (destHeight * (zoom-1)) : zoomedShiftY;
+	rect.SetPosition(zoomedShiftX, zoomedShiftY);
+	AppLog("Rect %d %d %d %d", rect.GetTopLeft().x, rect.GetTopLeft().y, rect.GetBottomRight().x, rect.GetBottomRight().y);
+	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
 	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
 	canvas->Copy(point, *bufferedCanvas, rect);
 	canvas -> Show();
+}
+
+void
+SkyForm::OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo) { }
+
+void
+SkyForm::OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo){ }
+
+void
+SkyForm::OnTouchFocusOut(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo){ }
+
+void
+SkyForm::OnTouchLongPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo){ }
+
+void
+SkyForm::OnTouchMoved(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo) {
+	AppLog("OnTouchMoved - started(%d,%d) now(%d,%d)",
+			touchInfo.GetStartPosition().x,
+			touchInfo.GetStartPosition().y,
+			touchInfo.GetCurrentPosition().x,
+			touchInfo.GetCurrentPosition().y);
+}
+
+void
+SkyForm::OnTouchPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo) { }
+
+void
+SkyForm::OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo) {
+	if (zoom > 1) {
+		AppLog("OnTouchReleased - started(%d,%d) now(%d,%d)",
+				touchInfo.GetStartPosition().x,
+				touchInfo.GetStartPosition().y,
+				touchInfo.GetCurrentPosition().x,
+				touchInfo.GetCurrentPosition().y);
+		shiftX -= (touchInfo.GetCurrentPosition().x - touchInfo.GetStartPosition().x)/zoom;
+		shiftY -= (touchInfo.GetCurrentPosition().y - touchInfo.GetStartPosition().y)/zoom;
+		Update();
+	}
+}
+
+void
+SkyForm::OnTouchModeChanged(const Osp::Ui::Control& source, bool isInTouchMode)
+{
+	AppLog("OnTouchModeChanged");
 }

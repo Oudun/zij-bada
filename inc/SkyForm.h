@@ -8,7 +8,9 @@
 class SkyForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
-	public Osp::Base::Runtime::IEventListener
+	public Osp::Base::Runtime::IEventListener,
+ 	public Osp::Ui::ITouchEventListener,
+ 	public Osp::Ui::ITouchModeChangedEventListener
 {
 
 // Construction
@@ -47,12 +49,27 @@ public:
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 	virtual void OnLocationUpdated(Osp::Locations::Location& location);
 	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
-	void DoIt(void);
+	void Update(void);
 
 private:
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 	void updateConstList(Osp::Base::Collection::IList* list);
 	SkyCanvas* skyCanvas;
+	int destWidth;
+	int destHeight;
+	int zoom;
+	float shiftX;
+	float shiftY;
+
+	virtual void OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchFocusOut(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchLongPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchMoved(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+	virtual void OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+
+	virtual void OnTouchModeChanged(const Osp::Ui::Control& source, bool isInTouchMode);
 };
 
 #endif	//_FORM1_H_
