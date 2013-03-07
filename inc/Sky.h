@@ -33,7 +33,7 @@ private:
     Osp::Graphics::Canvas* canvas;
 	static const int margin = 20;
 	static const int min_zoom = 1;
-	static const int max_zoom = 2;
+	static const int max_zoom = 8;
 	int zenithX;
 	int zenithY;
 	int radius;

@@ -27,6 +27,11 @@ SkyCanvas::SkyCanvas() {
 	canvas4 -> Construct(Rectangle(0, 0, 960, 1600));
 	bufferedCanvases -> Add(4, canvas4);
 
+	Canvas* canvas8 = new Canvas();
+	canvas8 -> Construct(Rectangle(0, 0, 1920, 3200));
+	bufferedCanvases -> Add(8, canvas8);
+
+
 }
 
 SkyCanvas::~SkyCanvas() {
@@ -39,7 +44,6 @@ SkyCanvas::GetBufferedCanvas(int zoom) {
 	bufferedCanvases -> GetValue(zoom, value);
 	return value;
 }
-
 
 void
 SkyCanvas::SetBufferedCanvas(Osp::Graphics::Canvas* canvas, int zoom) {
