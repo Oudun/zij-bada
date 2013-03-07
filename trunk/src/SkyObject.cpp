@@ -86,6 +86,8 @@ SkyObject::Draw(SkyCanvas* skyCanvas) {
 	DrawCanvas(canvas);
 	canvas = skyCanvas -> GetBufferedCanvas(4);
 	DrawCanvas(canvas);
+	canvas = skyCanvas -> GetBufferedCanvas(8);
+	DrawCanvas(canvas);
 }
 
 void
@@ -102,6 +104,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 
 	int diameter = (int)(7 - magnitude);
 
+		canvas ->SetLineStyle();
 		canvas ->FillEllipse(Color::COLOR_WHITE,
 			Rectangle(point->x, point->y, diameter, diameter));
 

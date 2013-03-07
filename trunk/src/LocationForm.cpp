@@ -16,7 +16,7 @@ using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm() {
-	maxAttempts = 5;
+	maxAttempts = 1;
 	attemptsCounter = 1;
 	locProvider = new LocationProvider();
 	locProvider -> Construct(LOC_METHOD_HYBRID);
@@ -70,14 +70,18 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		locProvider -> CancelLocationUpdates();
 		SetTimeAndPlace(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
-		//parent->SendUserEvent(1, args);
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
-	} else {
+	} else if (attemptsCounter < maxAttempts){
 		attemptsCounter++;
 		Osp::Base::String str("Attempt #");
 		str.Append(attemptsCounter);
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
+	} else {
+		SetTimeAndPlace(0, 0, new DateTime());
+		attemptsCounter = 0;
+		locProvider -> CancelLocationUpdates();
+		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 	}
 }
 
@@ -142,4 +146,14 @@ LocationForm::SetTimeAndPlace(float longitude, float latitude, DateTime* currTim
 	int sltInt = (int)(slt/360);
 	float sltHrs = (slt-(360*sltInt))/15;
 	TimeAndPlace::SetSiderialTime (sltHrs);
+}
+
+void
+LocationForm::DoIt(void) {
+//	Osp::Graphics::Canvas* canvas;
+//	Control* control = GetControl(L"STELLAR_FORM");
+//	canvas = control -> GetCanvasN();
+////	canvas -> Clear();
+////	canvas ->FillEllipse(Osp::Graphics::Color::COLOR_WHITE, Osp::Graphics::Rectangle(100, 100, 200, 200));
+//	canvas -> Show();
 }

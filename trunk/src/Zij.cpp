@@ -42,26 +42,23 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	skyBuilderForm = new SkyBuilderForm(skyCanvas);
 	skyBuilderForm -> Initialize();
 
-//	skyForm = new SkyForm();
-//	skyForm -> Initialize();
+	stellarForm = new StellarForm(skyCanvas);
+	stellarForm -> Initialize();
 
+	skyForm = new SkyForm(skyCanvas);
+	skyForm -> Initialize();
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	pFrame -> AddControl(*locationForm);
 	pFrame -> AddControl(*skyBuilderForm);
-//	pFrame -> AddControl(*skyForm);
+	pFrame -> AddControl(*stellarForm);
+	pFrame -> AddControl(*skyForm);
 
-	// Set the current form
-//	pFrame->SetCurrentForm(*skyForm);
 	pFrame->SetCurrentForm(*locationForm);
 
 	locationForm -> Draw();
 	locationForm -> Show();
-
-	// Draw and Show the form
-//	skyForm->Draw();
-//	skyForm->Show();
 
 	return true;
 
@@ -106,12 +103,16 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(1000);
-			skyForm = new SkyForm(skyCanvas);
-			skyForm -> Initialize();
-			pFrame -> AddControl(*skyForm);
 			pFrame -> SetCurrentForm(*skyForm);
-			skyForm -> RequestRedraw(true);
+			skyForm -> Draw();
+			skyForm -> DoIt();
 			break;
+
+//			pFrame -> SetCurrentForm(*stellarForm);
+//			stellarForm -> Draw();
+//			stellarForm -> DoIt();
+//			break;
+
 		}
 	}
 }

@@ -47,6 +47,7 @@ public:
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 	virtual void OnLocationUpdated(Osp::Locations::Location& location);
 	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
+	void DoIt(void);
 
 private:
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);

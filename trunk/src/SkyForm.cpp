@@ -77,6 +77,7 @@ SkyForm::OnInitializing(void)
 
 	Control* control = GetControl(L"SKY_FORM");
 	sky = new Sky(control->GetCanvasN(), skyCanvas);
+	sky -> draw();
 	AppLog("B");
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
@@ -91,6 +92,7 @@ SkyForm::OnInitializing(void)
 		pButton_refresh->SetActionId(3);
 		pButton_refresh->AddActionEventListener(*this);
 	}
+
 	return r;
 }
 
@@ -195,4 +197,14 @@ SkyForm::updateConstList(IList* list) {
 	__pConstForm -> UpdateConstellationList(list);
 }
 
-
+void
+SkyForm::DoIt(void) {
+	Osp::Graphics::Canvas* canvas;
+	Control* control = GetControl(L"SKY_FORM");
+	canvas = control -> GetCanvasN();
+	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas
+	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(1);	//Getting buffered canvas for given zoom
+	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
+	canvas->Copy(point, *bufferedCanvas, rect);
+	canvas -> Show();
+}

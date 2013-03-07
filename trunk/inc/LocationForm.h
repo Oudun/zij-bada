@@ -37,6 +37,8 @@ class LocationForm :
 		Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 		void SetTimeAndPlace(float longitude, float latitude, Osp::Base::DateTime* currTime);
 
+		void DoIt(void);
+
 	public:
 		static const int LOCATION_SET = 1;
 

@@ -75,10 +75,17 @@ Sky::draw(void) {
 	canvas->Clear();
 	AppLog("Canvas for zoom %d is buffered", zoom);
 	Osp::Graphics::Rectangle rect = getCanvas()->GetBounds();			//Getting size of current canvas
+	AppLog("1");
 	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
+	AppLog("2");
 	Osp::Graphics::Point point(0, 0);									//Setting start point as top left
+	AppLog("3");
 	canvas->Copy(point, *bufferedCanvas, rect);							//Copy buffered canvas into current
-	canvas->Show();
+	AppLog("4");
+	result r;
+	r = canvas->Show();
+	AppLog("Canvas show result is %S", GetErrorMessage(r));
+	AppLog("5");
 	busy = false;
 }
 
