@@ -105,7 +105,7 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(1000);
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
-			skyForm -> DoIt();
+			skyForm -> Update();
 			break;
 
 //			pFrame -> SetCurrentForm(*stellarForm);
