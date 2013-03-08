@@ -30,9 +30,22 @@ SkyBuilder::Run() {
 	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_RANGE_SET, args);
 	AppLog("Setting progress range from 0 to %d", skyIterator -> GetSize());
 	int counter = 0;
+	bool isVisible = false;
+	Osp::Base::Collection::IList* list;
+	list = new Osp::Base::Collection::ArrayList();
 	while (skyIterator -> hasNext()) {
 		SkyObject* skyObject = skyIterator -> getNext();
-		skyObject -> Draw(skyCanvas);
+		isVisible = skyObject -> Draw(skyCanvas);
+		String constName = skyObject->getConstellation();
+		if (isVisible) {
+			if (!list -> Contains(constName)&&constName.GetLength()>0) {
+				AppLog("Adding constellation %S", constName.GetPointer());
+				String* str = new String(constName);
+				list -> Add(*str);
+			} else {
+				AppLog("Not adding constellation %S", constName.GetPointer());
+			}
+		}
 		counter++;
 //		AppLog("Setting Progress value %d", counter);
 		if (counter%100 == 0) {
@@ -43,6 +56,11 @@ SkyBuilder::Run() {
 	}
 	args = new ArrayList();
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
+	IEnumerator* e = list->GetEnumeratorN();
+	while (e->MoveNext()==E_SUCCESS) {
+		AppLog("List have %S", ((String*)e->GetCurrent())->GetPointer());
+	}
+	//SkyCanvas::SetConstellations(list);
 	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_DONE, args);
 	return null;
 }
