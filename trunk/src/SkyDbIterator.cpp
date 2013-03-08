@@ -58,8 +58,10 @@ SkyDbIterator::getNext() {
 	String strHolder;
 	double floatHolder;
 	int intHolder;
-	dataSet->GetStringAt(1, strHolder);
+	dataSet->GetStringAt(0, strHolder);
 	nextObject->setName(strHolder);
+	dataSet->GetStringAt(1, strHolder);
+	nextObject->setConstellation(strHolder);
 	dataSet->GetDoubleAt(3, floatHolder);
 	nextObject->setRAH(floatHolder);
 	dataSet->GetDoubleAt(4, floatHolder);

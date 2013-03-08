@@ -49,6 +49,16 @@ SkyObject::getName(void) {
 	return name;
 }
 
+void
+SkyObject::setConstellation(Osp::Base::String& aConstellation) {
+	constellation = aConstellation;
+}
+
+Osp::Base::String&
+SkyObject::getConstellation(void) {
+	return constellation;
+}
+
 bool
 SkyObject::isNorthern(void) {
 	return sign;
@@ -77,8 +87,9 @@ SkyObject::Print(void) {
 	AppLog("Object name=%S, magnitude=%f, ra=%f, de=%f, north=%d", name.GetPointer(), magnitude, RAH, DED, sign);
 }
 
-void
+bool
 SkyObject::Draw(SkyCanvas* skyCanvas) {
+	bool result = false;
 	Canvas* canvas;
 	canvas = skyCanvas -> GetBufferedCanvas(1);
 	DrawCanvas(canvas);
@@ -87,10 +98,11 @@ SkyObject::Draw(SkyCanvas* skyCanvas) {
 	canvas = skyCanvas -> GetBufferedCanvas(4);
 	DrawCanvas(canvas);
 	canvas = skyCanvas -> GetBufferedCanvas(8);
-	DrawCanvas(canvas);
+	result = DrawCanvas(canvas);
+	return result;
 }
 
-void
+bool
 SkyObject::DrawCanvas(Canvas* canvas) {
 
 	Point* point = Projector::
@@ -99,7 +111,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 					canvas->GetBounds().height);
 
 	if (point == null) {
-		return;
+		return false;
 	}
 
 	int diameter = (int)(7 - magnitude);
@@ -107,6 +119,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		canvas ->FillEllipse(Color::COLOR_WHITE,
 			Rectangle(point->x, point->y, diameter, diameter));
 
+		return true;
 
 }
 

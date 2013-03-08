@@ -34,6 +34,10 @@ public:
 	void setName(Osp::Base::String& name);
 	Osp::Base::String& getName(void);
 
+	// Sets and gets constellation abbreviated name
+	void setConstellation(Osp::Base::String& name);
+	Osp::Base::String& getConstellation(void);
+
 	// Sets true if object in northern hemisphere
 	void setSign(bool isNorthern);
 
@@ -56,13 +60,14 @@ public:
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
 	void Print(void);
-	void Draw(SkyCanvas* skyCanvas);
+	bool Draw(SkyCanvas* skyCanvas);
 
 private:
-	void DrawCanvas(Osp::Graphics::Canvas* canvas);
+	bool DrawCanvas(Osp::Graphics::Canvas* canvas);
 
 private:
     Osp::Base::String name;
+    Osp::Base::String constellation;
     float RAH;
     float DED;
     float magnitude;

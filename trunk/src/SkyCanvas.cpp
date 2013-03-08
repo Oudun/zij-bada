@@ -49,3 +49,19 @@ void
 SkyCanvas::SetBufferedCanvas(Osp::Graphics::Canvas* canvas, int zoom) {
 	bufferedCanvases -> Add(zoom, canvas);
 }
+
+void
+SkyCanvas::SelectConstellation(Osp::Base::String* constellationName) {
+	selectedConstellation = constellationName;
+}
+
+Osp::Base::Collection::IList*
+SkyCanvas::getConstellations() {
+	return constellationsVisible;
+}
+
+void
+SkyCanvas::SetConstellations (Osp::Base::Collection::IList* aConstellationsVisible) {
+	constellationsVisible = aConstellationsVisible;
+}
+
