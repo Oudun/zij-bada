@@ -21,6 +21,7 @@ class SkyCanvas {
 		static void SelectConstellation(Osp::Base::String* constellationName);
 		static Osp::Base::Collection::IList* getConstellations();
 		static void SetConstellations (Osp::Base::Collection::IList* constellationsVisible);
+//		static void SetConstellations(void);
 
 	private:
 		Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* bufferedCanvases;
