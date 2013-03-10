@@ -62,6 +62,8 @@ SkyCanvas::getConstellations() {
 
 void
 SkyCanvas::SetConstellations (Osp::Base::Collection::IList* aConstellationsVisible) {
-	constellationsVisible = aConstellationsVisible;
+//SkyCanvas::SetConstellations () {
+	AppLog("SetConstellations");
+//	constellationsVisible = aConstellationsVisible;
 }
 

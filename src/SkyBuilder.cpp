@@ -60,7 +60,8 @@ SkyBuilder::Run() {
 	while (e->MoveNext()==E_SUCCESS) {
 		AppLog("List have %S", ((String*)e->GetCurrent())->GetPointer());
 	}
-	//SkyCanvas::SetConstellations(list);
+
+	SkyCanvas::SetConstellations(new ArrayList());
 	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_DONE, args);
 	return null;
 }
