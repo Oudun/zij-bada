@@ -44,13 +44,13 @@ LocationForm::OnInitializing(void) {
 
 result
 LocationForm::OnTerminating(void) {
-	AppLog("LocationForm::OnInitializing(void)");
+	AppLog("LocationForm::OnTerminating(void)");
 	return E_SUCCESS;
 }
 
 void
 LocationForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
-	AppLog("LocationForm::OnInitializing(void)");
+	AppLog("LocationForm::OnActionPerformed(void)");
 }
 
 void

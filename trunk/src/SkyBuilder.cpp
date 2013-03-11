@@ -37,17 +37,11 @@ SkyBuilder::Run() {
 		SkyObject* skyObject = skyIterator -> getNext();
 		isVisible = skyObject -> Draw(skyCanvas);
 		String constName = skyObject->getConstellation();
-		if (isVisible) {
-			if (!list -> Contains(constName)&&constName.GetLength()>0) {
-				AppLog("Adding constellation %S", constName.GetPointer());
-				String* str = new String(constName);
-				list -> Add(*str);
-			} else {
-				AppLog("Not adding constellation %S", constName.GetPointer());
-			}
+		if (isVisible && !list -> Contains(constName)&&constName.GetLength()>0) {
+			String* str = new String(constName);
+			list -> Add(*str);
 		}
 		counter++;
-//		AppLog("Setting Progress value %d", counter);
 		if (counter%100 == 0) {
 			args = new ArrayList();
 			args -> Add(*(new Integer(counter)));
@@ -61,12 +55,7 @@ SkyBuilder::Run() {
 		AppLog("List have %S", ((String*)e->GetCurrent())->GetPointer());
 	}
 
-	SkyCanvas::SetConstellations(new ArrayList());
+	SkyCanvas::SetConstellations(list);
 	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_DONE, args);
 	return null;
 }
-
-//void
-//SkyBuilder::BuildSky (void) {
-
-//}

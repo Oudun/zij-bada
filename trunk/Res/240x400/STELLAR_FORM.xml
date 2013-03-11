@@ -10,14 +10,4 @@
         <layout mode="Portrait" style="FORM_STYLE_INDICATOR|FORM_STYLE_TITLE"/>
         <layout mode="Landscape" style="FORM_STYLE_INDICATOR|FORM_STYLE_TITLE"/>
     </Form>
-    <Button id="IDC_BUTTON1" parent="STELLAR_FORM">
-        <property NormalBGBitmapPath="\240x400\gnome_zoom_in.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="64" mode="Portrait" width="64" x="6" y="286"/>
-        <layout height="24" mode="Landscape" width="166" x="35" y="172"/>
-    </Button>
-    <Button id="IDC_BUTTON2" parent="STELLAR_FORM">
-        <property NormalBGBitmapPath="\240x400\gnome_zoom_out.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="64" mode="Portrait" width="64" x="167" y="286"/>
-        <layout height="24" mode="Landscape" width="101" x="298" y="160"/>
-    </Button>
 </Scene>

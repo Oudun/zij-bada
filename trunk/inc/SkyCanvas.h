@@ -25,10 +25,11 @@ class SkyCanvas {
 
 	private:
 		Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* bufferedCanvases;
-		static Osp::Base::Collection::IList* constellationsVisible;
-		static Osp::Base::String* selectedConstellation;
-
 
 };
+
+static Osp::Base::Collection::IList* constellationsVisible;
+static Osp::Base::String* selectedConstellation;
+
 
 #endif /* SKYCANVAS_H_ */

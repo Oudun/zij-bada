@@ -76,9 +76,9 @@ SkyForm::OnInitializing(void)
 
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
 
-	__pConstForm = new ConstellationForm(this);
-	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
-	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
+//	__pConstForm = new ConstellationForm(this);
+//	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
+//	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
 
 	Control* control = GetControl(L"SKY_FORM");
 	destWidth = control -> GetWidth();
@@ -116,19 +116,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 {
 	switch(actionId)
 	{
-	case ID_BUTTON_ZOOM_IN:
-		{
-//			AppLog("Zoom in ?");
-//			String str = "X";
-//			str.Append(sky->getZoom());
-//			__pZoomLabel->SetText(str);
-//			if (sky->canZoomIn()) {
-//				String str = "X";
-//				str.Append(sky->getZoom());
-//				__pZoomLabel->SetText(str);
-//				sky->zoomIn();
-//				updateConstList(sky->getConst());
-//			}
+	case ID_BUTTON_ZOOM_IN: {
 			if (zoom < 8) {
 				zoom = zoom * 2;
 				AppLog("Zooming out with zoom %d", zoom);
@@ -136,16 +124,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			}
 		}
 		break;
-	case ID_BUTTON_ZOOM_OUT:
-		{
-//			AppLog("Zoom out ?");
-//			if (sky->canZoomOut()) {
-//				String str = "X";
-//				str.Append(sky->getZoom());
-//				__pZoomLabel->SetText(str);
-//				sky->zoomOut();
-//				updateConstList(sky->getConst());
-//			}
+	case ID_BUTTON_ZOOM_OUT: {
 			if (zoom > 1) {
 				zoom = (int)(zoom/2);
 				AppLog("Zooming out with zoom %d", zoom);
@@ -153,16 +132,18 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 			}
 		}
 		break;
-	case ID_BUTTON_CONSTELLATIONS:
-			{
-				//AppLog("!!!ID_BUTTON_CONSTELLATIONS");
-				Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
-				if (!frame -> GetControls()->Contains(*__pConstForm)) {
-					frame -> AddControl(*__pConstForm);
-				}
-				frame -> SetCurrentForm(*__pConstForm);
-				__pConstForm -> RequestRedraw(true);
-				__pConstForm -> Show();
+	case ID_BUTTON_CONSTELLATIONS: {
+		Osp::App::Application::GetInstance() -> SendUserEvent(SELECT_CONSTELLATION, null);
+
+
+//				//AppLog("!!!ID_BUTTON_CONSTELLATIONS");
+//				Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
+//				if (!frame -> GetControls()->Contains(*__pConstForm)) {
+//					frame -> AddControl(*__pConstForm);
+//				}
+//				frame -> SetCurrentForm(*__pConstForm);
+//				__pConstForm -> RequestRedraw(true);
+//				__pConstForm -> Show();
 			}
 			break;
 	default:

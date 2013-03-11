@@ -18,6 +18,7 @@ public:
 	SkyForm(SkyCanvas* skyCanvas);
 	virtual ~SkyForm(void);
 	bool Initialize(void);
+	static const int SELECT_CONSTELLATION = 30;
 
 // Implementation
 protected:

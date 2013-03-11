@@ -17,10 +17,12 @@ class ConstellationForm :
 	public Osp::Ui::IItemEventListener {
 
 	public:
-		ConstellationForm(Osp::Ui::Controls::Form* parent);
+		ConstellationForm();
 		virtual ~ConstellationForm();
+		bool Initialize(void);
 		void UpdateConstellationList(Osp::Base::Collection::IList* list);
 		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+		virtual result OnInitializing(void);
 //		virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 	private:
