@@ -10,6 +10,8 @@
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 using namespace Osp::Graphics;
+using namespace Osp::Base;
+using namespace Osp::App;
 
 StellarForm::StellarForm(SkyCanvas* aSkyCanvas) {
 	skyCanvas = aSkyCanvas;
@@ -21,35 +23,61 @@ StellarForm::~StellarForm() {
 
 bool
 StellarForm::Initialize(void) {
-	Bitmap* bitmap;
 	Construct(L"STELLAR_FORM");
 	return true;
 }
 
 result
 StellarForm::OnInitializing(void) {
-	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
-	if (pButton1)
-	{
-		pButton1->SetActionId(1);
-		pButton1->AddActionEventListener(*this);
-	}
+//	pList1 = static_cast<Osp::Ui::Controls::List *>(GetControl("IDC_LIST1"));
+//	if (pList1)	{
+//		AppLog("Adding listener");
+//		pList1->AddItemEventListener(*this);
+//	} else {
+//		AppLog("Can not add listener");
+//	}
+//	String str1(L"Hi");
+//	String str2(L"Bye");
+//	Osp::Base::String* constName = &str1;
+//	AddControl (*pList1);
+//	pList1 -> SetColumn1Width(100);
+//	pList1 -> SetColumn1Width(100);
+//	pList1 -> AddItem(&str1, &str2, null, null, null);
+//	pList1 -> AddItem(constName, constName, null, null, null);
+//	pList1 -> AddItem(constName, constName, null, null, null);
+//	pList1 -> AddItem(constName, constName, null, null, null);
+//	pList1 -> AddItem(constName, constName, null, null, null);
+//	pList1 -> RefreshItem(2);
+//	pList1 -> Show();
+
+
+	pList1 = new List();
+	pList1 -> Construct(
+			Rectangle(0, 0, 240, 360),
+			LIST_STYLE_NORMAL,
+			LIST_ITEM_SINGLE_TEXT, 20, 20, 100, 100);
+	pList1 -> AddItemEventListener(*this);
+	AddControl(*pList1);
+
 	return E_SUCCESS;
 }
 
 void
-StellarForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
-	AppLog("LocationForm::OnInitializing(void)");
+StellarForm::Update(void) {
+	pList1 ->RemoveAllItems();
+	Osp::Base::Collection::IEnumerator* constNames = SkyCanvas::getConstellations()->GetEnumeratorN();
+	while (constNames -> MoveNext() == E_SUCCESS) {
+		String* constNameAbbr = (String*) constNames -> GetCurrent();
+		String constName;
+		AppResource* appResource = Application::GetInstance()->GetAppResource();
+		appResource->GetString(*constNameAbbr, constName);
+		pList1 -> AddItem(&constName, &constName, null, null, null);
+	}
+	pList1 -> Draw();
+	pList1 -> Show();
 }
 
 void
-StellarForm::DoIt(void) {
-	Osp::Graphics::Canvas* canvas;
-	Control* control = GetControl(L"STELLAR_FORM");
-	canvas = control -> GetCanvasN();
-	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas
-	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(1);	//Getting buffered canvas for given zoom
-	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
-	canvas->Copy(point, *bufferedCanvas, rect);
-	canvas -> Show();
+StellarForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
+
 }

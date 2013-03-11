@@ -48,12 +48,16 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm(skyCanvas);
 	skyForm -> Initialize();
 
+	constellationForm = new ConstellationForm();
+	constellationForm -> Initialize();
+
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	pFrame -> AddControl(*locationForm);
 	pFrame -> AddControl(*skyBuilderForm);
 	pFrame -> AddControl(*stellarForm);
 	pFrame -> AddControl(*skyForm);
+	pFrame -> AddControl(*constellationForm);
 
 	pFrame->SetCurrentForm(*locationForm);
 
@@ -107,13 +111,17 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			skyForm -> Draw();
 			skyForm -> Update();
 			break;
-
-//			pFrame -> SetCurrentForm(*stellarForm);
-//			stellarForm -> Draw();
-//			stellarForm -> DoIt();
-//			break;
-
 		}
+		case SkyForm::SELECT_CONSTELLATION: {
+//			pFrame -> SetCurrentForm(*constellationForm);
+//			constellationForm -> UpdateConstellationList(SkyCanvas::getConstellations());
+//			constellationForm -> Draw();
+			pFrame -> SetCurrentForm(*stellarForm);
+			stellarForm -> Update();
+			stellarForm -> RequestRedraw(true);
+			break;
+		}
+
 	}
 }
 
