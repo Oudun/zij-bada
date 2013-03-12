@@ -60,7 +60,7 @@ public:
 	//todo - this should be moved to Sky class
 //	void draw(Sky* sky);
 	void Print(void);
-	bool Draw(SkyCanvas* skyCanvas);
+	bool Draw();
 
 private:
 	bool DrawCanvas(Osp::Graphics::Canvas* canvas);

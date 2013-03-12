@@ -16,9 +16,8 @@
 class SkyBuilder : public Osp::Base::Runtime::Thread {
 
 	public:
-		SkyBuilder(SkyCanvas* skyCanvas);
+		SkyBuilder();
 		virtual ~SkyBuilder();
-//		void SetParent(Osp::Ui::Controls::Form* form);
 		Object* Run(void);
 
 	public:
@@ -27,7 +26,6 @@ class SkyBuilder : public Osp::Base::Runtime::Thread {
 		static const int BUILD_PROGRESS_DONE = 22;
 
 	private:
-		SkyCanvas* skyCanvas;
 		Projector* projector;
 
 };

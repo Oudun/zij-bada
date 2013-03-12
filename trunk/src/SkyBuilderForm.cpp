@@ -6,8 +6,8 @@ using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 
 
-SkyBuilderForm::SkyBuilderForm(SkyCanvas* pSkyCanvas) {
-	skyBuilder = new SkyBuilder(pSkyCanvas);
+SkyBuilderForm::SkyBuilderForm() {
+	skyBuilder = new SkyBuilder();
 	skyBuilder -> Construct();
 }
 

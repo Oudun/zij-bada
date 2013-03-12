@@ -14,8 +14,7 @@ using namespace Osp::Ui::Controls;
 using namespace Osp::Locations;
 using namespace Osp::Io;
 
-SkyForm::SkyForm(SkyCanvas* aSkyCanvas) {
-	skyCanvas = aSkyCanvas;
+SkyForm::SkyForm() {
 	zoom = 1;
 	shiftX = 0;
 	shiftY = 0;
@@ -84,8 +83,8 @@ SkyForm::OnInitializing(void)
 	destWidth = control -> GetWidth();
 	destHeight = control -> GetHeight();
 
-	sky = new Sky(control->GetCanvasN(), skyCanvas);
-	sky -> draw();
+//	sky = new Sky(control->GetCanvasN(), skyCanvas);
+//	sky -> draw();
 	AppLog("B");
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
@@ -214,9 +213,19 @@ SkyForm::Update(void) {
 	zoomedShiftY = zoomedShiftY > (destHeight * (zoom-1)) ? (destHeight * (zoom-1)) : zoomedShiftY;
 	rect.SetPosition(zoomedShiftX, zoomedShiftY);
 	AppLog("Rect %d %d %d %d", rect.GetTopLeft().x, rect.GetTopLeft().y, rect.GetBottomRight().x, rect.GetBottomRight().y);
-	Osp::Graphics::Canvas* bufferedCanvas = skyCanvas -> GetBufferedCanvas(zoom);	//Getting buffered canvas for given zoom
-	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
-	canvas->Copy(point, *bufferedCanvas, rect);
+//	Osp::Graphics::Canvas* bufferedCanvas = SkyCanvas::GetStarCanvas(zoom);	//Getting buffered canvas for given zoom
+//	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
+//	canvas->Copy(point, *bufferedCanvas, rect);
+
+	if (SkyCanvas::GetSelectedConstellation() != null) {
+		AppLog("Drawing constellation borders");
+		Osp::Graphics::Canvas* constellationCanvas = SkyCanvas::GetConstellationCanvas(zoom);	//Getting buffered canvas for given zoom
+		Osp::Graphics::Point point(0, 0);														//Setting start point as top left
+		canvas->Copy(point, *constellationCanvas, rect);
+	} else {
+		AppLog("Constellation is not selected");
+	}
+
 	canvas -> Show();
 }
 

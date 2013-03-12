@@ -88,16 +88,16 @@ SkyObject::Print(void) {
 }
 
 bool
-SkyObject::Draw(SkyCanvas* skyCanvas) {
+SkyObject::Draw() {
 	bool result = false;
 	Canvas* canvas;
-	canvas = skyCanvas -> GetBufferedCanvas(1);
+	canvas = SkyCanvas::GetStarCanvas(1);
 	DrawCanvas(canvas);
-	canvas = skyCanvas -> GetBufferedCanvas(2);
+	canvas = SkyCanvas::GetStarCanvas(2);
 	DrawCanvas(canvas);
-	canvas = skyCanvas -> GetBufferedCanvas(4);
+	canvas = SkyCanvas::GetStarCanvas(4);
 	DrawCanvas(canvas);
-	canvas = skyCanvas -> GetBufferedCanvas(8);
+	canvas = SkyCanvas::GetStarCanvas(8);
 	result = DrawCanvas(canvas);
 	return result;
 }

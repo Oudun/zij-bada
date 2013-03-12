@@ -15,7 +15,7 @@ class SkyForm :
 
 // Construction
 public:
-	SkyForm(SkyCanvas* skyCanvas);
+	SkyForm();
 	virtual ~SkyForm(void);
 	bool Initialize(void);
 	static const int SELECT_CONSTELLATION = 30;
@@ -55,7 +55,6 @@ public:
 private:
 	Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 	void updateConstList(Osp::Base::Collection::IList* list);
-	SkyCanvas* skyCanvas;
 	int destWidth;
 	int destHeight;
 	int zoom;
