@@ -45,7 +45,6 @@ private:
 	bool busy;
 	Osp::Graphics::Bitmap* bitmap;
 	Osp::Base::Collection::IList* visibleConst;
-	SkyCanvas* skyCanvas;
 };
 
 #endif /* SKY_H_ */

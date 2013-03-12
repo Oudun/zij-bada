@@ -13,8 +13,8 @@ using namespace Osp::Graphics;
 using namespace Osp::Base;
 using namespace Osp::App;
 
-StellarForm::StellarForm(SkyCanvas* aSkyCanvas) {
-	skyCanvas = aSkyCanvas;
+StellarForm::StellarForm() {
+
 }
 
 StellarForm::~StellarForm() {
@@ -29,55 +29,36 @@ StellarForm::Initialize(void) {
 
 result
 StellarForm::OnInitializing(void) {
-//	pList1 = static_cast<Osp::Ui::Controls::List *>(GetControl("IDC_LIST1"));
-//	if (pList1)	{
-//		AppLog("Adding listener");
-//		pList1->AddItemEventListener(*this);
-//	} else {
-//		AppLog("Can not add listener");
-//	}
-//	String str1(L"Hi");
-//	String str2(L"Bye");
-//	Osp::Base::String* constName = &str1;
-//	AddControl (*pList1);
-//	pList1 -> SetColumn1Width(100);
-//	pList1 -> SetColumn1Width(100);
-//	pList1 -> AddItem(&str1, &str2, null, null, null);
-//	pList1 -> AddItem(constName, constName, null, null, null);
-//	pList1 -> AddItem(constName, constName, null, null, null);
-//	pList1 -> AddItem(constName, constName, null, null, null);
-//	pList1 -> AddItem(constName, constName, null, null, null);
-//	pList1 -> RefreshItem(2);
-//	pList1 -> Show();
-
-
-	pList1 = new List();
-	pList1 -> Construct(
+	__pConstelList = new List();
+	__pConstelList -> Construct(
 			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
 			LIST_ITEM_SINGLE_TEXT, 20, 20, 100, 100);
-	pList1 -> AddItemEventListener(*this);
-	AddControl(*pList1);
-
+	__pConstelList -> AddItemEventListener(*this);
+	AddControl(*__pConstelList);
 	return E_SUCCESS;
 }
 
 void
 StellarForm::Update(void) {
-	pList1 ->RemoveAllItems();
+	__pConstelList ->RemoveAllItems();
 	Osp::Base::Collection::IEnumerator* constNames = SkyCanvas::getConstellations()->GetEnumeratorN();
 	while (constNames -> MoveNext() == E_SUCCESS) {
 		String* constNameAbbr = (String*) constNames -> GetCurrent();
 		String constName;
 		AppResource* appResource = Application::GetInstance()->GetAppResource();
 		appResource->GetString(*constNameAbbr, constName);
-		pList1 -> AddItem(&constName, &constName, null, null, null);
+		__pConstelList -> AddItem(&constName, &constName, null, null, null);
 	}
-	pList1 -> Draw();
-	pList1 -> Show();
 }
 
 void
 StellarForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
-
+	AppLog("Index = %d", index);
+	AppLog("ItemId  = %d", itemId);
+	String* abbr = (String*)(SkyCanvas::getConstellations()->GetAt(index));
+	AppLog("Selected constellation is %S", abbr -> GetPointer());
+	SkyCanvas::SelectConstellation(index);
+	Osp::App::Application::GetInstance() -> SendUserEvent(CONSTELLATION_SELECTED, null);
 }
+

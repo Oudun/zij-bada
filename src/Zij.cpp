@@ -33,19 +33,19 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 
 	//Create context;
 	//timeAndPlace = new TimeAndPlace();
-	skyCanvas = new SkyCanvas();
+	SkyCanvas::Initialize();
 
 	// Create forms
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
 
-	skyBuilderForm = new SkyBuilderForm(skyCanvas);
+	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
 
-	stellarForm = new StellarForm(skyCanvas);
+	stellarForm = new StellarForm();
 	stellarForm -> Initialize();
 
-	skyForm = new SkyForm(skyCanvas);
+	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
 	constellationForm = new ConstellationForm();
@@ -113,15 +113,23 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			break;
 		}
 		case SkyForm::SELECT_CONSTELLATION: {
-//			pFrame -> SetCurrentForm(*constellationForm);
-//			constellationForm -> UpdateConstellationList(SkyCanvas::getConstellations());
-//			constellationForm -> Draw();
 			pFrame -> SetCurrentForm(*stellarForm);
 			stellarForm -> Update();
 			stellarForm -> RequestRedraw(true);
 			break;
 		}
-
+		case StellarForm::CONSTELLATION_SELECTED: {
+			AppLog("CONSTELLATION_SELECTED");
+			String* constelName = SkyCanvas::GetSelectedConstellation();
+			AppLog("Selected constellation name is %S", constelName);
+			ConstellationBuilder::Build(constelName);
+		}
+		case ConstellationBuilder::CONSTELLATION_READY: {
+				pFrame -> SetCurrentForm(*skyForm);
+				skyForm -> Draw();
+				skyForm -> Update();
+				break;
+		}
 	}
 }
 

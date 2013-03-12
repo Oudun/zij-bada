@@ -12,8 +12,7 @@
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;
 
-SkyBuilder::SkyBuilder(SkyCanvas* aSkyCanvas) {
-	skyCanvas = aSkyCanvas;
+SkyBuilder::SkyBuilder() {
 	projector = new Projector();
 }
 
@@ -33,11 +32,15 @@ SkyBuilder::Run() {
 	bool isVisible = false;
 	Osp::Base::Collection::IList* list;
 	list = new Osp::Base::Collection::ArrayList();
+	AppLog("1");
 	while (skyIterator -> hasNext()) {
+		AppLog("2");
 		SkyObject* skyObject = skyIterator -> getNext();
-		isVisible = skyObject -> Draw(skyCanvas);
+		AppLog("3");
+		isVisible = skyObject -> Draw();
+		AppLog("4");
 		String constName = skyObject->getConstellation();
-		if (isVisible && !list -> Contains(constName)&&constName.GetLength()>0) {
+		if (isVisible && (!list -> Contains(constName)) && constName.GetLength()>0) {
 			String* str = new String(constName);
 			list -> Add(*str);
 		}

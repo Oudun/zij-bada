@@ -20,17 +20,19 @@ class StellarForm  :
 	public Osp::Ui::Controls::Form,
  	public Osp::Ui::IItemEventListener{
 public:
-	StellarForm(SkyCanvas* skyCanvas);
+	StellarForm();
 	virtual ~StellarForm();
 	bool Initialize(void);
 	virtual result OnInitializing(void);
 	void Update(void);
 	virtual void OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status);
 
+	static const int CONSTELLATION_SELECTED = 40;
+
+
 private:
 	Osp::Graphics::Canvas* canvas;
-	SkyCanvas* skyCanvas;
-	Osp::Ui::Controls::List* pList1;
+	Osp::Ui::Controls::List* __pConstelList;
 
 };
 
