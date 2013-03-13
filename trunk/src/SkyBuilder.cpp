@@ -32,20 +32,17 @@ SkyBuilder::Run() {
 	bool isVisible = false;
 	Osp::Base::Collection::IList* list;
 	list = new Osp::Base::Collection::ArrayList();
-	AppLog("1");
 	while (skyIterator -> hasNext()) {
-		AppLog("2");
 		SkyObject* skyObject = skyIterator -> getNext();
-		AppLog("3");
 		isVisible = skyObject -> Draw();
-		AppLog("4");
 		String constName = skyObject->getConstellation();
+		AppLog("Constellation is %S visible %d length %d added %d", constName.GetPointer(), isVisible?1:0, constName.GetLength(), list -> Contains(constName)?1:0);
 		if (isVisible && (!list -> Contains(constName)) && constName.GetLength()>0) {
 			String* str = new String(constName);
 			list -> Add(*str);
 		}
 		counter++;
-		if (counter%100 == 0) {
+		if (counter%500 == 0) {
 			args = new ArrayList();
 			args -> Add(*(new Integer(counter)));
 			Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_SET, args);
