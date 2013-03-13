@@ -20,13 +20,8 @@ class ConstellationBuilder {
 	public:
 		ConstellationBuilder();
 		virtual ~ConstellationBuilder();
-		static void Build(Osp::Base::String* name);
-
+		static void DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shiftY);
 		static const int CONSTELLATION_READY = 50;
-
-	private:
-		static void Draw(IListT<SkyObject*>* vertexes);
-		static void DrawCanvas(IListT<SkyObject*>* vertexes, Canvas* canvas);
 
 
 };

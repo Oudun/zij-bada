@@ -16,7 +16,7 @@ using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm() {
-	maxAttempts = 1;
+	maxAttempts = 100;
 	attemptsCounter = 1;
 	locProvider = new LocationProvider();
 	locProvider -> Construct(LOC_METHOD_HYBRID);

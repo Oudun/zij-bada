@@ -25,34 +25,11 @@ ConstellationBuilder::~ConstellationBuilder() {
 }
 
 void
-ConstellationBuilder::Build(Osp::Base::String* name) {
+ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shiftY) {
 
-	AppLog("Start building %S", name->GetPointer());
-	constelDbIterator = new ConstellationDbIterator(name);
-
-	SkyCanvas::GetConstellationCanvas(1) -> Clear();
-	SkyCanvas::GetConstellationCanvas(2) -> Clear();
-	SkyCanvas::GetConstellationCanvas(4) -> Clear();
-	SkyCanvas::GetConstellationCanvas(8) -> Clear();
-
-	IListT<SkyObject*>* vertexes;
-	vertexes = constelDbIterator -> GetVertexes();
-
-	delete constelDbIterator;
-
-	Osp::App::Application::GetInstance() -> SendUserEvent(CONSTELLATION_READY, null);
-
-}
-
-void
-ConstellationBuilder::Draw(IListT<SkyObject*>* vertexes) {
-	Canvas* canvas;
-	canvas = SkyCanvas::GetConstellationCanvas(1);
-	DrawCanvas(vertexes, canvas);
-}
-
-void
-ConstellationBuilder::DrawCanvas(IListT<SkyObject*>* vertexes, Canvas* canvas) {
+	String* constellationName = SkyCanvas::GetSelectedConstellation();
+	constelDbIterator = new ConstellationDbIterator(constellationName);
+	IListT<SkyObject*>* vertexes = constelDbIterator -> GetVertexes();
 
 	IList* zoomedVertexes;
 	zoomedVertexes = new ArrayList();
@@ -68,11 +45,22 @@ ConstellationBuilder::DrawCanvas(IListT<SkyObject*>* vertexes, Canvas* canvas) {
 						vertex->getRAH(),
 						vertex->getDED(),
 						vertex->isNorthern() ? 1 : 1,
-						canvas->GetBounds().width,
-						canvas->GetBounds().height);
-		zoomedVertexes -> Add(*zoomedVertex);
+						zoom*canvas->GetBounds().width,
+						zoom*canvas->GetBounds().height);
+		if (zoomedVertex != null) {
+			int x = zoomedVertex -> x;
+			int y = zoomedVertex -> y;
+			zoomedVertex -> SetPosition(x - shiftX, y - shiftY);
+			zoomedVertexes -> Add(*zoomedVertex);
+		}
 	}
 
+	Color bgCol = canvas -> GetBackgroundColor();
+	AppLog("BG color is: %u, %u, %u, %u", bgCol.GetRed(), bgCol.GetGreen(), bgCol.GetBlue(), bgCol.GetAlpha());
+	Color fgCol = canvas -> GetBackgroundColor();
+	AppLog("FG color is: %u, %u, %u, %u", fgCol.GetRed(), fgCol.GetGreen(), fgCol.GetBlue(), fgCol.GetAlpha());
+
+	canvas -> SetForegroundColor(Color::COLOR_YELLOW);
 	canvas -> DrawPolygon(*zoomedVertexes);
 
 }
