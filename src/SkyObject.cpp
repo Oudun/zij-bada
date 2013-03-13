@@ -97,8 +97,8 @@ SkyObject::Draw() {
 	DrawCanvas(canvas);
 	canvas = SkyCanvas::GetStarCanvas(4);
 	DrawCanvas(canvas);
-	canvas = SkyCanvas::GetStarCanvas(8);
-	result = DrawCanvas(canvas);
+//	canvas = SkyCanvas::GetStarCanvas(8);
+//	result = DrawCanvas(canvas);
 	return result;
 }
 
