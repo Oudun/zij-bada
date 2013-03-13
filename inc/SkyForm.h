@@ -4,6 +4,7 @@
 #include "Sky.h"
 #include "SkyCanvas.h"
 #include "ConstellationForm.h"
+#include "ConstellationBuilder.h"
 
 class SkyForm :
 	public Osp::Ui::Controls::Form,
@@ -19,6 +20,9 @@ public:
 	virtual ~SkyForm(void);
 	bool Initialize(void);
 	static const int SELECT_CONSTELLATION = 30;
+	static const int MAX_ZOOM = 4;
+	static const int MIN_ZOOM = 1;
+
 
 // Implementation
 protected:

@@ -119,16 +119,10 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			break;
 		}
 		case StellarForm::CONSTELLATION_SELECTED: {
-			AppLog("CONSTELLATION_SELECTED");
-			String* constelName = SkyCanvas::GetSelectedConstellation();
-			AppLog("Selected constellation name is %S", constelName);
-			ConstellationBuilder::Build(constelName);
-		}
-		case ConstellationBuilder::CONSTELLATION_READY: {
-				pFrame -> SetCurrentForm(*skyForm);
-				skyForm -> Draw();
-				skyForm -> Update();
-				break;
+			pFrame -> SetCurrentForm(*skyForm);
+			skyForm -> Draw();
+			skyForm -> Update();
+			break;
 		}
 	}
 }

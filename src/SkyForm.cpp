@@ -116,7 +116,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	switch(actionId)
 	{
 	case ID_BUTTON_ZOOM_IN: {
-			if (zoom < 8) {
+			if (zoom < MAX_ZOOM) {
 				zoom = zoom * 2;
 				AppLog("Zooming out with zoom %d", zoom);
 				Update();
@@ -124,7 +124,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		}
 		break;
 	case ID_BUTTON_ZOOM_OUT: {
-			if (zoom > 1) {
+			if (zoom > MIN_ZOOM) {
 				zoom = (int)(zoom/2);
 				AppLog("Zooming out with zoom %d", zoom);
 				Update();
@@ -197,11 +197,17 @@ SkyForm::updateConstList(IList* list) {
 
 void
 SkyForm::Update(void) {
+
 	Osp::Graphics::Canvas* canvas;
 	Control* control = GetControl(L"SKY_FORM");
 	canvas = control -> GetCanvasN();
+	canvas -> SetBackgroundColor(Color::COLOR_RED);
+
 	canvas -> Clear();
 	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas
+
+
+	//Image should not be moved outside screen boundaries, so fixing shift value
 	int zoomedShiftX = zoom == 1 ? 0 : (int)(shiftX * zoom);
 	int zoomedShiftY = zoom == 1 ? 0 : (int)(shiftY * zoom);
 	AppLog("Zoomed shift to %d, %d", zoomedShiftX, zoomedShiftY);
@@ -213,15 +219,17 @@ SkyForm::Update(void) {
 	zoomedShiftY = zoomedShiftY > (destHeight * (zoom-1)) ? (destHeight * (zoom-1)) : zoomedShiftY;
 	rect.SetPosition(zoomedShiftX, zoomedShiftY);
 	AppLog("Rect %d %d %d %d", rect.GetTopLeft().x, rect.GetTopLeft().y, rect.GetBottomRight().x, rect.GetBottomRight().y);
-//	Osp::Graphics::Canvas* bufferedCanvas = SkyCanvas::GetStarCanvas(zoom);	//Getting buffered canvas for given zoom
-//	Osp::Graphics::Point point(0, 0);											//Setting start point as top left
-//	canvas->Copy(point, *bufferedCanvas, rect);
+
+	//Getting buffered canvas for given zoom
+	Osp::Graphics::Canvas* bufferedCanvas = SkyCanvas::GetStarCanvas(zoom);
+
+	//Setting start point as top left
+	Osp::Graphics::Point point(0, 0);
+
+	canvas->Copy(point, *bufferedCanvas, rect);
 
 	if (SkyCanvas::GetSelectedConstellation() != null) {
-		AppLog("Drawing constellation borders");
-		Osp::Graphics::Canvas* constellationCanvas = SkyCanvas::GetConstellationCanvas(zoom);	//Getting buffered canvas for given zoom
-		Osp::Graphics::Point point(0, 0);														//Setting start point as top left
-		canvas->Copy(point, *constellationCanvas, rect);
+		ConstellationBuilder::DrawCanvas(canvas, zoom, zoomedShiftX, zoomedShiftY);
 	} else {
 		AppLog("Constellation is not selected");
 	}
