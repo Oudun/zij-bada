@@ -89,17 +89,71 @@ SkyObject::Print(void) {
 
 bool
 SkyObject::Draw() {
-	bool result = false;
+
+	Point* zoomedPoint = new Point();
+
 	Canvas* canvas;
 	canvas = SkyCanvas::GetStarCanvas(1);
-	DrawCanvas(canvas);
+
+	Point* point = Projector::
+			GetProjection(RAH, DED, sign,
+					canvas->GetBounds().width,
+					canvas->GetBounds().height);
+
+	if (point == null) {
+		delete zoomedPoint;
+		return false;
+	}
+
+	Projector::Zoom(point, zoomedPoint, 1);
+
+	DrawCanvas(canvas, zoomedPoint);
+
+	Projector::Zoom(point, zoomedPoint, 2);
+
 	canvas = SkyCanvas::GetStarCanvas(2);
-	DrawCanvas(canvas);
+	DrawCanvas(canvas, zoomedPoint);
+
+	Projector::Zoom(point, zoomedPoint, 4);
+
 	canvas = SkyCanvas::GetStarCanvas(4);
-	result = DrawCanvas(canvas);
-//	canvas = SkyCanvas::GetStarCanvas(8);
-//	result = DrawCanvas(canvas);
-	return result;
+	DrawCanvas(canvas, zoomedPoint);
+
+	delete zoomedPoint;
+	return true;
+
+}
+
+void
+SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
+
+	Color color = Color::COLOR_WHITE;
+
+	int diameter;
+
+	if (magnitude < -1) {
+		diameter = 8;
+	} else if (magnitude < 0) {
+		diameter = 6;
+	} else if (magnitude < 1) {
+		diameter = 5;
+	} else if (magnitude < 2) {
+		diameter = 4;
+	} else if (magnitude < 3) {
+		diameter = 3;
+	} else if (magnitude < 4) {
+		diameter = 2;
+	} else if (magnitude < 5) {
+		color = Color::COLOR_GREY;
+		diameter = 1;
+	} else {
+		color = Color::COLOR_GREY;
+		diameter = 1/2;
+	}
+
+	canvas ->FillEllipse(color,
+		Rectangle(point->x, point->y, diameter, diameter));
+
 }
 
 bool
@@ -114,9 +168,33 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		return false;
 	}
 
+	Color color = Color::COLOR_WHITE;
+
 	int diameter = (int)(7 - magnitude);
 
-		canvas ->FillEllipse(Color::COLOR_WHITE,
+		if (magnitude < -1) {
+			diameter = 8;
+		} else if (magnitude < 0) {
+			diameter = 6;
+		} else if (magnitude < 1) {
+			diameter = 5;
+		} else if (magnitude < 2) {
+			diameter = 4;
+		} else if (magnitude < 3) {
+			diameter = 3;
+		} else if (magnitude < 4) {
+			diameter = 2;
+		} else if (magnitude < 5) {
+			color = Color::COLOR_GREY;
+			diameter = 1;
+		} else {
+			color = Color::COLOR_GREY;
+			diameter = 1/2;
+		}
+
+
+
+		canvas ->FillEllipse(color,
 			Rectangle(point->x, point->y, diameter, diameter));
 
 		return true;

@@ -192,7 +192,7 @@ SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix)
 
 void
 SkyForm::updateConstList(IList* list) {
-	__pConstForm -> UpdateConstellationList(list);
+//	__pConstForm -> UpdateConstellationList(list);
 }
 
 void

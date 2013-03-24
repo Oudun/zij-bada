@@ -64,6 +64,7 @@ public:
 
 private:
 	bool DrawCanvas(Osp::Graphics::Canvas* canvas);
+	void DrawCanvas(Osp::Graphics::Canvas* canvas, Osp::Graphics::Point* point);
 
 private:
     Osp::Base::String name;
