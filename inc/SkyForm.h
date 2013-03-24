@@ -3,7 +3,7 @@
 
 #include "Sky.h"
 #include "SkyCanvas.h"
-#include "ConstellationForm.h"
+//#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
 
 class SkyForm :
@@ -42,7 +42,7 @@ protected:
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
-	ConstellationForm* __pConstForm;
+//	ConstellationForm* __pConstForm;
 
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;

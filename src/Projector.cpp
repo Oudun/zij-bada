@@ -43,3 +43,11 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
     int left = (int)((Math::Floor(width/2)) - r * sinAz);
     return new Point(left, top);
 }
+
+Osp::Graphics::Point*
+Projector::Zoom(
+		Osp::Graphics::Point* source,
+		Osp::Graphics::Point* result,
+		int ratio) {
+	result -> SetPosition(ratio * source->x, ratio * source->y);
+}

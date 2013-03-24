@@ -13,7 +13,7 @@
 #include "SkyBuilder.h"
 #include "SkyCanvas.h"
 #include "StellarForm.h"
-#include "ConstellationForm.h"
+//#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
 
 /**
@@ -36,7 +36,7 @@ class Zij : public Osp::App::Application {
 		SkyBuilderForm* skyBuilderForm;
 		SkyForm* skyForm;
 		StellarForm* stellarForm;
-		ConstellationForm* constellationForm;
+//		ConstellationForm* constellationForm;
 };
 
 #endif

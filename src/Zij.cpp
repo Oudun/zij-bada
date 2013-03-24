@@ -48,8 +48,8 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
-	constellationForm = new ConstellationForm();
-	constellationForm -> Initialize();
+//	constellationForm = new ConstellationForm();
+//	constellationForm -> Initialize();
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
@@ -57,7 +57,7 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*skyBuilderForm);
 	pFrame -> AddControl(*stellarForm);
 	pFrame -> AddControl(*skyForm);
-	pFrame -> AddControl(*constellationForm);
+//	pFrame -> AddControl(*constellationForm);
 
 	pFrame->SetCurrentForm(*locationForm);
 

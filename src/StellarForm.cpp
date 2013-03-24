@@ -33,7 +33,7 @@ StellarForm::OnInitializing(void) {
 	__pConstelList -> Construct(
 			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_TEXT, 20, 20, 100, 100);
+			LIST_ITEM_SINGLE_TEXT, 15, 15, 200, 0);
 	__pConstelList -> AddItemEventListener(*this);
 	AddControl(*__pConstelList);
 	return E_SUCCESS;
