@@ -43,6 +43,8 @@ void
 ConstellationForm::Update(void) {
 	__pConstelList ->RemoveAllItems();
 	Osp::Base::Collection::IEnumerator* constNames = SkyCanvas::getConstellations()->GetEnumeratorN();
+	String emptyString;
+	__pConstelList -> AddItem(&emptyString, &emptyString, null, null, null);
 	while (constNames -> MoveNext() == E_SUCCESS) {
 		String* constNameAbbr = (String*) constNames -> GetCurrent();
 		String constName;
@@ -56,9 +58,7 @@ void
 ConstellationForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
 	AppLog("Index = %d", index);
 	AppLog("ItemId  = %d", itemId);
-	String* abbr = (String*)(SkyCanvas::getConstellations()->GetAt(index));
-	AppLog("Selected constellation is %S", abbr -> GetPointer());
-	SkyCanvas::SelectConstellation(index);
+	SkyCanvas::SelectConstellation(index-1);
 	Osp::App::Application::GetInstance() -> SendUserEvent(CONSTELLATION_SELECTED, null);
 }
 

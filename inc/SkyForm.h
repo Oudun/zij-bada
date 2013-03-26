@@ -3,15 +3,13 @@
 
 #include "Sky.h"
 #include "SkyCanvas.h"
-//#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
 
 class SkyForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
-	public Osp::Base::Runtime::IEventListener,
- 	public Osp::Ui::ITouchEventListener,
- 	public Osp::Ui::ITouchModeChangedEventListener
+ 	public Osp::Ui::ITouchEventListener
+
 {
 
 // Construction
@@ -42,7 +40,6 @@ protected:
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
-//	ConstellationForm* __pConstForm;
 
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
@@ -52,8 +49,6 @@ public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
-	virtual void OnLocationUpdated(Osp::Locations::Location& location);
-	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
 	void Update(void);
 
 private:
@@ -73,7 +68,6 @@ private:
 	virtual void OnTouchPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 
-	virtual void OnTouchModeChanged(const Osp::Ui::Control& source, bool isInTouchMode);
 };
 
 #endif	//_FORM1_H_

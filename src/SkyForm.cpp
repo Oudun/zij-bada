@@ -35,7 +35,6 @@ result
 SkyForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
-	AddTouchModeChangedEventListener(*this);
 	AddTouchEventListener(*this);
 
 	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
@@ -144,44 +143,6 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 }
 
 void
-SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
-	AppLog("Location Updated\n");
-	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
-	String str;
-	if (coordinates != 0) {
-		AppLog("Coordinates taken\n");
-		String locationStr;
-		locationStr.Format(21, L"%S %S",
-				(DegreeToGrad(coordinates->GetLatitude(), "N", "S")->GetPointer()),
-				(DegreeToGrad(coordinates->GetLongitude(), "E", "W")->GetPointer()));
-		__pLabelLocation->SetText(locationStr.GetPointer());
-		__pLabelLocation->Draw();
-		sky->draw();
-	} else {
-		AppLog("#");
-	}
-}
-
-
-// Converts from decimal format -12,34456789 to N12°34'56
-String*
-SkyForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix) {
-	AppLog("Converting degrees to grad");
-	const char* prefix = angle < 0 ? negPrefix : posPrefix;
-	AppLog("orig: %f", angle);
-	float latAbs = angle * 1000000;
-	float deg = Math::Abs(Math::Floor(latAbs/1000000));
-	AppLog("deg: %f", deg);
-	float min = Math::Floor(((latAbs/1000000) - Math::Floor(latAbs/1000000))*60);
-	AppLog("min: %f", min);
-	float sec = Math::Floor(((((latAbs/1000000) - Math::Floor(latAbs/1000000))*60) - Math::Floor(((latAbs/1000000) - Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
-	AppLog("sec: %f", sec);
-	String* result = new String();
-	result->Format(10, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
-	return result;
-}
-
-void
 SkyForm::updateConstList(IList* list) {
 //	__pConstForm -> UpdateConstellationList(list);
 }
@@ -228,11 +189,13 @@ SkyForm::Update(void) {
 		AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
 		appResource ->GetString(*constAcronym, constName);
 		__pLabelLocation -> SetText(constName);
+		__pLabelLocation -> SetShowState(true);
 		__pLabelLocation -> Draw();
-
 
 	} else {
 		__pLabelLocation -> SetText("");
+		__pLabelLocation -> SetShowState(false);
+		__pLabelLocation -> Draw();
 		AppLog("Constellation is not selected");
 	}
 
@@ -275,10 +238,4 @@ SkyForm::OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Po
 		shiftY -= (touchInfo.GetCurrentPosition().y - touchInfo.GetStartPosition().y)/zoom;
 		Update();
 	}
-}
-
-void
-SkyForm::OnTouchModeChanged(const Osp::Ui::Control& source, bool isInTouchMode)
-{
-	AppLog("OnTouchModeChanged");
 }
