@@ -16,12 +16,12 @@
 
 
 
-class StellarForm  :
+class ConstellationForm  :
 	public Osp::Ui::Controls::Form,
  	public Osp::Ui::IItemEventListener{
 public:
-	StellarForm();
-	virtual ~StellarForm();
+	ConstellationForm();
+	virtual ~ConstellationForm();
 	bool Initialize(void);
 	virtual result OnInitializing(void);
 	void Update(void);
