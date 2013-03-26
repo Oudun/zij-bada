@@ -71,21 +71,11 @@ SkyForm::OnInitializing(void)
 	//IDC_BUTTON_CONSTELLATIONS
 
 	__pLabelLocation = static_cast<Label *>(GetControl(L"IDC_LABEL1"));
-	__pLabelLocation ->SetText(L"Location");
-
 	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
-
-//	__pConstForm = new ConstellationForm(this);
-//	__pConstForm -> Construct(FORM_STYLE_NORMAL| FORM_STYLE_INDICATOR| FORM_STYLE_HEADER| FORM_STYLE_FOOTER);
-//	__pConstForm -> SetBackgroundColor(Color::COLOR_CYAN);
 
 	Control* control = GetControl(L"SKY_FORM");
 	destWidth = control -> GetWidth();
 	destHeight = control -> GetHeight();
-
-//	sky = new Sky(control->GetCanvasN(), skyCanvas);
-//	sky -> draw();
-	AppLog("B");
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
 	if (pButton1)
@@ -118,7 +108,11 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_ZOOM_IN: {
 			if (zoom < MAX_ZOOM) {
 				zoom = zoom * 2;
-				AppLog("Zooming out with zoom %d", zoom);
+				String zoomStr;
+				zoomStr.Format(5, L"x %d", zoom);
+				__pZoomLabel -> SetText(zoomStr);
+				__pZoomLabel -> Draw();
+				AppLog("Zooming label value is %S", zoomStr.GetPointer());
 				Update();
 			}
 		}
@@ -126,24 +120,23 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_ZOOM_OUT: {
 			if (zoom > MIN_ZOOM) {
 				zoom = (int)(zoom/2);
-				AppLog("Zooming out with zoom %d", zoom);
+				if (zoom > 1) {
+					String zoomStr;
+					zoomStr.Format(5, L"x %d", zoom);
+					__pZoomLabel -> SetText(zoomStr);
+					__pZoomLabel -> Draw();
+					AppLog("Zooming label value is %S", zoomStr.GetPointer());
+				} else {
+					__pZoomLabel -> SetText("");
+					__pZoomLabel -> Draw();
+				}
 				Update();
 			}
 		}
 		break;
 	case ID_BUTTON_CONSTELLATIONS: {
 		Osp::App::Application::GetInstance() -> SendUserEvent(SELECT_CONSTELLATION, null);
-
-
-//				//AppLog("!!!ID_BUTTON_CONSTELLATIONS");
-//				Frame* frame = Application::GetInstance()->GetAppFrame()->GetFrame();
-//				if (!frame -> GetControls()->Contains(*__pConstForm)) {
-//					frame -> AddControl(*__pConstForm);
-//				}
-//				frame -> SetCurrentForm(*__pConstForm);
-//				__pConstForm -> RequestRedraw(true);
-//				__pConstForm -> Show();
-			}
+	}
 			break;
 	default:
 		break;
@@ -164,8 +157,6 @@ SkyForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pLabelLocation->SetText(locationStr.GetPointer());
 		__pLabelLocation->Draw();
 		sky->draw();
-		sky->draw(); // to force showing
-//		RequestRedraw();
 	} else {
 		AppLog("#");
 	}
@@ -228,9 +219,20 @@ SkyForm::Update(void) {
 
 	canvas->Copy(point, *bufferedCanvas, rect);
 
-	if (SkyCanvas::GetSelectedConstellation() != null) {
+	String* constAcronym = SkyCanvas::GetSelectedConstellation();
+	if (constAcronym != null) {
 		ConstellationBuilder::DrawCanvas(canvas, zoom, zoomedShiftX, zoomedShiftY);
+
+		//Showing name of selected constellation
+		String constName;
+		AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
+		appResource ->GetString(*constAcronym, constName);
+		__pLabelLocation -> SetText(constName);
+		__pLabelLocation -> Draw();
+
+
 	} else {
+		__pLabelLocation -> SetText("");
 		AppLog("Constellation is not selected");
 	}
 
