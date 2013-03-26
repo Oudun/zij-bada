@@ -12,7 +12,7 @@
 #include "SkyBuilderForm.h"
 #include "SkyBuilder.h"
 #include "SkyCanvas.h"
-#include "StellarForm.h"
+#include "ConstellationForm.h"
 //#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
 
@@ -20,11 +20,11 @@
  * [Test] application must inherit from Application class
  * which provides basic features necessary to define an application.
  */
-class Zij : public Osp::App::Application {
+class SkyGuide : public Osp::App::Application {
 
 	public:
-		Zij();
-		~Zij();
+		SkyGuide();
+		~SkyGuide();
 		static Osp::App::Application* CreateInstance(void);
 		bool OnAppInitializing(Osp::App::AppRegistry& appRegistry);
 		bool OnAppTerminating(Osp::App::AppRegistry& appRegistry, bool forcedTermination = false);
@@ -35,7 +35,7 @@ class Zij : public Osp::App::Application {
 		LocationForm* locationForm;
 		SkyBuilderForm* skyBuilderForm;
 		SkyForm* skyForm;
-		StellarForm* stellarForm;
+		ConstellationForm* stellarForm;
 //		ConstellationForm* constellationForm;
 };
 

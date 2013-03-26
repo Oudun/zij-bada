@@ -5,7 +5,7 @@
  * Description : 
  */
 
-#include "Zij.h"
+#include "SkyGuide.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -13,23 +13,23 @@ using namespace Osp::System;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 
-Zij::Zij()
+SkyGuide::SkyGuide()
 {
 }
 
-Zij::~Zij()
+SkyGuide::~SkyGuide()
 {
 }
 
 Application*
-Zij::CreateInstance(void)
+SkyGuide::CreateInstance(void)
 {
 	// Create the instance through the constructor.
-	return new Zij();
+	return new SkyGuide();
 }
 
 bool
-Zij::OnAppInitializing(AppRegistry& appRegistry) {
+SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	//Create context;
 	//timeAndPlace = new TimeAndPlace();
@@ -42,7 +42,7 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
 
-	stellarForm = new StellarForm();
+	stellarForm = new ConstellationForm();
 	stellarForm -> Initialize();
 
 	skyForm = new SkyForm();
@@ -69,7 +69,7 @@ Zij::OnAppInitializing(AppRegistry& appRegistry) {
 }
 
 bool
-Zij::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
+SkyGuide::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 {
 	// TODO:
 	// Deallocate resources allocated by this application for termination.
@@ -78,7 +78,7 @@ Zij::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 }
 
 void
-Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
 	AppLog("Event %d Received", requestId);
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	switch (requestId) {
@@ -118,7 +118,7 @@ Zij::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pA
 			stellarForm -> RequestRedraw(true);
 			break;
 		}
-		case StellarForm::CONSTELLATION_SELECTED: {
+		case ConstellationForm::CONSTELLATION_SELECTED: {
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();

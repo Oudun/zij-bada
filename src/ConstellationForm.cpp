@@ -5,7 +5,7 @@
  *      Author: ddreval
  */
 
-#include "StellarForm.h"
+#include "ConstellationForm.h"
 
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
@@ -13,22 +13,22 @@ using namespace Osp::Graphics;
 using namespace Osp::Base;
 using namespace Osp::App;
 
-StellarForm::StellarForm() {
+ConstellationForm::ConstellationForm() {
 
 }
 
-StellarForm::~StellarForm() {
+ConstellationForm::~ConstellationForm() {
 	// TODO Auto-generated destructor stub
 }
 
 bool
-StellarForm::Initialize(void) {
+ConstellationForm::Initialize(void) {
 	Construct(L"STELLAR_FORM");
 	return true;
 }
 
 result
-StellarForm::OnInitializing(void) {
+ConstellationForm::OnInitializing(void) {
 	__pConstelList = new List();
 	__pConstelList -> Construct(
 			Rectangle(0, 0, 240, 360),
@@ -40,7 +40,7 @@ StellarForm::OnInitializing(void) {
 }
 
 void
-StellarForm::Update(void) {
+ConstellationForm::Update(void) {
 	__pConstelList ->RemoveAllItems();
 	Osp::Base::Collection::IEnumerator* constNames = SkyCanvas::getConstellations()->GetEnumeratorN();
 	while (constNames -> MoveNext() == E_SUCCESS) {
@@ -53,7 +53,7 @@ StellarForm::Update(void) {
 }
 
 void
-StellarForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
+ConstellationForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
 	AppLog("Index = %d", index);
 	AppLog("ItemId  = %d", itemId);
 	String* abbr = (String*)(SkyCanvas::getConstellations()->GetAt(index));
