@@ -16,7 +16,7 @@ using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm() {
-	maxAttempts = 100;
+	maxAttempts = 4;
 	attemptsCounter = 1;
 	locProvider = new LocationProvider();
 	locProvider -> Construct(LOC_METHOD_HYBRID);
@@ -37,8 +37,11 @@ result
 LocationForm::OnInitializing(void) {
 	AppLog("LocationForm::OnInitializing(void)");
 	__pActionLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
+	AppLog("1");
 	__pActionAttemptLabel = static_cast<Label *>(GetControl("IDC_LABEL2"));
+	AppLog("2");
 	__pGpsProviderStatusLabel = static_cast<Label *>(GetControl("IDC_LABEL3"));
+	AppLog("3");
 	return E_SUCCESS;
 }
 
@@ -69,7 +72,25 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pGpsProviderStatusLabel->SetText(locationStr.GetPointer());
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		locProvider -> CancelLocationUpdates();
-		SetTimeAndPlace(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
+
+		AppLog("Found longitude %f", coordinates->GetLongitude());
+		AppLog("Found latitude %f", coordinates->GetLatitude());
+
+		TimeAndPlace::SetSiderialTime(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
+
+//		Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
+//		appRegistry -> Set("LAST_LONGITUDE", coordinates->GetLongitude());
+//		appRegistry -> Set("LAST_LATITUDE", coordinates->GetLatitude());
+//		appRegistry -> Save();
+//
+//		double* d1 = 0;
+//		double* d2 = 0;
+//		appRegistry -> Get("LAST_LONGITUDE", *d1);
+//		appRegistry -> Get("LAST_LATITUDE", *d2);
+//
+//		AppLog("Storing longitude %f", *d1);
+//		AppLog("Storing latitude %f", *d2);
+
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 	} else if (attemptsCounter < maxAttempts){
 		attemptsCounter++;
@@ -78,10 +99,9 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
 	} else {
-		SetTimeAndPlace(0, 0, new DateTime());
 		attemptsCounter = 0;
 		locProvider -> CancelLocationUpdates();
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
 	}
 }
 
@@ -124,36 +144,3 @@ LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPr
 	return result;
 }
 
-void
-LocationForm::SetTimeAndPlace(float longitude, float latitude, DateTime* currTime) {
-	AppLog("Trying to access TimeAndPlace");
-	TimeAndPlace::SetLongitude(longitude);
-	AppLog("Trying to access TimeAndPlace 1");
-	TimeAndPlace::SetLatitude(latitude);
-	AppLog("Trying to access TimeAndPlace 2");
-	TimeZone timeZone(60, L"Europe/London");
-	SystemTime::GetCurrentTime(*currTime);
-	Calendar* calendar;
-	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
-	calendar->SetTime(*currTime);
-	float hrs = (calendar->GetTimeField(TIME_FIELD_HOUR_OF_DAY))-1;
-	float minHrs = calendar->GetTimeField(TIME_FIELD_MINUTE)/60.0;
-	float dayFract = (hrs + minHrs)/24.0;
-	float dayNum = calendar->GetTimeField(TIME_FIELD_DAY_OF_YEAR);
-	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
-	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
-	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-	int sltInt = (int)(slt/360);
-	float sltHrs = (slt-(360*sltInt))/15;
-	TimeAndPlace::SetSiderialTime (sltHrs);
-}
-
-void
-LocationForm::DoIt(void) {
-//	Osp::Graphics::Canvas* canvas;
-//	Control* control = GetControl(L"STELLAR_FORM");
-//	canvas = control -> GetCanvasN();
-////	canvas -> Clear();
-////	canvas ->FillEllipse(Osp::Graphics::Color::COLOR_WHITE, Osp::Graphics::Rectangle(100, 100, 200, 200));
-//	canvas -> Show();
-}

@@ -147,8 +147,8 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 		color = Color::COLOR_GREY;
 		diameter = 1;
 	} else {
-		color = Color::COLOR_GREY;
-		diameter = 1/2;
+		color = DARK_GREY;
+		diameter = 1;
 	}
 
 	canvas ->FillEllipse(color,

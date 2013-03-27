@@ -8,11 +8,15 @@
     <Vendor/>
     <Description/>
     <Icons>
-        <MainMenu>Icon.png</MainMenu>
+        <MainMenu>Icon.png<Type1>Icon.png</Type1>
+            <Type2/>
+        </MainMenu>
         <Setting/>
         <Ticker/>
         <QuickPanel/>
-        <LaunchImage>Splash.png</LaunchImage>
+        <LaunchImage>Splash.png<Type1>Splash.png</Type1>
+            <Type2/>
+        </LaunchImage>
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>

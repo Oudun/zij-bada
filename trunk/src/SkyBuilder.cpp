@@ -39,7 +39,6 @@ SkyBuilder::Run() {
 		isVisible = skyObject -> Draw();
 		String constName = skyObject->getConstellation();
 		constName.Trim();
-//		AppLog("Constellation is %S visible %d length %d added %d", constName.GetPointer(), isVisible?1:0, constName.GetLength(), list -> Contains(constName)?1:0);
 		if (isVisible && (!list -> Contains(constName)) && constName.GetLength()>0) {
 			String* str = new String(constName);
 			list -> Add(*str);

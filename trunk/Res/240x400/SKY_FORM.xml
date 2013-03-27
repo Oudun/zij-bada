@@ -21,7 +21,7 @@
         <layout height="24" mode="Landscape" width="96" x="303" y="161"/>
     </Button>
     <Label id="IDC_LABEL_ZOOM" parent="SKY_FORM">
-        <property BGBitmapPath="" BGColor="#000000" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="?" textColor="#C0C0C0" textSize="14" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
+        <property BGBitmapPath="" BGColor="#000000" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="#C0C0C0" textSize="14" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
         <layout height="33" mode="Portrait" width="31" x="0" y="1"/>
         <layout height="24" mode="Landscape" width="85" x="0" y="0"/>
     </Label>

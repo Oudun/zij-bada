@@ -13,8 +13,9 @@
 #include "SkyBuilder.h"
 #include "SkyCanvas.h"
 #include "ConstellationForm.h"
-//#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
+#include "AlterLocationForm.h"
+#include "EarthMapForm.h"
 
 /**
  * [Test] application must inherit from Application class
@@ -31,12 +32,15 @@ class SkyGuide : public Osp::App::Application {
 		virtual void OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 	private:
-		TimeAndPlace* timeAndPlace;
 		LocationForm* locationForm;
 		SkyBuilderForm* skyBuilderForm;
-		SkyForm* skyForm;
 		ConstellationForm* stellarForm;
-//		ConstellationForm* constellationForm;
+		AlterLocationForm* alterLocationForm;
+		EarthMapForm* earthMapForm;
+
+		TimeAndPlace* timeAndPlace;
+		SkyForm* skyForm;
+
 };
 
 #endif

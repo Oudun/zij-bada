@@ -31,13 +31,15 @@ SkyGuide::CreateInstance(void)
 bool
 SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
-	//Create context;
-	//timeAndPlace = new TimeAndPlace();
+	AppLog("Initializing");
+
 	SkyCanvas::Initialize();
 
 	// Create forms
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
+
+	AppLog("0");
 
 	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
@@ -48,21 +50,38 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
-//	constellationForm = new ConstellationForm();
-//	constellationForm -> Initialize();
+	alterLocationForm = new AlterLocationForm();
+	alterLocationForm -> Initialize();
+
+	earthMapForm = new EarthMapForm();
+	earthMapForm -> Initialize();
+
+	AppLog("1");
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
+	AppLog("1a");
 	pFrame -> AddControl(*locationForm);
+	AppLog("1b");
 	pFrame -> AddControl(*skyBuilderForm);
+	AppLog("1c");
 	pFrame -> AddControl(*stellarForm);
+	AppLog("1d");
 	pFrame -> AddControl(*skyForm);
-//	pFrame -> AddControl(*constellationForm);
+	AppLog("1e");
+	pFrame -> AddControl(*alterLocationForm);
+	AppLog("1f");
+	pFrame -> AddControl(*earthMapForm);
+	AppLog("2");
 
 	pFrame->SetCurrentForm(*locationForm);
 
+	AppLog("3");
+
 	locationForm -> Draw();
 	locationForm -> Show();
+
+	AppLog("4");
 
 	return true;
 
@@ -122,6 +141,34 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();
+			break;
+		}
+		case AlterLocationForm::USE_PREV_LOCATION: {
+			double longitude = 0;
+			double latitude = 0;
+			AppLog("Retrieving coordinates");
+
+			AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
+
+			appRegistry -> Set("LAST_LONGITUDE", longitude);
+			appRegistry -> Set("LAST_LATITUDE", latitude);
+
+			appRegistry -> Get("LAST_LONGITUDE", longitude);
+			appRegistry -> Get("LAST_LATITUDE", latitude);
+
+			AppLog("Reusing old coordinates longitude %f latitude %f", longitude, latitude);
+			TimeAndPlace::SetSiderialTime(longitude, latitude, new DateTime());
+			Osp::App::Application::GetInstance() -> SendUserEvent(LocationForm::LOCATION_SET, null);
+			break;
+		}
+		case AlterLocationForm::USE_MAP_LOCATION: {
+			pFrame -> SetCurrentForm(*earthMapForm);
+			earthMapForm -> RequestRedraw(true);
+			break;
+		}
+		case LocationForm::LOCATION_FAILED: {
+			pFrame->SetCurrentForm(*alterLocationForm);
+			alterLocationForm -> RequestRedraw(true);
 			break;
 		}
 	}
