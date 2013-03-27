@@ -25,7 +25,6 @@ result
 SkyBuilderForm::OnInitializing(void) {
 	result r = E_SUCCESS;
 	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
-	__pStarsProgress -> SetBarColor(Osp::Graphics::Color::COLOR_VIOLET);
 	return r;
 }
 
