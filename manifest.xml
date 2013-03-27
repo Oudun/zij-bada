@@ -15,6 +15,9 @@
         <Privilege>
             <Name>SYSTEM_SERVICE</Name>
         </Privilege>
+        <Privilege>
+            <Name>FLASH_SERVICE</Name>
+        </Privilege>
     </Privileges>	
 	</Privileges>
 	<DeviceProfile>

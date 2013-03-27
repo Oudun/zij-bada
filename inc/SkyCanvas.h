@@ -28,6 +28,7 @@ class SkyCanvas {
 static Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* starLayers;
 static Osp::Base::Collection::IList* constellationsVisible;
 static int selectedConstellationIndex = -1;
+static Osp::Graphics::Color DARK_GREY(128, 128, 128);
 
 
 #endif /* SKYCANVAS_H_ */

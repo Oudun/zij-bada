@@ -9,6 +9,8 @@
 #define TIMEANDPLACE_H_
 
 #include <FBase.h>
+#include <FLocales.h>
+#include <FLocations.h>
 
 class TimeAndPlace {
 
@@ -21,6 +23,7 @@ class TimeAndPlace {
 		static float GetLongitude(void);
 		static float GetLatitude(void);
 		static float GetSiderialTime(void);
+		static void SetSiderialTime(float longitude, float latitude, Osp::Base::DateTime* currTime);
 
 	private:
 
