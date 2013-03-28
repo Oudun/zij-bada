@@ -16,11 +16,19 @@ using namespace Osp::System;
 using namespace Osp::Ui::Controls;
 
 LocationForm::LocationForm() {
-	maxAttempts = 4;
+	maxAttempts = 16;
 	attemptsCounter = 1;
 	locProvider = new LocationProvider();
-	locProvider -> Construct(LOC_METHOD_HYBRID);
-	locProvider -> RequestLocationUpdates(*this, 5, true);
+	AppLog("1");
+	result r = E_SUCCESS;
+	r = locProvider -> Construct(LOC_METHOD_HYBRID);
+	if (r != E_SUCCESS) {
+		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
+	}
+	r = locProvider -> RequestLocationUpdates(*this, 5, true);
+	if (r != E_SUCCESS) {
+		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
+	}
 }
 
 LocationForm::~LocationForm() {
@@ -73,23 +81,21 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		locProvider -> CancelLocationUpdates();
 
-		AppLog("Found longitude %f", coordinates->GetLongitude());
-		AppLog("Found latitude %f", coordinates->GetLatitude());
-
 		TimeAndPlace::SetSiderialTime(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
 
-//		Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
-//		appRegistry -> Set("LAST_LONGITUDE", coordinates->GetLongitude());
-//		appRegistry -> Set("LAST_LATITUDE", coordinates->GetLatitude());
-//		appRegistry -> Save();
-//
-//		double* d1 = 0;
-//		double* d2 = 0;
-//		appRegistry -> Get("LAST_LONGITUDE", *d1);
-//		appRegistry -> Get("LAST_LATITUDE", *d2);
-//
-//		AppLog("Storing longitude %f", *d1);
-//		AppLog("Storing latitude %f", *d2);
+		Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
+
+		result r = E_SUCCESS;
+		r = appRegistry -> Set("LAST_LONGITUDE", coordinates->GetLongitude());
+		if (r == E_KEY_NOT_FOUND) {
+			appRegistry -> Add("LAST_LONGITUDE", coordinates->GetLongitude());
+		}
+		r = appRegistry -> Set("LAST_LATITUDE", coordinates->GetLatitude());
+		if (r == E_KEY_NOT_FOUND) {
+			appRegistry -> Add("LAST_LATITUDE", coordinates->GetLatitude());
+		}
+
+		appRegistry -> Save();
 
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 	} else if (attemptsCounter < maxAttempts){
@@ -107,6 +113,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 
 void
 LocationForm::OnProviderStateChanged(Osp::Locations::LocProviderState newState) {
+	AppLog("4");
 	AppLog("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
 		__pGpsProviderStatusLabel -> SetText("The location provider is available");

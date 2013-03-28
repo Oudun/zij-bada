@@ -36,16 +36,7 @@ AlterLocationForm::OnInitializing(void)
 		pButton3->AddActionEventListener(*this);
 	}
 
-
-//	double longitude;
-//	double latitude;
-//	result r1 = Osp::App::AppRegistry::GetInstance() -> Get("LAST_LONGITUDE", longitude);
-//	result r2 = Osp::App::AppRegistry::GetInstance() -> Get("LAST_LATITUDE", latitude);
-//	if (r1 != E_SUCCESS || r2 != E_SUCCESS) {
-//		Button * __prevLocButton = static_cast<Button *>(GetControl(L"IDC_BUTTON_REFRESH"));
-//		__prevLocButton -> SetShowState(false);
-//		__prevLocButton -> Draw();
-//	}
+	Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
 
 	Button *pButton_prev_location = static_cast<Button *>(GetControl("IDC_BUTTON_PREV_LOCATION"));  
 	if (pButton_prev_location)
@@ -53,6 +44,34 @@ AlterLocationForm::OnInitializing(void)
 		pButton_prev_location->SetActionId(1);
 		pButton_prev_location->AddActionEventListener(*this);
 	}
+
+	double latitude, longitude;
+	result rLon = appRegistry -> Get("LAST_LONGITUDE", longitude);
+	AppLog("Error %S", GetErrorMessage(rLon));
+	AppLog("Longitude is %f", longitude);
+	result rLat = appRegistry -> Get("LAST_LATITUDE", latitude);
+
+//	 * @exception	E_SUCCESS			The method is successful.
+//	 * @exception	E_INVALID_ARG		The length of the specified string for a section or entry is smaller than or equal to @c 0, or the specified string is a @c null value or string with '\0' and '\n'.
+//	 * @exception	E_KEY_NOT_FOUND
+
+	if (rLat == E_SUCCESS) {
+		AppLog("E_SUCCESS");
+	} else if (rLat == E_INVALID_ARG) {
+		AppLog("E_INVALID_ARG");
+	} else if (rLat == E_KEY_NOT_FOUND) {
+		AppLog("E_KEY_NOT_FOUND");
+	} else {
+		AppLog("Have no idea what is happening");
+	}
+
+	AppLog("Latitude is %f", latitude);
+
+	if (rLat != E_SUCCESS || rLon != E_SUCCESS) {
+		pButton_prev_location -> SetShowState(false);
+		//pButton_prev_location -> Draw();
+	}
+
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
 	if (pButton1)
 	{

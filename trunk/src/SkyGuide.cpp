@@ -150,9 +150,6 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 
 			AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
 
-			appRegistry -> Set("LAST_LONGITUDE", longitude);
-			appRegistry -> Set("LAST_LATITUDE", latitude);
-
 			appRegistry -> Get("LAST_LONGITUDE", longitude);
 			appRegistry -> Get("LAST_LATITUDE", latitude);
 

@@ -16,6 +16,8 @@
 #include "ConstellationBuilder.h"
 #include "AlterLocationForm.h"
 #include "EarthMapForm.h"
+//#include "Shared.h"
+
 
 /**
  * [Test] application must inherit from Application class

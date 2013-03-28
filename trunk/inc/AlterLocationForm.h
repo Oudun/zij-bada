@@ -5,6 +5,7 @@
 #include <FBase.h>
 #include <FUi.h>
 #include <FApp.h>
+#include "TimeAndPlace.h"
 
 class AlterLocationForm :
 	public Osp::Ui::Controls::Form,
