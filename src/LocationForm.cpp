@@ -70,7 +70,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 //	String str;
 	if (coordinates != 0) {
-		AppLog("Coordinates taken\n");
+		AppLog("Coordinates taken lon %f lat %f \n", coordinates->GetLongitude(), coordinates->GetLatitude());
 		__pActionAttemptLabel -> SetText("Coordinates taken");
 		__pActionAttemptLabel -> RequestRedraw(true);
 		String locationStr;
