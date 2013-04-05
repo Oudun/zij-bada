@@ -50,21 +50,6 @@ AlterLocationForm::OnInitializing(void)
 	AppLog("Error %S", GetErrorMessage(rLon));
 	AppLog("Longitude is %f", longitude);
 	result rLat = appRegistry -> Get("LAST_LATITUDE", latitude);
-
-//	 * @exception	E_SUCCESS			The method is successful.
-//	 * @exception	E_INVALID_ARG		The length of the specified string for a section or entry is smaller than or equal to @c 0, or the specified string is a @c null value or string with '\0' and '\n'.
-//	 * @exception	E_KEY_NOT_FOUND
-
-	if (rLat == E_SUCCESS) {
-		AppLog("E_SUCCESS");
-	} else if (rLat == E_INVALID_ARG) {
-		AppLog("E_INVALID_ARG");
-	} else if (rLat == E_KEY_NOT_FOUND) {
-		AppLog("E_KEY_NOT_FOUND");
-	} else {
-		AppLog("Have no idea what is happening");
-	}
-
 	AppLog("Latitude is %f", latitude);
 
 	if (rLat != E_SUCCESS || rLon != E_SUCCESS) {
@@ -105,15 +90,16 @@ AlterLocationForm::OnActionPerformed(const Osp::Ui::Control &source, int actionI
 	switch (actionId) {
 		case IDC_BUTTON_MAP_LOCATION : {
 			Osp::App::Application::GetInstance() -> SendUserEvent(USE_MAP_LOCATION, null);
+			break;
 		}
 		case IDC_BUTTON_PREV_LOCATION : {
 			Osp::App::Application::GetInstance() -> SendUserEvent(USE_PREV_LOCATION, null);
+			break;
 		}
-		break;
 		case ID_BUTTON_QUIT : {
 			Osp::App::Application::GetInstance() -> Terminate();
+			break;
 		}
-		break;
 		default:
 			break;
 	}

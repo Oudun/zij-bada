@@ -4,7 +4,8 @@
 using namespace Osp::Base;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
-
+using namespace Osp::App;
+using namespace Osp::Graphics;
 
 EarthMapForm::EarthMapForm(void)
 {
@@ -17,8 +18,7 @@ EarthMapForm::~EarthMapForm(void)
 bool
 EarthMapForm::Initialize()
 {
-	Form::Construct(L"EARTH_MAP_FORM");
-
+	Construct(L"EARTH_MAP_FORM");
 	return true;
 }
 
@@ -26,10 +26,6 @@ result
 EarthMapForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
-
-//	Osp::Graphics::Bitmap* map = new Bitmap();
-//	map -> Construct()
-
 	return r;
 }
 
@@ -43,7 +39,22 @@ EarthMapForm::OnTerminating(void)
 	return r;
 }
 
+void
+EarthMapForm::Update(void) {
+	Control* control = GetControl(L"EARTH_MAP_FORM");
+	Canvas* canvas;
+	canvas = control -> GetCanvasN();
 
+	Osp::App::AppResource* appResource = Osp::App::AppResource::GetInstance();
+	Osp::Graphics::Bitmap* mapImage = appResource -> GetBitmapN("earth.png");
+
+	Osp::Graphics::Point topLeft(0, 70);
+	canvas -> DrawBitmap(topLeft, *mapImage);
+
+//	canvas -> DrawLine(Osp::Graphics::Point(0, 0), Osp::Graphics::Point(100, 100));
+	canvas -> Show();
+
+}
 
 void
 EarthMapForm::OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)

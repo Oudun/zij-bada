@@ -36,7 +36,7 @@ class SkyGuide : public Osp::App::Application {
 	private:
 		LocationForm* locationForm;
 		SkyBuilderForm* skyBuilderForm;
-		ConstellationForm* stellarForm;
+		ConstellationForm* constellationForm;
 		AlterLocationForm* alterLocationForm;
 		EarthMapForm* earthMapForm;
 

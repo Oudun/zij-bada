@@ -4,8 +4,7 @@
 
 #include <FBase.h>
 #include <FUi.h>
-
-
+#include <FApp.h>
 
 class EarthMapForm :
 	public Osp::Ui::Controls::Form,
@@ -19,6 +18,7 @@ public:
 	bool Initialize();
 	result OnInitializing(void);
 	result OnTerminating(void);
+	void Update(void);
 
 // Implementation
 protected:

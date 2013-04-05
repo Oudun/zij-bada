@@ -44,8 +44,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
 
-	stellarForm = new ConstellationForm();
-	stellarForm -> Initialize();
+	constellationForm = new ConstellationForm();
+	constellationForm -> Initialize();
 
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
@@ -65,7 +65,7 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	AppLog("1b");
 	pFrame -> AddControl(*skyBuilderForm);
 	AppLog("1c");
-	pFrame -> AddControl(*stellarForm);
+	pFrame -> AddControl(*constellationForm);
 	AppLog("1d");
 	pFrame -> AddControl(*skyForm);
 	AppLog("1e");
@@ -102,13 +102,15 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	switch (requestId) {
 		case LocationForm::LOCATION_SET: {
+			AppLog("Getting location");
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(3000);
 			pFrame->SetCurrentForm(*skyBuilderForm);
 			skyBuilderForm -> RequestRedraw(true);
 			skyBuilderForm -> Start();
 			break;
 		}
-		case SkyBuilder::BUILD_PROGRESS_RANGE_SET: {
+		case SkyBuilder::BUILD_PROGRESS_RANGE_SET:
+			AppLog("Setting sky build progress");{
 			Integer* arg1 = (Integer*)(pArgs -> GetAt(0));
 			Integer* arg2 = (Integer*)(pArgs -> GetAt(1));
 			skyBuilderForm -> SetRange(arg1 -> ToInt(), arg2 -> ToInt());
@@ -116,12 +118,14 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			break;
 		}
 		case SkyBuilder::BUILD_PROGRESS_SET: {
+			AppLog("Updating sky build progress");
 			Integer* arg = (Integer*)(pArgs -> GetAt(0));
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
 			break;
 		}
 		case SkyBuilder::BUILD_PROGRESS_DONE: {
+			AppLog("Showing sky");
 			Integer* arg = (Integer*)(pArgs -> GetAt(0));
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
@@ -132,21 +136,23 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			break;
 		}
 		case SkyForm::SELECT_CONSTELLATION: {
-			pFrame -> SetCurrentForm(*stellarForm);
-			stellarForm -> Update();
-			stellarForm -> RequestRedraw(true);
+			AppLog("Showing list to select constellation");
+			pFrame -> SetCurrentForm(*constellationForm);
+			constellationForm -> Update();
+			constellationForm -> RequestRedraw(true);
 			break;
 		}
 		case ConstellationForm::CONSTELLATION_SELECTED: {
+			AppLog("Constellation is selected, showing it on sky");
+
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();
 			break;
 		}
 		case AlterLocationForm::USE_PREV_LOCATION: {
-			double longitude = 0;
-			double latitude = 0;
-			AppLog("Retrieving coordinates");
+			double longitude, latitude;
+			AppLog("Retrieving old coordinates");
 
 			AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
 
@@ -159,11 +165,14 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			break;
 		}
 		case AlterLocationForm::USE_MAP_LOCATION: {
+			AppLog("Showing earth map");
 			pFrame -> SetCurrentForm(*earthMapForm);
-			earthMapForm -> RequestRedraw(true);
+			earthMapForm -> Draw();
+			earthMapForm -> Update();
 			break;
 		}
 		case LocationForm::LOCATION_FAILED: {
+			AppLog("Auto location failed, choose alternate");
 			pFrame->SetCurrentForm(*alterLocationForm);
 			alterLocationForm -> RequestRedraw(true);
 			break;
