@@ -1,0 +1,330 @@
+LON=-3 LAT=-14 City is Rikitea (French Polynesia) with population 1582
+LON=-2 LAT=-14 City is Fatu-Hiva (French Polynesia) with population 584
+LON=-1 LAT=-14 City is Atuona (French Polynesia) with population 1605
+LON=5 LAT=-14 City is Juneau (United States of America) with population 31270
+LON=6 LAT=-14 City is Whitehorse (Canada) with population 19620
+LON=3 LAT=-13 City is San Jose (United States of America) with population 954927
+LON=4 LAT=-13 City is Vancouver (Canada) with population 2088940
+LON=5 LAT=-13 City is Kamloops (Canada) with population 72091
+LON=2 LAT=-12 City is Hermosillo (Mexico) with population 748933
+LON=3 LAT=-12 City is Los Angeles (United States of America) with population 3800904
+LON=4 LAT=-12 City is Spokane (United States of America) with population 210987
+LON=5 LAT=-12 City is Calgary (Canada) with population 1126212
+LON=6 LAT=-12 City is Yellowknife (Canada) with population 19454
+LON=-3 LAT=-11 City is Hangaroa (Smaller Territories of Chile) with population 589
+LON=1 LAT=-11 City is Morelia (Mexico) with population 607462
+LON=2 LAT=-11 City is Guadalajara (Mexico) with population 1465337
+LON=3 LAT=-11 City is Juárez (Mexico) with population 1357618
+LON=4 LAT=-11 City is Fort Collins (United States of America) with population 149219
+LON=5 LAT=-11 City is Saskatoon (Canada) with population 207065
+LON=-1 LAT=-10 City is Puerto Ayora (Ecuador) with population 15565
+LON=1 LAT=-10 City is Ciudad de México (Mexico) with population 8447580
+LON=2 LAT=-10 City is Houston (United States of America) with population 2118379
+LON=3 LAT=-10 City is Dallas (United States of America) with population 1199220
+LON=4 LAT=-10 City is Winnipeg (Canada) with population 652383
+LON=5 LAT=-10 City is Thompson (Canada) with population 13293
+LON=6 LAT=-10 City is Kangerdlinerk (Canada) with population 2584
+LON=-1 LAT=-9 City is Piura (Peru) with population 407109
+LON=0 LAT=-9 City is San José (Costa Rica) with population 351762
+LON=1 LAT=-9 City is Tegucigalpa (Honduras) with population 1135309
+LON=2 LAT=-9 City is Havanna (Cuba) with population 2097885
+LON=3 LAT=-9 City is Jacksonville (United States of America) with population 836655
+LON=4 LAT=-9 City is Chicago (United States of America) with population 2656028
+LON=7 LAT=-9 City is Tununirusiq (Canada) with population 998
+LON=-6 LAT=-8 City is Punta Arenas (Chile) with population 129692
+LON=-5 LAT=-8 City is Puerto Montt (Chile) with population 218903
+LON=-4 LAT=-8 City is Santiago (Chile) with population 5279190
+LON=-3 LAT=-8 City is Antofagasta (Chile) with population 369855
+LON=-2 LAT=-8 City is Lima (Peru) with population 8165885
+LON=-1 LAT=-8 City is Guayaquil (Ecuador) with population 2361841
+LON=0 LAT=-8 City is Bogotá (Colombia) with population 7539293
+LON=1 LAT=-8 City is Maracaibo (Venezuela) with population 2386461
+LON=2 LAT=-8 City is Santiago de Cuba (Cuba) with population 449234
+LON=3 LAT=-8 City is Baltimore (United States of America) with population 613984
+LON=4 LAT=-8 City is New York (United States of America) with population 8193718
+LON=5 LAT=-8 City is Chisasibi (Canada) with population 2028
+LON=7 LAT=-8 City is Qeqertarsuaq (Greenland) with population 764
+LON=-6 LAT=-7 City is Río Gallegos (Argentina) with population 93107
+LON=-5 LAT=-7 City is Comodoro Rivadavia (Argentina) with population 146179
+LON=-4 LAT=-7 City is Córdoba (Argentina) with population 1529092
+LON=-3 LAT=-7 City is Tucumán (Argentina) with population 850106
+LON=-2 LAT=-7 City is Santa Cruz (Bolivia) with population 1835001
+LON=-1 LAT=-7 City is Manaus (Brazil) with population 1887095
+LON=0 LAT=-7 City is Ciudad Guayana (Venezuela) with population 884657
+LON=1 LAT=-7 City is Santo Domingo (Dominican Republic) with population 2703480
+LON=3 LAT=-7 City is Saint George (Bermuda) with population 1743
+LON=4 LAT=-7 City is Halifax (Canada) with population 288802
+LON=5 LAT=-7 City is Sept-Îles (Canada) with population 22064
+LON=6 LAT=-7 City is Iqaluit (Canada) with population 7524
+LON=7 LAT=-7 City is Narsaq (Greenland) with population 1559
+LON=-6 LAT=-6 City is Port Stanley (Falkland Islands) with population 2279
+LON=-4 LAT=-6 City is Buenos Aires (Argentina) with population 13015875
+LON=-3 LAT=-6 City is Campo Grande (Brazil) with population 802192
+LON=-2 LAT=-6 City is Cuiabá (Brazil) with population 554967
+LON=-1 LAT=-6 City is Santarém (Brazil) with population 221027
+LON=0 LAT=-6 City is Macapá (Brazil) with population 411062
+LON=1 LAT=-6 City is Bridgetown (Barbados) with population 92328
+LON=4 LAT=-6 City is Saint John's (Canada) with population 154871
+LON=5 LAT=-6 City is Saint-Augustin (Canada) with population 6950
+LON=6 LAT=-6 City is Nuuk (Greenland) with population 15316
+LON=7 LAT=-6 City is Uummannaq (Greenland) with population 1349
+LON=-3 LAT=-5 City is São Paulo (Brazil) with population 11377417
+LON=-2 LAT=-5 City is Brasília (Brazil) with population 2593886
+LON=-1 LAT=-5 City is Belém (Brazil) with population 1406195
+LON=5 LAT=-5 City is Ipiutaq (Greenland) with population 1
+LON=6 LAT=-5 City is Qaqortoq (Greenland) with population 3365
+LON=-6 LAT=-4 City is Grytviken (Falkland Islands) with population 20
+LON=-2 LAT=-4 City is Salvador (Brazil) with population 2725342
+LON=-1 LAT=-4 City is Fortaleza (Brazil) with population 2516542
+LON=6 LAT=-4 City is Tasiilaq (Greenland) with population 2197
+LON=1 LAT=-3 City is Praia (Cape Verde) with population 134900
+LON=3 LAT=-3 City is Ponta Delgada (Portugal) with population 19790
+LON=6 LAT=-3 City is Reykjavík (Iceland) with population 119474
+LON=7 LAT=-3 City is Illoqqortoormiut (Greenland) with population 469
+LON=-4 LAT=-2 City is Edinburgh (Saint Helena) with population 231
+LON=-1 LAT=-2 City is Georgetown (Saint Helena) with population 464
+LON=0 LAT=-2 City is Conakry (Guinea) with population 2164282
+LON=1 LAT=-2 City is Dakar (Senegal) with population 2682158
+LON=2 LAT=-2 City is Las Palmas (Spain) with population 385973
+LON=3 LAT=-2 City is Funchal (Portugal) with population 90752
+LON=5 LAT=-2 City is Dingle (Ireland) with population 2169
+LON=6 LAT=-2 City is Akureyri (Iceland) with population 17770
+LON=-2 LAT=-1 City is Half Tree Hollow (Saint Helena) with population 560
+LON=0 LAT=-1 City is Abidjan (Ivory Coast) with population 4351086
+LON=1 LAT=-1 City is Bamako (Mali) with population 1926748
+LON=2 LAT=-1 City is Adrar (Algeria) with population 78457
+LON=3 LAT=-1 City is Casablanca (Morocco) with population 3356337
+LON=4 LAT=-1 City is Madrid (Spain) with population 3332646
+LON=5 LAT=-1 City is London (United Kingdom) with population 7869322
+LON=6 LAT=-1 City is Tórshavn (Faroe Islands) with population 11923
+LON=7 LAT=-1 City is Olonkinbyen (Svalbard and Jan Mayen) with population 21
+LON=-1 LAT=0 City is Port-Gentil (Gabon) with population 150484
+LON=0 LAT=0 City is Lagos (Nigeria) with population 10404112
+LON=1 LAT=0 City is Kano (Nigeria) with population 2395379
+LON=2 LAT=0 City is Tamanrasset (Algeria) with population 108289
+LON=3 LAT=0 City is Algiers (Algeria) with population 3335418
+LON=4 LAT=0 City is Paris (France) with population 2193624
+LON=5 LAT=0 City is Brussels (Belgium) with population 1124497
+LON=6 LAT=0 City is Bergen (Norway) with population 239249
+LON=-4 LAT=1 City is Cape Town (South Africa) with population 3795539
+LON=-3 LAT=1 City is Windhoek (Namibia) with population 334580
+LON=-2 LAT=1 City is Huambo (Angola) with population 366238
+LON=-1 LAT=1 City is Kinshasa (Congo (Dem. Rep.)) with population 9463749
+LON=0 LAT=1 City is Yaoundé (Cameroon) with population 2440462
+LON=1 LAT=1 City is Maiduguri (Nigeria) with population 1182498
+LON=2 LAT=1 City is Sabh? (Libya) with population 99028
+LON=3 LAT=1 City is ?ar?bulus (Libya) with population 1018648
+LON=4 LAT=1 City is Rome (Italy) with population 2419287
+LON=5 LAT=1 City is Berlin (Germany) with population 3478167
+LON=6 LAT=1 City is Trondheim (Norway) with population 170851
+LON=7 LAT=1 City is Longyearbyen (Svalbard and Jan Mayen) with population 1424
+LON=-4 LAT=2 City is Port Elizabeth (South Africa) with population 1258780
+LON=-3 LAT=2 City is Johannesburg (South Africa) with population 2124874
+LON=-2 LAT=2 City is Lubumbashi (Congo (Dem. Rep.)) with population 1786397
+LON=-1 LAT=2 City is Mbuji-Mayi (Congo (Dem. Rep.)) with population 1680991
+LON=0 LAT=2 City is Kisangani (Congo (Dem. Rep.)) with population 935977
+LON=1 LAT=2 City is Niy?l? (Sudan) with population 468955
+LON=2 LAT=2 City is ad-D?h?lah (Egypt) with population 23305
+LON=3 LAT=2 City is Alexandria (Egypt) with population 4532174
+LON=4 LAT=2 City is ?stanbul (Turkey) with population 12900885
+LON=5 LAT=2 City is Minsk (Belarus) with population 1877604
+LON=6 LAT=2 City is Helsinki (Finland) with population 583331
+LON=7 LAT=2 City is Hammerfest (Norway) with population 6763
+LON=-4 LAT=3 City is Port Shepstone (South Africa) with population 76226
+LON=-3 LAT=3 City is Durban (South Africa) with population 3720953
+LON=-2 LAT=3 City is Harare (Zimbabwe) with population 1792083
+LON=-1 LAT=3 City is Nairobi (Kenya) with population 3476632
+LON=0 LAT=3 City is ?dd?s ?beb? (Ethiopia) with population 3480229
+LON=1 LAT=3 City is Umm Durm?n (Sudan) with population 2805396
+LON=2 LAT=3 City is Jiddah (Saudi Arabia) with population 3376802
+LON=3 LAT=3 City is Cairo (Egypt) with population 8259461
+LON=4 LAT=3 City is Kharkiv (Ukraine) with population 1453810
+LON=5 LAT=3 City is Moscow (Russia) with population 10548317
+LON=6 LAT=3 City is Murmansk (Russia) with population 297837
+LON=7 LAT=3 City is Vardø (Norway) with population 1712
+LON=-3 LAT=4 City is Fianarantsoa (Madagascar) with population 194287
+LON=-2 LAT=4 City is Antananarivo (Madagascar) with population 1848998
+LON=-1 LAT=4 City is Malindi (Kenya) with population 88209
+LON=0 LAT=4 City is Muqdisho (Somalia) with population 1588173
+LON=1 LAT=4 City is ?an'? (Yemen) with population 2297973
+LON=2 LAT=4 City is Riyadh (Saudi Arabia) with population 5156418
+LON=3 LAT=4 City is Bagd?d (Iraq) with population 5505003
+LON=4 LAT=4 City is Baku (Azerbaijan) with population 1173729
+LON=5 LAT=4 City is Nizhniy Novgorod (Russia) with population 1241800
+LON=6 LAT=4 City is Arkhangelsk (Russia) with population 338860
+LON=-5 LAT=5 City is Alfred-Faure (French Southern Territories) with population 25
+LON=-3 LAT=5 City is Port Louis (Mauritius) with population 158965
+LON=-2 LAT=5 City is Antalaha (Madagascar) with population 38037
+LON=-1 LAT=5 City is Victoria (Seychelles) with population 21184
+LON=0 LAT=5 City is Bandarbeyla (Somalia) with population 3343
+LON=1 LAT=5 City is ?al?lah (Oman) with population 203776
+LON=2 LAT=5 City is Dubai (United Arab Emirates) with population 1764702
+LON=3 LAT=5 City is Tehr?n (Iran) with population 8778535
+LON=4 LAT=5 City is Da?o?uz (Turkmenistan) with population 275278
+LON=5 LAT=5 City is Samara (Russia) with population 1098466
+LON=6 LAT=5 City is Syktyvkar (Russia) with population 227842
+LON=7 LAT=5 City is Belushya Guba (Russia) with population 2633
+LON=1 LAT=6 City is Tabernacle (Saint Kitts and Nevis) with population 845
+LON=2 LAT=6 City is Kar?chi (Pakistan) with population 9213518
+LON=3 LAT=6 City is Kabul (Afghanistan) with population 2998351
+LON=4 LAT=6 City is Tashkent (Uzbekistan) with population 2197907
+LON=5 LAT=6 City is Yekaterinburg (Russia) with population 1297684
+LON=6 LAT=6 City is Vorkuta (Russia) with population 71096
+LON=-5 LAT=7 City is Port-aux-Français (French Southern Territories) with population 70
+LON=-4 LAT=7 City is Martin-de-Viviès (French Southern Territories) with population 25
+LON=-1 LAT=7 City is Hithadhoo (Maldives) with population 9394
+LON=0 LAT=7 City is Madurai (India) with population 946032
+LON=1 LAT=7 City is Bombay (India) with population 14282734
+LON=2 LAT=7 City is Delhi (India) with population 11279074
+LON=3 LAT=7 City is Lahore (Pakistan) with population 5074373
+LON=4 LAT=7 City is Almaty (Kazakhstan) with population 1412866
+LON=5 LAT=7 City is Omsk (Russia) with population 1115250
+LON=6 LAT=7 City is Surgut (Russia) with population 300213
+LON=0 LAT=8 City is Kandy (Sri Lanka) with population 125351
+LON=1 LAT=8 City is Madras (India) with population 4703195
+LON=2 LAT=8 City is Calcutta (India) with population 4467821
+LON=4 LAT=8 City is Urumqi (China) with population 1740868
+LON=5 LAT=8 City is Novosibirsk (Russia) with population 1359189
+LON=6 LAT=8 City is Norilsk (Russia) with population 205739
+LON=7 LAT=8 City is Karaul (Russia) with population 834
+LON=-2 LAT=9 City is Bantam (External Territories of Australia) with population 415
+LON=0 LAT=9 City is Medan (Indonesia) with population 2162805
+LON=1 LAT=9 City is Rangoon (Myanmar) with population 4948920
+LON=2 LAT=9 City is Dh?ka (Bangladesh) with population 11664093
+LON=3 LAT=9 City is Jiayuguan (China) with population 130948
+LON=4 LAT=9 City is Hami (China) with population 156051
+LON=5 LAT=9 City is Krasnoyarsk (Russia) with population 935702
+LON=6 LAT=9 City is Severo-Yeniseyskiy (Russia) with population 6824
+LON=-2 LAT=10 City is The Settlement (External Territories of Australia) with population 1065
+LON=-1 LAT=10 City is Jakarta (Indonesia) with population 9751937
+LON=0 LAT=10 City is Singapore (Singapore) with population 6096539
+LON=1 LAT=10 City is Ho Chi Minh City (Vietnam) with population 3982344
+LON=2 LAT=10 City is Chongqing (China) with population 4543433
+LON=3 LAT=10 City is Xian (China) with population 4921992
+LON=4 LAT=10 City is Ulaanbaatar (Mongolia) with population 885140
+LON=5 LAT=10 City is Irkutsk (Russia) with population 556379
+LON=6 LAT=10 City is Tura (Russia) with population 5560
+LON=7 LAT=10 City is Khatanga (Russia) with population 3243
+LON=-4 LAT=11 City is Perth (Australia) with population 1349373
+LON=-3 LAT=11 City is Geraldton (Australia) with population 29384
+LON=-1 LAT=11 City is Surabaya (Indonesia) with population 2814867
+LON=0 LAT=11 City is Puerto Princesa (Philippines) with population 308217
+LON=1 LAT=11 City is Chengmai (China) with population 75411
+LON=2 LAT=11 City is Guangzhou (China) with population 2918261
+LON=3 LAT=11 City is Peking (China) with population 10189875
+LON=4 LAT=11 City is Baotou (China) with population 1404452
+LON=5 LAT=11 City is Chita (Russia) with population 290778
+LON=6 LAT=11 City is Mirnyy (Russia) with population 37003
+LON=7 LAT=11 City is Saskylakh (Russia) with population 1976
+LON=-4 LAT=12 City is Kalgoorlie-Boulder (Australia) with population 28359
+LON=-3 LAT=12 City is Warburton (Australia) with population 691
+LON=-2 LAT=12 City is Kupang (Indonesia) with population 338251
+LON=-1 LAT=12 City is Ambon (Indonesia) with population 309107
+LON=0 LAT=12 City is Davao (Philippines) with population 1749689
+LON=1 LAT=12 City is Manila (Philippines) with population 11604475
+LON=2 LAT=12 City is Wenzhou (China) with population 1008641
+LON=3 LAT=12 City is Shanghai (China) with population 21397715
+LON=4 LAT=12 City is Shenyang (China) with population 3734577
+LON=5 LAT=12 City is Blagoveshchensk (Russia) with population 203557
+LON=6 LAT=12 City is Jákutskaj, Yakutsk (Russia) with population 282065
+LON=7 LAT=12 City is Tiksi (Russia) with population 5264
+LON=-4 LAT=13 City is Adelaide (Australia) with population 1075949
+LON=-3 LAT=13 City is Alice Springs (Australia) with population 19866
+LON=-2 LAT=13 City is Darwin (Australia) with population 62513
+LON=-1 LAT=13 City is Sorong (Indonesia) with population 122759
+LON=0 LAT=13 City is Koror (Palau) with population 8895
+LON=4 LAT=13 City is Hegang (China) with population 847910
+LON=5 LAT=13 City is Komsomolsk-na-Amure (Russia) with population 261787
+LON=6 LAT=13 City is Churapcha (Russia) with population 7493
+LON=7 LAT=13 City is Ust-Kuyga (Russia) with population 1359
+French Polynesia
+United States of America
+Canada
+Mexico
+Smaller Territories of Chile
+Ecuador
+Peru
+Costa Rica
+Honduras
+Cuba
+Chile
+Colombia
+Venezuela
+Greenland
+Argentina
+Bolivia
+Brazil
+Dominican Republic
+Bermuda
+Falkland Islands
+Barbados
+Cape Verde
+Portugal
+Iceland
+Saint Helena
+Guinea
+Senegal
+Spain
+Ireland
+Ivory Coast
+Mali
+Algeria
+Morocco
+United Kingdom
+Faroe Islands
+Svalbard and Jan Mayen
+Gabon
+Nigeria
+France
+Belgium
+Norway
+South Africa
+Namibia
+Angola
+Congo (Dem. Rep.)
+Cameroon
+Libya
+Italy
+Germany
+Sudan
+Egypt
+Turkey
+Belarus
+Finland
+Zimbabwe
+Kenya
+Ethiopia
+Saudi Arabia
+Ukraine
+Russia
+Madagascar
+Somalia
+Yemen
+Iraq
+Azerbaijan
+French Southern Territories
+Mauritius
+Seychelles
+Oman
+United Arab Emirates
+Iran
+Turkmenistan
+Saint Kitts and Nevis
+Pakistan
+Afghanistan
+Uzbekistan
+Maldives
+India
+Kazakhstan
+Sri Lanka
+China
+External Territories of Australia
+Indonesia
+Myanmar
+Bangladesh
+Singapore
+Vietnam
+Mongolia
+Australia
+Philippines
+Palau
