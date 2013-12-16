@@ -1,0 +1,43 @@
+----------------------------------------------------------------------------------
+----------------------------- Application Information ----------------------------
+----------------------------------------------------------------------------------
+ Application Name    : StarGuide
+ Application ID      : 93bt1p123e
+ Application Version : 1.0.0
+ API Version         : 1.1
+ Platform Version    : 2.0.0
+ Firmware Version    : WaveWQ-EXXKC4
+ Crashed Time        : 2013/03/28 12:34:24
+ Crashed Module      : StarGuide.exe
+----------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------
+----------------------------- Recent AppLog Messages -----------------------------
+----------------------------------------------------------------------------------
+[0] 0024.344,INFO,P32,T00,A121,OspMain (34) > Application started?.
+[1] 0025.965,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (34) > Initializing
+[2] 0026.616,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (42) > 0
+[3] 0028.092,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (59) > 1
+[4] 0028.092,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (63) > 1a
+[5] 0028.152,INFO,P32,T00,A125,LocationForm::OnInitializing (39) > LocationForm::OnInitializing(void)
+[6] 0028.153,INFO,P32,T00,A125,LocationForm::OnInitializing (41) > 1
+[7] 0028.153,INFO,P32,T00,A125,LocationForm::OnInitializing (43) > 2
+[8] 0028.154,INFO,P32,T00,A125,LocationForm::OnInitializing (45) > 3
+[9] 0028.187,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (65) > 1b
+[10] 0028.283,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (67) > 1c
+[11] 0028.415,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (69) > 1d
+[12] 0028.534,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (71) > 1e
+[13] 0028.670,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (73) > 1f
+[14] 0028.749,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (75) > 2
+[15] 0028.795,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (79) > 3
+[16] 0028.800,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (84) > 4
+[17] 0029.124,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (62) > Location Updated
+[18] 0031.171,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (62) > Location Updated
+[19] 0031.173,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (66) > Coordinates taken
+[20] 0031.231,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (77) > Found longitude -43.593750
+[21] 0031.231,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (78) > Found latitude 56.559482
+[22] 0031.232,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (54) > Trying to access TimeAndPlace
+[23] 0031.232,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (56) > Trying to access TimeAndPlace 1
+[24] 0031.233,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (58) > Trying to access TimeAndPlace 2
