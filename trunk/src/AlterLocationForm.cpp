@@ -36,7 +36,7 @@ AlterLocationForm::OnInitializing(void)
 		pButton3->AddActionEventListener(*this);
 	}
 
-	Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
+	Osp::App::AppRegistry* appRegistry = Osp::App::Application::GetInstance()->GetAppRegistry();//Osp::App::AppRegistry::GetInstance();
 
 	Button *pButton_prev_location = static_cast<Button *>(GetControl("IDC_BUTTON_PREV_LOCATION"));  
 	if (pButton_prev_location)
