@@ -171,12 +171,12 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			earthMapForm -> Update();
 			break;
 		}
-		case LocationForm::LOCATION_FAILED: {
-			AppLog("Auto location failed, choose alternate");
-			pFrame->SetCurrentForm(*alterLocationForm);
-			alterLocationForm -> RequestRedraw(true);
-			break;
-		}
+//		case LocationForm::LOCATION_FAILED: {
+//			AppLog("Auto location failed, choose alternate");
+//			pFrame->SetCurrentForm(*alterLocationForm);
+//			alterLocationForm -> RequestRedraw(true);
+//			break;
+//		}
 	}
 }
 
