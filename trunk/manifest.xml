@@ -8,6 +8,9 @@
         <Privilege>
             <Name>LOCATION</Name>
         </Privilege>
+		<Privilege>
+            <Name>IMAGE</Name>
+        </Privilege>
 	</Privileges>
 	<DeviceProfile>
 		<APIVersion>1.1</APIVersion>
