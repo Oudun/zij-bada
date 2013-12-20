@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+	<Id>r4a8201ns5</Id>
+	<Secret>7F9DC4D7C2C37B7FE7DA73DD35F6B472</Secret>
+	<AppVersion>1.0.0</AppVersion>
+	<ManifestVersion>1.1</ManifestVersion>
+	<Privileges>
+        <Privilege>
+            <Name>LOCATION</Name>
+        </Privilege>
+		<Privilege>
+            <Name>IMAGE</Name>
+        </Privilege>
+	</Privileges>
+	<DeviceProfile>
+		<APIVersion>1.1</APIVersion>
+	</DeviceProfile>
+</Manifest>
