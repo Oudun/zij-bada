@@ -82,9 +82,10 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		locProvider -> CancelLocationUpdates();
 
 		TimeAndPlace::SetSiderialTime(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
-
-		Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
-
+		AppLog("1");
+		//Osp::App::AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance(); - for 2.0 API only!
+		Osp::App::AppRegistry* appRegistry = Osp::App::Application::GetInstance()->GetAppRegistry();
+		AppLog("2");
 		result r = E_SUCCESS;
 		r = appRegistry -> Set("LAST_LONGITUDE", coordinates->GetLongitude());
 		if (r == E_KEY_NOT_FOUND) {
@@ -94,10 +95,11 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		if (r == E_KEY_NOT_FOUND) {
 			appRegistry -> Add("LAST_LATITUDE", coordinates->GetLatitude());
 		}
-
+		AppLog("3");
 		appRegistry -> Save();
-
+		AppLog("4");
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
+		AppLog("5");
 	} else if (attemptsCounter < maxAttempts){
 		attemptsCounter++;
 		Osp::Base::String str("Attempt #");
