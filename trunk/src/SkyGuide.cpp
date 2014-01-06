@@ -154,7 +154,8 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			double longitude, latitude;
 			AppLog("Retrieving old coordinates");
 
-			AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance();
+			AppRegistry* appRegistry = Osp::App::Application::GetInstance()->GetAppRegistry();
+			//AppRegistry* appRegistry = Osp::App::AppRegistry::GetInstance(); for API 2.0 only
 
 			appRegistry -> Get("LAST_LONGITUDE", longitude);
 			appRegistry -> Get("LAST_LATITUDE", latitude);
