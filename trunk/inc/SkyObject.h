@@ -20,6 +20,7 @@
 
 #include "SkyCanvas.h"
 #include "Projector.h"
+#include "Constants.h"
 
 class SkyObject
 {

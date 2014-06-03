@@ -55,12 +55,7 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 		}
 	}
 
-	Color bgCol = canvas -> GetBackgroundColor();
-	AppLog("BG color is: %u, %u, %u, %u", bgCol.GetRed(), bgCol.GetGreen(), bgCol.GetBlue(), bgCol.GetAlpha());
-	Color fgCol = canvas -> GetBackgroundColor();
-	AppLog("FG color is: %u, %u, %u, %u", fgCol.GetRed(), fgCol.GetGreen(), fgCol.GetBlue(), fgCol.GetAlpha());
-
-	canvas -> SetForegroundColor(Color::COLOR_YELLOW);
+	canvas -> SetForegroundColor(COLOR_CONSTEL_BORDER);
 	canvas -> DrawPolygon(*zoomedVertexes);
 
 }

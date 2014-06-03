@@ -153,7 +153,7 @@ SkyForm::Update(void) {
 	Osp::Graphics::Canvas* canvas;
 	Control* control = GetControl(L"SKY_FORM");
 	canvas = control -> GetCanvasN();
-	canvas -> SetBackgroundColor(Color::COLOR_RED);
+	canvas -> SetBackgroundColor(COLOR_SKY);
 
 	canvas -> Clear();
 	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas

@@ -127,7 +127,7 @@ SkyObject::Draw() {
 void
 SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 
-	Color color = Color::COLOR_WHITE;
+	Color color = COLOR_BRIGHT_STAR;
 
 	int diameter;
 
@@ -144,10 +144,10 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 	} else if (magnitude < 4) {
 		diameter = 2;
 	} else if (magnitude < 5) {
-		color = Color::COLOR_GREY;
+		color = COLOR_DIM_STAR;
 		diameter = 1;
 	} else {
-		color = DARK_GREY;
+		color = COLOR_DIMMEST_STAR;
 		diameter = 1;
 	}
 
@@ -168,7 +168,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		return false;
 	}
 
-	Color color = Color::COLOR_WHITE;
+	Color color = COLOR_BRIGHT_STAR;
 
 	int diameter = (int)(7 - magnitude);
 
@@ -185,10 +185,10 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		} else if (magnitude < 4) {
 			diameter = 2;
 		} else if (magnitude < 5) {
-			color = Color::COLOR_GREY;
+			color = COLOR_DIM_STAR;
 			diameter = 1;
 		} else {
-			color = Color::COLOR_GREY;
+			color = COLOR_DIM_STAR;
 			diameter = 1/2;
 		}
 
