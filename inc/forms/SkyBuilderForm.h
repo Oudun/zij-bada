@@ -26,6 +26,7 @@ public:
 
 private:
 	Osp::Ui::Controls::Progress* __pStarsProgress;
+	Osp::Ui::Controls::Label* __label;
 	SkyBuilder* skyBuilder;
 
 };

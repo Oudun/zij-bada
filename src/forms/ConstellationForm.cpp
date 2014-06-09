@@ -5,7 +5,7 @@
  *      Author: ddreval
  */
 
-#include "ConstellationForm.h"
+#include "forms/ConstellationForm.h"
 
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;

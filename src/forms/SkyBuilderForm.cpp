@@ -1,5 +1,5 @@
 
-#include "SkyBuilderForm.h"
+#include "forms/SkyBuilderForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
@@ -23,19 +23,21 @@ SkyBuilderForm::Initialize() {
 
 result
 SkyBuilderForm::OnInitializing(void) {
+
+	AppLog("Initializing Sky Builder Form");
+
 	result r = E_SUCCESS;
-	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
 
 	SetBackgroundColor(COLOR_FORM_BKG);
 
-	__pActionLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pActionLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
+	__pStarsProgress -> SetBarColor(COLOR_FORM_TEXT);
 
-	__pActionAttemptLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pActionAttemptLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	__label = static_cast<Label *>(GetControl("IDC_LABEL1"));
+	__label -> SetBackgroundColor(COLOR_FORM_BKG);
+	__label -> SetTextColor(COLOR_FORM_TEXT);
 
-	__pGpsProviderStatusLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pGpsProviderStatusLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	AppLog("Initializing Sky Builder Form - done");
 
 	return r;
 }

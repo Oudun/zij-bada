@@ -27,21 +27,25 @@ SkyCanvas::Initialize() {
 	Canvas* canvas1 = new Canvas();
 	canvas1 -> Construct(Rectangle(0, 0, 240, 400));
 	canvas1 -> SetBackgroundColor(COLOR_SKY);
+	canvas1 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 240, 400));
 	starLayers -> Add(1, canvas1);
 
 	Canvas* canvas2 = new Canvas();
 	canvas2 -> SetBackgroundColor(COLOR_SKY);
 	canvas2 -> Construct(Rectangle(0, 0, 480, 800));
+	canvas2 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 480, 800));
 	starLayers -> Add(2, canvas2);
 
 	Canvas* canvas4 = new Canvas();
 	canvas4 -> SetBackgroundColor(COLOR_SKY);
 	canvas4 -> Construct(Rectangle(0, 0, 960, 1600));
+	canvas4 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 960, 1600));
 	starLayers -> Add(4, canvas4);
 
 	Canvas* canvas8 = new Canvas();
 	canvas8 -> SetBackgroundColor(COLOR_SKY);
 	canvas8 -> Construct(Rectangle(0, 0, 1920, 3200));
+	canvas8 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 1920, 3200));
 	starLayers -> Add(8, canvas8);
 
 }

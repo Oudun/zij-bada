@@ -18,7 +18,7 @@ public:
 	virtual ~SkyForm(void);
 	bool Initialize(void);
 	static const int SELECT_CONSTELLATION = 30;
-	static const int MAX_ZOOM = 4;
+	static const int MAX_ZOOM = 8;
 	static const int MIN_ZOOM = 1;
 
 
@@ -32,11 +32,10 @@ protected:
 	static const int ID_BUTTON_REFRESH = 3;
 	static const int ID_BUTTON_CONSTELLATIONS = 4;
 
-	Osp::Ui::Controls::Button *__pButtonOk;
 	Osp::Ui::Controls::Button *__pButtonZoomIn;
 	Osp::Ui::Controls::Button *__pButtonZoomOut;
-	Osp::Ui::Controls::Button *__pButtonRefresh;
 	Osp::Ui::Controls::Button *__pButtonConstellations;
+	Osp::Ui::Controls::Button *__pButtonHelp;
 	Osp::Ui::Controls::Label* __pLabel;
 	Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
@@ -59,6 +58,11 @@ private:
 	int zoom;
 	float shiftX;
 	float shiftY;
+
+	Bitmap* bitmapZoomTwo;
+	Bitmap* bitmapZoomFour;
+	Bitmap* bitmapZoomEight;
+	Bitmap* bitmapEmpty;
 
 	virtual void OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);

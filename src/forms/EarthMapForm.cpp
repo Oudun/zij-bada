@@ -1,5 +1,5 @@
 
-#include "EarthMapForm.h"
+#include "forms/EarthMapForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;

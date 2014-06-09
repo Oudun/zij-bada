@@ -6,7 +6,7 @@
  *  Author: ddreval
  */
 
-#include "LocationForm.h"
+#include "forms/LocationForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Base::Utility;
@@ -55,13 +55,13 @@ LocationForm::OnInitializing(void) {
 	SetBackgroundColor(COLOR_FORM_BKG);
 
 	__pActionLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pActionLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	__pActionLabel -> SetTextColor(COLOR_FORM_TEXT);
 
 	__pActionAttemptLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pActionAttemptLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	__pActionAttemptLabel -> SetTextColor(COLOR_FORM_TEXT);
 
 	__pGpsProviderStatusLabel -> SetBackgroundColor(COLOR_FORM_BKG);
-	__pGpsProviderStatusLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+	__pGpsProviderStatusLabel -> SetTextColor(COLOR_FORM_TEXT);
 
 	return E_SUCCESS;
 }
