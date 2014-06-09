@@ -6,16 +6,17 @@
 #include <FSystem.h>
 #include <FUi.h>
 
+#include "forms/ConstellationForm.h"
+#include "forms/LocationForm.h"
+#include "forms/SkyForm.h"
+#include "forms/AlterLocationForm.h"
+#include "forms/EarthMapForm.h"
+#include "forms/SkyBuilderForm.h"
+
 #include "TimeAndPlace.h"
-#include "LocationForm.h"
-#include "SkyForm.h"
-#include "SkyBuilderForm.h"
 #include "SkyBuilder.h"
 #include "SkyCanvas.h"
-#include "ConstellationForm.h"
 #include "ConstellationBuilder.h"
-#include "AlterLocationForm.h"
-#include "EarthMapForm.h"
 //#include "Shared.h"
 
 

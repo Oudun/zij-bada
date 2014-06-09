@@ -1,5 +1,5 @@
 
-#include "AlterLocationForm.h"
+#include "forms/AlterLocationForm.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
