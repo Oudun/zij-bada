@@ -25,6 +25,18 @@ result
 SkyBuilderForm::OnInitializing(void) {
 	result r = E_SUCCESS;
 	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
+
+	SetBackgroundColor(COLOR_FORM_BKG);
+
+	__pActionLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pActionLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
+	__pActionAttemptLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pActionAttemptLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
+	__pGpsProviderStatusLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pGpsProviderStatusLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
 	return r;
 }
 

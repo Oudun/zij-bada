@@ -44,12 +44,25 @@ LocationForm::Initialize() {
 result
 LocationForm::OnInitializing(void) {
 	AppLog("LocationForm::OnInitializing(void)");
+
 	__pActionLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
 	AppLog("1");
 	__pActionAttemptLabel = static_cast<Label *>(GetControl("IDC_LABEL2"));
 	AppLog("2");
 	__pGpsProviderStatusLabel = static_cast<Label *>(GetControl("IDC_LABEL3"));
 	AppLog("3");
+
+	SetBackgroundColor(COLOR_FORM_BKG);
+
+	__pActionLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pActionLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
+	__pActionAttemptLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pActionAttemptLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
+	__pGpsProviderStatusLabel -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pGpsProviderStatusLabel -> SetBackgroundText(COLOR_FORM_TEXT);
+
 	return E_SUCCESS;
 }
 

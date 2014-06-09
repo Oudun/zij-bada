@@ -16,6 +16,7 @@
 #include <FApp.h>
 
 #include "TimeAndPlace.h"
+#include "Constants.h"
 
 class LocationForm :
 	public Osp::Ui::Controls::Form,

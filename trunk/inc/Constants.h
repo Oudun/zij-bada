@@ -16,11 +16,11 @@ public:
 	virtual ~Constants();
 };
 
-static const Osp::Graphics::Color COLOR_SKY (0, 255, 0);
-static const Osp::Graphics::Color COLOR_BUTTON_BKG;
-static const Osp::Graphics::Color COLOR_BUTTON_TEXT;
-static const Osp::Graphics::Color COLOR_FORM_BKG;
-static const Osp::Graphics::Color COLOR_FORM_TEXT;
+static const Osp::Graphics::Color COLOR_SKY (0, 0, 0);
+static const Osp::Graphics::Color COLOR_BUTTON_BKG (0, 0, 0);
+static const Osp::Graphics::Color COLOR_BUTTON_TEXT (255, 255, 255);
+static const Osp::Graphics::Color COLOR_FORM_BKG(0, 255, 0);
+static const Osp::Graphics::Color COLOR_FORM_TEXT (255, 0, 0);
 static const Osp::Graphics::Color COLOR_CONSTEL_BORDER (255, 255, 0);
 static const Osp::Graphics::Color COLOR_BRIGHT_STAR (255, 255, 255);
 static const Osp::Graphics::Color COLOR_DIM_STAR (200, 200, 200);
