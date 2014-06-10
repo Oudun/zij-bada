@@ -33,8 +33,11 @@ ConstellationForm::OnInitializing(void) {
 	__pConstelList -> Construct(
 			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_TEXT, 15, 15, 200, 0);
+			LIST_ITEM_SINGLE_TEXT, 30, 30, 200, 0);
 	__pConstelList -> AddItemEventListener(*this);
+	__pConstelList -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pConstelList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
+	__pConstelList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
 	AddControl(*__pConstelList);
 	return E_SUCCESS;
 }
