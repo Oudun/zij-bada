@@ -40,4 +40,9 @@
         <layout height="40" mode="Portrait" width="40" x="200" y="1"/>
         <layout height="24" mode="Landscape" width="66" x="333" y="0"/>
     </Button>
+    <Button id="IDC_BUTTON_SETTINGS" parent="SKY_FORM">
+        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="40" mode="Portrait" width="40" x="0" y="0"/>
+        <layout height="24" mode="Landscape" width="166" x="108" y="74"/>
+    </Button>
 </Scene>

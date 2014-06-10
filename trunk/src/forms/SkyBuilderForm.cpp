@@ -29,10 +29,7 @@ SkyBuilderForm::OnInitializing(void) {
 	result r = E_SUCCESS;
 
 	SetBackgroundColor(COLOR_FORM_BKG);
-
 	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
-	__pStarsProgress -> SetBarColor(COLOR_FORM_TEXT);
-
 	__label = static_cast<Label *>(GetControl("IDC_LABEL1"));
 	__label -> SetBackgroundColor(COLOR_FORM_BKG);
 	__label -> SetTextColor(COLOR_FORM_TEXT);
@@ -65,9 +62,9 @@ SkyBuilderForm::SetProgress(int value) {
 	int max;
 	int min;
 	__pStarsProgress -> GetRange(min, max);
-//	AppLog("Real min = %d, max=%d", min, max);
 	__pStarsProgress -> SetValue(value);
 	__pStarsProgress -> RequestRedraw(true);
+
 }
 
 
