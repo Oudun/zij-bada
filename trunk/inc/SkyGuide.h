@@ -6,12 +6,14 @@
 #include <FSystem.h>
 #include <FUi.h>
 
-#include "forms/ConstellationForm.h"
-#include "forms/LocationForm.h"
 #include "forms/SkyForm.h"
-#include "forms/AlterLocationForm.h"
+#include "forms/LocationForm.h"
 #include "forms/EarthMapForm.h"
+#include "forms/ConstellationForm.h"
+#include "forms/AlterLocationForm.h"
 #include "forms/SkyBuilderForm.h"
+#include "forms/HelpForm.h"
+#include "forms/InfoForm.h"
 
 #include "TimeAndPlace.h"
 #include "SkyBuilder.h"
@@ -40,6 +42,8 @@ class SkyGuide : public Osp::App::Application {
 		ConstellationForm* constellationForm;
 		AlterLocationForm* alterLocationForm;
 		EarthMapForm* earthMapForm;
+		HelpForm* helpForm;
+		InfoForm* infoForm;
 
 		TimeAndPlace* timeAndPlace;
 		SkyForm* skyForm;
@@ -47,3 +51,4 @@ class SkyGuide : public Osp::App::Application {
 };
 
 #endif
+

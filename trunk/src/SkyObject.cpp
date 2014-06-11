@@ -138,17 +138,17 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 	int diameter;
 
 	if (magnitude < -1) {
-		diameter = 8;
+		diameter = 32;
 	} else if (magnitude < 0) {
-		diameter = 6;
+		diameter = 20;
 	} else if (magnitude < 1) {
-		diameter = 5;
+		diameter = 12;
 	} else if (magnitude < 2) {
-		diameter = 4;
+		diameter = 8;
 	} else if (magnitude < 3) {
-		diameter = 3;
+		diameter = 4;
 	} else if (magnitude < 4) {
-		diameter = 2;
+		diameter = 1;
 	} else if (magnitude < 5) {
 		color = COLOR_DIM_STAR;
 		diameter = 1;
