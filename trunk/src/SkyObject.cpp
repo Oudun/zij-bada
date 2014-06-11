@@ -138,15 +138,15 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 	int diameter;
 
 	if (magnitude < -1) {
-		diameter = 32;
-	} else if (magnitude < 0) {
-		diameter = 20;
-	} else if (magnitude < 1) {
-		diameter = 12;
-	} else if (magnitude < 2) {
 		diameter = 8;
-	} else if (magnitude < 3) {
+	} else if (magnitude < 0) {
+		diameter = 6;
+	} else if (magnitude < 1) {
 		diameter = 4;
+	} else if (magnitude < 2) {
+		diameter = 3;
+	} else if (magnitude < 3) {
+		diameter = 2;
 	} else if (magnitude < 4) {
 		diameter = 1;
 	} else if (magnitude < 5) {
