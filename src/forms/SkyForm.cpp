@@ -23,6 +23,7 @@ SkyForm::SkyForm() {
 	bitmapZoomFour = pAppResource -> GetBitmapN(L"ZoomFour.png");
 	bitmapZoomEight = pAppResource -> GetBitmapN(L"ZoomEight.png");
 	bitmapEmpty = pAppResource -> GetBitmapN(L"Empty.png");
+	bitmapInfo = pAppResource -> GetBitmapN(L"Info.png");
 }
 
 SkyForm::~SkyForm(void)
@@ -52,7 +53,6 @@ SkyForm::OnInitializing(void)
 	Bitmap* bitmapHelp = pAppResource -> GetBitmapN(L"Help.png");
 	Bitmap* bitmapHelpPressed = pAppResource -> GetBitmapN(L"HelpPressed.png");
 
-
 	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
 	__pButtonZoomIn -> SetNormalBackgroundBitmap(*bitmapZoomIn);
 	__pButtonZoomIn -> SetPressedBackgroundBitmap(*bitmapZoomIn);
@@ -71,8 +71,8 @@ SkyForm::OnInitializing(void)
 	__pButtonHelp = static_cast<Button *>(GetControl(L"IDC_BUTTON_HELP"));
 	__pButtonHelp -> SetNormalBackgroundBitmap(*bitmapHelp);
 	__pButtonHelp -> SetPressedBackgroundBitmap(*bitmapHelpPressed);
-//	__pButtonHelp -> SetActionId(ID_BUTTON_ZOOM_OUT);
-//	__pButtonHelp -> AddActionEventListener(*this);
+	__pButtonHelp -> SetActionId(ID_BUTTON_HELP);
+	__pButtonHelp -> AddActionEventListener(*this);
 
 	AppLog("Initializing Sky Form - 2");
 
@@ -86,6 +86,12 @@ SkyForm::OnInitializing(void)
 
 	AppLog("Initializing Sky Form - 3");
 
+	__pButtonInfo = static_cast<Button *>(GetControl(L"IDC_BUTTON_SETTINGS"));
+	__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapInfo);
+	__pButtonInfo -> SetActionId(4);
+	__pButtonInfo -> AddActionEventListener(*this);
+	__pButtonInfo -> SetActionId(ID_BUTTON_INFO);
+	__pButtonInfo -> AddActionEventListener(*this);
 
 	//IDC_BUTTON_CONSTELLATIONS
 
@@ -94,12 +100,13 @@ SkyForm::OnInitializing(void)
 	__pLabelLocation -> SetTextColor(COLOR_FORM_TEXT);
 
 	AppLog("Initializing Sky Form - 4");
-
-
-	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
-	__pZoomLabel -> SetBackgroundColor(COLOR_SKY);
-	__pZoomLabel -> SetTextColor(COLOR_FORM_TEXT);
-	__pZoomLabel -> SetBackgroundBitmap(*bitmapEmpty);
+//
+//
+//	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
+//	__pZoomLabel -> SetBackgroundColor(COLOR_SKY);
+//	__pZoomLabel -> SetTextColor(COLOR_FORM_TEXT);
+//	__pZoomLabel -> SetBackgroundBitmap(*bitmapEmpty);
+//	__pZoomLabel -> SetShowState(false);
 
 	AppLog("Initializing Sky Form - 5");
 
@@ -128,18 +135,15 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	case ID_BUTTON_ZOOM_IN: {
 			if (zoom < MAX_ZOOM) {
 				zoom = zoom * 2;
-				String zoomStr;
-				zoomStr.Format(5, L"x %d", zoom);
-				//__pZoomLabel -> SetText(zoomStr);
 				if (zoom == 2) {
-					__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomTwo);
+					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomTwo);
 				} else if (zoom == 4) {
-					__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomFour);
+					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomFour);
 				} else if (zoom == 8) {
-					__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomEight);
+					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomEight);
 				}
-				__pZoomLabel -> Draw();
-				AppLog("Zooming label value is %S", zoomStr.GetPointer());
+				__pButtonInfo -> SetEnabled(false);
+				__pButtonInfo -> Draw();
 				Update();
 			}
 		}
@@ -152,18 +156,17 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 					zoomStr.Format(5, L"x %d", zoom);
 					//__pZoomLabel -> SetText(zoomStr);
 					if (zoom == 2) {
-						__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomTwo);
+						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomTwo);
 					} else if (zoom == 4) {
-						__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomFour);
+						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomFour);
 					} else if (zoom == 8) {
-						__pZoomLabel -> SetBackgroundBitmap(*bitmapZoomEight);
+						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomEight);
 					}
-					__pZoomLabel -> Draw();
-					AppLog("Zooming label value is %S", zoomStr.GetPointer());
+					__pButtonInfo -> SetEnabled(false);
+					__pButtonInfo -> Draw();
 				} else {
-					__pZoomLabel -> SetBackgroundBitmap(*bitmapEmpty);
-					//__pZoomLabel -> SetText("");
-					__pZoomLabel -> Draw();
+					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapInfo);
+					__pButtonInfo -> SetEnabled(true);
 				}
 				Update();
 			}
@@ -171,8 +174,16 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		break;
 	case ID_BUTTON_CONSTELLATIONS: {
 		Osp::App::Application::GetInstance() -> SendUserEvent(SELECT_CONSTELLATION, null);
+		break;
 	}
-			break;
+	case ID_BUTTON_HELP: {
+		Osp::App::Application::GetInstance() -> SendUserEvent(SHOW_HELP, null);
+		break;
+	}
+	case ID_BUTTON_INFO: {
+		Osp::App::Application::GetInstance() -> SendUserEvent(SHOW_INFO, null);
+		break;
+	}
 	default:
 		break;
 	}

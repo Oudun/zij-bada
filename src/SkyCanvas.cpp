@@ -24,10 +24,17 @@ SkyCanvas::Initialize() {
 	starLayers = new Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>();
 	starLayers -> Construct();
 
+	Font font;
+	font.Construct(FONT_STYLE_BOLD, 14);
+
 	Canvas* canvas1 = new Canvas();
 	canvas1 -> Construct(Rectangle(0, 0, 240, 400));
 	canvas1 -> SetBackgroundColor(COLOR_SKY);
+	canvas1 -> SetForegroundColor(COLOR_FORM_TEXT);
 	canvas1 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 240, 400));
+	canvas1 -> SetFont(font);
+	canvas1 -> DrawText(Point(120, 70), "N");
+	canvas1 -> DrawText(Point(120, 310), "S");
 	starLayers -> Add(1, canvas1);
 
 	Canvas* canvas2 = new Canvas();

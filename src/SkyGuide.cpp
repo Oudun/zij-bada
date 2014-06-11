@@ -56,27 +56,25 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	earthMapForm = new EarthMapForm();
 	earthMapForm -> Initialize();
 
+	helpForm = new HelpForm();
+	helpForm -> Initialize();
+
+	infoForm = new InfoForm();
+	infoForm -> Initialize();
+
 	AppLog("1");
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
-	AppLog("1a");
 	pFrame -> AddControl(*locationForm);
-	AppLog("1b");
 	pFrame -> AddControl(*skyBuilderForm);
-	AppLog("1c");
 	pFrame -> AddControl(*constellationForm);
-	AppLog("1d");
 	pFrame -> AddControl(*skyForm);
-	AppLog("1e");
 	pFrame -> AddControl(*alterLocationForm);
-	AppLog("1f");
 	pFrame -> AddControl(*earthMapForm);
-	AppLog("2");
-
-	pFrame->SetCurrentForm(*locationForm);
-
-	AppLog("3");
+	pFrame -> AddControl(*helpForm);
+	pFrame -> AddControl(*infoForm);
+	pFrame -> SetCurrentForm(*locationForm);
 
 	locationForm -> Draw();
 	locationForm -> Show();
@@ -170,6 +168,20 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			pFrame -> SetCurrentForm(*earthMapForm);
 			earthMapForm -> Draw();
 			earthMapForm -> Update();
+			break;
+		}
+		case SkyForm::SHOW_HELP: {
+			AppLog("Showing help");
+			pFrame -> SetCurrentForm(*helpForm);
+			helpForm -> Draw();
+			helpForm -> Show();
+			break;
+		}
+		case SkyForm::SHOW_INFO: {
+			AppLog("Showing info");
+			pFrame -> SetCurrentForm(*infoForm);
+			infoForm -> Draw();
+			infoForm -> Show();
 			break;
 		}
 //		case LocationForm::LOCATION_FAILED: {

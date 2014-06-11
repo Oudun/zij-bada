@@ -18,6 +18,8 @@ public:
 	virtual ~SkyForm(void);
 	bool Initialize(void);
 	static const int SELECT_CONSTELLATION = 30;
+	static const int SHOW_INFO = 31;
+	static const int SHOW_HELP = 32;
 	static const int MAX_ZOOM = 8;
 	static const int MIN_ZOOM = 1;
 
@@ -31,13 +33,16 @@ protected:
 	static const int ID_BUTTON_ZOOM_OUT = 2;
 	static const int ID_BUTTON_REFRESH = 3;
 	static const int ID_BUTTON_CONSTELLATIONS = 4;
+	static const int ID_BUTTON_HELP = 5;
+	static const int ID_BUTTON_INFO = 6;
 
 	Osp::Ui::Controls::Button *__pButtonZoomIn;
 	Osp::Ui::Controls::Button *__pButtonZoomOut;
 	Osp::Ui::Controls::Button *__pButtonConstellations;
 	Osp::Ui::Controls::Button *__pButtonHelp;
+	Osp::Ui::Controls::Button *__pButtonInfo;
 	Osp::Ui::Controls::Label* __pLabel;
-	Osp::Ui::Controls::Label* __pZoomLabel;
+	//Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
 
 	Osp::Locations::LocationProvider locProvider;
@@ -63,6 +68,8 @@ private:
 	Bitmap* bitmapZoomFour;
 	Bitmap* bitmapZoomEight;
 	Bitmap* bitmapEmpty;
+	Bitmap* bitmapInfo;
+
 
 	virtual void OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);

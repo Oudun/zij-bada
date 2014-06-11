@@ -31,12 +31,12 @@ public:
 static const Osp::Graphics::Color COLOR_SKY(Color::COLOR_BLACK);
 static const Osp::Graphics::Color COLOR_BUTTON_BKG(Color::COLOR_BLACK);
 static const Osp::Graphics::Color COLOR_BUTTON_TEXT(Color::COLOR_WHITE);
-static const Osp::Graphics::Color COLOR_FORM_BKG(Color::COLOR_BLUE);
-static const Osp::Graphics::Color COLOR_FORM_TEXT(Color::COLOR_CYAN);
-static const Osp::Graphics::Color COLOR_CONSTEL_BORDER(Color::COLOR_CYAN);
+static const Osp::Graphics::Color COLOR_FORM_BKG(Color(0, 100, 120));
+static const Osp::Graphics::Color COLOR_FORM_TEXT(Color(150, 200, 200));
+static const Osp::Graphics::Color COLOR_CONSTEL_BORDER(Color(150, 200, 200));
 static const Osp::Graphics::Color COLOR_BRIGHT_STAR(Color::COLOR_WHITE);
-static const Osp::Graphics::Color COLOR_DIM_STAR(Color::COLOR_GREY);
-static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color::COLOR_GREY);
+static const Osp::Graphics::Color COLOR_DIM_STAR(Color(32, 32, 32));
+static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color(8, 8, 8));
 
 
 #endif /* CONSTANTS_H_ */
