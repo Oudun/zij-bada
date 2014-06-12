@@ -5,9 +5,11 @@
 #include <FBase.h>
 #include <FUi.h>
 #include "Constants.h"
+#include <FApp.h>
 
 class InfoForm :
-	public Osp::Ui::Controls::Form
+	public Osp::Ui::Controls::Form,
+	public Osp::Ui::IActionEventListener
 {
 
 // Construction
@@ -17,6 +19,7 @@ public:
 	bool Initialize();
 	result OnInitializing(void);
 	result OnTerminating(void);
+	void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 
 // Implementation
 protected:
