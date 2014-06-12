@@ -18,15 +18,8 @@ public:
 	virtual ~Constants();
 };
 
-//static const Osp::Graphics::Color COLOR_SKY (0, 0, 0);
-//static const Osp::Graphics::Color COLOR_BUTTON_BKG (0, 0, 0);
-//static const Osp::Graphics::Color COLOR_BUTTON_TEXT (255, 255, 255);
-//static const Osp::Graphics::Color COLOR_FORM_BKG(0, 255, 0);
-//static const Osp::Graphics::Color COLOR_FORM_TEXT (255, 0, 0);
-//static const Osp::Graphics::Color COLOR_CONSTEL_BORDER (255, 255, 0);
-//static const Osp::Graphics::Color COLOR_BRIGHT_STAR (255, 255, 255);
-//static const Osp::Graphics::Color COLOR_DIM_STAR (200, 200, 200);
-//static const Osp::Graphics::Color COLOR_DIMMEST_STAR (128, 128, 128);
+static const int EVENT_INFO_CLOSED = 80;
+static const int EVENT_HELP_CLOSED = 81;
 
 static const Osp::Graphics::Color COLOR_SKY(Color::COLOR_BLACK);
 static const Osp::Graphics::Color COLOR_BUTTON_BKG(Color::COLOR_BLACK);

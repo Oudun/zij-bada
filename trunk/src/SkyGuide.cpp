@@ -148,6 +148,18 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			skyForm -> Update();
 			break;
 		}
+		case EVENT_HELP_CLOSED: {
+			pFrame -> SetCurrentForm(*skyForm);
+			skyForm -> Draw();
+			skyForm -> Update();
+			break;
+		}
+		case EVENT_INFO_CLOSED: {
+			pFrame -> SetCurrentForm(*skyForm);
+			skyForm -> Draw();
+			skyForm -> Update();
+			break;
+		}
 		case AlterLocationForm::USE_PREV_LOCATION: {
 			double longitude, latitude;
 			AppLog("Retrieving old coordinates");

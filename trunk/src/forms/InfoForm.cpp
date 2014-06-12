@@ -26,11 +26,23 @@ result
 InfoForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
+	SetBackgroundColor(COLOR_FORM_BKG);
 
-	// TODO: Add your initialization code here
+	Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
+	Osp::Graphics::Bitmap* bitmapEmpty;
+	bitmapEmpty = pAppResource -> GetBitmapN(L"Empty.png");
+
+	Button* __buttonBack;
+	__buttonBack = static_cast<Button *>(GetControl(L"IDC_BUTTON_BACK"));
+	__buttonBack -> SetActionId(0);
+	__buttonBack -> SetNormalBackgroundBitmap(*bitmapEmpty);
+	__buttonBack -> SetPressedBackgroundBitmap(*bitmapEmpty);
+	__buttonBack -> SetTextColor(COLOR_BUTTON_TEXT);
+	__buttonBack -> AddActionEventListener(*this);
 
 	return r;
 }
+
 
 result
 InfoForm::OnTerminating(void)
@@ -42,4 +54,7 @@ InfoForm::OnTerminating(void)
 	return r;
 }
 
-
+void
+InfoForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
+	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_HELP_CLOSED, null);
+}
