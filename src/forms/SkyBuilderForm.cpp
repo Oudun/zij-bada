@@ -4,7 +4,8 @@
 using namespace Osp::Base;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
-
+using namespace Osp::Graphics;
+using namespace Osp::App;
 
 SkyBuilderForm::SkyBuilderForm() {
 	skyBuilder = new SkyBuilder();
@@ -29,6 +30,7 @@ SkyBuilderForm::OnInitializing(void) {
 	result r = E_SUCCESS;
 
 	SetBackgroundColor(COLOR_FORM_BKG);
+
 	__pStarsProgress = static_cast<Progress *>(GetControl("IDC_PROGRESS1"));
 	__label = static_cast<Label *>(GetControl("IDC_LABEL1"));
 	__label -> SetBackgroundColor(COLOR_FORM_BKG);
@@ -69,5 +71,13 @@ SkyBuilderForm::SetProgress(int value) {
 }
 
 
+result
+SkyBuilderForm::OnDraw(void) {
+	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+	Bitmap* bitmapBackground = pAppResource -> GetBitmapN(L"FormBackground.png");
+	Canvas* canvas = GetCanvasN();
+	result r = canvas -> DrawBitmap(GetBounds(), *bitmapBackground);
+	return r;
+}
 
 

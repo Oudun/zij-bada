@@ -14,6 +14,9 @@ using namespace Osp::Locations;
 using namespace Osp::Locales;
 using namespace Osp::System;
 using namespace Osp::Ui::Controls;
+using namespace Osp::Graphics;
+using namespace Osp::App;
+
 
 LocationForm::LocationForm() {
 	maxAttempts = 16;
@@ -168,3 +171,11 @@ LocationForm::DegreeToGrad(float angle, const char* posPrefix, const char* negPr
 	return result;
 }
 
+result
+LocationForm::OnDraw(void) {
+	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+	Bitmap* bitmapBackground = pAppResource -> GetBitmapN(L"FormBackground.png");
+	Canvas* canvas = GetCanvasN();
+	result r = canvas -> DrawBitmap(GetBounds(), *bitmapBackground);
+	return r;
+}

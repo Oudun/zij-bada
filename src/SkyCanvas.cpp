@@ -49,11 +49,12 @@ SkyCanvas::Initialize() {
 	canvas4 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 960, 1600));
 	starLayers -> Add(4, canvas4);
 
-	Canvas* canvas8 = new Canvas();
-	canvas8 -> SetBackgroundColor(COLOR_SKY);
-	canvas8 -> Construct(Rectangle(0, 0, 1920, 3200));
-	canvas8 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 1920, 3200));
-	starLayers -> Add(8, canvas8);
+//	Fails to initialize on real device :(
+//	Canvas* canvas8 = new Canvas();
+//	canvas8 -> SetBackgroundColor(COLOR_SKY);
+//	canvas8 -> Construct(Rectangle(0, 0, 1920, 3200));
+//	canvas8 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 1920, 3200));
+//	starLayers -> Add(8, canvas8);
 
 }
 

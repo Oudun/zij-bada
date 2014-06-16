@@ -15,8 +15,8 @@
    height="40"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r"
-   sodipodi:docname="ZoomOutButton.png"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Toolbar.svg"
    inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomButton.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -72,6 +72,37 @@
        y1="516.64789"
        x2="293.97238"
        y2="516.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3941"
+       id="linearGradient3947"
+       x1="313.71835"
+       y1="976.32611"
+       x2="335.19882"
+       y2="976.32611"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-238.39066,-71.763844)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3941">
+      <stop
+         style="stop-color:#d9e7ea;stop-opacity:1;"
+         offset="0"
+         id="stop3943" />
+      <stop
+         style="stop-color:#d9e7ea;stop-opacity:0;"
+         offset="1"
+         id="stop3945" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3789"
+       id="linearGradient4573"
+       gradientUnits="userSpaceOnUse"
+       x1="148.88477"
+       y1="516.64789"
+       x2="293.97238"
+       y2="516.64789" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -80,14 +111,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.4030582"
-     inkscape:cx="105.54833"
-     inkscape:cy="75.208413"
+     inkscape:zoom="3.3984375"
+     inkscape:cx="169.49612"
+     inkscape:cy="53.911693"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-width="1280"
+     inkscape:window-height="961"
      inkscape:window-x="-4"
      inkscape:window-y="-4"
      inkscape:window-maximized="1" />
@@ -115,7 +146,7 @@
        inkscape:connector-curvature="0"
        id="path4050"
        d="m 42.525929,1014.4433 c 0,12.6197 0,25.2394 0,37.8591 51.713752,0 103.427451,0 155.141161,0 0,-13.3627 0,-26.7255 0,-40.0882 -51.71371,0 -103.427409,0 -155.141161,0 l 0,1.1145 0,1.1146 z"
-       style="fill:#000000;fill-opacity:1;stroke:none" />
+       style="fill:#022830;fill-opacity:1;stroke:none" />
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
@@ -123,9 +154,9 @@
        inkscape:connector-curvature="0"
        id="path4048"
        d="m 197.59719,1014.4433 c 0,12.6197 0,25.2394 0,37.8591 14.4417,0 28.88339,0 43.32507,0 0,-13.3627 0,-26.7255 0,-40.0882 -14.44168,0 -28.88337,0 -43.32507,0 l 0,1.1145 0,1.1146 z"
-       style="fill:#000000;fill-opacity:1;stroke:none" />
+       style="fill:#022830;fill-opacity:1;stroke:none" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:none"
+       style="fill:#022830;fill-opacity:1;stroke:none"
        d="m -0.72924365,1014.4433 c 0,12.6197 0,25.2394 0,37.8591 14.44169865,0 28.88338465,0 43.32507165,0 0,-13.3627 0,-26.7255 0,-40.0882 -14.441687,0 -28.883373,0 -43.32507165,0 l 0,1.1145 0,1.1146 z"
        id="rect3875"
        inkscape:connector-curvature="0"
@@ -134,30 +165,30 @@
        inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
-       style="fill:url(#linearGradient4019);fill-opacity:1;stroke:#e3f4ff;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:url(#linearGradient4019);fill-opacity:1;stroke:#dff4fb;stroke-width:5.08762883999999980;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path2985"
        sodipodi:cx="221.42857"
        sodipodi:cy="516.64789"
        sodipodi:rx="70"
        sodipodi:ry="70"
-       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
+       d="m 291.42857,516.64789 c 0,38.65993 -31.34006,70 -70,70 -38.65993,0 -70,-31.34007 -70,-70 0,-38.65993 31.34007,-70 70,-70 38.65994,0 70,31.34007 70,70 z"
        transform="matrix(0.18882625,0,0,0.18882625,-20.676256,935.103)"
        inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomOut.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
-       style="fill:#e1efff;fill-opacity:1;stroke:none"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
        id="rect3785"
        width="16.714287"
        height="3"
        x="12.769185"
-       y="1031.454"
+       y="1031.1597"
        inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomOut.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
        sodipodi:type="star"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        id="path3935"
        sodipodi:sides="7"
        sodipodi:cx="12.276024"
@@ -192,14 +223,14 @@
        sodipodi:cx="12.276024"
        sodipodi:sides="7"
        id="path3945"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\Constellations.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
        sodipodi:type="star"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        id="path3947"
        sodipodi:sides="7"
        sodipodi:cx="12.276024"
@@ -220,7 +251,7 @@
        inkscape:export-ydpi="90" />
     <path
        sodipodi:type="star"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        id="path3949"
        sodipodi:sides="7"
        sodipodi:cx="12.276024"
@@ -256,36 +287,23 @@
        height="20.390684"
        x="57.426823"
        y="1070.048" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
-       transform="matrix(0.18882625,0,0,0.18882625,179.0019,935.69151)"
-       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
-       sodipodi:ry="70"
-       sodipodi:rx="70"
-       sodipodi:cy="516.64789"
-       sodipodi:cx="221.42857"
-       id="path4040"
-       style="fill:url(#linearGradient4044);fill-opacity:1;stroke:#e3f4ff;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       sodipodi:type="arc" />
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
        inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
-       y="1032.0425"
-       x="212.44736"
+       y="1031.1597"
+       x="210.44736"
        height="3"
        width="16.714287"
        id="rect4042"
-       style="fill:#e1efff;fill-opacity:1;stroke:none" />
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none" />
     <rect
-       style="fill:#e1efff;fill-opacity:1;stroke:none"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
        id="rect4046"
        width="16.714287"
        height="3"
-       x="-1041.8995"
-       y="219.30449"
+       x="-1041.0168"
+       y="217.30449"
        inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
@@ -309,7 +327,7 @@
        sodipodi:cx="12.276024"
        sodipodi:sides="7"
        id="path4052"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        sodipodi:type="star" />
     <path
        inkscape:export-ydpi="90"
@@ -330,7 +348,7 @@
        sodipodi:cx="12.276024"
        sodipodi:sides="7"
        id="path4054"
-       style="fill:#e1efff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
        sodipodi:type="star" />
     <path
        inkscape:export-ydpi="90"
@@ -364,5 +382,63 @@
          id="tspan4062"
          x="130.41992"
          y="963.19855">α</tspan></text>
+    <rect
+       y="892.64508"
+       x="-1.1729805"
+       height="27.365517"
+       width="21.480459"
+       id="rect3304"
+       style="fill:#5a8b9a;fill-opacity:1;stroke:#dff4fb;stroke-width:0.54299998;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.086, 0.543;stroke-dashoffset:0" />
+    <rect
+       y="888.94171"
+       x="22.943504"
+       height="32.367817"
+       width="22.068966"
+       id="rect3306"
+       style="fill:#32646e;fill-opacity:1;stroke:#dff4fb;stroke-width:0.54299998;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.086, 0.543;stroke-dashoffset:0" />
+    <rect
+       y="897.1217"
+       x="-27.458014"
+       height="27.365517"
+       width="21.480459"
+       id="rect3304-5"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-width:0.54299998;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.086, 0.543;stroke-dashoffset:0" />
+    <rect
+       y="889.09308"
+       x="46.493858"
+       height="32.367817"
+       width="22.068966"
+       id="rect3306-4"
+       style="fill:#022830;fill-opacity:1;stroke:#dff4fb;stroke-width:0.54299998;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.086, 0.543;stroke-dashoffset:0" />
+    <rect
+       style="fill:url(#linearGradient3947);fill-opacity:1;stroke:none"
+       id="rect3939"
+       width="21.480459"
+       height="27.365517"
+       x="75.327698"
+       y="890.87958" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4563"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4565"><rect
+           id="rect4567"
+           width="32.458641"
+           height="58.675232"
+           x="-84.475693"
+           y="-75.269783" /></flowRegion><flowPara
+         id="flowPara4569"></flowPara></flowRoot>    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       transform="matrix(0.18882625,0,0,0.18882625,177.32374,935.103)"
+       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
+       sodipodi:ry="70"
+       sodipodi:rx="70"
+       sodipodi:cy="516.64789"
+       sodipodi:cx="221.42857"
+       id="path4571"
+       style="fill:url(#linearGradient4573);fill-opacity:1;stroke:#dff4fb;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
   </g>
 </svg>
