@@ -39,6 +39,7 @@ InfoForm::OnInitializing(void)
 	__buttonBack -> SetPressedBackgroundBitmap(*bitmapEmpty);
 	__buttonBack -> SetTextColor(COLOR_BUTTON_TEXT);
 	__buttonBack -> AddActionEventListener(*this);
+	__buttonBack -> SetText(Constants::GetString(STRING_BACK));
 
 	return r;
 }

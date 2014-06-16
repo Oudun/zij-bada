@@ -46,16 +46,14 @@ LocationForm::OnInitializing(void) {
 	AppLog("LocationForm::OnInitializing(void)");
 
 	__pActionLabel = static_cast<Label *>(GetControl("IDC_LABEL1"));
-	AppLog("1");
 	__pActionAttemptLabel = static_cast<Label *>(GetControl("IDC_LABEL2"));
-	AppLog("2");
 	__pGpsProviderStatusLabel = static_cast<Label *>(GetControl("IDC_LABEL3"));
-	AppLog("3");
 
 	SetBackgroundColor(COLOR_FORM_BKG);
 
 	__pActionLabel -> SetBackgroundColor(COLOR_FORM_BKG);
 	__pActionLabel -> SetTextColor(COLOR_FORM_TEXT);
+	__pActionLabel -> SetText(Constants::GetString(STRING_GETTING_LOCATION));
 
 	__pActionAttemptLabel -> SetBackgroundColor(COLOR_FORM_BKG);
 	__pActionAttemptLabel -> SetTextColor(COLOR_FORM_TEXT);
@@ -84,7 +82,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 //	String str;
 	if (coordinates != 0) {
 		AppLog("Coordinates taken lon %f lat %f \n", coordinates->GetLongitude(), coordinates->GetLatitude());
-		__pActionAttemptLabel -> SetText("Coordinates taken");
+		__pActionAttemptLabel -> SetText(Constants::GetString(STRING_COORDINATES_TAKEN));
 		__pActionAttemptLabel -> RequestRedraw(true);
 		String locationStr;
 		locationStr.Format(22, L"%S\n%S",
@@ -111,7 +109,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 
 	} else if (attemptsCounter < maxAttempts){
 		attemptsCounter++;
-		Osp::Base::String str("Attempt #");
+		Osp::Base::String str(Constants::GetString(STRING_ATTEMPT_NO));
 		str.Append(attemptsCounter);
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
@@ -135,19 +133,19 @@ LocationForm::OnProviderStateChanged(Osp::Locations::LocProviderState newState) 
 	AppLog("4");
 	AppLog("Location Provider state changed\n");
 	if (newState == LOC_PROVIDER_AVAILABLE) {
-		__pGpsProviderStatusLabel -> SetText("The location provider is available");
+		__pGpsProviderStatusLabel -> SetText(Constants::GetString(STRING_LOC_UNAVAIL));
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is available");
 	} else if (newState == LOC_PROVIDER_OUT_OF_SERVICE) {
-		__pGpsProviderStatusLabel -> SetText("The location provider is out of service");
+		__pGpsProviderStatusLabel -> SetText(Constants::GetString(STRING_LOC_OUT));
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is out of service");
 	} else if (newState == LOC_PROVIDER_TEMPORARILY_UNAVAILABLE) {
-		__pGpsProviderStatusLabel -> SetText("The location provider is temporarily unavailable");
+		__pGpsProviderStatusLabel -> SetText(Constants::GetString(STRING_LOC_TEMP_UNAVAIL));
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("The location provider is temporarily unavailable");
 	} else {
-		__pGpsProviderStatusLabel -> SetText("State unknown");
+		__pGpsProviderStatusLabel -> SetText(Constants::GetString(STRING_LOC_STATE_UNKNOWN));
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		AppLog("State unknown");
 	}
