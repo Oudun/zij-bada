@@ -88,4 +88,15 @@
 	<text id="VIR">Дева</text>
 	<text id="VOL">Летучая Рыба</text>
 	<text id="VUL">Лисичка</text>
+	<!-- LABELS -->
+	<text id="HELP">Программа показывает расположение звезд на небе для данной местности в настоящее время. Изображение можно увеличить а также модно выделить созвездие выбрав его из списка.</text>
+	<text id="BUILDING_SKY">Строится изображение неба для данного местоположения и времени</text>
+	<text id="GETTING_LOCATION">Getting your coordinates</text>
+	<text id="ATTEMPT_NO">Попытка №</text>
+	<text id="COORDINATES_TAKEN">Координаты определены</text>
+	<text id="LOC_UNAVAIL">Определитель координат недоступен</text>
+	<text id="LOC_OUT">Определитель координат не работает</text>
+	<text id="LOC_TEMP_UNAVAIL">Определитель координат временно недоступен</text>
+	<text id="LOC_STATE_UNKNOWN">Состояние определителя координат неизвестно</text>
+	<text id="BACK">Назад</text>
 </string_table>

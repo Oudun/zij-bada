@@ -33,6 +33,7 @@ SkyBuilderForm::OnInitializing(void) {
 	__label = static_cast<Label *>(GetControl("IDC_LABEL1"));
 	__label -> SetBackgroundColor(COLOR_FORM_BKG);
 	__label -> SetTextColor(COLOR_FORM_TEXT);
+	__label -> SetText(Constants::GetString(STRING_BUILDING_SKY));
 
 	AppLog("Initializing Sky Builder Form - done");
 

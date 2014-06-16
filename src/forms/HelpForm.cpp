@@ -39,6 +39,13 @@ HelpForm::OnInitializing(void)
 	__buttonBack -> SetPressedBackgroundBitmap(*bitmapEmpty);
 	__buttonBack -> SetTextColor(COLOR_BUTTON_TEXT);
 	__buttonBack -> AddActionEventListener(*this);
+	__buttonBack -> SetText(Constants::GetString(STRING_BACK));
+
+	Label* __label;
+	__label = static_cast<Label *>(GetControl(L"IDC_LABEL"));
+	__label -> SetBackgroundColor(COLOR_FORM_BKG);
+	__label -> SetTextColor(COLOR_FORM_TEXT);
+	__label -> SetText(Constants::GetString(STRING_HELP));
 
 	return r;
 }

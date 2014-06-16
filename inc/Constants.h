@@ -9,14 +9,31 @@
 #define CONSTANTS_H_
 
 #include <FGraphics.h>
+#include <FBase.h>
+#include <FApp.h>
 
 using Osp::Graphics::Color;
+using Osp::Base::String;
 
 class Constants {
-public:
-	Constants();
-	virtual ~Constants();
+	public:
+		Constants();
+		virtual ~Constants();
+	public:
+		static String GetString(String& id);
+		static String* GetStringPointer(String& id);
 };
+
+static String STRING_HELP("HELP");
+static String STRING_BUILDING_SKY("BUILDING_SKY");
+static String STRING_GETTING_LOCATION("GETTING_LOCATION");
+static String STRING_BACK("BACK");
+static String STRING_ATTEMPT_NO("ATTEMPT_NO");
+static String STRING_COORDINATES_TAKEN("COORDINATES_TAKEN");
+static String STRING_LOC_UNAVAIL("LOC_UNAVAIL");
+static String STRING_LOC_OUT("LOC_OUT");
+static String STRING_LOC_TEMP_UNAVAIL("LOC_TEMP_UNAVAIL");
+static String STRING_LOC_STATE_UNKNOWN("LOC_STATE_UNKNOWN");
 
 static const int EVENT_INFO_CLOSED = 80;
 static const int EVENT_HELP_CLOSED = 81;
@@ -33,3 +50,4 @@ static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color(8, 8, 8));
 
 
 #endif /* CONSTANTS_H_ */
+
