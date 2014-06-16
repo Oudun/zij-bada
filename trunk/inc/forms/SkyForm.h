@@ -20,7 +20,7 @@ public:
 	static const int SELECT_CONSTELLATION = 30;
 	static const int SHOW_INFO = 31;
 	static const int SHOW_HELP = 32;
-	static const int MAX_ZOOM = 8;
+	static const int MAX_ZOOM = 4;
 	static const int MIN_ZOOM = 1;
 
 

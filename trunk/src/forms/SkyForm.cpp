@@ -139,8 +139,6 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomTwo);
 				} else if (zoom == 4) {
 					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomFour);
-				} else if (zoom == 8) {
-					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomEight);
 				}
 				__pButtonInfo -> SetEnabled(false);
 				__pButtonInfo -> Draw();
@@ -159,14 +157,13 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomTwo);
 					} else if (zoom == 4) {
 						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomFour);
-					} else if (zoom == 8) {
-						__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapZoomEight);
 					}
 					__pButtonInfo -> SetEnabled(false);
 					__pButtonInfo -> Draw();
 				} else {
 					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapInfo);
 					__pButtonInfo -> SetEnabled(true);
+					__pButtonInfo -> Draw();
 				}
 				Update();
 			}

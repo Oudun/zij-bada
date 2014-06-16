@@ -30,8 +30,8 @@ class LocationForm :
 
 		virtual result OnInitializing(void);
 		virtual result OnTerminating(void);
+		virtual result OnDraw(void);
 		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
-
 		virtual void OnLocationUpdated(Osp::Locations::Location& location);
 		virtual void OnProviderStateChanged(Osp::Locations::LocProviderState newState);
 

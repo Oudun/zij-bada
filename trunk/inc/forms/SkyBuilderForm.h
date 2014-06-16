@@ -20,6 +20,7 @@ public:
 	bool Initialize();
 	result OnInitializing(void);
 	result OnTerminating(void);
+	virtual result OnDraw(void);
 	void SetRange(int min, int max);
 	void SetProgress(int value);
 	void Start(void);

@@ -119,12 +119,6 @@ SkyObject::Draw() {
 	canvas = SkyCanvas::GetStarCanvas(4);
 	DrawCanvas(canvas, zoomedPoint);
 
-	Projector::Zoom(point, zoomedPoint, 8);
-
-	canvas = SkyCanvas::GetStarCanvas(8);
-	DrawCanvas(canvas, zoomedPoint);
-
-
 	delete zoomedPoint;
 	return true;
 
