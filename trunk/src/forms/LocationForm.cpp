@@ -117,11 +117,10 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
 
-
-		//todo -remove later - this is for debugging;
-		TimeAndPlace::SetSiderialTime(0, 0, new DateTime());
-		locProvider -> CancelLocationUpdates();
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
+//		//todo -remove later - this is for debugging;
+//		TimeAndPlace::SetSiderialTime(0, 0, new DateTime());
+//		locProvider -> CancelLocationUpdates();
+//		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 
 	} else {
 		attemptsCounter = 0;

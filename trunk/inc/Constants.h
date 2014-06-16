@@ -41,7 +41,7 @@ static const int EVENT_HELP_CLOSED = 81;
 static const Osp::Graphics::Color COLOR_SKY(Color(0, 41, 50));
 static const Osp::Graphics::Color COLOR_BUTTON_BKG(Color(0, 41, 50));
 static const Osp::Graphics::Color COLOR_BUTTON_TEXT(Color::COLOR_WHITE);
-static const Osp::Graphics::Color COLOR_FORM_BKG(Color(0, 100, 120, 0));
+static const Osp::Graphics::Color COLOR_FORM_BKG(Color(50, 100, 110));
 static const Osp::Graphics::Color COLOR_FORM_TEXT(Color(150, 200, 200));
 static const Osp::Graphics::Color COLOR_CONSTEL_BORDER(Color(229, 250, 255));
 static const Osp::Graphics::Color COLOR_BRIGHT_STAR(Color(229, 250, 255));
