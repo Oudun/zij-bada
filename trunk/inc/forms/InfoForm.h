@@ -4,8 +4,9 @@
 
 #include <FBase.h>
 #include <FUi.h>
-#include "Constants.h"
 #include <FApp.h>
+#include "Constants.h"
+#include "TimeAndPlace.h"
 
 class InfoForm :
 	public Osp::Ui::Controls::Form,
@@ -20,12 +21,13 @@ public:
 	result OnInitializing(void);
 	result OnTerminating(void);
 	void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+	result OnDraw(void);
 
-// Implementation
-protected:
-
-// Generated call-back functions
-public:
+private:
+	Osp::Ui::Controls::Label* __labelTime;
+	Osp::Ui::Controls::Label* __labelTimeValue;
+	Osp::Ui::Controls::Label* __labelCoordinates;
+	Osp::Ui::Controls::Label* __labelCoordinatesValue;
 
 };
 

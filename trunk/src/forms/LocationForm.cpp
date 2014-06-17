@@ -28,7 +28,7 @@ LocationForm::LocationForm() {
 	if (r != E_SUCCESS) {
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
 	}
-	r = locProvider -> RequestLocationUpdates(*this, 5, true);
+	r = locProvider -> RequestLocationUpdates(*this, 15, true);
 	if (r != E_SUCCESS) {
 		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
 	}

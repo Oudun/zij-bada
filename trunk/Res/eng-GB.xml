@@ -100,4 +100,6 @@
 	<text id="LOC_STATE_UNKNOWN">State unknown</text>
 	<text id="COORDINATES_TAKEN">Coordinates taken</text>
 	<text id="BACK">Back</text>
+	<text id="SKY_TIME">Map creation time</text>
+	<text id="SKY_COORDS">Your location</text>
 </string_table>

@@ -69,7 +69,7 @@ private:
 	Bitmap* bitmapZoomEight;
 	Bitmap* bitmapEmpty;
 	Bitmap* bitmapInfo;
-
+	Bitmap* bitmapInfoPressed;
 
 	virtual void OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);

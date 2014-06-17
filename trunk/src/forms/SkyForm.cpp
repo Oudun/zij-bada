@@ -23,7 +23,10 @@ SkyForm::SkyForm() {
 	bitmapZoomFour = pAppResource -> GetBitmapN(L"ZoomFour.png");
 	bitmapZoomEight = pAppResource -> GetBitmapN(L"ZoomEight.png");
 	bitmapEmpty = pAppResource -> GetBitmapN(L"Empty.png");
+
 	bitmapInfo = pAppResource -> GetBitmapN(L"Info.png");
+	bitmapInfoPressed = pAppResource -> GetBitmapN(L"InfoPressed.png");
+
 }
 
 SkyForm::~SkyForm(void)
@@ -47,15 +50,22 @@ SkyForm::OnInitializing(void)
 	SetBackgroundColor(COLOR_SKY);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+
 	Bitmap* bitmapZoomIn = pAppResource -> GetBitmapN(L"ZoomIn.png");
+	Bitmap* bitmapZoomInPressed = pAppResource -> GetBitmapN(L"ZoomInPressed.png");
+
 	Bitmap* bitmapZoomOut = pAppResource -> GetBitmapN(L"ZoomOut.png");
+	Bitmap* bitmapZoomOutPressed = pAppResource -> GetBitmapN(L"ZoomOutPressed.png");
+
 	Bitmap* bitmapConstellations = pAppResource -> GetBitmapN(L"Constellations.png");
+	Bitmap* bitmapConstellationsPressed = pAppResource -> GetBitmapN(L"ConstellationsPressed.png");
+
 	Bitmap* bitmapHelp = pAppResource -> GetBitmapN(L"Help.png");
 	Bitmap* bitmapHelpPressed = pAppResource -> GetBitmapN(L"HelpPressed.png");
 
 	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
 	__pButtonZoomIn -> SetNormalBackgroundBitmap(*bitmapZoomIn);
-	__pButtonZoomIn -> SetPressedBackgroundBitmap(*bitmapZoomIn);
+	__pButtonZoomIn -> SetPressedBackgroundBitmap(*bitmapZoomInPressed);
 	__pButtonZoomIn -> SetActionId(ID_BUTTON_ZOOM_IN);
 	__pButtonZoomIn -> AddActionEventListener(*this);
 
@@ -63,7 +73,7 @@ SkyForm::OnInitializing(void)
 
 	__pButtonZoomOut = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_OUT"));
 	__pButtonZoomOut -> SetNormalBackgroundBitmap(*bitmapZoomOut);
-	__pButtonZoomOut -> SetPressedBackgroundBitmap(*bitmapZoomOut);
+	__pButtonZoomOut -> SetPressedBackgroundBitmap(*bitmapZoomOutPressed);
 	__pButtonZoomOut -> SetActionId(ID_BUTTON_ZOOM_OUT);
 	__pButtonZoomOut -> AddActionEventListener(*this);
 
@@ -79,37 +89,26 @@ SkyForm::OnInitializing(void)
 
 	__pButtonConstellations = static_cast<Button *>(GetControl(L"IDC_BUTTON_CONSTELLATIONS"));
 	__pButtonConstellations -> SetNormalBackgroundBitmap(*bitmapConstellations);
+	__pButtonConstellations -> SetPressedBackgroundBitmap(*bitmapConstellationsPressed);
 	__pButtonConstellations -> SetActionId(1);
 	__pButtonConstellations -> AddActionEventListener(*this);
 	__pButtonConstellations -> SetActionId(ID_BUTTON_CONSTELLATIONS);
-	__pButtonConstellations -> AddActionEventListener(*this);
 
 	AppLog("Initializing Sky Form - 3");
 
 	__pButtonInfo = static_cast<Button *>(GetControl(L"IDC_BUTTON_SETTINGS"));
 	__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapInfo);
+	__pButtonInfo -> SetPressedBackgroundBitmap(*bitmapInfoPressed);
 	__pButtonInfo -> SetActionId(4);
 	__pButtonInfo -> AddActionEventListener(*this);
 	__pButtonInfo -> SetActionId(ID_BUTTON_INFO);
-	__pButtonInfo -> AddActionEventListener(*this);
+
 
 	//IDC_BUTTON_CONSTELLATIONS
 
 	__pLabelLocation = static_cast<Label *>(GetControl(L"IDC_LABEL1"));
 	__pLabelLocation -> SetBackgroundColor(COLOR_SKY);
 	__pLabelLocation -> SetTextColor(COLOR_FORM_TEXT);
-
-	AppLog("Initializing Sky Form - 4");
-//
-//
-//	__pZoomLabel = static_cast<Label *>(GetControl("IDC_LABEL_ZOOM"));
-//	__pZoomLabel -> SetBackgroundColor(COLOR_SKY);
-//	__pZoomLabel -> SetTextColor(COLOR_FORM_TEXT);
-//	__pZoomLabel -> SetBackgroundBitmap(*bitmapEmpty);
-//	__pZoomLabel -> SetShowState(false);
-
-	AppLog("Initializing Sky Form - 5");
-
 
 	Control* control = GetControl(L"SKY_FORM");
 	destWidth = control -> GetWidth();
@@ -162,6 +161,7 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 					__pButtonInfo -> Draw();
 				} else {
 					__pButtonInfo -> SetNormalBackgroundBitmap(*bitmapInfo);
+					__pButtonInfo -> SetPressedBackgroundBitmap(*bitmapInfoPressed);
 					__pButtonInfo -> SetEnabled(true);
 					__pButtonInfo -> Draw();
 				}

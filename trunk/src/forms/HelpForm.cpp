@@ -29,25 +29,27 @@ HelpForm::OnInitializing(void)
 	SetBackgroundColor(COLOR_FORM_BKG);
 
 	Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
-	Osp::Graphics::Bitmap* bitmapEmpty;
-	bitmapEmpty = pAppResource -> GetBitmapN(L"Empty.png");
+	Osp::Graphics::Bitmap* bitmapButton;
+	Osp::Graphics::Bitmap* bitmapButtonPressed;
+	bitmapButton = pAppResource -> GetBitmapN(L"Button.png");
+	bitmapButtonPressed = pAppResource -> GetBitmapN(L"ButtonPressed.png");
 
 	Button* __buttonBack;
 	__buttonBack = static_cast<Button *>(GetControl(L"IDC_BUTTON_BACK"));
 	__buttonBack -> SetActionId(0);
-	__buttonBack -> SetNormalBackgroundBitmap(*bitmapEmpty);
-	__buttonBack -> SetPressedBackgroundBitmap(*bitmapEmpty);
+	__buttonBack -> SetNormalBackgroundBitmap(*bitmapButton);
+	__buttonBack -> SetPressedBackgroundBitmap(*bitmapButtonPressed);
 	__buttonBack -> SetTextColor(COLOR_BUTTON_TEXT);
 	__buttonBack -> AddActionEventListener(*this);
 	__buttonBack -> SetText(Constants::GetString(STRING_BACK));
 
-	Label* __label;
-	__label = static_cast<Label *>(GetControl(L"IDC_LABEL"));
+	Label* __label = static_cast<Label *>(GetControl(L"IDC_LABEL"));
 	__label -> SetBackgroundColor(COLOR_FORM_BKG);
 	__label -> SetTextColor(COLOR_FORM_TEXT);
 	__label -> SetText(Constants::GetString(STRING_HELP));
 
 	return r;
+
 }
 
 result

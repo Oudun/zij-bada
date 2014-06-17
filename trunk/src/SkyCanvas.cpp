@@ -34,7 +34,7 @@ SkyCanvas::Initialize() {
 	canvas1 -> FillRectangle(COLOR_SKY, Rectangle(0, 0, 240, 400));
 	canvas1 -> SetFont(font);
 	canvas1 -> DrawText(Point(120, 70), "N");
-	canvas1 -> DrawText(Point(120, 310), "S");
+	canvas1 -> DrawText(Point(120, 312), "S");
 	starLayers -> Add(1, canvas1);
 
 	Canvas* canvas2 = new Canvas();
