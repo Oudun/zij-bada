@@ -21,13 +21,6 @@ public:
 	result OnTerminating(void);
 	void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 
-
-// Implementation
-protected:
-
-// Generated call-back functions
-public:
-
 };
 
 #endif

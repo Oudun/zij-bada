@@ -34,6 +34,8 @@ static String STRING_LOC_UNAVAIL("LOC_UNAVAIL");
 static String STRING_LOC_OUT("LOC_OUT");
 static String STRING_LOC_TEMP_UNAVAIL("LOC_TEMP_UNAVAIL");
 static String STRING_LOC_STATE_UNKNOWN("LOC_STATE_UNKNOWN");
+static String STRING_SKY_COORDS("SKY_COORDS");
+static String STRING_SKY_TIME("SKY_TIME");
 
 static const int EVENT_INFO_CLOSED = 80;
 static const int EVENT_HELP_CLOSED = 81;

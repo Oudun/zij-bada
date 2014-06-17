@@ -8,6 +8,7 @@
 #include "TimeAndPlace.h"
 
 using namespace Osp::Base;
+using namespace Osp::Base::Utility;
 using namespace Osp::Locations;
 using namespace Osp::Locales;
 using namespace Osp::System;
@@ -49,6 +50,21 @@ float
 TimeAndPlace::GetSiderialTime(void) {
 	return siderialTime;
 }
+
+DateTime*
+TimeAndPlace::GetDateTime(void) {
+	return dateTime;
+}
+
+DateTime*
+TimeAndPlace::GetStandardDateTime(void) {
+	LocaleManager localeManager;
+	localeManager.Construct();
+	Locale locale = localeManager.GetSystemLocale();
+	TimeZone timeZone = localeManager.GetSystemTimeZone();
+	return &(timeZone.UtcTimeToStandardTime(*dateTime));
+}
+
 void
 TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTime) {
 	AppLog("Trying to access TimeAndPlace");
@@ -56,10 +72,22 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	AppLog("Trying to access TimeAndPlace 1");
 	TimeAndPlace::SetLatitude(latitude);
 	AppLog("Trying to access TimeAndPlace 2");
-	TimeZone timeZone(60, L"Europe/London");
+	//TimeZone timeZone(60, L"Europe/London");
+
+	LocaleManager localeManager;
+	localeManager.Construct();
+	Locale locale = localeManager.GetSystemLocale();
+	TimeZone timeZone = localeManager.GetSystemTimeZone();
+
+	AppLog("Locale code %S", (locale.GetLanguageCodeString().GetPointer()));
+	AppLog("TimeZone ID is %S", (timeZone.GetId()).GetPointer());
+
+//	TimeZone timeZone(TimeZone::GetGmtTimeZone());
 	AppLog("TP1");
 	SystemTime::GetCurrentTime(*currTime);
 	AppLog("TP2");
+	dateTime = currTime;
+	AppLog("TP2a");
 	Calendar* calendar;
 	AppLog("TP3");
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
@@ -87,3 +115,48 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	SetSiderialTime (sltHrs);
 	AppLog("TP15");
 }
+
+String*
+TimeAndPlace::GetReadableLongitude(void) {
+
+	float angle = longitude;
+	char* posPrefix = "N";
+	char* negPrefix = "S";
+
+	const char* prefix = angle < 0 ? negPrefix : posPrefix;
+	float latAbs = angle * 1000000;
+	float deg = Math::Abs(Math::Floor(latAbs/1000000));
+	float min = Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60);
+	float sec = Math::Floor(((((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60)
+			- Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
+	String* result = new String();
+	result->Format(11, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
+	return result;
+
+}
+
+String*
+TimeAndPlace::GetReadableLatitude(void) {
+
+	float angle = latitude;
+	char* posPrefix = "E";
+	char* negPrefix = "W";
+
+	const char* prefix = angle < 0 ? negPrefix : posPrefix;
+	float latAbs = angle * 1000000;
+	float deg = Math::Abs(Math::Floor(latAbs/1000000));
+	float min = Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60);
+	float sec = Math::Floor(((((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60)
+			- Math::Floor(((latAbs/1000000)
+			- Math::Floor(latAbs/1000000))*60))*100000)*60/100000;
+	String* result = new String();
+	result->Format(11, L"%s%d°%d\'%d\"", prefix, (int)deg, (int)min, (int)sec);
+	return result;
+
+}
+
