@@ -85,36 +85,7 @@ InfoForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 result
 InfoForm::OnDraw(void) {
 
-	float time = TimeAndPlace::GetSiderialTime();
-	AppLog("Siderial time is %f", time);
-	DateTime* dateTime = TimeAndPlace::GetStandardDateTime();
-//
-//	String timeStr;
-//	timeStr.Format(22, L"%d:%d:%d", dateTime->GetHour(), dateTime->GetMinute(), dateTime->GetSecond());
-//	__labelTimeValue -> SetText(timeStr);
-
-	String customizedPattern = L"HH:mm:ss zzzz";
-	String readableDateTime;
-	DateTimeFormatter* formatter = DateTimeFormatter::CreateDateFormatterN();
-	formatter -> ApplyPattern(customizedPattern);
-	formatter -> Format(*dateTime, readableDateTime);
-	__labelTimeValue -> SetText(readableDateTime);
-
-	// HH:mm:ss zzzz
-
-//    pDateFormatter->Format(today, formattedString);
-//
-//    // Get time formatter
-//    DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(locale, DATE_TIME_STYLE_DEFAULT);
-//
-//    // Format today with date formatter
-//    pTimeFormatter->Format(today, formattedString);
-//
-//    // Customized pattern
-//    String cutomizedPattern = L"EEE d MMM yy";
-//    pDateFormatter->ApplyPattern(cutomizedPattern);
-
-
+	__labelTimeValue -> SetText(TimeAndPlace::GetReadableTime());
 
 	String locationStr;
 	locationStr.Format(22, L"%S\n%S",

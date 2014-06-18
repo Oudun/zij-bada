@@ -29,13 +29,19 @@ ConstellationForm::Initialize(void) {
 
 result
 ConstellationForm::OnInitializing(void) {
+
+	Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
+	Osp::Graphics::Bitmap* bitmapButtonPressed;
+	bitmapButtonPressed = pAppResource -> GetBitmapN(L"ButtonPressed.png");
+
 	__pConstelList = new List();
 	__pConstelList -> Construct(
 			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_TEXT, 30, 30, 200, 0);
+			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
 	__pConstelList -> AddItemEventListener(*this);
 	__pConstelList -> SetBackgroundColor(COLOR_FORM_BKG);
+	__pConstelList -> SetHighlightedItemBackgroundBitmap(*bitmapButtonPressed);
 	__pConstelList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
 	__pConstelList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
 	AddControl(*__pConstelList);
