@@ -88,4 +88,19 @@
 	<text id="VIR">العذراء</text>
 	<text id="VOL">السمكة الطائرة</text>
 	<text id="VUL">الثعلب</text>
+		<!-- LABELS -->
+	<text id="HELP">Program shows stars positions in the sky for given location at current time. You can also zoom in and out, shift the view and highlight constellation.</text>
+	<text id="BUILDING_SKY">Building sky view for current time and location</text>
+	<text id="GETTING_LOCATION">Getting your coordinates</text>
+	<text id="ATTEMPT_NO">Attempt #</text>
+	<text id="COORDINATES_TAKEN">Coordinates taken</text>
+	<text id="LOC_UNAVAIL">The location provider is available</text>
+	<text id="LOC_OUT">The location provider is out of service</text>
+	<text id="LOC_TEMP_UNAVAIL">The location provider is temporarily unavailable</text>
+	<text id="LOC_STATE_UNKNOWN">State unknown</text>
+	<text id="COORDINATES_TAKEN">Coordinates taken</text>
+	<text id="BACK">Back</text>
+	<text id="SKY_TIME">Map creation time</text>
+	<text id="SKY_COORDS">Your location</text>
+
 </string_table>
