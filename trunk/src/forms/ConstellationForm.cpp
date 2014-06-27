@@ -36,9 +36,10 @@ ConstellationForm::OnInitializing(void) {
 
 	__pConstelList = new List();
 	__pConstelList -> Construct(
-			Rectangle(0, 0, 240, 360),
+//			Rectangle(0, 0, 240, 360),
+			GetBounds(),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
+			LIST_ITEM_SINGLE_TEXT, GetBounds().height/10, GetBounds().height/10, GetBounds().width, 0);
 	__pConstelList -> AddItemEventListener(*this);
 	__pConstelList -> SetBackgroundColor(COLOR_FORM_BKG);
 	__pConstelList -> SetHighlightedItemBackgroundBitmap(*bitmapButtonPressed);

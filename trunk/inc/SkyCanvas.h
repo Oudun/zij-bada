@@ -17,7 +17,8 @@ class SkyCanvas {
 	public:
 		SkyCanvas();
 		virtual ~SkyCanvas();
-		static void Initialize(void);
+		//static void Initialize(void);
+		static void Initialize(Osp::Graphics::Rectangle rect);
 		static Osp::Graphics::Canvas* GetStarCanvas(int zoom);
 		static void SelectConstellation(int index);
 		static Osp::Base::Collection::IList* getConstellations();
