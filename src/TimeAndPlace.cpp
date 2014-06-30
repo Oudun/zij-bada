@@ -13,6 +13,12 @@ using namespace Osp::Locations;
 using namespace Osp::Locales;
 using namespace Osp::System;
 
+float TimeAndPlace::longitude = 0.0F;
+float TimeAndPlace::latitude = 0.0F;
+float TimeAndPlace::siderialTime = 0.0F;
+Osp::Base::DateTime* TimeAndPlace::dateTime;
+Osp::Base::DateTime TimeAndPlace::localDateTime;
+
 TimeAndPlace::TimeAndPlace() {
 	AppLog("TimeAndPlace constructed");
 }
@@ -56,53 +62,53 @@ TimeAndPlace::GetDateTime(void) {
 	return dateTime;
 }
 
-DateTime*
-TimeAndPlace::GetStandardDateTime(void) {
-
-	LocaleManager localeManager;
-	localeManager.Construct();
-	Locale locale = localeManager.GetSystemLocale();
-	TimeZone timeZone = localeManager.GetSystemTimeZone();
-
-	AppLog("GMT Time Zone id is %S", timeZone.GetGmtTimeZone().GetId().GetPointer());
-	AppLog("Time Zone is %S", timeZone.GetId().GetPointer());
-	AppLog("Time Zone offset is %d", timeZone.GetRawOffset());
-	AppLog("Time Zone DST is %d", timeZone.GetDstSavings());
-
-	result r;
-
-	String customizedPattern = L"HH:mm:ss zzz";
-	String readableDateTime;
-	DateTimeFormatter* formatter = DateTimeFormatter::CreateDateFormatterN();
-	r = formatter -> ApplyPattern(customizedPattern);
-	AppLog("formatter -> ApplyPattern(customizedPattern) result is %s", GetErrorMessage(r));
-
-	DateTime standardOffsetDateTime = timeZone.UtcTimeToStandardTime(*dateTime, timeZone.GetRawOffset());
-	r = formatter -> Format(standardOffsetDateTime, readableDateTime);
-	AppLog("Standard Local Time is %S", readableDateTime.GetPointer());
-	readableDateTime.Clear();
-
-	DateTime standardDateTime = timeZone.UtcTimeToStandardTime(*dateTime);
-	r = formatter -> Format(standardDateTime, readableDateTime);
-	AppLog("Standard Time is %S", readableDateTime.GetPointer());
-	readableDateTime.Clear();
-
-	DateTime wallDateTime = timeZone.UtcTimeToWallTime(*dateTime);
-	r = formatter -> Format(wallDateTime, readableDateTime);
-	AppLog("Wall Time is %S", readableDateTime.GetPointer());
-	readableDateTime.Clear();
-
-	r = formatter -> Format(*dateTime, readableDateTime);
-	AppLog("UTC Time is %S", readableDateTime.GetPointer());
-	readableDateTime.Clear();
-
-//	Calendar* calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
-//	DateTime localTime1 = calendar -> GetTime();
-//	r = formatter -> Format(localTime1, readableDateTime);
-//	AppLog("Local Time is %S", readableDateTime.GetPointer());
-
-	return localDateTime;
-}
+//DateTime*
+//TimeAndPlace::GetStandardDateTime(void) {
+//
+//	LocaleManager localeManager;
+//	localeManager.Construct();
+//	Locale locale = localeManager.GetSystemLocale();
+//	TimeZone timeZone = localeManager.GetSystemTimeZone();
+//
+//	AppLog("GMT Time Zone id is %S", timeZone.GetGmtTimeZone().GetId().GetPointer());
+//	AppLog("Time Zone is %S", timeZone.GetId().GetPointer());
+//	AppLog("Time Zone offset is %d", timeZone.GetRawOffset());
+//	AppLog("Time Zone DST is %d", timeZone.GetDstSavings());
+//
+//	result r;
+//
+//	String customizedPattern = L"HH:mm:ss zzz";
+//	String readableDateTime;
+//	DateTimeFormatter* formatter = DateTimeFormatter::CreateDateFormatterN();
+//	r = formatter -> ApplyPattern(customizedPattern);
+//	AppLog("formatter -> ApplyPattern(customizedPattern) result is %s", GetErrorMessage(r));
+//
+//	DateTime standardOffsetDateTime = timeZone.UtcTimeToStandardTime(*dateTime, timeZone.GetRawOffset());
+//	r = formatter -> Format(standardOffsetDateTime, readableDateTime);
+//	AppLog("Standard Local Time is %S", readableDateTime.GetPointer());
+//	readableDateTime.Clear();
+//
+//	DateTime standardDateTime = timeZone.UtcTimeToStandardTime(*dateTime);
+//	r = formatter -> Format(standardDateTime, readableDateTime);
+//	AppLog("Standard Time is %S", readableDateTime.GetPointer());
+//	readableDateTime.Clear();
+//
+//	DateTime wallDateTime = timeZone.UtcTimeToWallTime(*dateTime);
+//	r = formatter -> Format(wallDateTime, readableDateTime);
+//	AppLog("Wall Time is %S", readableDateTime.GetPointer());
+//	readableDateTime.Clear();
+//
+//	r = formatter -> Format(*dateTime, readableDateTime);
+//	AppLog("UTC Time is %S", readableDateTime.GetPointer());
+//	readableDateTime.Clear();
+//
+////	Calendar* calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
+////	DateTime localTime1 = calendar -> GetTime();
+////	r = formatter -> Format(localTime1, readableDateTime);
+////	AppLog("Local Time is %S", readableDateTime.GetPointer());
+//
+//	return &localDateTime;
+//}
 
 String
 TimeAndPlace::GetReadableTime(void) {
@@ -155,7 +161,7 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	AppLog("TP2");
 	dateTime = currTime;
 	AppLog("TP2a");
-	localDateTime = &(timeZone.UtcTimeToStandardTime(*currTime));
+	localDateTime = timeZone.UtcTimeToStandardTime(*currTime);
 	Calendar* calendar;
 	AppLog("TP3");
 	calendar = Calendar::CreateInstanceN(timeZone, CALENDAR_GREGORIAN);
@@ -188,8 +194,8 @@ String*
 TimeAndPlace::GetReadableLongitude(void) {
 
 	float angle = longitude;
-	char* posPrefix = "N";
-	char* negPrefix = "S";
+	const char* posPrefix = "N";
+	const char* negPrefix = "S";
 
 	const char* prefix = angle < 0 ? negPrefix : posPrefix;
 	float latAbs = angle * 1000000;
@@ -210,8 +216,8 @@ String*
 TimeAndPlace::GetReadableLatitude(void) {
 
 	float angle = latitude;
-	char* posPrefix = "E";
-	char* negPrefix = "W";
+	const char* posPrefix = "E";
+	const char* negPrefix = "W";
 
 	const char* prefix = angle < 0 ? negPrefix : posPrefix;
 	float latAbs = angle * 1000000;

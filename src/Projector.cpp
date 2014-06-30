@@ -46,7 +46,7 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
     return new Point(left, top);
 }
 
-Osp::Graphics::Point*
+void
 Projector::Zoom(
 		Osp::Graphics::Point* source,
 		Osp::Graphics::Point* result,

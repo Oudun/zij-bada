@@ -10,6 +10,10 @@
 using namespace Osp::Graphics;
 using namespace Osp::Base::Collection;
 
+Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* SkyCanvas::starLayers;
+Osp::Base::Collection::IList* SkyCanvas::constellationsVisible;
+int SkyCanvas::selectedConstellationIndex = -1;
+
 SkyCanvas::SkyCanvas() {
 
 }
