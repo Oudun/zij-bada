@@ -25,11 +25,11 @@ class SkyCanvas {
 		static void SetConstellations (Osp::Base::Collection::IList* constellationsVisible);
 		static Osp::Base::String* GetSelectedConstellation(void);
 
+	private:
+		static Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* starLayers;
+		static Osp::Base::Collection::IList* constellationsVisible;
+		static int selectedConstellationIndex;
+
 };
-
-static Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* starLayers;
-static Osp::Base::Collection::IList* constellationsVisible;
-static int selectedConstellationIndex = -1;
-
 
 #endif /* SKYCANVAS_H_ */

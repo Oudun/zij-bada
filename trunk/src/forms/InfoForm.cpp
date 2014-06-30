@@ -93,4 +93,6 @@ InfoForm::OnDraw(void) {
 			TimeAndPlace::GetReadableLatitude() -> GetPointer());
 	__labelCoordinatesValue -> SetText(locationStr);
 
+	return E_SUCCESS;
+
 }
