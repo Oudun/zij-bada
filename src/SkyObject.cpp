@@ -90,6 +90,8 @@ SkyObject::Print(void) {
 bool
 SkyObject::Draw() {
 
+	AppLog("Drawing %S", name.GetPointer());
+
 	Point* zoomedPoint = new Point();
 
 	Canvas* canvas;
@@ -107,17 +109,17 @@ SkyObject::Draw() {
 
 	Projector::Zoom(point, zoomedPoint, 1);
 
-	DrawCanvas(canvas, zoomedPoint);
+	DrawCanvas(canvas, zoomedPoint, 1);
 
 	Projector::Zoom(point, zoomedPoint, 2);
 
 	canvas = SkyCanvas::GetStarCanvas(2);
-	DrawCanvas(canvas, zoomedPoint);
+	DrawCanvas(canvas, zoomedPoint, 2);
 
 	Projector::Zoom(point, zoomedPoint, 4);
 
 	canvas = SkyCanvas::GetStarCanvas(4);
-	DrawCanvas(canvas, zoomedPoint);
+	DrawCanvas(canvas, zoomedPoint, 4);
 
 	delete zoomedPoint;
 	return true;
@@ -125,7 +127,9 @@ SkyObject::Draw() {
 }
 
 void
-SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
+SkyObject::DrawCanvas(Canvas* canvas, Point* point, int zoomFactor) {
+
+	AppLog("SkyObject::DrawCanvas(Canvas* canvas, Point* point, int zoomFactor");
 
 	Color color = COLOR_BRIGHT_STAR;
 
@@ -154,10 +158,32 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 	canvas ->FillEllipse(color,
 		Rectangle(point->x, point->y, diameter, diameter));
 
+//
+//	if (zoomFactor > 1 && magnitude < 2) {
+//
+//		Color foregroundColor = canvas -> GetBackgroundColor();
+//		canvas -> SetForegroundColor(color);
+//
+//		if (name.EndsWith("Alp")) {
+//			canvas -> DrawText(*point, "α");
+//		} else if (name.EndsWith("Bet")) {
+//			canvas -> DrawText(*point, "β");
+//		} else if (name.EndsWith("Gam")) {
+//			canvas -> DrawText(*point, "γ");
+//		} else if (name.EndsWith("Del")) {
+//			canvas -> DrawText(*point, "δ");
+//		}
+//
+//		canvas -> SetBackgroundColor(foregroundColor);
+//
+//	}
+
 }
 
 bool
 SkyObject::DrawCanvas(Canvas* canvas) {
+
+	AppLog("SkyObject::DrawCanvas(Canvas* canvas)");
 
 	Point* point = Projector::
 			GetProjection(RAH, DED, sign,
@@ -191,8 +217,6 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 			color = COLOR_DIM_STAR;
 			diameter = 1/2;
 		}
-
-
 
 		canvas ->FillEllipse(color,
 			Rectangle(point->x, point->y, diameter, diameter));

@@ -18,12 +18,11 @@ using namespace Osp::Base::Collection;
 ConstellationDbIterator* ConstellationBuilder::constelDbIterator;
 
 ConstellationBuilder::ConstellationBuilder() {
-	// TODO Auto-generated constructor stub
 
 }
 
 ConstellationBuilder::~ConstellationBuilder() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void

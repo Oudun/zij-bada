@@ -59,48 +59,48 @@ EarthMapForm::Update(void) {
 void
 EarthMapForm::OnTouchDoublePressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchFocusIn(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchFocusOut(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchLongPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchMoved(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchPressed(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
 
 void
 EarthMapForm::OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo)
 {
-	// TODO: Add your implementation codes here
+
 
 }
