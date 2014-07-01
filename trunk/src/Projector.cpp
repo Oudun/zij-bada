@@ -14,7 +14,7 @@ Projector::Projector() {
 }
 
 Projector::~Projector() {
-	// TODO Auto-generated destructor stub
+
 }
 
 Osp::Graphics::Point*

@@ -9,12 +9,11 @@
 #include "SkyDbIterator.h"
 
 SkyFactory::SkyFactory() {
-	// TODO Auto-generated constructor stub
 
 }
 
 SkyFactory::~SkyFactory() {
-	// TODO Auto-generated destructor stub
+AppLog("~SkyFactory");
 }
 
 SkyIterator*

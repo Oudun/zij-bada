@@ -18,7 +18,7 @@ ConstellationForm::ConstellationForm() {
 }
 
 ConstellationForm::~ConstellationForm() {
-	// TODO Auto-generated destructor stub
+
 }
 
 bool
