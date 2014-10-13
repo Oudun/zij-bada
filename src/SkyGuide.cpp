@@ -196,12 +196,12 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			infoForm -> Show();
 			break;
 		}
-//		case LocationForm::LOCATION_FAILED: {
-//			AppLog("Auto location failed, choose alternate");
-//			pFrame->SetCurrentForm(*alterLocationForm);
-//			alterLocationForm -> RequestRedraw(true);
-//			break;
-//		}
+		case LocationForm::LOCATION_FAILED: {
+			AppLog("Auto location failed, choose alternate");
+			pFrame->SetCurrentForm(*alterLocationForm);
+			alterLocationForm -> RequestRedraw(true);
+			break;
+		}
 	}
 }
 
