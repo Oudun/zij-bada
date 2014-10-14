@@ -22,7 +22,7 @@ class Projector {
 				int sign,
 				int width,
 				int height);
-		static void Zoom(
+		static Osp::Graphics::Point* Zoom(
 				Osp::Graphics::Point* source,
 				Osp::Graphics::Point* result,
 				int ratio);

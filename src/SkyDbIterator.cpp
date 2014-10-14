@@ -41,10 +41,8 @@ SkyDbIterator::SkyDbIterator(float magnitude) {
 }
 
 SkyDbIterator::~SkyDbIterator() {
-	AppLog("~SkyDbIterator() start");
 	delete database;
 	delete dataSet;
-	AppLog("~SkyDbIterator() end");
 }
 
 bool

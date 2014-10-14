@@ -33,6 +33,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("Initializing");
 
+	SkyCanvas::Initialize();
+
 	// Create forms
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
@@ -47,8 +49,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
-
-	SkyCanvas::Initialize(skyForm->GetBounds());
 
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();
@@ -196,12 +196,12 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			infoForm -> Show();
 			break;
 		}
-//		case LocationForm::LOCATION_FAILED: {
-//			AppLog("Auto location failed, choose alternate");
-//			pFrame->SetCurrentForm(*alterLocationForm);
-//			alterLocationForm -> RequestRedraw(true);
-//			break;
-//		}
+		case LocationForm::LOCATION_FAILED: {
+			AppLog("Auto location failed, choose alternate");
+			pFrame->SetCurrentForm(*alterLocationForm);
+			alterLocationForm -> RequestRedraw(true);
+			break;
+		}
 	}
 }
 

@@ -63,12 +63,6 @@ AlterLocationForm::OnInitializing(void)
 		pButton1->SetActionId(2);
 		pButton1->AddActionEventListener(*this);
 	}
-	Button *pButton_map_location = static_cast<Button *>(GetControl("IDC_BUTTON_MAP_LOCATION"));  
-	if (pButton_map_location)
-	{
-		pButton_map_location->SetActionId(2);
-		pButton_map_location->AddActionEventListener(*this);
-	}
 	return r;
 }
 
