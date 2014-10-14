@@ -1,0 +1,64 @@
+----------------------------------------------------------------------------------
+----------------------------- Application Information ----------------------------
+----------------------------------------------------------------------------------
+ Application Name    : StarGuide
+ Application ID      : r4a8201ns5
+ Application Version : 1.0.1
+ API Version         : 1.1
+ Platform Version    : 2.0.0
+ Firmware Version    : WaveWQ-EXXKC4
+ Crashed Time        : 2014/06/16 15:30:37
+ Crashed Module      : FOsp.so
+----------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------
+----------------------------- Recent AppLog Messages -----------------------------
+----------------------------------------------------------------------------------
+[0] 0025.930,INFO,P32,T00,A121,OspMain (34) > Application started?.
+[1] 0026.549,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (34) > Initializing
+[2] 0026.637,INFO,P32,T00,A125,LocationForm::LocationForm (22) > 1
+[3] 0027.223,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (42) > 0
+[4] 0029.396,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (65) > 1
+[5] 0029.449,INFO,P32,T00,A125,LocationForm::OnInitializing (46) > LocationForm::OnInitializing(void)
+[6] 0029.540,INFO,P32,T00,A125,SkyBuilderForm::OnInitializing (27) > Initializing Sky Builder Form
+[7] 0029.545,INFO,P32,T00,A125,SkyBuilderForm::OnInitializing (38) > Initializing Sky Builder Form - done
+[8] 0029.760,INFO,P32,T00,A125,SkyForm::OnInitializing (43) > Initializing Sky Form
+[9] 0029.872,INFO,P32,T00,A125,SkyForm::OnInitializing (62) > Initializing Sky Form - 1
+[10] 0029.879,INFO,P32,T00,A125,SkyForm::OnInitializing (77) > Initializing Sky Form - 2
+[11] 0029.882,INFO,P32,T00,A125,SkyForm::OnInitializing (87) > Initializing Sky Form - 3
+[12] 0029.884,INFO,P32,T00,A125,SkyForm::OnInitializing (102) > Initializing Sky Form - 4
+[13] 0029.885,INFO,P32,T00,A125,SkyForm::OnInitializing (111) > Initializing Sky Form - 5
+[14] 0029.885,INFO,P32,T00,A125,SkyForm::OnInitializing (118) > Initializing Sky Form - done
+[15] 0030.011,INFO,P32,T00,A125,AlterLocationForm::OnInitializing (50) > 
+[16] 0030.014,INFO,P32,T00,A125,AlterLocationForm::OnInitializing (51) > Longitude is 0.000000
+[17] 0030.015,INFO,P32,T00,A125,AlterLocationForm::OnInitializing (53) > Latitude is 0.000000
+[18] 0030.447,INFO,P32,T00,A125,SkyGuide::OnAppInitializing (82) > 4
+[19] 0030.713,INFO,P32,T00,A125,LocationForm::OnLocationUpdated (80) > Location Updated
+[20] 0030.719,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (54) > Trying to access TimeAndPlace
+[21] 0030.719,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (56) > Trying to access TimeAndPlace 1
+[22] 0030.719,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (58) > Trying to access TimeAndPlace 2
+[23] 0030.721,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (60) > TP1
+[24] 0030.722,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (62) > TP2
+[25] 0030.723,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (64) > TP3
+[26] 0031.023,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (66) > TP4
+[27] 0031.023,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (68) > TP5
+[28] 0031.025,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (70) > TP6
+[29] 0031.026,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (72) > TP7
+[30] 0031.027,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (74) > TP8
+[31] 0031.027,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (76) > TP9
+[32] 0031.027,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (78) > TP10
+[33] 0031.028,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (80) > TP11
+[34] 0031.028,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (82) > TP12
+[35] 0031.029,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (84) > TP13
+[36] 0031.029,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (86) > TP14
+[37] 0031.029,INFO,P32,T00,A125,TimeAndPlace::SetSiderialTime (88) > TP15
+[38] 0031.072,INFO,P32,T00,A125,SkyGuide::OnUserEventReceivedN (99) > Event 1 Received
+[39] 0031.072,INFO,P32,T00,A125,SkyGuide::OnUserEventReceivedN (103) > Getting location
+[40] 0034.153,INFO,P32,T01,A-1,SkyFactory::getStars (22) > Getting stars with magnitude < 7.000000
+[41] 0034.155,INFO,P32,T01,A-1,SkyDbIterator::SkyDbIterator (23) > Building DB iterator
+[42] 0034.291,DEBUG,P32,T01,A-1,SkyDbIterator::SkyDbIterator (27) > 
+[43] 0034.568,INFO,P32,T00,A125,SkyGuide::OnUserEventReceivedN (99) > Event 20 Received
+[44] 0034.569,INFO,P32,T00,A125,SkyGuide::OnUserEventReceivedN (111) > Setting sky build progress
+[45] 0034.576,INFO,P32,T01,A-1,SkyBuilder::Run (31) > Setting progress range from 0 to 4985
