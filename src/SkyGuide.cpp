@@ -33,6 +33,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("Initializing");
 
+	SkyCanvas::Initialize();
+
 	// Create forms
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
@@ -47,8 +49,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
-
-	SkyCanvas::Initialize(skyForm->GetBounds());
 
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();

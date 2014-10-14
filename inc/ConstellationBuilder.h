@@ -23,10 +23,9 @@ class ConstellationBuilder {
 		static void DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shiftY);
 		static const int CONSTELLATION_READY = 50;
 
-	private:
-		static ConstellationDbIterator* constelDbIterator;
-
 
 };
+
+static ConstellationDbIterator* constelDbIterator;
 
 #endif /* CONSTELLATIONBUILDER_H_ */
