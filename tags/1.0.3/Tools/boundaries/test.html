@@ -1,0 +1,12 @@
+<html><body><script type="text/javascript">var poly=[ 516,351, 222,531, 486,531, 517,506, 49,506, 62,486, 351,486, 343,466, 62,466, 93,486, 212,486, 254,506, 379,506, 524,506, 435,476, 291,475, 417,510, 325,510, 430,372, 290,373, 250,355, 386,356, 353,336, 463,336, 392,244, 417,244, 395,216, 575,216, 577,226, 264,226, 270,286, 254,286, 256,320, 188,320, 187,327, 117,327, 106,351  ];
+var canvas=document.getElementById("canvas")
+var ctx = canvas.getContext('2d');
+ctx.fillStyle = '#f00';
+
+ctx.beginPath();
+ctx.moveTo(poly[0], poly[1]);
+for( item=2 ; item < poly.length-1 ; item+=2 ){ctx.lineTo( poly[item] , poly[item+1] )}
+
+ctx.closePath();
+ctx.fill();
+</script></body></html>
