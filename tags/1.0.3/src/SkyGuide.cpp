@@ -53,9 +53,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();
 
-	earthMapForm = new EarthMapForm();
-	earthMapForm -> Initialize();
-
 	helpForm = new HelpForm();
 	helpForm -> Initialize();
 
@@ -71,7 +68,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*constellationForm);
 	pFrame -> AddControl(*skyForm);
 	pFrame -> AddControl(*alterLocationForm);
-	pFrame -> AddControl(*earthMapForm);
 	pFrame -> AddControl(*helpForm);
 	pFrame -> AddControl(*infoForm);
 	pFrame -> SetCurrentForm(*locationForm);
@@ -173,13 +169,6 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			AppLog("Reusing old coordinates longitude %f latitude %f", longitude, latitude);
 			TimeAndPlace::SetSiderialTime(longitude, latitude, new DateTime());
 			Osp::App::Application::GetInstance() -> SendUserEvent(LocationForm::LOCATION_SET, null);
-			break;
-		}
-		case AlterLocationForm::USE_MAP_LOCATION: {
-			AppLog("Showing earth map");
-			pFrame -> SetCurrentForm(*earthMapForm);
-			earthMapForm -> Draw();
-			earthMapForm -> Update();
 			break;
 		}
 		case SkyForm::SHOW_HELP: {

@@ -17,8 +17,7 @@ AlterLocationForm::~AlterLocationForm(void)
 bool
 AlterLocationForm::Initialize()
 {
-	Form::Construct(L"ALTER_LOCATION_FORM");
-
+	Construct(L"ALTER_LOCATION_FORM");
 	return true;
 }
 
@@ -29,11 +28,11 @@ AlterLocationForm::OnInitializing(void)
 
 	// TODO: Add your initialization code here
 
-	Button *pButton3 = static_cast<Button *>(GetControl("IDC_BUTTON3"));  
-	if (pButton3)
+	Button *pButtonQuit = static_cast<Button *>(GetControl("IDC_BUTTON_QUIT"));
+	if (pButtonQuit)
 	{
-		pButton3->SetActionId(0);
-		pButton3->AddActionEventListener(*this);
+		pButtonQuit -> SetActionId(0);
+		pButtonQuit -> AddActionEventListener(*this);
 	}
 
 	Osp::App::AppRegistry* appRegistry = Osp::App::Application::GetInstance()->GetAppRegistry();//Osp::App::AppRegistry::GetInstance();
@@ -45,6 +44,8 @@ AlterLocationForm::OnInitializing(void)
 		pButton_prev_location->AddActionEventListener(*this);
 	}
 
+	Label *labelPrevLocation = static_cast<Label *>(GetControl("IDC_LABEL_PREV_LOCATION"));
+
 	double latitude, longitude;
 	result rLon = appRegistry -> Get("LAST_LONGITUDE", longitude);
 	AppLog("Error %S", GetErrorMessage(rLon));
@@ -54,7 +55,7 @@ AlterLocationForm::OnInitializing(void)
 
 	if (rLat != E_SUCCESS || rLon != E_SUCCESS) {
 		pButton_prev_location -> SetShowState(false);
-		//pButton_prev_location -> Draw();
+		labelPrevLocation -> SetShowState(false);
 	}
 
 	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
