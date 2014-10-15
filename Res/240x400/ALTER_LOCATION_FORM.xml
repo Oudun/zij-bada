@@ -11,21 +11,21 @@
         <layout mode="Landscape" style="FORM_STYLE_INDICATOR"/>
     </Form>
     <Label id="IDC_LABEL1" parent="ALTER_LOCATION_FORM">
-        <property BGBitmapPath="" BGColor="#C0C0C0" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="Application failed to get your location automatically. You can try to:" textColor="" textSize="18" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
+        <property BGBitmapPath="" BGColor="#C0C0C0" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="Location service is not available. Please turn it on and restart application." textColor="" textSize="18" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
         <layout height="61" mode="Portrait" width="201" x="20" y="61"/>
         <layout height="19" mode="Landscape" width="166" x="91" y="35"/>
     </Label>
-    <Button id="IDC_BUTTON3" parent="ALTER_LOCATION_FORM">
+    <Button id="IDC_BUTTON_QUIT" parent="ALTER_LOCATION_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="Quit" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="32" mode="Portrait" width="100" x="71" y="233"/>
+        <layout height="32" mode="Portrait" width="100" x="71" y="131"/>
         <layout height="24" mode="Landscape" width="166" x="118" y="191"/>
     </Button>
     <Button id="IDC_BUTTON_PREV_LOCATION" parent="ALTER_LOCATION_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="Use previous location" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="32" mode="Portrait" width="181" x="30" y="141"/>
+        <layout height="32" mode="Portrait" width="181" x="30" y="241"/>
         <layout height="24" mode="Landscape" width="166" x="78" y="152"/>
     </Button>
-    <Label id="IDC_LABEL2" parent="ALTER_LOCATION_FORM">
+    <Label id="IDC_LABEL_PREV_LOCATION" parent="ALTER_LOCATION_FORM">
         <property BGBitmapPath="" BGColor="#C0C0C0" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="or" textColor="" textSize="18" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
         <layout height="21" mode="Portrait" width="100" x="71" y="202"/>
         <layout height="19" mode="Landscape" width="166" x="205" y="176"/>
