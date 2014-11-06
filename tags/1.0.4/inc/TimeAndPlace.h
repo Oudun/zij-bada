@@ -31,15 +31,17 @@ class TimeAndPlace {
 		static Osp::Base::DateTime* GetStandardDateTime();
 		static void SetSiderialTime(float longitude, float latitude, Osp::Base::DateTime* currTime);
 
-	private:
+	public:
+
+		static float longitude;
+		static float latitude;
+		static float siderialTime;
+		static Osp::Base::DateTime* dateTime;
+		static Osp::Base::DateTime* localDateTime;
 
 };
 
-static float longitude = 0.0F;
-static float latitude = 0.0F;
-static float siderialTime = 0.0F;
-static Osp::Base::DateTime* dateTime;
-static Osp::Base::DateTime* localDateTime;
+
 
 
 #endif /* TIMEANDPLACE_H_ */

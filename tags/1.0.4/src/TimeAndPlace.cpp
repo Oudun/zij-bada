@@ -13,6 +13,12 @@ using namespace Osp::Locations;
 using namespace Osp::Locales;
 using namespace Osp::System;
 
+float TimeAndPlace::longitude = 0.0F;
+float TimeAndPlace::latitude = 0.0F;
+float TimeAndPlace::siderialTime = 0.0F;
+Osp::Base::DateTime* TimeAndPlace::dateTime;
+Osp::Base::DateTime* TimeAndPlace::localDateTime;
+
 TimeAndPlace::TimeAndPlace() {
 	AppLog("TimeAndPlace constructed");
 }
@@ -139,7 +145,6 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	AppLog("Trying to access TimeAndPlace 1");
 	TimeAndPlace::SetLatitude(latitude);
 	AppLog("Trying to access TimeAndPlace 2");
-	//TimeZone timeZone(60, L"Europe/London");
 
 	LocaleManager localeManager;
 	localeManager.Construct();
@@ -149,7 +154,6 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	AppLog("Locale code %S", (locale.GetLanguageCodeString().GetPointer()));
 	AppLog("TimeZone ID is %S", (timeZone.GetId()).GetPointer());
 
-//	TimeZone timeZone(TimeZone::GetGmtTimeZone());
 	AppLog("TP1");
 	SystemTime::GetCurrentTime(*currTime);
 	AppLog("TP2");
@@ -188,8 +192,8 @@ String*
 TimeAndPlace::GetReadableLongitude(void) {
 
 	float angle = longitude;
-	char* posPrefix = "N";
-	char* negPrefix = "S";
+	const char* posPrefix = "N";
+	const char* negPrefix = "S";
 
 	const char* prefix = angle < 0 ? negPrefix : posPrefix;
 	float latAbs = angle * 1000000;
@@ -210,8 +214,8 @@ String*
 TimeAndPlace::GetReadableLatitude(void) {
 
 	float angle = latitude;
-	char* posPrefix = "E";
-	char* negPrefix = "W";
+	const char* posPrefix = "E";
+	const char* negPrefix = "W";
 
 	const char* prefix = angle < 0 ? negPrefix : posPrefix;
 	float latAbs = angle * 1000000;
