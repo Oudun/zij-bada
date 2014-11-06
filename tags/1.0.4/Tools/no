@@ -1,0 +1,344 @@
+    -> ;
++-------------------------------------+---------------+------+
+| names_name_code                     | border_length | area |
++-------------------------------------+---------------+------+
+| American Samoa                      |             0 | NULL |
+| Amnat Charoen                       |             0 | NULL |
+| Ang Thong                           |             0 | NULL |
+| Anguilla                            |             0 | NULL |
+| Antarctica                          |             0 | NULL |
+| Aruba                               |             0 | NULL |
+| Bangkok                             |             0 | NULL |
+| Bermuda                             |             0 | NULL |
+| British Virgin Islands              |             0 | NULL |
+| Buri Ram                            |             0 | NULL |
+| Caribbean Netherlands               |             0 | NULL |
+| Cayman Islands                      |             0 | NULL |
+| Chachoengsao                        |             0 | NULL |
+| Chai Nat                            |             0 | NULL |
+| Chaiyaphum                          |             0 | NULL |
+| Chanthaburi                         |             0 | NULL |
+| Chiang Mai                          |             0 | NULL |
+| Chiang Rai                          |             0 | NULL |
+| China                               |             0 | NULL |
+| Chon Buri                           |             0 | NULL |
+| Chumphon                            |             0 | NULL |
+| Congo                               |             0 | NULL |
+| Congo (Dem. Rep.)                   |             0 | NULL |
+| Curaçao                             |             0 | NULL |
+| External Territories of Australia   |             0 | NULL |
+| Falkland Islands                    |             0 | NULL |
+| Faroe Islands                       |             0 | NULL |
+| Fiji Islands                        |             0 | NULL |
+| French Guiana                       |             0 | NULL |
+| French Polynesia                    |             0 | NULL |
+| French Southern Territories         |             0 | NULL |
+| Gambia                              |             0 | NULL |
+| Gibraltar                           |             0 | NULL |
+| Greenland                           |             0 | NULL |
+| Guadeloupe                          |             0 | NULL |
+| Guam                                |             0 | NULL |
+| Guernsey and Alderney               |             0 | NULL |
+| Isle of Man                         |             0 | NULL |
+| Ivory Coast                         |             0 | NULL |
+| Jersey                              |             0 | NULL |
+| Kalasin                             |             0 | NULL |
+| Kamphaeng Phet                      |             0 | NULL |
+| Kanchanaburi                        |             0 | NULL |
+| Khon Kaen                           |             0 | NULL |
+| Korea (North)                       |             0 | NULL |
+| Korea (South)                       |             0 | NULL |
+| Krabi                               |             0 | NULL |
+| Lampang                             |             0 | NULL |
+| Lamphun                             |             0 | NULL |
+| Loei                                |             0 | NULL |
+| Lop Buri                            |             0 | NULL |
+| Mae Hong Son                        |             0 | NULL |
+| Maha Sarakham                       |             0 | NULL |
+| Martinique                          |             0 | NULL |
+| Mayotte                             |             0 | NULL |
+| Micronesia                          |             0 | NULL |
+| Montserrat                          |             0 | NULL |
+| Mukdahan                            |             0 | NULL |
+| Myanmar                             |             0 | NULL |
+| Nakhon Nayok                        |             0 | NULL |
+| Nakhon Pathom                       |             0 | NULL |
+| Nakhon Phanom                       |             0 | NULL |
+| Nakhon Ratchasima                   |             0 | NULL |
+| Nakhon Sawan                        |             0 | NULL |
+| Nakhon Si Thammarat                 |             0 | NULL |
+| Nan                                 |             0 | NULL |
+| Narathiwat                          |             0 | NULL |
+| New Caledonia                       |             0 | NULL |
+| Niue                                |             0 | NULL |
+| Nong Bua Lam Phu                    |             0 | NULL |
+| Nong Khai                           |             0 | NULL |
+| Nonthaburi                          |             0 | NULL |
+| Norfolk Island                      |             0 | NULL |
+| Northern Mariana Islands            |             0 | NULL |
+| Palestine                           |             0 | NULL |
+| Pathum Thani                        |             0 | NULL |
+| Pattani                             |             0 | NULL |
+| Phangnga                            |             0 | NULL |
+| Phatthalung                         |             0 | NULL |
+| Phayao                              |             0 | NULL |
+| Phetchabun                          |             0 | NULL |
+| Phetchaburi                         |             0 | NULL |
+| Phichit                             |             0 | NULL |
+| Phitsanulok                         |             0 | NULL |
+| Phra Nakhon Si Ayutthaya            |             0 | NULL |
+| Phrae                               |             0 | NULL |
+| Phuket                              |             0 | NULL |
+| Prachin Buri                        |             0 | NULL |
+| Prachuap Khiri Khan                 |             0 | NULL |
+| Puerto Rico                         |             0 | NULL |
+| Ranong                              |             0 | NULL |
+| Ratchaburi                          |             0 | NULL |
+| Rayong                              |             0 | NULL |
+| Reunion                             |             0 | NULL |
+| Roi Et                              |             0 | NULL |
+| Sa Kaeo                             |             0 | NULL |
+| Saint Helena                        |             0 | NULL |
+| Saint Pierre and Miquelon           |             0 | NULL |
+| Sakon Nakhon                        |             0 | NULL |
+| Samut Prakan                        |             0 | NULL |
+| Samut Sakhon                        |             0 | NULL |
+| Samut Songkhran                     |             0 | NULL |
+| Saraburi                            |             0 | NULL |
+| Satun                               |             0 | NULL |
+| Si Sa Ket                           |             0 | NULL |
+| Sing Buri                           |             0 | NULL |
+| Sint Maarten                        |             0 | NULL |
+| Smaller Territories of Chile        |             0 | NULL |
+| Smaller Territories of the UK       |             0 | NULL |
+| Songkhla                            |             0 | NULL |
+| Sukhothai                           |             0 | NULL |
+| Suphan Buri                         |             0 | NULL |
+| Surat Thani                         |             0 | NULL |
+| Surin                               |             0 | NULL |
+| Svalbard and Jan Mayen              |             0 | NULL |
+| Tak                                 |             0 | NULL |
+| Tokelau                             |             0 | NULL |
+| Trang                               |             0 | NULL |
+| Trat                                |             0 | NULL |
+| Turks and Caicos Islands            |             0 | NULL |
+| Ubon Ratchathani                    |             0 | NULL |
+| Udon Thani                          |             0 | NULL |
+| Uthai Thani                         |             0 | NULL |
+| Uttaradit                           |             0 | NULL |
+| Virgin Islands of the United States |             0 | NULL |
+| Wallis and Futuna                   |             0 | NULL |
+| Yala                                |             0 | NULL |
+| Yasothon                            |             0 | NULL |
++-------------------------------------+---------------+------+
+128 rows in set (0.00 sec)
+
+mysql> quit
+    -> ;
++-------------------------------------+---------------+------+
+| names_name_code                     | border_length | area |
++-------------------------------------+---------------+------+
+| Amnat Charoen                       |             0 | NULL |
+| Ang Thong                           |             0 | NULL |
+| Antarctica                          |             0 | NULL |
+| Bangkok                             |             0 | NULL |
+| Buri Ram                            |             0 | NULL |
+| Caribbean Netherlands               |             0 | NULL |
+| Chachoengsao                        |             0 | NULL |
+| Chai Nat                            |             0 | NULL |
+| Chaiyaphum                          |             0 | NULL |
+| Chanthaburi                         |             0 | NULL |
+| Chiang Mai                          |             0 | NULL |
+| Chiang Rai                          |             0 | NULL |
+| China                               |             0 | NULL |
+| Chon Buri                           |             0 | NULL |
+| Chumphon                            |             0 | NULL |
+| Congo                               |             0 | NULL |
+| Congo (Dem. Rep.)                   |             0 | NULL |
+| External Territories of Australia   |             0 | NULL |
+| Fiji Islands                        |             0 | NULL |
+| French Southern Territories         |             0 | NULL |
+| Gambia                              |             0 | NULL |
+| Guernsey and Alderney               |             0 | NULL |
+| Ivory Coast                         |             0 | NULL |
+| Kalasin                             |             0 | NULL |
+| Kamphaeng Phet                      |             0 | NULL |
+| Kanchanaburi                        |             0 | NULL |
+| Khon Kaen                           |             0 | NULL |
+| Korea (North)                       |             0 | NULL |
+| Korea (South)                       |             0 | NULL |
+| Krabi                               |             0 | NULL |
+| Lampang                             |             0 | NULL |
+| Lamphun                             |             0 | NULL |
+| Loei                                |             0 | NULL |
+| Lop Buri                            |             0 | NULL |
+| Mae Hong Son                        |             0 | NULL |
+| Maha Sarakham                       |             0 | NULL |
+| Micronesia                          |             0 | NULL |
+| Mukdahan                            |             0 | NULL |
+| Myanmar                             |             0 | NULL |
+| Nakhon Nayok                        |             0 | NULL |
+| Nakhon Pathom                       |             0 | NULL |
+| Nakhon Phanom                       |             0 | NULL |
+| Nakhon Ratchasima                   |             0 | NULL |
+| Nakhon Sawan                        |             0 | NULL |
+| Nakhon Si Thammarat                 |             0 | NULL |
+| Nan                                 |             0 | NULL |
+| Narathiwat                          |             0 | NULL |
+| Nong Bua Lam Phu                    |             0 | NULL |
+| Nong Khai                           |             0 | NULL |
+| Nonthaburi                          |             0 | NULL |
+| Palestine                           |             0 | NULL |
+| Pathum Thani                        |             0 | NULL |
+| Pattani                             |             0 | NULL |
+| Phangnga                            |             0 | NULL |
+| Phatthalung                         |             0 | NULL |
+| Phayao                              |             0 | NULL |
+| Phetchabun                          |             0 | NULL |
+| Phetchaburi                         |             0 | NULL |
+| Phichit                             |             0 | NULL |
+| Phitsanulok                         |             0 | NULL |
+| Phra Nakhon Si Ayutthaya            |             0 | NULL |
+| Phrae                               |             0 | NULL |
+| Phuket                              |             0 | NULL |
+| Prachin Buri                        |             0 | NULL |
+| Prachuap Khiri Khan                 |             0 | NULL |
+| Ranong                              |             0 | NULL |
+| Ratchaburi                          |             0 | NULL |
+| Rayong                              |             0 | NULL |
+| Roi Et                              |             0 | NULL |
+| Sa Kaeo                             |             0 | NULL |
+| Saint Helena                        |             0 | NULL |
+| Sakon Nakhon                        |             0 | NULL |
+| Samut Prakan                        |             0 | NULL |
+| Samut Sakhon                        |             0 | NULL |
+| Samut Songkhran                     |             0 | NULL |
+| Saraburi                            |             0 | NULL |
+| Satun                               |             0 | NULL |
+| Si Sa Ket                           |             0 | NULL |
+| Sing Buri                           |             0 | NULL |
+| Smaller Territories of Chile        |             0 | NULL |
+| Smaller Territories of the UK       |             0 | NULL |
+| Songkhla                            |             0 | NULL |
+| Sukhothai                           |             0 | NULL |
+| Suphan Buri                         |             0 | NULL |
+| Surat Thani                         |             0 | NULL |
+| Surin                               |             0 | NULL |
+| Svalbard and Jan Mayen              |             0 | NULL |
+| Tak                                 |             0 | NULL |
+| Trang                               |             0 | NULL |
+| Trat                                |             0 | NULL |
+| Ubon Ratchathani                    |             0 | NULL |
+| Udon Thani                          |             0 | NULL |
+| Uthai Thani                         |             0 | NULL |
+| Uttaradit                           |             0 | NULL |
+| Virgin Islands of the United States |             0 | NULL |
+| Yala                                |             0 | NULL |
+| Yasothon                            |             0 | NULL |
++-------------------------------------+---------------+------+
+97 rows in set (0.00 sec)
+
+mysql> quit
+    -> ;
++-------------------------------------+---------------+------+
+| names_name_code                     | border_length | area |
++-------------------------------------+---------------+------+
+| Amnat Charoen                       |             0 | NULL |
+| Ang Thong                           |             0 | NULL |
+| Antarctica                          |             0 | NULL |
+| Bangkok                             |             0 | NULL |
+| Buri Ram                            |             0 | NULL |
+| Caribbean Netherlands               |             0 | NULL |
+| Chachoengsao                        |             0 | NULL |
+| Chai Nat                            |             0 | NULL |
+| Chaiyaphum                          |             0 | NULL |
+| Chanthaburi                         |             0 | NULL |
+| Chiang Mai                          |             0 | NULL |
+| Chiang Rai                          |             0 | NULL |
+| Chon Buri                           |             0 | NULL |
+| Chumphon                            |             0 | NULL |
+| Congo                               |             0 | NULL |
+| Congo (Dem. Rep.)                   |             0 | NULL |
+| External Territories of Australia   |             0 | NULL |
+| Fiji Islands                        |             0 | NULL |
+| French Southern Territories         |             0 | NULL |
+| Gambia                              |             0 | NULL |
+| Guernsey and Alderney               |             0 | NULL |
+| Ivory Coast                         |             0 | NULL |
+| Kalasin                             |             0 | NULL |
+| Kamphaeng Phet                      |             0 | NULL |
+| Kanchanaburi                        |             0 | NULL |
+| Khon Kaen                           |             0 | NULL |
+| Krabi                               |             0 | NULL |
+| Lampang                             |             0 | NULL |
+| Lamphun                             |             0 | NULL |
+| Loei                                |             0 | NULL |
+| Lop Buri                            |             0 | NULL |
+| Mae Hong Son                        |             0 | NULL |
+| Maha Sarakham                       |             0 | NULL |
+| Micronesia                          |             0 | NULL |
+| Mukdahan                            |             0 | NULL |
+| Myanmar                             |             0 | NULL |
+| Nakhon Nayok                        |             0 | NULL |
+| Nakhon Pathom                       |             0 | NULL |
+| Nakhon Phanom                       |             0 | NULL |
+| Nakhon Ratchasima                   |             0 | NULL |
+| Nakhon Sawan                        |             0 | NULL |
+| Nakhon Si Thammarat                 |             0 | NULL |
+| Nan                                 |             0 | NULL |
+| Narathiwat                          |             0 | NULL |
+| Nong Bua Lam Phu                    |             0 | NULL |
+| Nong Khai                           |             0 | NULL |
+| Nonthaburi                          |             0 | NULL |
+| Palestine                           |             0 | NULL |
+| Pathum Thani                        |             0 | NULL |
+| Pattani                             |             0 | NULL |
+| Phangnga                            |             0 | NULL |
+| Phatthalung                         |             0 | NULL |
+| Phayao                              |             0 | NULL |
+| Phetchabun                          |             0 | NULL |
+| Phetchaburi                         |             0 | NULL |
+| Phichit                             |             0 | NULL |
+| Phitsanulok                         |             0 | NULL |
+| Phra Nakhon Si Ayutthaya            |             0 | NULL |
+| Phrae                               |             0 | NULL |
+| Phuket                              |             0 | NULL |
+| Prachin Buri                        |             0 | NULL |
+| Prachuap Khiri Khan                 |             0 | NULL |
+| Ranong                              |             0 | NULL |
+| Ratchaburi                          |             0 | NULL |
+| Rayong                              |             0 | NULL |
+| Roi Et                              |             0 | NULL |
+| Sa Kaeo                             |             0 | NULL |
+| Saint Helena                        |             0 | NULL |
+| Sakon Nakhon                        |             0 | NULL |
+| Samut Prakan                        |             0 | NULL |
+| Samut Sakhon                        |             0 | NULL |
+| Samut Songkhran                     |             0 | NULL |
+| Saraburi                            |             0 | NULL |
+| Satun                               |             0 | NULL |
+| Si Sa Ket                           |             0 | NULL |
+| Sing Buri                           |             0 | NULL |
+| Smaller Territories of Chile        |             0 | NULL |
+| Smaller Territories of the UK       |             0 | NULL |
+| Songkhla                            |             0 | NULL |
+| Sukhothai                           |             0 | NULL |
+| Suphan Buri                         |             0 | NULL |
+| Surat Thani                         |             0 | NULL |
+| Surin                               |             0 | NULL |
+| Svalbard and Jan Mayen              |             0 | NULL |
+| Tak                                 |             0 | NULL |
+| Trang                               |             0 | NULL |
+| Trat                                |             0 | NULL |
+| Ubon Ratchathani                    |             0 | NULL |
+| Udon Thani                          |             0 | NULL |
+| Uthai Thani                         |             0 | NULL |
+| Uttaradit                           |             0 | NULL |
+| Virgin Islands of the United States |             0 | NULL |
+| Yala                                |             0 | NULL |
+| Yasothon                            |             0 | NULL |
++-------------------------------------+---------------+------+
+94 rows in set (0.00 sec)
+
+mysql> quit
+    -> 
