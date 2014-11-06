@@ -71,6 +71,9 @@ result
 InfoForm::OnTerminating(void)
 {
 	result r = E_SUCCESS;
+
+	// TODO: Add your termination code here
+
 	return r;
 }
 
@@ -89,7 +92,5 @@ InfoForm::OnDraw(void) {
 			TimeAndPlace::GetReadableLongitude() -> GetPointer(),
 			TimeAndPlace::GetReadableLatitude() -> GetPointer());
 	__labelCoordinatesValue -> SetText(locationStr);
-
-	return E_SUCCESS;
 
 }

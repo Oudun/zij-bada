@@ -1,0 +1,5 @@
+PC: 0x4041F440 LR: 0x4007C199 Stack PTR : 0x09A3E150 
+0x4041F440 [Platform Fns]
+0x4004DFEA [Platform Fns]
+0x4007C198 [Platform Fns]
+0x40090F28 [Platform Fns]

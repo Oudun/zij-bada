@@ -10,22 +10,16 @@
     <Icons>
         <MainMenu>Icon.png<Type1>Icon.png</Type1>
             <Type2/>
-            <Type3/>
-            <Type4/>
-            <Type5/>
         </MainMenu>
         <Setting/>
         <Ticker/>
         <QuickPanel/>
         <LaunchImage>Splash.png<Type1>Splash.png</Type1>
             <Type2/>
-            <Type3/>
-            <Type4/>
-            <Type5/>
         </LaunchImage>
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>
-        <BaseResolution>NormalSize</BaseResolution>
+        <BaseResolution>240x400</BaseResolution>
     </AutoScaling>
 </Application>

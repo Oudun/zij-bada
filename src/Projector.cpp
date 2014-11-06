@@ -14,7 +14,7 @@ Projector::Projector() {
 }
 
 Projector::~Projector() {
-
+	// TODO Auto-generated destructor stub
 }
 
 Osp::Graphics::Point*
@@ -46,7 +46,7 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
     return new Point(left, top);
 }
 
-void
+Osp::Graphics::Point*
 Projector::Zoom(
 		Osp::Graphics::Point* source,
 		Osp::Graphics::Point* result,
