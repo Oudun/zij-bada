@@ -47,6 +47,7 @@ SkyForm::OnInitializing(void)
 	result r = E_SUCCESS;
 	AddTouchEventListener(*this);
 
+	SetOrientation(ORIENTATION_PORTRAIT);
 	SetBackgroundColor(COLOR_SKY);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();

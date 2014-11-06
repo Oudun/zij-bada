@@ -91,6 +91,21 @@ SkyGuide::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 }
 
 void
+SkyGuide::OnForeground(void) {
+	AppLog("Go Foreground");
+	Frame *pFrame = GetAppFrame()->GetFrame();
+	Form* form = pFrame -> GetCurrentForm();
+	if (form == skyForm) {
+		((SkyForm*)form) -> Update();
+	}
+}
+
+void
+SkyGuide::OnBackground(void){
+	AppLog("Go Background");
+}
+
+void
 SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
 	AppLog("Event %d Received", requestId);
 	Frame *pFrame = GetAppFrame()->GetFrame();
