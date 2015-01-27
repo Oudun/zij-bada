@@ -33,6 +33,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("Initializing");
 
+	SkyCanvas::Initialize();
+
 	// Create forms
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
@@ -48,13 +50,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
-	SkyCanvas::Initialize(skyForm->GetBounds());
-
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();
-
-	earthMapForm = new EarthMapForm();
-	earthMapForm -> Initialize();
 
 	helpForm = new HelpForm();
 	helpForm -> Initialize();
@@ -71,7 +68,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*constellationForm);
 	pFrame -> AddControl(*skyForm);
 	pFrame -> AddControl(*alterLocationForm);
-	pFrame -> AddControl(*earthMapForm);
 	pFrame -> AddControl(*helpForm);
 	pFrame -> AddControl(*infoForm);
 	pFrame -> SetCurrentForm(*locationForm);
@@ -175,13 +171,6 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			Osp::App::Application::GetInstance() -> SendUserEvent(LocationForm::LOCATION_SET, null);
 			break;
 		}
-		case AlterLocationForm::USE_MAP_LOCATION: {
-			AppLog("Showing earth map");
-			pFrame -> SetCurrentForm(*earthMapForm);
-			earthMapForm -> Draw();
-			earthMapForm -> Update();
-			break;
-		}
 		case SkyForm::SHOW_HELP: {
 			AppLog("Showing help");
 			pFrame -> SetCurrentForm(*helpForm);
@@ -196,12 +185,12 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			infoForm -> Show();
 			break;
 		}
-//		case LocationForm::LOCATION_FAILED: {
-//			AppLog("Auto location failed, choose alternate");
-//			pFrame->SetCurrentForm(*alterLocationForm);
-//			alterLocationForm -> RequestRedraw(true);
-//			break;
-//		}
+		case LocationForm::LOCATION_FAILED: {
+			AppLog("Auto location failed, choose alternate");
+			pFrame->SetCurrentForm(*alterLocationForm);
+			alterLocationForm -> RequestRedraw(true);
+			break;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 
 <Scene Bversion="2.0.3.v20111206" Dversion="20100701">
     <Form id="SKY_FORM">
-        <property BGColor="#000000" BGColorOpacity="100" Orientation="Automatic" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon="" translucentFooter="FALSE" translucentHeader="FALSE" translucentIndicator="FALSE"/>
+        <property BGColor="#00FF00" BGColorOpacity="100" Orientation="Automatic" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon="" translucentFooter="FALSE" translucentHeader="FALSE" translucentIndicator="FALSE"/>
         <layout mode="Portrait" style="FORM_STYLE_INDICATOR" type="NONE"/>
         <layout mode="Landscape" style="FORM_STYLE_INDICATOR" type="NONE"/>
     </Form>

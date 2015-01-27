@@ -71,6 +71,9 @@ result
 InfoForm::OnTerminating(void)
 {
 	result r = E_SUCCESS;
+
+	// TODO: Add your termination code here
+
 	return r;
 }
 
