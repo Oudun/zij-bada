@@ -14,7 +14,7 @@ Projector::Projector() {
 }
 
 Projector::~Projector() {
-
+	// TODO Auto-generated destructor stub
 }
 
 Osp::Graphics::Point*
@@ -52,4 +52,5 @@ Projector::Zoom(
 		Osp::Graphics::Point* result,
 		int ratio) {
 	result -> SetPosition(ratio * source->x, ratio * source->y);
+
 }

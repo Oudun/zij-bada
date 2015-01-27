@@ -11,11 +11,11 @@ using namespace Osp::Base;
 using namespace Osp::App;
 
 ConstellationComparer::ConstellationComparer() {
-
+	// TODO Auto-generated constructor stub
 }
 
 ConstellationComparer::~ConstellationComparer() {
-
+	// TODO Auto-generated destructor stub
 }
 
 result
@@ -38,3 +38,5 @@ ConstellationComparer::Compare(const Osp::Base::Object& obj1, const Osp::Base::O
 
 	return E_SUCCESS;
 }
+
+//

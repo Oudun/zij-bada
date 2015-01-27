@@ -28,16 +28,15 @@ class TimeAndPlace {
 		static float GetSiderialTime(void);
 		static Osp::Base::DateTime* GetDateTime();
 		static Osp::Base::String GetReadableTime();
-//		static Osp::Base::DateTime* GetStandardDateTime();
+		static Osp::Base::DateTime* GetStandardDateTime();
 		static void SetSiderialTime(float longitude, float latitude, Osp::Base::DateTime* currTime);
 
 	private:
-
 		static float longitude;
 		static float latitude;
 		static float siderialTime;
 		static Osp::Base::DateTime* dateTime;
-		static Osp::Base::DateTime localDateTime;
+		static Osp::Base::DateTime* localDateTime;
 
 };
 

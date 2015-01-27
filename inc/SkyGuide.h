@@ -8,7 +8,6 @@
 
 #include "forms/SkyForm.h"
 #include "forms/LocationForm.h"
-#include "forms/EarthMapForm.h"
 #include "forms/ConstellationForm.h"
 #include "forms/AlterLocationForm.h"
 #include "forms/SkyBuilderForm.h"
@@ -41,7 +40,6 @@ class SkyGuide : public Osp::App::Application {
 		SkyBuilderForm* skyBuilderForm;
 		ConstellationForm* constellationForm;
 		AlterLocationForm* alterLocationForm;
-		EarthMapForm* earthMapForm;
 		HelpForm* helpForm;
 		InfoForm* infoForm;
 
