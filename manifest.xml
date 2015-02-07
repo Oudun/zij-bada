@@ -2,7 +2,7 @@
 <Manifest>
     <Id>r4a8201ns5</Id>
     <Secret>7F9DC4D7C2C37B7FE7DA73DD35F6B472</Secret>
-  <AppVersion>1.0.2</AppVersion>
+  <AppVersion>1.0.4</AppVersion>
   <ManifestVersion>1.1</ManifestVersion>
     <Privileges>
         <Privilege>
@@ -23,3 +23,5 @@
         <Sensor>Accelerometer</Sensor>
     </DeviceProfile>
 </Manifest>
+
+
