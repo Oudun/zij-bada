@@ -1,4 +1,4 @@
-﻿And	Andromeda	Andromeda	المرأة المسلسلة	仙女座	Andromeda	Andromeda	Andromède	Andromeda	アンドロメダ座	안드로메다자리	زن به زنجیر بسته	Андромеда	Andrómeda	Andromeda	Andromeda	N
+And	Andromeda	Andromeda	المرأة المسلسلة	仙女座	Andromeda	Andromeda	Andromède	Andromeda	アンドロメダ座	안드로메다자리	زن به زنجیر بسته	Андромеда	Andrómeda	Andromeda	Andromeda	N
 Ant	Luftpumpe	Antlia	مفرغة الهواء	唧筒座	Air Pump	Ilmapumppu	Machine Pneumatique	Macchina Pneumatica	ポンプ座	공기펌프자리	تلمبه	Насос	Máquina Neumática	Vývěva	Pompa	S
 Aps	Paradiesvogel	Apus	طائر الفردوس	天燕座	Bird of Paradise	Paratiisilintu	Oiseau de Paradis	Uccello del Paradiso	ふうちょう座	극락조자리	مرغ بهشتی	Райская Птица	Ave del Paraíso	Rajka	Cennetkuşu	S
 Aql	Adler	Aquila	العقاب	天鷹座	Eagle	Kotka	Aigle	Aquila	わし座	독수리자리	شاهین	Орёл	Águila	Orel	Kartal	N/S
