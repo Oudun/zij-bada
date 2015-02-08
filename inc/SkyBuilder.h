@@ -20,11 +20,6 @@ class SkyBuilder : public Osp::Base::Runtime::Thread {
 		virtual ~SkyBuilder();
 		Object* Run(void);
 
-	public:
-		static const int BUILD_PROGRESS_RANGE_SET = 20;
-		static const int BUILD_PROGRESS_SET = 21;
-		static const int BUILD_PROGRESS_DONE = 22;
-
 	private:
 		Projector* projector;
 

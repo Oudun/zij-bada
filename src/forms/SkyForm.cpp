@@ -47,6 +47,7 @@ SkyForm::OnInitializing(void)
 	result r = E_SUCCESS;
 	AddTouchEventListener(*this);
 
+	SetOrientation(Osp::Ui::ORIENTATION_PORTRAIT);
 	SetBackgroundColor(COLOR_SKY);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
@@ -93,6 +94,16 @@ SkyForm::OnInitializing(void)
 	__pButtonConstellations -> SetActionId(1);
 	__pButtonConstellations -> AddActionEventListener(*this);
 	__pButtonConstellations -> SetActionId(ID_BUTTON_CONSTELLATIONS);
+
+
+	AppLog("Initializing Sky Form - 2a");
+
+	__pButtonStars = static_cast<Button *>(GetControl(L"IDC_BUTTON_STARS"));
+	__pButtonStars -> SetNormalBackgroundBitmap(*bitmapConstellations);
+	__pButtonStars -> SetPressedBackgroundBitmap(*bitmapConstellationsPressed);
+	__pButtonStars -> SetActionId(1);
+	__pButtonStars -> AddActionEventListener(*this);
+	__pButtonStars -> SetActionId(ID_BUTTON_STARS);
 
 	AppLog("Initializing Sky Form - 3");
 
@@ -170,15 +181,19 @@ SkyForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		}
 		break;
 	case ID_BUTTON_CONSTELLATIONS: {
-		Osp::App::Application::GetInstance() -> SendUserEvent(SELECT_CONSTELLATION, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SELECT_CONSTELLATION, null);
 		break;
 	}
 	case ID_BUTTON_HELP: {
-		Osp::App::Application::GetInstance() -> SendUserEvent(SHOW_HELP, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_HELP, null);
 		break;
 	}
 	case ID_BUTTON_INFO: {
-		Osp::App::Application::GetInstance() -> SendUserEvent(SHOW_INFO, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_INFO, null);
+		break;
+	}
+	case ID_BUTTON_STARS: {
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_STARS, null);
 		break;
 	}
 	default:

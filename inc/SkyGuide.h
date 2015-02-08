@@ -13,6 +13,7 @@
 #include "forms/SkyBuilderForm.h"
 #include "forms/HelpForm.h"
 #include "forms/InfoForm.h"
+#include "forms/StarForm.h"
 
 #include "TimeAndPlace.h"
 #include "SkyBuilder.h"
@@ -36,15 +37,16 @@ class SkyGuide : public Osp::App::Application {
 		virtual void OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 	private:
+		TimeAndPlace* timeAndPlace;
 		LocationForm* locationForm;
 		SkyBuilderForm* skyBuilderForm;
 		ConstellationForm* constellationForm;
 		AlterLocationForm* alterLocationForm;
 		HelpForm* helpForm;
 		InfoForm* infoForm;
-
-		TimeAndPlace* timeAndPlace;
 		SkyForm* skyForm;
+		StarForm* starForm;
+
 
 };
 

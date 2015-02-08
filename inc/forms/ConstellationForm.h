@@ -19,6 +19,7 @@
 class ConstellationForm  :
 	public Osp::Ui::Controls::Form,
  	public Osp::Ui::IItemEventListener{
+
 public:
 	ConstellationForm();
 	virtual ~ConstellationForm();
@@ -26,9 +27,6 @@ public:
 	virtual result OnInitializing(void);
 	void Update(void);
 	virtual void OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status);
-
-	static const int CONSTELLATION_SELECTED = 40;
-
 
 private:
 	Osp::Graphics::Canvas* canvas;

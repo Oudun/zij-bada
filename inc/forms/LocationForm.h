@@ -37,10 +37,6 @@ class LocationForm :
 
 		Osp::Base::String* DegreeToGrad(float angle, const char* posPrefix, const char* negPrefix);
 
-	public:
-		static const int LOCATION_SET = 1;
-		static const int LOCATION_FAILED = 2;
-
 	private:
 		Osp::Ui::Controls::Label* __pActionLabel;
 		Osp::Ui::Controls::Label* __pActionAttemptLabel;

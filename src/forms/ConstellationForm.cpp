@@ -23,7 +23,7 @@ ConstellationForm::~ConstellationForm() {
 
 bool
 ConstellationForm::Initialize(void) {
-	Construct(L"STELLAR_FORM");
+	Construct(L"CONSTELLATION_FORM");
 	return true;
 }
 
@@ -68,6 +68,6 @@ ConstellationForm::OnItemStateChanged(const Osp::Ui::Control &source, int index,
 	AppLog("Index = %d", index);
 	AppLog("ItemId  = %d", itemId);
 	SkyCanvas::SelectConstellation(index-1);
-	Osp::App::Application::GetInstance() -> SendUserEvent(CONSTELLATION_SELECTED, null);
+	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_CONSTELLATION_SELECTED, null);
 }
 
