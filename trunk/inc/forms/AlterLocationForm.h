@@ -6,6 +6,7 @@
 #include <FUi.h>
 #include <FApp.h>
 #include "TimeAndPlace.h"
+#include "Constants.h"
 
 class AlterLocationForm :
 	public Osp::Ui::Controls::Form,
@@ -29,10 +30,6 @@ protected:
 // Generated call-back functions
 public:
 	virtual void OnActionPerformed(const Osp::Ui::Control &source, int actionId);
-
-public:
-	static const int USE_PREV_LOCATION = 50;
-	static const int USE_MAP_LOCATION = 51;
 
 };
 

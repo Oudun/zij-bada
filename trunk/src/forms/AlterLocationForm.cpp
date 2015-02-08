@@ -84,11 +84,11 @@ AlterLocationForm::OnActionPerformed(const Osp::Ui::Control &source, int actionI
 {
 	switch (actionId) {
 		case IDC_BUTTON_MAP_LOCATION : {
-			Osp::App::Application::GetInstance() -> SendUserEvent(USE_MAP_LOCATION, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_USE_MAP_LOCATION, null);
 			break;
 		}
 		case IDC_BUTTON_PREV_LOCATION : {
-			Osp::App::Application::GetInstance() -> SendUserEvent(USE_PREV_LOCATION, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_USE_PREV_LOCATION, null);
 			break;
 		}
 		case ID_BUTTON_QUIT : {

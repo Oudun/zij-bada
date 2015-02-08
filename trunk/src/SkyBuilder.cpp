@@ -27,38 +27,57 @@ SkyBuilder::Run() {
 	ArrayList* args = new ArrayList();
 	args -> Add(*(new Integer(0)));
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
-	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_RANGE_SET, args);
+	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_BUILD_PROGRESS_RANGE_SET, args);
 	AppLog("Setting progress range from 0 to %d", skyIterator -> GetSize());
 	int counter = 0;
 	bool isVisible = false;
-	Osp::Base::Collection::ArrayList* list;
+	Osp::Base::Collection::ArrayList* __constellationsList;
+	Osp::Base::Collection::ArrayList* __starsList;
 	ConstellationComparer* comparer = new ConstellationComparer();
-	list = new Osp::Base::Collection::ArrayList();
+	__constellationsList = new Osp::Base::Collection::ArrayList();
+	__starsList = new Osp::Base::Collection::ArrayList();
 	while (skyIterator -> hasNext()) {
 		SkyObject* skyObject = skyIterator -> getNext();
 		isVisible = skyObject -> Draw();
 		String constName = skyObject->getConstellation();
 		constName.Trim();
-		if (isVisible && (!list -> Contains(constName)) && constName.GetLength()>0) {
+		if (isVisible && (!__constellationsList -> Contains(constName)) && constName.GetLength()>0) {
 			String* str = new String(constName);
-			list -> Add(*str);
+			__constellationsList -> Add(*str);
+		}
+		if(isVisible && skyObject->getName()!=null) {
+			String starGreekLetter = skyObject -> getName();
+			starGreekLetter.ToUpperCase();
+
+			String* starKey = new String();
+			starKey->Format(8, L"%S_%S", starGreekLetter.GetPointer(), skyObject->getConstellation().GetPointer());
+
+			String starName;
+			Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
+			AppLog("%S", starKey->GetPointer());
+			appResource->GetString(*starKey, starName);
+			AppLog("%S", starName.GetPointer());
+			if(starName != null) {
+			__starsList -> Add(*starKey);
+			}
 		}
 		counter++;
 		if (counter%500 == 0) {
 			args = new ArrayList();
 			args -> Add(*(new Integer(counter)));
-			Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_SET, args);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_BUILD_PROGRESS_SET, args);
 		}
 	}
 	args = new ArrayList();
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
-	IEnumerator* e = list->GetEnumeratorN();
+	IEnumerator* e = __constellationsList->GetEnumeratorN();
 	while (e->MoveNext()==E_SUCCESS) {
 		AppLog("List have %S", ((String*)e->GetCurrent())->GetPointer());
 	}
-	list -> Sort(*comparer);
-	SkyCanvas::SetConstellations(list);
+	__constellationsList -> Sort(*comparer);
+	SkyCanvas::SetConstellations(__constellationsList);
+	SkyCanvas::SetStars(__starsList);
 	delete comparer;
-	Osp::App::Application::GetInstance() -> SendUserEvent(BUILD_PROGRESS_DONE, args);
+	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_BUILD_PROGRESS_DONE, args);
 	return null;
 }

@@ -6,6 +6,8 @@
  */
 
 #include "SkyGuide.h"
+#include "forms/StarForm.h"
+
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -59,6 +61,9 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	infoForm = new InfoForm();
 	infoForm -> Initialize();
 
+	starForm = new StarForm();
+	starForm -> Initialize();
+
 	AppLog("1");
 
 	// Add the form to the frame
@@ -70,6 +75,7 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*alterLocationForm);
 	pFrame -> AddControl(*helpForm);
 	pFrame -> AddControl(*infoForm);
+	pFrame -> AddControl(*starForm);
 	pFrame -> SetCurrentForm(*locationForm);
 
 	locationForm -> Draw();
@@ -95,7 +101,7 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 	AppLog("Event %d Received", requestId);
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	switch (requestId) {
-		case LocationForm::LOCATION_SET: {
+		case EVENT_LOCATION_SET: {//1
 			AppLog("Getting location");
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(3000);
 			pFrame->SetCurrentForm(*skyBuilderForm);
@@ -103,7 +109,7 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			skyBuilderForm -> Start();
 			break;
 		}
-		case SkyBuilder::BUILD_PROGRESS_RANGE_SET:
+		case EVENT_BUILD_PROGRESS_RANGE_SET://20
 			AppLog("Setting sky build progress");{
 			Integer* arg1 = (Integer*)(pArgs -> GetAt(0));
 			Integer* arg2 = (Integer*)(pArgs -> GetAt(1));
@@ -111,14 +117,14 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			delete pArgs;
 			break;
 		}
-		case SkyBuilder::BUILD_PROGRESS_SET: {
+		case EVENT_BUILD_PROGRESS_SET: {//21
 			AppLog("Updating sky build progress");
 			Integer* arg = (Integer*)(pArgs -> GetAt(0));
 			skyBuilderForm -> SetProgress(arg -> ToInt());
 			delete pArgs;
 			break;
 		}
-		case SkyBuilder::BUILD_PROGRESS_DONE: {
+		case EVENT_BUILD_PROGRESS_DONE: {//22
 			AppLog("Showing sky");
 			Integer* arg = (Integer*)(pArgs -> GetAt(0));
 			skyBuilderForm -> SetProgress(arg -> ToInt());
@@ -129,34 +135,40 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			skyForm -> Update();
 			break;
 		}
-		case SkyForm::SELECT_CONSTELLATION: {
+		case EVENT_SELECT_CONSTELLATION: {//30
 			AppLog("Showing list to select constellation");
 			pFrame -> SetCurrentForm(*constellationForm);
 			constellationForm -> Update();
 			constellationForm -> RequestRedraw(true);
 			break;
 		}
-		case ConstellationForm::CONSTELLATION_SELECTED: {
+		case EVENT_CONSTELLATION_SELECTED: {//40
 			AppLog("Constellation is selected, showing it on sky");
-
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();
 			break;
 		}
-		case EVENT_HELP_CLOSED: {
+		case EVENT_STAR_SELECTED: {//41
+			AppLog("Star is selected, showing it on sky");
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();
 			break;
 		}
-		case EVENT_INFO_CLOSED: {
+		case EVENT_HELP_CLOSED: {//81
 			pFrame -> SetCurrentForm(*skyForm);
 			skyForm -> Draw();
 			skyForm -> Update();
 			break;
 		}
-		case AlterLocationForm::USE_PREV_LOCATION: {
+		case EVENT_INFO_CLOSED: {//80
+			pFrame -> SetCurrentForm(*skyForm);
+			skyForm -> Draw();
+			skyForm -> Update();
+			break;
+		}
+		case EVENT_USE_PREV_LOCATION: {//50
 			double longitude, latitude;
 			AppLog("Retrieving old coordinates");
 
@@ -168,31 +180,39 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 
 			AppLog("Reusing old coordinates longitude %f latitude %f", longitude, latitude);
 			TimeAndPlace::SetSiderialTime(longitude, latitude, new DateTime());
-			Osp::App::Application::GetInstance() -> SendUserEvent(LocationForm::LOCATION_SET, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_LOCATION_SET, null);
 			break;
 		}
-		case SkyForm::SHOW_HELP: {
+		case EVENT_SHOW_HELP: {//32
 			AppLog("Showing help");
 			pFrame -> SetCurrentForm(*helpForm);
 			helpForm -> Draw();
 			helpForm -> Show();
 			break;
 		}
-		case SkyForm::SHOW_INFO: {
+		case EVENT_SHOW_INFO: {//31
 			AppLog("Showing info");
 			pFrame -> SetCurrentForm(*infoForm);
 			infoForm -> Draw();
 			infoForm -> Show();
 			break;
 		}
-		case LocationForm::LOCATION_FAILED: {
+		case EVENT_LOCATION_FAILED: {//2
 			AppLog("Auto location failed, choose alternate");
 			pFrame->SetCurrentForm(*alterLocationForm);
 			alterLocationForm -> RequestRedraw(true);
 			break;
 		}
+		case EVENT_SHOW_STARS: {//33
+			AppLog("Show named stars");
+			pFrame->SetCurrentForm(*starForm);
+			starForm -> Update();
+			starForm -> RequestRedraw(true);
+			break;
+		}
 	}
 }
+
 
 
 

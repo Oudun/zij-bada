@@ -17,12 +17,8 @@ public:
 	SkyForm();
 	virtual ~SkyForm(void);
 	bool Initialize(void);
-	static const int SELECT_CONSTELLATION = 30;
-	static const int SHOW_INFO = 31;
-	static const int SHOW_HELP = 32;
 	static const int MAX_ZOOM = 4;
 	static const int MIN_ZOOM = 1;
-
 
 // Implementation
 protected:
@@ -39,6 +35,7 @@ protected:
 	Osp::Ui::Controls::Button *__pButtonZoomIn;
 	Osp::Ui::Controls::Button *__pButtonZoomOut;
 	Osp::Ui::Controls::Button *__pButtonConstellations;
+	Osp::Ui::Controls::Button *__pButtonStars;
 	Osp::Ui::Controls::Button *__pButtonHelp;
 	Osp::Ui::Controls::Button *__pButtonInfo;
 	Osp::Ui::Controls::Label* __pLabel;

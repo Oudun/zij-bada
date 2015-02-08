@@ -9,6 +9,7 @@
 
 Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* SkyCanvas::starLayers;
 Osp::Base::Collection::IList* SkyCanvas::constellationsVisible;
+Osp::Base::Collection::IList* SkyCanvas::starsVisible;
 int SkyCanvas::selectedConstellationIndex = -1;
 
 using namespace Osp::Graphics;
@@ -83,9 +84,19 @@ SkyCanvas::getConstellations() {
 
 void
 SkyCanvas::SetConstellations (Osp::Base::Collection::IList* aConstellationsVisible) {
-//SkyCanvas::SetConstellations () {
 	AppLog("SetConstellations");
 	constellationsVisible = aConstellationsVisible;
+}
+
+Osp::Base::Collection::IList*
+SkyCanvas::getStars() {
+	return starsVisible;
+}
+
+void
+SkyCanvas::SetStars (Osp::Base::Collection::IList* aStarsVisible) {
+	AppLog("SetStars");
+	starsVisible = aStarsVisible;
 }
 
 Osp::Base::String*

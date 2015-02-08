@@ -26,11 +26,11 @@ LocationForm::LocationForm() {
 	result r = E_SUCCESS;
 	r = locProvider -> Construct(LOC_METHOD_HYBRID);
 	if (r != E_SUCCESS) {
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_LOCATION_FAILED, null);
 	}
 	r = locProvider -> RequestLocationUpdates(*this, 15, true);
 	if (r != E_SUCCESS) {
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_LOCATION_FAILED, null);
 	}
 }
 
@@ -108,7 +108,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 			appRegistry -> Add("LAST_LATITUDE", coordinates->GetLatitude());
 		}
 		appRegistry -> Save();
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_LOCATION_SET, null);
 
 	} else if (attemptsCounter < maxAttempts){
 		attemptsCounter++;
@@ -125,7 +125,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	} else {
 		attemptsCounter = 0;
 		locProvider -> CancelLocationUpdates();
-		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_FAILED, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_LOCATION_FAILED, null);
 	}
 }
 

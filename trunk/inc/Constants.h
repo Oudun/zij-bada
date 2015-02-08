@@ -37,6 +37,19 @@ static String STRING_LOC_STATE_UNKNOWN("LOC_STATE_UNKNOWN");
 static String STRING_SKY_COORDS("SKY_COORDS");
 static String STRING_SKY_TIME("SKY_TIME");
 
+static const int EVENT_LOCATION_SET = 1;
+static const int EVENT_LOCATION_FAILED = 2;
+static const int EVENT_BUILD_PROGRESS_RANGE_SET = 20;
+static const int EVENT_BUILD_PROGRESS_SET = 21;
+static const int EVENT_BUILD_PROGRESS_DONE = 22;
+static const int EVENT_SELECT_CONSTELLATION = 30;
+static const int EVENT_SHOW_HELP = 32;
+static const int EVENT_SHOW_INFO = 31;
+static const int EVENT_SHOW_STARS = 33;
+static const int EVENT_CONSTELLATION_SELECTED = 40;
+static const int EVENT_STAR_SELECTED = 41;
+static const int EVENT_USE_PREV_LOCATION = 50;
+static const int EVENT_USE_MAP_LOCATION = 51;
 static const int EVENT_INFO_CLOSED = 80;
 static const int EVENT_HELP_CLOSED = 81;
 
