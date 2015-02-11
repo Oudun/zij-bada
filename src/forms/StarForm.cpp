@@ -60,6 +60,8 @@ StarForm::Update(void) {
 }
 
 void
-StarForm::OnItemStateChanged(const Osp::Ui::Control&, int, int, Osp::Ui::ItemStatus) {
+StarForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
+	AppLog("StarForm::OnItemStateChanged(%d)", index);
+	SkyCanvas::SelectStar(index-1);
 	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_STAR_SELECTED, null);
 }
