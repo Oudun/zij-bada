@@ -46,25 +46,37 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
 
+	AppLog("1");
+
 	constellationForm = new ConstellationForm();
 	constellationForm -> Initialize();
+
+	AppLog("2");
 
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
+	AppLog("3");
+
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();
+
+	AppLog("4");
 
 	helpForm = new HelpForm();
 	helpForm -> Initialize();
 
+	AppLog("5");
+
 	infoForm = new InfoForm();
 	infoForm -> Initialize();
+
+	AppLog("6");
 
 	starForm = new StarForm();
 	starForm -> Initialize();
 
-	AppLog("1");
+	AppLog("7");
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
@@ -98,6 +110,7 @@ SkyGuide::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 
 void
 SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+
 	AppLog("Event %d Received", requestId);
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	switch (requestId) {
@@ -211,6 +224,7 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			break;
 		}
 	}
+
 }
 
 

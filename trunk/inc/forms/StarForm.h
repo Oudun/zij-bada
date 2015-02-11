@@ -21,7 +21,7 @@ class StarForm :
 		virtual ~StarForm();
 		bool Initialize(void);
 		virtual result OnInitializing(void);
-		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+		virtual void OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status);
 		void Update(void);
 
  	private:

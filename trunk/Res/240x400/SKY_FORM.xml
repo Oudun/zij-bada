@@ -42,7 +42,7 @@
     </Button>
     <Button id="IDC_BUTTON_STARS" parent="SKY_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="41" mode="Portrait" width="81" x="40" y="341"/>
+        <layout height="41" mode="Portrait" width="81" x="40" y="340"/>
         <layout height="24" mode="Landscape" width="135" x="66" y="197"/>
     </Button>
 </Scene>

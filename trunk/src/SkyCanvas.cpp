@@ -11,6 +11,7 @@ Osp::Base::Collection::HashMapT<int, Osp::Graphics::Canvas*>* SkyCanvas::starLay
 Osp::Base::Collection::IList* SkyCanvas::constellationsVisible;
 Osp::Base::Collection::IList* SkyCanvas::starsVisible;
 int SkyCanvas::selectedConstellationIndex = -1;
+int SkyCanvas::selectedStarIndex = -1;
 
 using namespace Osp::Graphics;
 using namespace Osp::Base::Collection;
@@ -70,6 +71,11 @@ SkyCanvas::GetStarCanvas(int zoom) {
 	return value;
 }
 
+void
+SkyCanvas::SelectStar(int index) {
+	selectedStarIndex = index;
+	AppLog("selectedSatarIndex = %d", selectedStarIndex);
+}
 
 void
 SkyCanvas::SelectConstellation(int index) {
@@ -108,5 +114,13 @@ SkyCanvas::GetSelectedConstellation(void) {
 	}
 }
 
+Osp::Base::String*
+SkyCanvas::GetSelectedStar(void) {
+	if (selectedStarIndex == -1) {
+		return null;
+	} else {
+		return (Osp::Base::String*)starsVisible->GetAt(selectedStarIndex);
+	}
+}
 
 
