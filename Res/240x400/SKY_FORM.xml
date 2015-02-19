@@ -12,12 +12,12 @@
     </Form>
     <Button id="IDC_BUTTON_ZOOM_IN" parent="SKY_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="40" mode="Portrait" width="40" x="0" y="341"/>
+        <layout height="40" mode="Portrait" width="43" x="0" y="341"/>
         <layout height="24" mode="Landscape" width="118" x="0" y="197"/>
     </Button>
     <Button id="IDC_BUTTON_ZOOM_OUT" parent="SKY_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="40" mode="Portrait" width="40" x="200" y="341"/>
+        <layout height="40" mode="Portrait" width="43" x="197" y="341"/>
         <layout height="24" mode="Landscape" width="96" x="303" y="197"/>
     </Button>
     <Label id="IDC_LABEL1" parent="SKY_FORM">

@@ -61,6 +61,9 @@ SkyForm::OnInitializing(void)
 	Bitmap* bitmapConstellations = pAppResource -> GetBitmapN(L"Constellations.png");
 	Bitmap* bitmapConstellationsPressed = pAppResource -> GetBitmapN(L"ConstellationsPressed.png");
 
+	Bitmap* bitmapStars = pAppResource -> GetBitmapN(L"NamedStar.png");
+	Bitmap* bitmapStarsPressed = pAppResource -> GetBitmapN(L"NamedStarPressed.png");
+
 	Bitmap* bitmapHelp = pAppResource -> GetBitmapN(L"Help.png");
 	Bitmap* bitmapHelpPressed = pAppResource -> GetBitmapN(L"HelpPressed.png");
 
@@ -99,8 +102,8 @@ SkyForm::OnInitializing(void)
 	AppLog("Initializing Sky Form - 2a");
 
 	__pButtonStars = static_cast<Button *>(GetControl(L"IDC_BUTTON_STARS"));
-	__pButtonStars -> SetNormalBackgroundBitmap(*bitmapConstellations);
-	__pButtonStars -> SetPressedBackgroundBitmap(*bitmapConstellationsPressed);
+	__pButtonStars -> SetNormalBackgroundBitmap(*bitmapStars);
+	__pButtonStars -> SetPressedBackgroundBitmap(*bitmapStarsPressed);
 	__pButtonStars -> SetActionId(1);
 	__pButtonStars -> AddActionEventListener(*this);
 	__pButtonStars -> SetActionId(ID_BUTTON_STARS);
@@ -258,7 +261,14 @@ SkyForm::Update(void) {
 		AppLog("Constellation is not selected");
 	}
 
+	String* starAcronym = SkyCanvas::GetSelectedStar();
+	if(starAcronym != null) {
+		AppLog("Selected star is %S", starAcronym);
+		StarBuilder::DrawCanvas(canvas, zoom, zoomedShiftX, zoomedShiftY);
+	}
+
 	canvas -> Show();
+
 }
 
 void

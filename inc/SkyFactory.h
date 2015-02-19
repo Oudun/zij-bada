@@ -16,6 +16,7 @@ public:
 	virtual ~SkyFactory();
 	static SkyIterator* getStars(float magnitude);
 	static SkyIterator* getStars();
+	static SkyObject* getStar(String* starName, String* constName);
 
 };
 

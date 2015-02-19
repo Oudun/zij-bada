@@ -59,9 +59,12 @@ static const Osp::Graphics::Color COLOR_BUTTON_TEXT(Color::COLOR_WHITE);
 static const Osp::Graphics::Color COLOR_FORM_BKG(Color(50, 100, 110));
 static const Osp::Graphics::Color COLOR_FORM_TEXT(Color(150, 200, 200));
 static const Osp::Graphics::Color COLOR_CONSTEL_BORDER(Color(89, 139, 152));
-static const Osp::Graphics::Color COLOR_BRIGHT_STAR(Color(229, 250, 255));
-static const Osp::Graphics::Color COLOR_DIM_STAR(Color(89, 139, 152));
+static const Osp::Graphics::Color& COLOR_BRIGHT_STAR(Color(229, 250, 255));
+static const Osp::Graphics::Color& COLOR_DIM_STAR(Color(89, 139, 152));
 static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color(50, 100, 110));
+static const Osp::Graphics::Color& COLOR_SELECTED_STAR(Color(255, 165, 85));
+
+
 //static const Osp::Graphics::Color COLOR_TRANSPARENT(Color(255, 255, 255, 255));
 
 

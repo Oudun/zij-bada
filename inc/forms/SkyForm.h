@@ -4,6 +4,7 @@
 #include "Sky.h"
 #include "SkyCanvas.h"
 #include "ConstellationBuilder.h"
+#include "StarBuilder.h"
 
 class SkyForm :
 	public Osp::Ui::Controls::Form,
