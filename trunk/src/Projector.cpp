@@ -43,6 +43,7 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
     double r = R * cosAlt;
     int top  = (int)((Math::Floor(height/2)) - r * cosAz);
     int left = (int)((Math::Floor(width/2)) - r * sinAz);
+    AppLog("---Projector::GetProjection(%f, %f, %d, %d, %d)=(%d, %d)", accentation, declination, sign, width, height, left, top);
     return new Point(left, top);
 }
 

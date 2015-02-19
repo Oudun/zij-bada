@@ -25,24 +25,43 @@ StarForm::Initialize(void) {
 	return true;
 }
 
+//result
+//StarForm::OnInitializing(void) {
+//	__pStarsList = new List();
+//	__pStarsList -> Construct(
+//			Rectangle(0, 0, 240, 360),
+//			LIST_STYLE_NORMAL,
+//			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
+//	__pStarsList -> AddItemEventListener(*this);
+//	__pStarsList -> SetBackgroundColor(COLOR_FORM_BKG);
+//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
+//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
+//	AddControl(*__pStarsList);
+//	return E_SUCCESS;
+//}
+
+
 result
 StarForm::OnInitializing(void) {
-//	Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
-//	Osp::Graphics::Bitmap* bitmapButtonPressed;
-//	bitmapButtonPressed = pAppResource -> GetBitmapN(L"ButtonPressed.png");
 	__pStarsList = new List();
 	__pStarsList -> Construct(
 			Rectangle(0, 0, 240, 360),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
+			LIST_ITEM_DOUBLE_IMAGE_TEXT_TEXT, 25, 15, 40, 200);
 	__pStarsList -> AddItemEventListener(*this);
 	__pStarsList -> SetBackgroundColor(COLOR_FORM_BKG);
-//	__pStarsList -> SetHighlightedItemBackgroundBitmap(*bitmapButtonPressed);
-	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
-	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
+//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
+//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
+
+	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, Color::COLOR_YELLOW);
+	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, Color::COLOR_CYAN);
+
 	AddControl(*__pStarsList);
 	return E_SUCCESS;
 }
+
+
+
 
 void
 StarForm::Update(void) {
@@ -51,11 +70,30 @@ StarForm::Update(void) {
 	String emptyString;
 	__pStarsList -> AddItem(&emptyString, &emptyString, null, null, null);
 	while (starNames -> MoveNext() == E_SUCCESS) {
-		String* starNameAbbr = (String*) starNames -> GetCurrent();
 		String starName;
+		String* starNameAbbr = (String*) starNames -> GetCurrent();
+		String constAcronym;
+		String constName;
+		starNameAbbr->SubString(4, constAcronym);
+
 		AppResource* appResource = Application::GetInstance()->GetAppResource();
 		appResource->GetString(*starNameAbbr, starName);
-		__pStarsList -> AddItem(&starName, &starName, null, null, null);
+		appResource->GetString(constAcronym, constName);
+
+//		__pStarsList -> AddItem(&starName, &starName, null, null, null);
+//		result	AddItem(
+//				const Osp::Base::String* pText1,
+//				const Osp::Base::String* pText2,
+//				const Osp::Graphics::Bitmap* pBitmap1,
+//				const Osp::Graphics::Bitmap* pBitmap2,
+//				int itemId = LIST_ITEM_UNSPECIFIED_ID);
+
+		Osp::Graphics::Bitmap* bitmapButtonPressed;
+		Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
+		bitmapButtonPressed = pAppResource -> GetBitmapN(L"ButtonPressed.png");
+
+		__pStarsList -> AddItem(&starName, &constName, bitmapButtonPressed, bitmapButtonPressed, null);
+
 	}
 }
 

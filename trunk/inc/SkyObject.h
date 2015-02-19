@@ -22,6 +22,8 @@
 #include "Projector.h"
 #include "Constants.h"
 
+using namespace Osp::Graphics;
+
 class SkyObject
 {
 
@@ -63,9 +65,11 @@ public:
 	void Print(void);
 	bool Draw();
 
-private:
+public:
 	bool DrawCanvas(Osp::Graphics::Canvas* canvas);
+	bool DrawCanvas(Osp::Graphics::Canvas* canvas, const Color& brightColor, const Color& dimColor);
 	void DrawCanvas(Osp::Graphics::Canvas* canvas, Osp::Graphics::Point* point);
+	int GetSizeOnCanvas(void);
 
 private:
     Osp::Base::String name;

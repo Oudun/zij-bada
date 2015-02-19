@@ -45,7 +45,8 @@ SkyBuilder::Run() {
 			String* str = new String(constName);
 			__constellationsList -> Add(*str);
 		}
-		if(isVisible && skyObject->getName()!=null) {
+		String skyObjectName = skyObject->getName();
+		if(isVisible && skyObjectName!=null && (skyObjectName.Equals("ALP", false)||skyObjectName.Equals("BET", false)||skyObjectName.Equals("GAM", false))) {
 			String starGreekLetter = skyObject -> getName();
 			starGreekLetter.ToUpperCase();
 

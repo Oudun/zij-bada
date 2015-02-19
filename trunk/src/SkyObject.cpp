@@ -135,8 +135,20 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 		diameter = 8;
 	} else if (magnitude < 0) {
 		diameter = 6;
+		AppLog("!!!%S %S X:%d Y:%d", name.GetPointer(), constellation.GetPointer(), point->x, point->y);
+		AppLog("!!!RAH %f DED %f canvas.w %d canvas.h %d",
+				RAH,
+				DED,
+				canvas->GetBounds().width,
+				canvas->GetBounds().height);
 	} else if (magnitude < 1) {
 		diameter = 4;
+		AppLog("!!!RAH %f DED %f zoom %d canvas.w %d canvas.h %d",
+				RAH,
+				DED,
+				canvas->GetBounds().width,
+				canvas->GetBounds().height);
+		AppLog("!!!%S %S X:%d Y:%d", name.GetPointer(), constellation.GetPointer(), point->x, point->y);
 	} else if (magnitude < 2) {
 		diameter = 3;
 	} else if (magnitude < 3) {
@@ -159,6 +171,13 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 bool
 SkyObject::DrawCanvas(Canvas* canvas) {
 
+	return DrawCanvas(canvas, COLOR_BRIGHT_STAR, COLOR_DIM_STAR);
+
+}
+
+bool
+SkyObject::DrawCanvas(Osp::Graphics::Canvas* canvas, const Color& brightColor, const Color& dimColor) {
+
 	Point* point = Projector::
 			GetProjection(RAH, DED, sign,
 					canvas->GetBounds().width,
@@ -168,7 +187,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		return false;
 	}
 
-	Color color = COLOR_BRIGHT_STAR;
+	Color color = brightColor;
 
 	int diameter = (int)(7 - magnitude);
 
@@ -185,19 +204,44 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 		} else if (magnitude < 4) {
 			diameter = 2;
 		} else if (magnitude < 5) {
-			color = COLOR_DIM_STAR;
+			color = dimColor;
 			diameter = 1;
 		} else {
-			color = COLOR_DIM_STAR;
+			color = dimColor;
 			diameter = 1/2;
 		}
-
-
 
 		canvas ->FillEllipse(color,
 			Rectangle(point->x, point->y, diameter, diameter));
 
 		return true;
+
+}
+
+int
+SkyObject::GetSizeOnCanvas(void) {
+
+	int diameter = (int)(7 - magnitude);
+
+	if (magnitude < -1) {
+			diameter = 8;
+		} else if (magnitude < 0) {
+			diameter = 6;
+		} else if (magnitude < 1) {
+			diameter = 4;
+		} else if (magnitude < 2) {
+			diameter = 3;
+		} else if (magnitude < 3) {
+			diameter = 2;
+		} else if (magnitude < 4) {
+			diameter = 1;
+		} else if (magnitude < 5) {
+			diameter = 1;
+		} else {
+			diameter = 1;
+		}
+
+	return diameter;
 
 }
 
