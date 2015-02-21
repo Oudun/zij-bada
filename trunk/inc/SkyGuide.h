@@ -35,6 +35,7 @@ class SkyGuide : public Osp::App::Application {
 		bool OnAppInitializing(Osp::App::AppRegistry& appRegistry);
 		bool OnAppTerminating(Osp::App::AppRegistry& appRegistry, bool forcedTermination = false);
 		virtual void OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs);
+	    virtual void OnForeground(void);
 
 	private:
 		TimeAndPlace* timeAndPlace;

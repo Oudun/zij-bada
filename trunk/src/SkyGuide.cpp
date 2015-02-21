@@ -41,42 +41,26 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	locationForm = new LocationForm();
 	locationForm -> Initialize();
 
-	AppLog("0");
-
 	skyBuilderForm = new SkyBuilderForm();
 	skyBuilderForm -> Initialize();
-
-	AppLog("1");
 
 	constellationForm = new ConstellationForm();
 	constellationForm -> Initialize();
 
-	AppLog("2");
-
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
-
-	AppLog("3");
 
 	alterLocationForm = new AlterLocationForm();
 	alterLocationForm -> Initialize();
 
-	AppLog("4");
-
 	helpForm = new HelpForm();
 	helpForm -> Initialize();
-
-	AppLog("5");
 
 	infoForm = new InfoForm();
 	infoForm -> Initialize();
 
-	AppLog("6");
-
 	starForm = new StarForm();
 	starForm -> Initialize();
-
-	AppLog("7");
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
@@ -93,8 +77,6 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	locationForm -> Draw();
 	locationForm -> Show();
 
-	AppLog("4");
-
 	return true;
 
 }
@@ -106,6 +88,12 @@ SkyGuide::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 	// Deallocate resources allocated by this application for termination.
 	// The application's permanent data and context can be saved via appRegistry.
 	return true;
+}
+
+void
+SkyGuide::OnForeground(void) {
+	skyForm -> Draw();
+	skyForm -> Update();
 }
 
 void
@@ -223,7 +211,18 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			starForm -> RequestRedraw(true);
 			break;
 		}
+		case EVENT_CONSTELLATION_TOUCHED: {
+			AppLog("Constellation touched");
+			String* arg = (String*)(pArgs -> GetAt(0));
+			SkyCanvas::SelectConstellation(*arg);
+			skyForm -> Draw();
+			skyForm -> Update();
+			break;
+		}
 	}
+
+
+
 
 }
 

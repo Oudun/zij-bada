@@ -25,6 +25,7 @@ class StarForm :
 		void Update(void);
 
  	private:
+		String& GetGreek(String& greekTranslit);
 		Osp::Ui::Controls::List* __pStarsList;
 
 };
