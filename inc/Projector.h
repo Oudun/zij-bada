@@ -9,24 +9,28 @@
 #define PROJECTOR_H_
 
 #include <FGraphics.h>
+#include <FBase.h>
 #include "TimeAndPlace.h"
+#include "PrecisePoint.h"
 
 class Projector {
 
 	public:
 		Projector();
 		virtual ~Projector();
-		static Osp::Graphics::Point* GetProjection(
+		static PrecisePoint* GetProjection(
 				float accentation,
 				float declination,
 				int sign,
 				int width,
 				int height);
 		static void Zoom(
-				Osp::Graphics::Point* source,
-				Osp::Graphics::Point* result,
+				PrecisePoint* source,
+				PrecisePoint* result,
 				int ratio);
+		static Osp::Base::String** screenToConstMap;
 
 };
 
 #endif /* PROJECTOR_H_ */
+

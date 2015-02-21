@@ -83,6 +83,15 @@ SkyCanvas::SelectConstellation(int index) {
 	AppLog("selectedConstellationIndex = %d", selectedConstellationIndex);
 }
 
+void
+SkyCanvas::SelectConstellation(String& constName) {
+	int index = -1;
+	constellationsVisible->IndexOf(constName, index);
+	if (index != -1) {
+		SelectConstellation(index);
+	}
+}
+
 Osp::Base::Collection::IList*
 SkyCanvas::getConstellations() {
 	return constellationsVisible;

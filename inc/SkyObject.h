@@ -68,7 +68,7 @@ public:
 public:
 	bool DrawCanvas(Osp::Graphics::Canvas* canvas);
 	bool DrawCanvas(Osp::Graphics::Canvas* canvas, const Color& brightColor, const Color& dimColor);
-	void DrawCanvas(Osp::Graphics::Canvas* canvas, Osp::Graphics::Point* point);
+	void DrawCanvas(Osp::Graphics::Canvas* canvas, PrecisePoint* point);
 	int GetSizeOnCanvas(void);
 
 private:

@@ -90,12 +90,12 @@ SkyObject::Print(void) {
 bool
 SkyObject::Draw() {
 
-	Point* zoomedPoint = new Point();
+	PrecisePoint* zoomedPoint = new PrecisePoint();
 
 	Canvas* canvas;
 	canvas = SkyCanvas::GetStarCanvas(1);
 
-	Point* point = Projector::
+	PrecisePoint* point = Projector::
 			GetProjection(RAH, DED, sign,
 					canvas->GetBounds().width,
 					canvas->GetBounds().height);
@@ -103,6 +103,16 @@ SkyObject::Draw() {
 	if (point == null) {
 		delete zoomedPoint;
 		return false;
+	}
+
+	if(getConstellation() != null && !getConstellation().IsEmpty() && getConstellation().GetLength()>2) {
+		int __gridX = (int)((point->x)/5);
+		int __gridY = (int)((point->y)/5);
+		AppLog("MAP %d %d %S", 5 * __gridX, 5 * __gridY, getConstellation().GetPointer());
+		if (Projector::screenToConstMap[__gridX][ __gridY] == null) {
+			Projector::screenToConstMap[__gridX][ __gridY] = getConstellation();
+			AppLog("x:%d y:%d %S added", __gridX, __gridY, getConstellation().GetPointer());
+		}
 	}
 
 	Projector::Zoom(point, zoomedPoint, 1);
@@ -125,9 +135,10 @@ SkyObject::Draw() {
 }
 
 void
-SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
+SkyObject::DrawCanvas(Canvas* canvas, PrecisePoint* point) {
 
 	Color color = COLOR_BRIGHT_STAR;
+
 
 	int diameter;
 
@@ -135,20 +146,8 @@ SkyObject::DrawCanvas(Canvas* canvas, Point* point) {
 		diameter = 8;
 	} else if (magnitude < 0) {
 		diameter = 6;
-		AppLog("!!!%S %S X:%d Y:%d", name.GetPointer(), constellation.GetPointer(), point->x, point->y);
-		AppLog("!!!RAH %f DED %f canvas.w %d canvas.h %d",
-				RAH,
-				DED,
-				canvas->GetBounds().width,
-				canvas->GetBounds().height);
 	} else if (magnitude < 1) {
 		diameter = 4;
-		AppLog("!!!RAH %f DED %f zoom %d canvas.w %d canvas.h %d",
-				RAH,
-				DED,
-				canvas->GetBounds().width,
-				canvas->GetBounds().height);
-		AppLog("!!!%S %S X:%d Y:%d", name.GetPointer(), constellation.GetPointer(), point->x, point->y);
 	} else if (magnitude < 2) {
 		diameter = 3;
 	} else if (magnitude < 3) {
@@ -178,7 +177,7 @@ SkyObject::DrawCanvas(Canvas* canvas) {
 bool
 SkyObject::DrawCanvas(Osp::Graphics::Canvas* canvas, const Color& brightColor, const Color& dimColor) {
 
-	Point* point = Projector::
+	PrecisePoint* point = Projector::
 			GetProjection(RAH, DED, sign,
 					canvas->GetBounds().width,
 					canvas->GetBounds().height);

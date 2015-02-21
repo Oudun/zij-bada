@@ -26,7 +26,6 @@ SkyForm::SkyForm() {
 
 	bitmapInfo = pAppResource -> GetBitmapN(L"Info.png");
 	bitmapInfoPressed = pAppResource -> GetBitmapN(L"InfoPressed.png");
-
 }
 
 SkyForm::~SkyForm(void)
@@ -306,5 +305,17 @@ SkyForm::OnTouchReleased(const Osp::Ui::Control &source, const Osp::Graphics::Po
 		shiftX -= (touchInfo.GetCurrentPosition().x - touchInfo.GetStartPosition().x)/zoom;
 		shiftY -= (touchInfo.GetCurrentPosition().y - touchInfo.GetStartPosition().y)/zoom;
 		Update();
+	} else {
+		int __gridX = (int)(touchInfo.GetCurrentPosition().x/5);
+		int __gridY = (int)(touchInfo.GetCurrentPosition().y/5);
+		if(Projector::screenToConstMap[__gridX][__gridY]==null) {
+			AppLog("No constellation to select for x:%d y:%d", __gridX, __gridY);
+		} else {
+			AppLog("Constellation %S touched for x:%d y:%d", Projector::screenToConstMap[__gridX][__gridY].GetPointer(),  __gridX, __gridY);
+			ArrayList* args = new ArrayList();
+			args -> Add(Projector::screenToConstMap[__gridX][__gridY]);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_CONSTELLATION_TOUCHED, args);
+
+		}
 	}
 }

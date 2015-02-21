@@ -7,17 +7,26 @@
 
 #include "Projector.h"
 
+using namespace Osp::Base;
 using namespace Osp::Base::Utility;
 using namespace Osp::Graphics;
 
+Osp::Base::String** Projector::screenToConstMap;
+
 Projector::Projector() {
+	int __gridX = (int)(240/5);
+	int __gridY = (int)(400/5);
+	screenToConstMap = new String*[__gridX];
+	for (int i=0; i<__gridX; i++) {
+		screenToConstMap[i] = new String[__gridY];
+	}
 }
 
 Projector::~Projector() {
 	// TODO Auto-generated destructor stub
 }
 
-Osp::Graphics::Point*
+PrecisePoint*
 Projector::GetProjection(float accentation, float declination, int sign, int width, int height) {
 	float lstDeg = 15*(TimeAndPlace::GetSiderialTime());
 	float raDeg = accentation * 15; // 24 hours is 360 degrees, so 1 hour is 15 degrees
@@ -41,16 +50,15 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
             (Math::Cos(radInDegree*(TimeAndPlace::GetLatitude()))*cosAlt);
     double R = Math::Floor(width/2);
     double r = R * cosAlt;
-    int top  = (int)((Math::Floor(height/2)) - r * cosAz);
-    int left = (int)((Math::Floor(width/2)) - r * sinAz);
-    AppLog("---Projector::GetProjection(%f, %f, %d, %d, %d)=(%d, %d)", accentation, declination, sign, width, height, left, top);
-    return new Point(left, top);
+    float top  = ((Math::Floor(height/2)) - r * cosAz);
+    float left = ((Math::Floor(width/2)) - r * sinAz);
+    return new PrecisePoint(left, top);
 }
 
 void
 Projector::Zoom(
-		Osp::Graphics::Point* source,
-		Osp::Graphics::Point* result,
+		PrecisePoint* source,
+		PrecisePoint* result,
 		int ratio) {
 	result -> SetPosition(ratio * source->x, ratio * source->y);
 

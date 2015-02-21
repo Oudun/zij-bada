@@ -21,6 +21,7 @@ class SkyCanvas {
 		static Osp::Graphics::Canvas* GetStarCanvas(int zoom);
 
 		static void SelectConstellation(int index);
+		static void SelectConstellation(String& constName);
 		static Osp::Base::Collection::IList* getConstellations();
 		static Osp::Base::String* GetSelectedConstellation(void);
 		static void SetConstellations (Osp::Base::Collection::IList* constellationsVisible);

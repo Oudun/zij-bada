@@ -37,6 +37,11 @@ static String STRING_LOC_STATE_UNKNOWN("LOC_STATE_UNKNOWN");
 static String STRING_SKY_COORDS("SKY_COORDS");
 static String STRING_SKY_TIME("SKY_TIME");
 
+static String STRING_ALPHA("α");
+static String STRING_BETA("β");
+static String STRING_GAMMA("γ");
+static String STRING_UNDEF("?");
+
 static const int EVENT_LOCATION_SET = 1;
 static const int EVENT_LOCATION_FAILED = 2;
 static const int EVENT_BUILD_PROGRESS_RANGE_SET = 20;
@@ -48,6 +53,7 @@ static const int EVENT_SHOW_INFO = 31;
 static const int EVENT_SHOW_STARS = 33;
 static const int EVENT_CONSTELLATION_SELECTED = 40;
 static const int EVENT_STAR_SELECTED = 41;
+static const int EVENT_CONSTELLATION_TOUCHED = 42;
 static const int EVENT_USE_PREV_LOCATION = 50;
 static const int EVENT_USE_MAP_LOCATION = 51;
 static const int EVENT_INFO_CLOSED = 80;
@@ -59,9 +65,9 @@ static const Osp::Graphics::Color COLOR_BUTTON_TEXT(Color::COLOR_WHITE);
 static const Osp::Graphics::Color COLOR_FORM_BKG(Color(50, 100, 110));
 static const Osp::Graphics::Color COLOR_FORM_TEXT(Color(150, 200, 200));
 static const Osp::Graphics::Color COLOR_CONSTEL_BORDER(Color(89, 139, 152));
+static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color(50, 100, 110));
 static const Osp::Graphics::Color& COLOR_BRIGHT_STAR(Color(229, 250, 255));
 static const Osp::Graphics::Color& COLOR_DIM_STAR(Color(89, 139, 152));
-static const Osp::Graphics::Color COLOR_DIMMEST_STAR(Color(50, 100, 110));
 static const Osp::Graphics::Color& COLOR_SELECTED_STAR(Color(255, 165, 85));
 
 
