@@ -8,7 +8,7 @@
 #include "SkyBuilder.h"
 #include "SkyFactory.h"
 #include "SkyIterator.h"
-#include "ConstellationComparer.h"
+#include "comparers/ConstellationComparer.h"
 
 using namespace Osp::Base;
 using namespace Osp::Base::Collection;

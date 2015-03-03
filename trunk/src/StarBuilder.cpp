@@ -12,12 +12,11 @@ using namespace Osp::Graphics;
 using namespace Osp::App;
 
 StarBuilder::StarBuilder() {
-	// TODO Auto-generated constructor stub
 
 }
 
 StarBuilder::~StarBuilder() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void

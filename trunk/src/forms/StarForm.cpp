@@ -7,20 +7,19 @@
 
 #include "forms/StarForm.h"
 
-//static const Osp::Graphics::Color& COLOR_BRIGHT_STAR;
-//static const Osp::Graphics::Color& COLOR_DIM_STAR;
-//static const Osp::Graphics::Color& COLOR_SELECTED_STAR;
-
+using namespace Osp::Base::Collection;
 using namespace Osp::Ui::Controls;
 using namespace Osp::Graphics;
 using namespace Osp::App;
 
 StarForm::StarForm() {
-
+	starNameComparer = new StarNameComparer();
+	constellationNameComparer = new ConstellationNameComparer();
 }
 
 StarForm::~StarForm() {
-	// TODO Auto-generated destructor stub
+	delete starNameComparer;
+	delete constellationNameComparer;
 }
 
 bool
@@ -31,6 +30,7 @@ StarForm::Initialize(void) {
 
 result
 StarForm::OnInitializing(void) {
+
 	__pStarsList = new List();
 	__pStarsList -> Construct(
 			Rectangle(0, 0, 240, 360),
@@ -41,36 +41,33 @@ StarForm::OnInitializing(void) {
 	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
 	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
 	AddControl(*__pStarsList);
+
+//	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
+//	__pButtonZoomIn -> SetNormalBackgroundBitmap(*bitmapZoomIn);
+//	__pButtonZoomIn -> SetPressedBackgroundBitmap(*bitmapZoomInPressed);
+//	__pButtonZoomIn -> SetActionId(ID_BUTTON_ZOOM_IN);
+//	__pButtonZoomIn -> AddActionEventListener(*this);
+
+	__buttonSortBrightness = static_cast<Button *>(GetControl(L"IDC_BUTTON_SORT_BRIGHTNESS"));
+	__buttonSortBrightness -> SetActionId(ID_BUTTON_SORT_BRIGHTNESS);
+	__buttonSortBrightness -> AddActionEventListener(*this);
+
+	__buttonSortConstellation = static_cast<Button *>(GetControl(L"IDC_BUTTON_SORT_CONSTELLATION"));
+	__buttonSortConstellation -> SetActionId(ID_BUTTON_SORT_CONSTELLATION);
+	__buttonSortConstellation -> AddActionEventListener(*this);
+
+	__buttonSortStarName = static_cast<Button *>(GetControl(L"IDC_BUTTON_SORT_NAME"));
+	__buttonSortStarName -> SetActionId(ID_BUTTON_SORT_NAME);
+	__buttonSortStarName -> AddActionEventListener(*this);
+
 	return E_SUCCESS;
+
 }
 
-
-//result
-//StarForm::OnInitializing(void) {
-//	__pStarsList = new List();
-//	__pStarsList -> Construct(
-//			Rectangle(0, 0, 240, 360),
-//			LIST_STYLE_NORMAL,
-//			LIST_ITEM_DOUBLE_IMAGE_TEXT_TEXT, 25, 15, 40, 200);
-//	__pStarsList -> AddItemEventListener(*this);
-//	__pStarsList -> SetBackgroundColor(COLOR_FORM_BKG);
-////	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
-////	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
-//
-//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, Color::COLOR_YELLOW);
-//	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, Color::COLOR_CYAN);
-//
-//	AddControl(*__pStarsList);
-//	return E_SUCCESS;
-//}
-
-
-
-
 void
-StarForm::Update(void) {
+StarForm::Update(Osp::Base::Collection::IList* starsList) {
 	__pStarsList ->RemoveAllItems();
-	Osp::Base::Collection::IEnumerator* starNames = SkyCanvas::getStars()->GetEnumeratorN();
+	Osp::Base::Collection::IEnumerator* starNames = starsList ->GetEnumeratorN();
 	String emptyString;
 	__pStarsList -> AddItem(&emptyString, &emptyString, null, null, null);
 	while (starNames -> MoveNext() == E_SUCCESS) {
@@ -93,14 +90,6 @@ StarForm::Update(void) {
 		starName.Append(constName);
 		starName.Append(")");
 
-//		__pStarsList -> AddItem(&starName, &starName, null, null, null);
-//		result	AddItem(
-//				const Osp::Base::String* pText1,
-//				const Osp::Base::String* pText2,
-//				const Osp::Graphics::Bitmap* pBitmap1,
-//				const Osp::Graphics::Bitmap* pBitmap2,
-//				int itemId = LIST_ITEM_UNSPECIFIED_ID);
-
 		Osp::Graphics::Bitmap* bitmapButtonPressed;
 		Osp::App::AppResource* pAppResource = Osp::App::Application::GetInstance()->GetAppResource();
 		bitmapButtonPressed = pAppResource -> GetBitmapN(L"ButtonPressed.png");
@@ -111,10 +100,44 @@ StarForm::Update(void) {
 }
 
 void
+StarForm::Update(void) {
+	Update(SkyCanvas::getStars());
+}
+
+void
 StarForm::OnItemStateChanged(const Osp::Ui::Control &source, int index, int itemId, Osp::Ui::ItemStatus status) {
 	AppLog("StarForm::OnItemStateChanged(%d)", index);
 	SkyCanvas::SelectStar(index-1);
 	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_STAR_SELECTED, null);
+}
+
+void
+StarForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
+	switch (actionId) {
+		case ID_BUTTON_SORT_BRIGHTNESS: {
+			AppLog("ID_BUTTON_SORT_BRIGHTNESS pressed");
+			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			Update(stars);
+			RequestRedraw(true);
+			break;
+		}
+		case ID_BUTTON_SORT_CONSTELLATION: {
+			AppLog("ID_BUTTON_SORT_CONSTELLATION pressed");
+			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			stars -> Sort(*constellationNameComparer);
+			Update(stars);
+			RequestRedraw(true);
+			break;
+		}
+		case ID_BUTTON_SORT_NAME: {
+			AppLog("ID_BUTTON_SORT_NAME pressed");
+			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			stars -> Sort(*starNameComparer);
+			Update(stars);
+			RequestRedraw(true);
+			break;
+		}
+	}
 }
 
 String&
