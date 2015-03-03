@@ -13,10 +13,11 @@
 #include "SkyFactory.h"
 
 class StarBuilder {
-public:
-	StarBuilder();
-	virtual ~StarBuilder();
-	static void DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int shiftY);
+
+	public:
+		StarBuilder();
+		virtual ~StarBuilder();
+		static void DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int shiftY);
 
 };
 

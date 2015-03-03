@@ -35,6 +35,7 @@ SkyDbIterator::SkyDbIterator(float magnitude) {
 
 	String iteratorQuery(L"select * from stars where magnitude < ");
 	iteratorQuery.Append(magnitude);
+	countQuery.Append(L" order by magnitude asc");
 	DbStatement* iteratorStat = database->CreateStatementN(iteratorQuery);
 	dataSet = database->ExecuteStatementN(*iteratorStat);
 
