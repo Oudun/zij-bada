@@ -80,7 +80,6 @@ SkyForm::OnInitializing(void)
 	__pButtonZoomOut -> SetActionId(ID_BUTTON_ZOOM_OUT);
 	__pButtonZoomOut -> AddActionEventListener(*this);
 
-
 	__pButtonHelp = static_cast<Button *>(GetControl(L"IDC_BUTTON_HELP"));
 	__pButtonHelp -> SetNormalBackgroundBitmap(*bitmapHelp);
 	__pButtonHelp -> SetPressedBackgroundBitmap(*bitmapHelpPressed);
@@ -89,14 +88,12 @@ SkyForm::OnInitializing(void)
 
 	AppLog("Initializing Sky Form - 2");
 
-
 	__pButtonConstellations = static_cast<Button *>(GetControl(L"IDC_BUTTON_CONSTELLATIONS"));
 	__pButtonConstellations -> SetNormalBackgroundBitmap(*bitmapConstellations);
 	__pButtonConstellations -> SetPressedBackgroundBitmap(*bitmapConstellationsPressed);
 	__pButtonConstellations -> SetActionId(1);
 	__pButtonConstellations -> AddActionEventListener(*this);
 	__pButtonConstellations -> SetActionId(ID_BUTTON_CONSTELLATIONS);
-
 
 	AppLog("Initializing Sky Form - 2a");
 
@@ -116,7 +113,6 @@ SkyForm::OnInitializing(void)
 	__pButtonInfo -> AddActionEventListener(*this);
 	__pButtonInfo -> SetActionId(ID_BUTTON_INFO);
 
-
 	//IDC_BUTTON_CONSTELLATIONS
 
 	__pLabelLocation = static_cast<Label *>(GetControl(L"IDC_LABEL1"));
@@ -127,7 +123,15 @@ SkyForm::OnInitializing(void)
 	destWidth = control -> GetWidth();
 	destHeight = control -> GetHeight();
 
-	AppLog("Initializing Sky Form - done");
+	canvas = control -> GetCanvasN();
+
+	if (canvas == null) {
+			AppLog ("canvas 1 is null");
+	} else {
+		AppLog("canvas is good");
+	}
+
+	AppLog("Initializing Sky Form - done width %d height %d", destWidth, destHeight);
 
 	return r;
 }
@@ -211,14 +215,21 @@ SkyForm::updateConstList(IList* list) {
 void
 SkyForm::Update(void) {
 
-	Osp::Graphics::Canvas* canvas;
-	Control* control = GetControl(L"SKY_FORM");
-	canvas = control -> GetCanvasN();
+//	Osp::Graphics::Canvas* canvas;
+//	Control* control = GetControl(L"SKY_FORM");
+//	AppLog("Getting Canvas");
+//	AppLog("Checking form size: width %d height %d", control->GetBounds().width, control->GetBounds().height);
+//	canvas = control -> GetCanvasN();
+//	AppLog("Getting Canvas - done");
+//	if (canvas == null) {
+//		AppLog ("canvas is null");
+//	}
 	canvas -> SetBackgroundColor(COLOR_SKY);
-
+	AppLog("Update 1");
 	canvas -> Clear();
+	AppLog("Update 2");
 	Osp::Graphics::Rectangle rect = canvas -> GetBounds();						//Getting size of current canvas
-
+	AppLog("Update 3");
 
 	//Image should not be moved outside screen boundaries, so fixing shift value
 	int zoomedShiftX = zoom == 1 ? 0 : (int)(shiftX * zoom);

@@ -33,7 +33,7 @@ StarForm::OnInitializing(void) {
 
 	__pStarsList = new List();
 	__pStarsList -> Construct(
-			Rectangle(0, 0, 240, 360),
+			Rectangle(0, 0, 240, 320),
 			LIST_STYLE_NORMAL,
 			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
 	__pStarsList -> AddItemEventListener(*this);
@@ -116,14 +116,16 @@ StarForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 	switch (actionId) {
 		case ID_BUTTON_SORT_BRIGHTNESS: {
 			AppLog("ID_BUTTON_SORT_BRIGHTNESS pressed");
-			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			ArrayList* stars = new ArrayList();
+			stars -> AddItems(*((ArrayList*)SkyCanvas::getStars()));
 			Update(stars);
 			RequestRedraw(true);
 			break;
 		}
 		case ID_BUTTON_SORT_CONSTELLATION: {
 			AppLog("ID_BUTTON_SORT_CONSTELLATION pressed");
-			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			ArrayList* stars = new ArrayList();
+			stars -> AddItems(*((ArrayList*)SkyCanvas::getStars()));
 			stars -> Sort(*constellationNameComparer);
 			Update(stars);
 			RequestRedraw(true);

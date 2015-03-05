@@ -50,8 +50,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	skyForm = new SkyForm();
 	skyForm -> Initialize();
 
-	alterLocationForm = new AlterLocationForm();
-	alterLocationForm -> Initialize();
+//	alterLocationForm = new AlterLocationForm();
+//	alterLocationForm -> Initialize();
 
 	helpForm = new HelpForm();
 	helpForm -> Initialize();
@@ -68,7 +68,7 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*skyBuilderForm);
 	pFrame -> AddControl(*constellationForm);
 	pFrame -> AddControl(*skyForm);
-	pFrame -> AddControl(*alterLocationForm);
+//	pFrame -> AddControl(*alterLocationForm);
 	pFrame -> AddControl(*helpForm);
 	pFrame -> AddControl(*infoForm);
 	pFrame -> AddControl(*starForm);
@@ -105,9 +105,13 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 		case EVENT_LOCATION_SET: {//1
 			AppLog("Getting location");
 			Osp::Base::Runtime::Thread::GetCurrentThread() -> Sleep(3000);
+			AppLog("Getting location 1");
 			pFrame->SetCurrentForm(*skyBuilderForm);
+			AppLog("Getting location 2");
 			skyBuilderForm -> RequestRedraw(true);
+			AppLog("Getting location 3");
 			skyBuilderForm -> Start();
+			AppLog("Getting location 4");
 			break;
 		}
 		case EVENT_BUILD_PROGRESS_RANGE_SET://20

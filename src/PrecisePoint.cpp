@@ -18,7 +18,9 @@ PrecisePoint::PrecisePoint(float argX, float argY) {
 
 
 PrecisePoint::~PrecisePoint() {
-
+	delete &x;
+	delete &y;
+	AppLog("Destroying PrecisePoint");
 }
 
 void

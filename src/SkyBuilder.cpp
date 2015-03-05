@@ -18,7 +18,7 @@ SkyBuilder::SkyBuilder() {
 }
 
 SkyBuilder::~SkyBuilder() {
-
+	AppLog("Destroying Sky Builder");
 }
 
 Osp::Base::Object*
@@ -59,7 +59,8 @@ SkyBuilder::Run() {
 			appResource->GetString(*starKey, starName);
 			AppLog("%S", starName.GetPointer());
 			if(starName != null) {
-			__starsList -> Add(*starKey);
+				__starsList -> Add(*starKey);
+				AppLog("Star %S brightness %f added", starKey -> GetPointer(), skyObject -> getMagnitude());
 			}
 		}
 		counter++;
