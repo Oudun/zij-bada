@@ -15,6 +15,7 @@ class PrecisePoint {
 	public:
 		PrecisePoint();
 		PrecisePoint(float x, float y);
+		virtual ~PrecisePoint();
 		void SetPosition(float x, float y);
 		Osp::Graphics::Point* GetPoint(void);
 
@@ -22,8 +23,6 @@ class PrecisePoint {
 		float x;
 		float y;
 
-
-	virtual ~PrecisePoint();
 };
 
 #endif /* PRECISEPOINT_H_ */
