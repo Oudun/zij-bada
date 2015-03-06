@@ -40,12 +40,11 @@ protected:
 	Osp::Ui::Controls::Button *__pButtonHelp;
 	Osp::Ui::Controls::Button *__pButtonInfo;
 	Osp::Ui::Controls::Label* __pLabel;
+	//Osp::Ui::Controls::Label* __pZoomLabel;
 	Osp::Ui::Controls::Label* __pLabelLocation;
 
 	Osp::Locations::LocationProvider locProvider;
 	Osp::Locales::Calendar* calendar;
-	Osp::Graphics::Canvas* canvas;
-
 	Sky* sky;
 
 public:

@@ -18,7 +18,7 @@ SkyBuilder::SkyBuilder() {
 }
 
 SkyBuilder::~SkyBuilder() {
-	AppLog("Destroying Sky Builder");
+
 }
 
 Osp::Base::Object*
@@ -48,7 +48,7 @@ SkyBuilder::Run() {
 		String skyObjectName = skyObject->getName();
 		if(isVisible && skyObjectName!=null && (skyObjectName.Equals("ALP", false)||skyObjectName.Equals("BET", false)||skyObjectName.Equals("GAM", false))) {
 			String starGreekLetter = skyObject -> getName();
-			starGreekLetter.ToUpperCase();
+			starGreekLetter.ToUpper();
 
 			String* starKey = new String();
 			starKey->Format(8, L"%S_%S", starGreekLetter.GetPointer(), skyObject->getConstellation().GetPointer());
@@ -59,8 +59,7 @@ SkyBuilder::Run() {
 			appResource->GetString(*starKey, starName);
 			AppLog("%S", starName.GetPointer());
 			if(starName != null) {
-				__starsList -> Add(*starKey);
-				AppLog("Star %S brightness %f added", starKey -> GetPointer(), skyObject -> getMagnitude());
+			__starsList -> Add(*starKey);
 			}
 		}
 		counter++;

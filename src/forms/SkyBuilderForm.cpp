@@ -75,9 +75,7 @@ result
 SkyBuilderForm::OnDraw(void) {
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 	Bitmap* bitmapBackground = pAppResource -> GetBitmapN(L"FormBackground.png");
-	AppLog("Getting Canvas");
 	Canvas* canvas = GetCanvasN();
-	AppLog("Getting Canvas - done");
 	result r = canvas -> DrawBitmap(GetBounds(), *bitmapBackground);
 	return r;
 }
