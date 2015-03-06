@@ -64,9 +64,6 @@ AlterLocationForm::OnInitializing(void)
 		pButton1->SetActionId(2);
 		pButton1->AddActionEventListener(*this);
 	}
-
-	AppLog("Alter location form initialized");
-
 	return r;
 }
 

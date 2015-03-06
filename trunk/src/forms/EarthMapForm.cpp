@@ -43,9 +43,8 @@ void
 EarthMapForm::Update(void) {
 	Control* control = GetControl(L"EARTH_MAP_FORM");
 	Canvas* canvas;
-	AppLog("Getting Canvas");
 	canvas = control -> GetCanvasN();
-	AppLog("Getting Canvas - done");
+
 	Osp::App::AppResource* appResource = Osp::App::AppResource::GetInstance();
 	Osp::Graphics::Bitmap* mapImage = appResource -> GetBitmapN("earth.png");
 
