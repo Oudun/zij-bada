@@ -15,11 +15,13 @@ using namespace Osp::App;
 StarForm::StarForm() {
 	starNameComparer = new StarNameComparer();
 	constellationNameComparer = new ConstellationNameComparer();
+	starBrightnessComparer = new StarBrightnessComparer();
 }
 
 StarForm::~StarForm() {
 	delete starNameComparer;
 	delete constellationNameComparer;
+	delete starBrightnessComparer;
 }
 
 bool
@@ -33,7 +35,7 @@ StarForm::OnInitializing(void) {
 
 	__pStarsList = new List();
 	__pStarsList -> Construct(
-			Rectangle(0, 0, 240, 360),
+			Rectangle(0, 0, 240, 340),
 			LIST_STYLE_NORMAL,
 			LIST_ITEM_SINGLE_TEXT, 48, 48, 200, 0);
 	__pStarsList -> AddItemEventListener(*this);
@@ -75,14 +77,19 @@ StarForm::Update(Osp::Base::Collection::IList* starsList) {
 		String* starNameAbbr = (String*) starNames -> GetCurrent();
 		String constAcronym;
 		String constName;
+		String starConstAcronym;
 		String greekLetter;
 
 		starNameAbbr -> SubString(0, 3, greekLetter);
-		starNameAbbr -> SubString(4, constAcronym);
+		starNameAbbr -> SubString(4, 3, constAcronym);
+		starNameAbbr -> SubString(0, 7, starConstAcronym);
 
 		AppResource* appResource = Application::GetInstance()->GetAppResource();
-		appResource->GetString(*starNameAbbr, starName);
+		appResource->GetString(starConstAcronym, starName);
 		appResource->GetString(constAcronym, constName);
+
+		AppLog("Constellation for %S is %S", constAcronym.GetPointer(), constName.GetPointer());
+		AppLog("Star for %S is %S", starConstAcronym.GetPointer(), starName.GetPointer());
 
 		starName.Append(" (");
 		starName.Append(GetGreek(greekLetter));
@@ -117,6 +124,7 @@ StarForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 		case ID_BUTTON_SORT_BRIGHTNESS: {
 			AppLog("ID_BUTTON_SORT_BRIGHTNESS pressed");
 			ArrayList* stars = (ArrayList*)SkyCanvas::getStars();
+			stars -> Sort(*starBrightnessComparer);
 			Update(stars);
 			RequestRedraw(true);
 			break;

@@ -108,10 +108,10 @@ SkyObject::Draw() {
 	if(getConstellation() != null && !getConstellation().IsEmpty() && getConstellation().GetLength()>2) {
 		int __gridX = (int)((point->x)/5);
 		int __gridY = (int)((point->y)/5);
-		AppLog("MAP %d %d %S", 5 * __gridX, 5 * __gridY, getConstellation().GetPointer());
+//		AppLog("MAP %d %d %S", 5 * __gridX, 5 * __gridY, getConstellation().GetPointer());
 		if (Projector::screenToConstMap[__gridX][ __gridY] == null) {
 			Projector::screenToConstMap[__gridX][ __gridY] = getConstellation();
-			AppLog("x:%d y:%d %S added", __gridX, __gridY, getConstellation().GetPointer());
+//			AppLog("x:%d y:%d %S added", __gridX, __gridY, getConstellation().GetPointer());
 		}
 	}
 

@@ -13,6 +13,7 @@
 #include "SkyCanvas.h"
 #include "comparers/StarNameComparer.h"
 #include "comparers/ConstellationNameComparer.h"
+#include "comparers/StarBrightnessComparer.h"
 
 class StarForm :
 	public Osp::Ui::Controls::Form,
@@ -45,6 +46,7 @@ class StarForm :
 	private:
 		StarNameComparer* starNameComparer;
 		ConstellationNameComparer* constellationNameComparer;
+		StarBrightnessComparer* starBrightnessComparer;
 
 
 };

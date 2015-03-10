@@ -25,8 +25,8 @@ ConstellationNameComparer::Compare(const Osp::Base::Object& obj1, const Osp::Bas
 	String constAcronymOne;
 	String constAcronymTwo;
 
-	((String&)obj1).SubString(4, constAcronymOne);
-	((String&)obj2).SubString(4, constAcronymTwo);
+	((String&)obj1).SubString(4, 3, constAcronymOne);
+	((String&)obj2).SubString(4, 3, constAcronymTwo);
 
 	AppLog("Comparing constellation names %S and %S", constAcronymOne.GetPointer(), constAcronymTwo.GetPointer());
 

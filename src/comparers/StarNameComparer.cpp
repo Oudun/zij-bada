@@ -22,20 +22,22 @@ StarNameComparer::~StarNameComparer() {
 result
 StarNameComparer::Compare(const Osp::Base::Object& obj1, const Osp::Base::Object& obj2, int& cmp) const {
 
-	String& constAcronymOne = (String&)obj1;
-	String& constAcronymTwo = (String&)obj2;
+	String starNameAcronymOne;
+	String starNameAcronymTwo;
+	String starNameOne;
+	String starNameTwo;
 
-	String constNameOne(L"");
-	String constNameTwo(L"");
+	((String&)obj1).SubString(0, 7, starNameAcronymOne);
+	((String&)obj2).SubString(0, 7, starNameAcronymTwo);
 
 	AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
 
-	appResource ->GetString(constAcronymOne, constNameOne);
-	appResource ->GetString(constAcronymTwo, constNameTwo);
+	appResource ->GetString(starNameAcronymOne, starNameOne);
+	appResource ->GetString(starNameAcronymTwo, starNameTwo);
 
-	cmp = Osp::Base::String::Compare(constNameOne, constNameTwo);
+	cmp = Osp::Base::String::Compare(starNameOne, starNameTwo);
 
-	AppLog("Comparing %S and %S with result %d", constNameOne.GetPointer(), constNameTwo.GetPointer(), cmp);
+	AppLog("Comparing %S and %S with result %d", starNameOne.GetPointer(), starNameTwo.GetPointer(), cmp);
 
 	return E_SUCCESS;
 }

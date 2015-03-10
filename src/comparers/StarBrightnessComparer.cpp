@@ -21,5 +21,23 @@ StarBrightnessComparer::~StarBrightnessComparer() {
 
 result
 StarBrightnessComparer::Compare(const Osp::Base::Object& obj1, const Osp::Base::Object& obj2, int& cmp) const {
-	//not implemented yet
+
+	String starOne;
+	String starTwo;
+
+	float brightnessOne;
+	float brightnessTwo;
+
+	((String&)obj1).SubString(8, 5, starOne);
+	((String&)obj2).SubString(8, 5, starTwo);
+
+	Float::Parse(starOne, brightnessOne);
+	Float::Parse(starTwo, brightnessTwo);
+
+	cmp = Float::Compare(brightnessOne, brightnessTwo);
+
+	AppLog("Comparing %f and %f with result %d", brightnessOne, brightnessTwo, cmp);
+
+	return E_SUCCESS;
+
 }
