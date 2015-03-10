@@ -21,11 +21,13 @@ StarBuilder::~StarBuilder() {
 
 void
 StarBuilder::DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int shiftY) {
-	String* starName = SkyCanvas::GetSelectedStar();
+	String* fullStarName = SkyCanvas::GetSelectedStar();
 	String greekLetter;
 	String constAcronym;
-	starName->SubString(0,3,greekLetter);
-	starName->SubString(4, constAcronym);
+	String starName;
+	fullStarName->SubString(0, 3, greekLetter);
+	fullStarName->SubString(4, 3, constAcronym);
+	fullStarName->SubString(0, 7, starName);
 	AppLog("Drawing %S %S", greekLetter.GetPointer(), constAcronym.GetPointer());
 	SkyObject* namedStar = SkyFactory::getStar(&greekLetter, &constAcronym);
 	if (namedStar !=null) {
@@ -48,7 +50,7 @@ StarBuilder::DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int
 		if (zoomedVertex != null) {
 			int x = zoomedVertex -> x;
 			int y = zoomedVertex -> y;
-			int diameter = namedStar->GetSizeOnCanvas();
+			int diameter = namedStar -> GetSizeOnCanvas();
 
 			AppLog("??%S %S X:%d Y:%d", namedStar->getName().GetPointer(), namedStar->getConstellation().GetPointer(), x, y);
 
@@ -60,7 +62,7 @@ StarBuilder::DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int
 
 			String starLongName;
 			AppResource* appResource = Application::GetInstance()->GetAppResource();
-			appResource->GetString(*starName, starLongName);
+			appResource->GetString(starName, starLongName);
 
 			canvas -> DrawText(Point(zoomedVertex->x, zoomedVertex->y+5), starLongName.GetPointer());
 		}

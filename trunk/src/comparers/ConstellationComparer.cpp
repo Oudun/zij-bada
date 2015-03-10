@@ -34,7 +34,7 @@ ConstellationComparer::Compare(const Osp::Base::Object& obj1, const Osp::Base::O
 
 	cmp = Osp::Base::String::Compare(constNameOne, constNameTwo);
 
-	AppLog("Comparing %S and %S with result %d", constNameOne.GetPointer(), constNameTwo.GetPointer(), cmp);
+//	AppLog("Comparing %S and %S with result %d", constNameOne.GetPointer(), constNameTwo.GetPointer(), cmp);
 
 	return E_SUCCESS;
 }

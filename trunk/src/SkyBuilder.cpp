@@ -50,16 +50,23 @@ SkyBuilder::Run() {
 			String starGreekLetter = skyObject -> getName();
 			starGreekLetter.ToUpper();
 
+			String* fullStarKey = new String();
+			fullStarKey->Format(14, L"%S_%S_%f",
+					starGreekLetter.GetPointer(),
+					skyObject->getConstellation().GetPointer(),
+					skyObject->getMagnitude());
+
 			String* starKey = new String();
-			starKey->Format(8, L"%S_%S", starGreekLetter.GetPointer(), skyObject->getConstellation().GetPointer());
+			starKey->Format(8, L"%S_%S",
+								starGreekLetter.GetPointer(),
+								skyObject->getConstellation().GetPointer());
 
 			String starName;
 			Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
-			AppLog("%S", starKey->GetPointer());
 			appResource->GetString(*starKey, starName);
-			AppLog("%S", starName.GetPointer());
+			AppLog("%S is %S", starName.GetPointer(), fullStarKey->GetPointer());
 			if(starName != null) {
-			__starsList -> Add(*starKey);
+			__starsList -> Add(*fullStarKey);
 			}
 		}
 		counter++;
