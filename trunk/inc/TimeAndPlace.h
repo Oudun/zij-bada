@@ -37,6 +37,9 @@ class TimeAndPlace {
 		static float siderialTime;
 		static Osp::Base::DateTime* dateTime;
 		static Osp::Base::DateTime* localDateTime;
+		static double GetJulianDay(int year, int month, int day, float UT);
+		static double GetSiderialTime(double jd, double lon);
+		static double Fraction(double value);
 
 };
 

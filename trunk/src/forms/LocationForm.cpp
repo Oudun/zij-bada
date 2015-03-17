@@ -103,7 +103,7 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		if (r == E_KEY_NOT_FOUND) {
 			appRegistry -> Add("LAST_LONGITUDE", coordinates->GetLongitude());
 		}
-		r = appRegistry -> Set("LAST_LATITUDE", coordinates->GetLatitude());
+		r = appRegistry -> Set("LAST_LATITUDE", coordinates ->GetLatitude());
 		if (r == E_KEY_NOT_FOUND) {
 			appRegistry -> Add("LAST_LATITUDE", coordinates->GetLatitude());
 		}

@@ -140,12 +140,8 @@ TimeAndPlace::GetReadableTime(void) {
 
 void
 TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTime) {
-	AppLog("Trying to access TimeAndPlace");
 	TimeAndPlace::SetLongitude(longitude);
-	AppLog("Trying to access TimeAndPlace 1");
 	TimeAndPlace::SetLatitude(latitude);
-	AppLog("Trying to access TimeAndPlace 2");
-	//TimeZone timeZone(60, L"Europe/London");
 
 	LocaleManager localeManager;
 	localeManager.Construct();
@@ -155,8 +151,6 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	AppLog("Locale code %S", (locale.GetLanguageCodeString().GetPointer()));
 	AppLog("TimeZone ID is %S", (timeZone.GetId()).GetPointer());
 
-//	TimeZone timeZone(TimeZone::GetGmtTimeZone());
-	AppLog("TP1");
 	SystemTime::GetCurrentTime(*currTime);
 	AppLog("TP2");
 	dateTime = currTime;
@@ -179,15 +173,33 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	float year = calendar->GetTimeField(TIME_FIELD_YEAR);
 	AppLog("TP10");
 	double daysSinceJ2000 = -1.5 + dayNum + (year-2000)*365 + (int)((year-2000)/4) + dayFract;
-	AppLog("TP11");
+	AppLog("TP11 daysSinceJ2000 %f", (float)daysSinceJ2000);
+	// Calculating local siderial time in degrees
+	// To get siderial time in hours it should be divided by 15
 	double slt = 100.46 + 0.985647 * daysSinceJ2000 + longitude + 15*(hrs + minHrs);
-	AppLog("TP12");
+	AppLog("TP12 LST is %f", (float)(slt/15));
 	int sltInt = (int)(slt/360);
 	AppLog("TP13");
 	float sltHrs = (slt-(360*sltInt))/15;
 	AppLog("TP14");
 	SetSiderialTime (sltHrs);
 	AppLog("TP15");
+
+	int yearInt = calendar -> GetTimeField(TIME_FIELD_YEAR);
+	int monthInt = calendar -> GetTimeField(TIME_FIELD_MONTH);
+	int dayInt = calendar -> GetTimeField(TIME_FIELD_DAY_OF_MONTH);
+	int hourInt = calendar -> GetTimeField(TIME_FIELD_HOUR_OF_DAY);
+	int minuteInt = calendar -> GetTimeField(TIME_FIELD_MINUTE);
+	int secondInt = calendar -> GetTimeField(TIME_FIELD_SECOND);
+	float UT = ((float)hourInt * 3600 + (float)minuteInt * 60 + (float)secondInt) / 3600;
+
+	AppLog("UT (%d, %d, %d) = %f",
+			hourInt, minuteInt, secondInt, UT);
+
+	AppLog("JulianDay for year %d month %d day %d time %f is %f", yearInt, monthInt, dayInt, UT, GetJulianDay(yearInt, monthInt, dayInt, UT));
+
+	GetSiderialTime(GetJulianDay(yearInt, monthInt, dayInt, UT), 0.1);
+
 }
 
 String*
@@ -227,4 +239,74 @@ TimeAndPlace::GetReadableLatitude(void) {
 	return result;
 
 }
+
+double
+TimeAndPlace::GetJulianDay(int year, int month, int day, float UT) {
+
+	if (year < 1900) {
+		 year = year + 1900;
+	}
+
+	if (month <= 2) {
+		month = month + 12;
+		year = year - 1;
+	}
+
+	double d = (float)Math::Floor(365.25 * (year + 4716)) + (float)Math::Floor(30.6001 * (month + 1)) + (float)day - (float)13 - (float)1524.5 + ((float)UT)/24.0;
+
+	return d;
+
+}
+
+
+double
+TimeAndPlace::GetSiderialTime(double jd, double longitude) {
+	double t_eph, ut, MJD0, MJD, GMST, LMST, localSiderial;
+	MJD = jd - 2400000.5;
+	MJD0 = Math::Floor(MJD);
+	ut = (MJD - MJD0) * 24.0;
+	t_eph  = (MJD0-51544.5)/36525.0;
+	GMST =  6.697374558 + 1.0027379093*ut + (8640184.812866 + (0.093104 - 0.0000062*t_eph)*t_eph)*t_eph/3600.0;
+	localSiderial = GMST + longitude/15.0;
+	LMST =  24.0 * Fraction((localSiderial)/24.0);
+
+	 int h = Math::Floor(LMST);
+	 int min = Math::Floor(60.0*Fraction(LMST));
+	 int secs = Math::Round(60.0*(60.0*Fraction(LMST)-min));
+
+
+
+	AppLog("Raw siderial time is %f", GMST);
+	AppLog("Raw local siderial time is %f", LMST);
+    AppLog("Local siderial time is %d hours %d minutes %d seconds", h, min, secs);
+
+
+	return LMST;
+}
+
+double
+TimeAndPlace::Fraction(double value) {
+	value = value - Math::Floor(value);
+	if (value < 0) {
+		 value = value + 1.0;
+	 }
+	 return value;
+}
+
+
+//function GM_Sidereal_Time (jd) {
+//		var t_eph, ut, MJD0, MJD;
+//
+//		MJD = jd - 2400000.5;
+//		MJD0 = Math.floor(MJD);
+//		ut = (MJD - MJD0)*24.0;
+//		t_eph  = (MJD0-51544.5)/36525.0;
+//		return  6.697374558 + 1.0027379093*ut + (8640184.812866 + (0.093104 - 0.0000062*t_eph)*t_eph)*t_eph/3600.0;
+//	}
+//
+//function LM_Sidereal_Time (jd, longitude) {
+//		var GMST = GM_Sidereal_Time(jd);
+//		var LMST =  24.0*frac((GMST + longitude/15.0)/24.0);
+//  return HoursMinutesSeconds(LMST);
+//	}
 

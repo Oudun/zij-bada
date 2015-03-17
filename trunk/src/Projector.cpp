@@ -38,7 +38,7 @@ Projector::GetProjection(float accentation, float declination, int sign, int wid
         +Math::Cos(radInDegree*decSigned)*Math::Cos(radInDegree*(TimeAndPlace::GetLatitude()))*Math::Cos(radInDegree*(ha));
 
     // show only stars higher than 30 degrees above ground
-    if (sinAlt < 0.5) {
+    if (sinAlt < 0) {
     	return null;
     }
     double cosAlt =
