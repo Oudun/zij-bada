@@ -41,12 +41,6 @@ StarBuilder::DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int
 						zoom*canvas->GetBounds().width,
 						zoom*canvas->GetBounds().height);
 
-		AppLog("??? RAH %f DED %f zoom %d canvas.w %d canvas.h %d",
-				namedStar->getRAH(),
-				namedStar->getDED(),
-				zoom,
-				canvas->GetBounds().width,
-				canvas->GetBounds().height);
 		if (zoomedVertex != null) {
 			int x = zoomedVertex -> x;
 			int y = zoomedVertex -> y;
