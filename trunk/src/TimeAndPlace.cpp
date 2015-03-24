@@ -140,6 +140,8 @@ TimeAndPlace::GetReadableTime(void) {
 
 void
 TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTime) {
+
+	AppLog("Getting siderial time for longitude %f latitude %f", longitude, latitude);
 	TimeAndPlace::SetLongitude(longitude);
 	TimeAndPlace::SetLatitude(latitude);
 
@@ -150,6 +152,7 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 
 	AppLog("Locale code %S", (locale.GetLanguageCodeString().GetPointer()));
 	AppLog("TimeZone ID is %S", (timeZone.GetId()).GetPointer());
+	AppLog("TimeZone offset is %d", (timeZone.GetRawOffset()));
 
 	SystemTime::GetCurrentTime(*currTime);
 	AppLog("TP2");
@@ -191,14 +194,18 @@ TimeAndPlace::SetSiderialTime(float longitude, float latitude, DateTime* currTim
 	int hourInt = calendar -> GetTimeField(TIME_FIELD_HOUR_OF_DAY);
 	int minuteInt = calendar -> GetTimeField(TIME_FIELD_MINUTE);
 	int secondInt = calendar -> GetTimeField(TIME_FIELD_SECOND);
-	float UT = ((float)hourInt * 3600 + (float)minuteInt * 60 + (float)secondInt) / 3600;
+	double UT = ((float)hourInt * 3600 + (float)minuteInt * 60 + (float)secondInt) / 3600;
+	UT = UT - (timeZone.GetRawOffset())/60.0;
 
 	AppLog("UT (%d, %d, %d) = %f",
 			hourInt, minuteInt, secondInt, UT);
 
-	AppLog("JulianDay for year %d month %d day %d time %f is %f", yearInt, monthInt, dayInt, UT, GetJulianDay(yearInt, monthInt, dayInt, UT));
+	AppLog("JulianDay for year %d month %d day %d time %f is %d", yearInt, monthInt, dayInt, UT, (int)(1000000*GetJulianDay(yearInt, monthInt, dayInt, UT)));
 
-	GetSiderialTime(GetJulianDay(yearInt, monthInt, dayInt, UT), 0.1);
+	GetSiderialTime(GetJulianDay(yearInt, monthInt, dayInt, UT), longitude);
+	//GetSiderialTime(GetJulianDay(yearInt, monthInt, dayInt, UT), 0.1);
+	//GetSiderialTime(GetJulianDay(yearInt, monthInt, dayInt, UT), 13.41);//13.41 - Berlin longitude
+
 
 }
 
@@ -261,6 +268,7 @@ TimeAndPlace::GetJulianDay(int year, int month, int day, float UT) {
 
 double
 TimeAndPlace::GetSiderialTime(double jd, double longitude) {
+	AppLog("Calculating siderial time for julian day %f %e %g longitude %f", jd, jd, jd, longitude);
 	double t_eph, ut, MJD0, MJD, GMST, LMST, localSiderial;
 	MJD = jd - 2400000.5;
 	MJD0 = Math::Floor(MJD);

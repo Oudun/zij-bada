@@ -95,8 +95,8 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		__pGpsProviderStatusLabel -> RequestRedraw(true);
 		locProvider -> CancelLocationUpdates();
 
+		TimeAndPlace::SetSiderialTime(coordinates->GetLongitude(), coordinates->GetLatitude(), new DateTime());
 
-		TimeAndPlace::SetSiderialTime(coordinates->GetLatitude(), coordinates->GetLongitude(), new DateTime());
 		Osp::App::AppRegistry* appRegistry = Osp::App::Application::GetInstance()->GetAppRegistry();
 		result r = E_SUCCESS;
 		r = appRegistry -> Set("LAST_LONGITUDE", coordinates->GetLongitude());
