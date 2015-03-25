@@ -81,8 +81,16 @@ LocationForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 void
 LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
-	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
-//	String str;
+
+	//const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
+
+	//just for testing:
+	QualifiedCoordinates* coordinates = new QualifiedCoordinates();
+	coordinates -> SetLatitude(55.0);
+	coordinates -> SetLongitude(37.0);
+//	coordinates -> SetLatitude(0.0);
+//	coordinates -> SetLongitude(60.0);
+
 	if (coordinates != 0) {
 		AppLog("Coordinates taken lon %f lat %f \n", coordinates->GetLongitude(), coordinates->GetLatitude());
 		__pActionAttemptLabel -> SetText(Constants::GetString(STRING_COORDINATES_TAKEN));
@@ -116,11 +124,6 @@ LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 		str.Append(attemptsCounter);
 		__pActionAttemptLabel -> SetText(str);
 		__pActionAttemptLabel -> RequestRedraw(true);
-
-//		//todo -remove later - this is for debugging;
-//		TimeAndPlace::SetSiderialTime(0, 0, new DateTime());
-//		locProvider -> CancelLocationUpdates();
-//		Osp::App::Application::GetInstance() -> SendUserEvent(LOCATION_SET, null);
 
 	} else {
 		attemptsCounter = 0;

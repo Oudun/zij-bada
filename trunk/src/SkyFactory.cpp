@@ -28,7 +28,7 @@ SkyFactory::getStars(float magnitude) {
 
 SkyIterator*
 SkyFactory::getStars() {
-	return getStars(7);
+	return getStars(2);
 }
 
 SkyObject*

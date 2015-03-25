@@ -68,6 +68,8 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 	while (e->MoveNext() == E_SUCCESS) {
 		e -> GetCurrent(starAtEnd);
 
+		AppLog("Iterating constellation stars RAH %f DED %f SIGN %d", starAtEnd->getRAH(), starAtEnd->getDED(), starAtEnd->isNorthern());
+
 		if (((starAtEnd -> getRAH())-(starAtStart -> getRAH())) > 12) {
 			starAtEnd -> setRAH(starAtEnd -> getRAH() - 24);
 		} else if (((starAtEnd -> getRAH())-(starAtStart -> getRAH())) < -12) {
@@ -87,7 +89,7 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 					GetProjection(
 							starAtMiddle -> getRAH(),
 							starAtMiddle -> getDED(),
-							starAtMiddle -> isNorthern() ? 1 : 1,
+							starAtMiddle -> isNorthern() ? 1 : 0,
 							zoom*canvas -> GetBounds().width,
 							zoom*canvas -> GetBounds().height);
 			if (zoomedVertex != null) {
