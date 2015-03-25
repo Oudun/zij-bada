@@ -28,7 +28,6 @@ SkyBuilder::Run() {
 	args -> Add(*(new Integer(0)));
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
 	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_BUILD_PROGRESS_RANGE_SET, args);
-	AppLog("Setting progress range from 0 to %d", skyIterator -> GetSize());
 	int counter = 0;
 	bool isVisible = false;
 	Osp::Base::Collection::ArrayList* __constellationsList;
@@ -64,7 +63,6 @@ SkyBuilder::Run() {
 			String starName;
 			Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
 			appResource->GetString(*starKey, starName);
-			AppLog("%S is %S", starName.GetPointer(), fullStarKey->GetPointer());
 			if(starName != null) {
 			__starsList -> Add(*fullStarKey);
 			}
@@ -79,9 +77,6 @@ SkyBuilder::Run() {
 	args = new ArrayList();
 	args -> Add(*(new Integer(skyIterator -> GetSize())));
 	IEnumerator* e = __constellationsList->GetEnumeratorN();
-	while (e->MoveNext()==E_SUCCESS) {
-		AppLog("List have %S", ((String*)e->GetCurrent())->GetPointer());
-	}
 	__constellationsList -> Sort(*comparer);
 	SkyCanvas::SetConstellations(__constellationsList);
 	SkyCanvas::SetStars(__starsList);

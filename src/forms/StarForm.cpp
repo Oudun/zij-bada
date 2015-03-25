@@ -42,13 +42,8 @@ StarForm::OnInitializing(void) {
 	__pStarsList -> SetBackgroundColor(COLOR_FORM_BKG);
 	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_FORM_TEXT);
 	__pStarsList -> SetItemTextColor(LIST_ITEM_TEXT2, COLOR_FORM_TEXT);
-	AddControl(*__pStarsList);
 
-//	__pButtonZoomIn = static_cast<Button *>(GetControl(L"IDC_BUTTON_ZOOM_IN"));
-//	__pButtonZoomIn -> SetNormalBackgroundBitmap(*bitmapZoomIn);
-//	__pButtonZoomIn -> SetPressedBackgroundBitmap(*bitmapZoomInPressed);
-//	__pButtonZoomIn -> SetActionId(ID_BUTTON_ZOOM_IN);
-//	__pButtonZoomIn -> AddActionEventListener(*this);
+	AddControl(*__pStarsList);
 
 	__buttonSortBrightness = static_cast<Button *>(GetControl(L"IDC_BUTTON_SORT_BRIGHTNESS"));
 	__buttonSortBrightness -> SetActionId(ID_BUTTON_SORT_BRIGHTNESS);
@@ -87,9 +82,6 @@ StarForm::Update(Osp::Base::Collection::IList* starsList) {
 		AppResource* appResource = Application::GetInstance()->GetAppResource();
 		appResource->GetString(starConstAcronym, starName);
 		appResource->GetString(constAcronym, constName);
-
-		AppLog("Constellation for %S is %S", constAcronym.GetPointer(), constName.GetPointer());
-		AppLog("Star for %S is %S", starConstAcronym.GetPointer(), starName.GetPointer());
 
 		starName.Append(" (");
 		starName.Append(GetGreek(greekLetter));

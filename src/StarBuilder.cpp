@@ -37,7 +37,7 @@ StarBuilder::DrawCanvas(Osp::Graphics::Canvas* canvas, int zoom, int shiftX, int
 				GetProjection(
 						namedStar->getRAH(),
 						namedStar->getDED(),
-						namedStar->isNorthern() ? 1 : 1,
+						namedStar->isNorthern() ? 1 : 0,
 						zoom*canvas->GetBounds().width,
 						zoom*canvas->GetBounds().height);
 
