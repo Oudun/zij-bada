@@ -23,6 +23,14 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient5790"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ceccd3;stop-opacity:1;"
+         offset="0"
+         id="stop5792" />
+    </linearGradient>
+    <linearGradient
        inkscape:collect="always"
        id="linearGradient3789">
       <stop
@@ -1250,6 +1258,57 @@
          offset="1"
          id="stop3793-9-7" />
     </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3789-5"
+       id="linearGradient4573-9"
+       gradientUnits="userSpaceOnUse"
+       x1="148.88477"
+       y1="516.64789"
+       x2="293.97238"
+       y2="516.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3789-5">
+      <stop
+         style="stop-color:#e1efff;stop-opacity:1;"
+         offset="0"
+         id="stop3791-43" />
+      <stop
+         style="stop-color:#e1efff;stop-opacity:0;"
+         offset="1"
+         id="stop3793-1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3789-5"
+       id="linearGradient4019-2"
+       gradientUnits="userSpaceOnUse"
+       x1="148.88477"
+       y1="516.64789"
+       x2="293.97238"
+       y2="516.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3789-4-8-0"
+       id="linearGradient4573-17-6-6"
+       gradientUnits="userSpaceOnUse"
+       x1="148.88477"
+       y1="516.64789"
+       x2="293.97238"
+       y2="516.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3789-4-8-0">
+      <stop
+         style="stop-color:#e1efff;stop-opacity:1;"
+         offset="0"
+         id="stop3791-0-5-6" />
+      <stop
+         style="stop-color:#e1efff;stop-opacity:0;"
+         offset="1"
+         id="stop3793-9-7-6" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1259,8 +1318,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.1564197"
-     inkscape:cx="138.72321"
-     inkscape:cy="-356.12476"
+     inkscape:cx="-52.614226"
+     inkscape:cy="-240.78417"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1270,7 +1329,16 @@
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="1,0"
+       position="-7.9203662,-449.24317"
+       id="guide4243" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="233.4924,-461.59894"
+       id="guide4245" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -1279,7 +1347,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1288,6 +1356,30 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1012.3622)">
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:connector-curvature="0"
+       id="path4050-4-0-9-8-1-0"
+       d="m -163.75739,1325.7755 c 0,12.6197 0,25.2394 0,37.8591 21.95247,0 43.90491,0 65.857335,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.952425,0 -43.904865,0 -65.857335,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;stroke:none;fill-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:connector-curvature="0"
+       id="path4050-4-0-9-8-1-0-0"
+       d="m -97.670964,1325.7756 c 0,12.6197 0,25.2394 0,37.8591 21.95247,0 43.90491,0 65.857335,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.952425,0 -43.904865,0 -65.857335,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;stroke:none;fill-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:connector-curvature="0"
+       id="path4050-4-0-9-8-1-0-1"
+       d="m -32.032581,1325.7756 c 0,12.6197 0,25.2394 0,37.8591 21.95247,0 43.90491,0 65.857335,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.952425,0 -43.904865,0 -65.857335,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;stroke:none;fill-opacity:1" />
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
@@ -2962,7 +3054,7 @@
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
        inkscape:connector-curvature="0"
        id="path4050-4-0-9-8-1"
        d="m -7.0890992,1440.3868 c 0,12.6197 0,25.2394 0,37.8591 21.9524702,0 43.9049112,0 65.8573382,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.952427,0 -43.904868,0 -65.8573382,0 l 0,1.1145 0,1.1146 z"
@@ -3012,7 +3104,7 @@
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
        inkscape:connector-curvature="0"
        id="path4050-4-0-9-8-1-2"
        d="m 58.738636,1440.3868 c 0,12.6197 0,25.2394 0,37.8591 21.95247,0 43.904904,0 65.857334,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.95243,0 -43.904864,0 -65.857334,0 l 0,1.1145 0,1.1146 z"
@@ -3020,10 +3112,848 @@
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
        inkscape:connector-curvature="0"
        id="path4050-4-0-9-8-1-7"
        d="m 124.77315,1440.3868 c 0,12.6197 0,25.2394 0,37.8591 21.95246,0 43.9049,0 65.85734,0 0,-13.3627 0,-26.7255 0,-40.0882 -21.95244,0 -43.90488,0 -65.85734,0 l 0,1.1145 0,1.1146 z"
        style="fill:#022830;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:connector-curvature="0"
+       id="path4050-4-0-9-3"
+       d="m 39.184129,1529.6845 c 0,12.6197 0,25.2394 0,37.8591 25.63586,0 51.27168,0 76.907501,0 0,-13.3627 0,-26.7255 0,-40.0882 -25.635821,0 -51.271641,0 -76.907501,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:connector-curvature="0"
+       id="path4050-3"
+       d="m 116.83472,1529.139 c 0,12.6197 0,25.2394 0,37.8591 25.77456,0 51.5491,0 77.32365,0 0,-13.3627 0,-26.7255 0,-40.0882 -25.77455,0 -51.54909,0 -77.32365,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       inkscape:connector-curvature="0"
+       id="path4048-4"
+       d="m 194.08847,1529.139 c 0,12.6197 0,25.2394 0,37.8591 14.4417,0 28.88339,0 43.32507,0 0,-13.3627 0,-26.7255 0,-40.0882 -14.44168,0 -28.88337,0 -43.32507,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:#022830;fill-opacity:1;stroke:none"
+       d="m -4.2379609,1529.139 c 0,12.6197 0,25.2394 0,37.8591 14.4416999,0 28.8833899,0 43.3250699,0 0,-13.3627 0,-26.7255 0,-40.0882 -14.44168,0 -28.88337,0 -43.3250699,0 l 0,1.1145 0,1.1146 z"
+       id="rect3875-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomOut.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient4019-2);fill-opacity:1;stroke:#dff4fb;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path2985-1"
+       sodipodi:cx="221.42857"
+       sodipodi:cy="516.64789"
+       sodipodi:rx="70"
+       sodipodi:ry="70"
+       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
+       transform="matrix(0.18882625,0,0,0.18882625,-24.184971,1449.7986)"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomOut.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       id="rect3785-3"
+       width="16.714287"
+       height="3"
+       x="9.2604675"
+       y="1545.8553"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomOut.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       id="path3935-8"
+       sodipodi:sides="7"
+       sodipodi:cx="12.276024"
+       sodipodi:cy="14.730339"
+       sodipodi:r1="12.362123"
+       sodipodi:r2="6.1810622"
+       sodipodi:arg1="2.3323895"
+       sodipodi:arg2="2.7811884"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       transform="matrix(0.72429929,0,0,0.69174631,140.66532,1540.9454)"
+       inkscape:transform-center-x="0.27014461"
+       inkscape:transform-center-y="0.16801088"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:transform-center-y="0.043720278"
+       inkscape:transform-center-x="0.070379185"
+       transform="matrix(0.18869871,0,0,0.18021782,134.00891,1538.8376)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path3945-74"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       sodipodi:type="star"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       id="path3947-2"
+       sodipodi:sides="7"
+       sodipodi:cx="12.276024"
+       sodipodi:cy="14.730339"
+       sodipodi:r1="12.362123"
+       sodipodi:r2="6.1810622"
+       sodipodi:arg1="2.3323895"
+       sodipodi:arg2="2.7811884"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       transform="matrix(0.25832051,0,0,0.24671053,143.75337,1531.9472)"
+       inkscape:transform-center-x="20.604575"
+       inkscape:transform-center-y="3.4608852e-005"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       id="path3949-77"
+       sodipodi:sides="7"
+       sodipodi:cx="12.276024"
+       sodipodi:cy="14.730339"
+       sodipodi:r1="12.362123"
+       sodipodi:r2="6.1810622"
+       sodipodi:arg1="2.3323895"
+       sodipodi:arg2="2.7811884"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       transform="matrix(0.18869871,0,0,0.18021782,157.16975,1536.2632)"
+       inkscape:transform-center-x="0.070379185"
+       inkscape:transform-center-y="0.043720278"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       y="1545.8553"
+       x="206.93866"
+       height="3"
+       width="16.714287"
+       id="rect4042-9"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       id="rect4046-3"
+       width="16.714287"
+       height="3"
+       x="-1555.7125"
+       y="213.79578"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0,-1,1,0,0,0)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:transform-center-y="0.11138789"
+       inkscape:transform-center-x="0.17911636"
+       transform="matrix(0.48023859,0,0,0.4586547,165.43613,1536.1398)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4052-19"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\Constellations.png"
+       inkscape:transform-center-y="3.4608852e-005"
+       inkscape:transform-center-x="20.604575"
+       transform="matrix(0.25832051,0,0,0.24671053,162.58555,1551.0736)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-8"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       transform="matrix(0.18882625,0,0,0.18882625,173.81502,1449.7986)"
+       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
+       sodipodi:ry="70"
+       sodipodi:rx="70"
+       sodipodi:cy="516.64789"
+       sodipodi:cx="221.42857"
+       id="path4571-6"
+       style="fill:url(#linearGradient4573-9);fill-opacity:1;stroke:#dff4fb;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 71.107409,1555.2539 c 0,0 0,0 0,-0.2254"
+       id="path3719-5"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#d9e7ea;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 78.268259,1555.0285 c 4.47552,0 8.05594,-3.6056 8.05594,-8.1126 0,-4.5071 -3.58042,-8.1127 -8.05594,-8.1127 -4.47553,0 -8.05595,3.6056 -8.05595,8.1127 0,4.507 3.58042,8.1126 8.05595,8.1126 z m -1.11889,-9.9154 c -0.22377,-4.5071 -0.22377,-4.5071 -0.22377,-4.5071 1.79021,4.0564 1.79021,4.0564 1.79021,4.0564 2.68531,-3.3803 2.68531,-3.3803 2.68531,-3.3803 -1.34265,4.2817 -1.34265,4.2817 -1.34265,4.2817 4.47552,-0.9014 4.47552,-0.9014 4.47552,-0.9014 -3.8042,2.4788 -3.8042,2.4788 -3.8042,2.4788 4.02798,2.0282 4.02798,2.0282 4.02798,2.0282 -4.47553,-0.4507 -4.47553,-0.4507 -4.47553,-0.4507 1.79021,4.0563 1.79021,4.0563 1.79021,4.0563 -3.13287,-3.1549 -3.13287,-3.1549 -3.13287,-3.1549 -1.34265,4.2817 -1.34265,4.2817 -1.34265,4.2817 -0.22378,-4.5071 -0.22378,-4.5071 -0.22378,-4.5071 -3.8042,2.2536 -3.8042,2.2536 -3.8042,2.2536 2.68532,-3.6057 2.68532,-3.6057 2.68532,-3.6057 -4.47553,-0.4507 -4.47553,-0.4507 -4.47553,-0.4507 4.25175,-1.1267 4.25175,-1.1267 4.25175,-1.1267 -2.90909,-3.3803 -2.90909,-3.3803 -2.90909,-3.3803 z"
+       id="path3723-28"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\NamedStar.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g4251"
+       transform="matrix(0.09852685,0,0,0.00337746,-33.165063,567.85689)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:transform-center-y="5.5285839e-005"
+       inkscape:transform-center-x="34.866573"
+       transform="matrix(0.43712382,0,0,0.44321758,42.51353,1450.7572)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:transform-center-y="-21.336776"
+       inkscape:transform-center-x="-74.210014"
+       transform="matrix(-0.94047529,0.26874763,0.27145039,0.94993355,17.541568,1440.4891)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-2"
+       style="fill:#d9eae5;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       sodipodi:type="star" />
+    <text
+       xml:space="preserve"
+       style="font-size:34.9717598px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="60.86937"
+       y="1482.9954"
+       id="text5083"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0084213,0.99164901)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085"
+         x="60.86937"
+         y="1482.9954"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:34.9717598px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="97.405296"
+       y="1482.8612"
+       id="text5083-4"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0084213,0.99164902)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-8"
+         x="97.405296"
+         y="1482.8612"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">Z</tspan></text>
+    <g
+       id="g4251-6"
+       transform="matrix(0.09852685,0,0,0.00337746,27.283145,567.5868)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253-5"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:16.76653481px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="127.48336"
+       y="1568.7775"
+       id="text5083-0"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0721906,0.93266999)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-9"
+         x="127.48336"
+         y="1568.7775"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">A</tspan></text>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="5.5285839e-005"
+       inkscape:transform-center-x="34.866573"
+       transform="matrix(0.43712382,0,0,0.44321758,129.20996,1440.4521)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="7.6765067e-005"
+       inkscape:transform-center-x="30.377261"
+       transform="matrix(0.3808411,0,0,0.39656629,134.13633,1463.8889)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="2.2318183e-005"
+       inkscape:transform-center-x="30.377261"
+       transform="matrix(0.3808411,0,0,0.34058475,166.73147,1440.4208)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="5.5285839e-005"
+       inkscape:transform-center-x="34.866573"
+       transform="matrix(0.43712382,0,0,0.44321758,171.43807,1463.8627)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-1-8"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.76653481px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="157.57739"
+       y="1569.085"
+       id="text5083-0-9"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0721906,0.93266999)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-9-3"
+         x="157.57739"
+         y="1569.085"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">Z</tspan></text>
+    <g
+       id="g4251-6-4"
+       transform="matrix(0.09852685,0,0,0.00337746,93.817615,568.25885)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253-5-4"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       inkscape:connector-curvature="0"
+       id="path4048-2-6-8"
+       d="m 34.171469,1325.7755 c 0,12.6197 0,25.2394 0,37.8591 14.4417,0 28.88339,0 43.32507,0 0,-13.3627 0,-26.7255 0,-40.0882 -14.44168,0 -28.88337,0 -43.32507,0 l 0,1.1145 0,1.1146 z"
+       style="fill:#022830;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       y="1342.4919"
+       x="47.021629"
+       height="3"
+       width="16.714287"
+       id="rect4042-2-1-4"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       id="rect4046-7-8-9"
+       width="16.714287"
+       height="3"
+       x="-1352.3491"
+       y="53.878777"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0,-1,1,0,0,0)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="D:\bada\2.0.3\IDE\workspace\StarGuide\Res\240x400\ZoomIn.png"
+       transform="matrix(0.18882625,0,0,0.18882625,13.898019,1246.4352)"
+       d="m 291.42857,516.64789 a 70,70 0 1 1 -140,0 70,70 0 1 1 140,0 z"
+       sodipodi:ry="70"
+       sodipodi:rx="70"
+       sodipodi:cy="516.64789"
+       sodipodi:cx="221.42857"
+       id="path4571-2-9-6"
+       style="fill:url(#linearGradient4573-17-6-6);fill-opacity:1;stroke:#dff4fb;stroke-width:5.08762884;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       style="fill:#64808b;fill-opacity:1;stroke:#dff4fb;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m -155.49206,1327.3528 a 3.9991627,3.4719208 0 0 0 -4.00603,3.4779 l 0,25.0717 a 3.9991627,3.4719208 0 0 0 4.00603,3.4779 l 49.79662,0 a 3.9991627,3.4719208 0 0 0 4.00603,-3.4779 l 0,-25.0717 a 3.9991627,3.4719208 0 0 0 -4.00603,-3.4779 l -49.79662,0 z"
+       id="path5383"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:transform-center-y="7.2762419e-005"
+       inkscape:transform-center-x="30.663687"
+       transform="matrix(0.384432,0,0,0.36226299,-114.88658,1338.1554)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-29"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:transform-center-y="-17.439532"
+       inkscape:transform-center-x="-65.264589"
+       transform="matrix(-0.82710844,0.21966033,0.23872919,0.77642626,-136.84836,1329.7628)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-2-1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#dff4fb;stroke-opacity:1"
+       sodipodi:type="star" />
+    <g
+       id="g4251-6-40-0"
+       transform="matrix(0.07788126,0,0,0.00366043,-176.31161,380.88967)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByBrightness.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253-5-7-1"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       style="fill:#64808b;fill-opacity:1;stroke:#dff4fb;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m -24.450259,1327.3528 a 3.9991627,3.4719208 0 0 0 -4.00603,3.4779 l 0,25.0717 a 3.9991627,3.4719208 0 0 0 4.00603,3.4779 l 49.796625,0 a 3.9991627,3.4719208 0 0 0 4.00603,-3.4779 l 0,-25.0717 a 3.9991627,3.4719208 0 0 0 -4.00603,-3.4779 l -49.796625,0 z"
+       id="path5383-2-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.39714718px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-17.768946"
+       y="1372.0315"
+       id="text5083-0-6"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0183277,0.98200216)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-9-36"
+         x="-17.768946"
+         y="1372.0315"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">A</tspan></text>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="3.386989e-005"
+       inkscape:transform-center-x="24.48518"
+       transform="matrix(0.30697181,0,0,0.34504829,-23.120989,1329.6661)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-15"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="2.1784082e-005"
+       inkscape:transform-center-x="21.332545"
+       transform="matrix(0.26744706,0,0,0.3087299,-23.245779,1346.7917)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-1-4"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="-2.4561217e-005"
+       inkscape:transform-center-x="21.332543"
+       transform="matrix(0.26744706,0,0,0.26514784,10.556567,1329.4177)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3-2"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-x="24.485179"
+       transform="matrix(0.30697181,0,0,0.34504829,16.774077,1346.7713)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-1-8-0"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.39714718px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="14.758437"
+       y="1371.1183"
+       id="text5083-0-9-9"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0183277,0.98200216)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-9-3-7"
+         x="14.758437"
+         y="1371.1183"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">Z</tspan></text>
+    <g
+       id="g4251-6-40-6"
+       transform="matrix(0.07788126,0,0,0.00366043,-49.067219,379.5331)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253-5-7-5"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="-2.4561217e-005"
+       inkscape:transform-center-x="21.332543"
+       transform="matrix(0.26744706,0,0,0.26514784,19.666797,1333.3478)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3-2-7"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByConstName.png"
+       inkscape:transform-center-y="-7.0620451e-005"
+       inkscape:transform-center-x="33.304042"
+       transform="matrix(0.4175343,0,0,0.43309248,-13.706769,1343.6023)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3-2-5"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       style="fill:#64808b;fill-opacity:1;stroke:#dff4fb;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m -89.97116,1327.3528 a 3.9991627,3.4719208 0 0 0 -4.00603,3.4779 l 0,25.0717 a 3.9991627,3.4719208 0 0 0 4.00603,3.4779 l 49.796625,0 a 3.9991627,3.4719208 0 0 0 4.00603,-3.4779 l 0,-25.0717 a 3.9991627,3.4719208 0 0 0 -4.00603,-3.4779 l -49.796625,0 z"
+       id="path5383-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:27.54057312px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-88.380127"
+       y="1369.6611"
+       id="text5083-3"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0121967,0.98795027)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-5"
+         x="-88.380127"
+         y="1369.6611"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.54057312px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9e7ea;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-59.607742"
+       y="1369.5555"
+       id="text5083-4-9"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0121967,0.98795027)"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5085-8-8"
+         x="-59.607742"
+         y="1369.5555"
+         style="font-weight:bold;fill:#d9e7ea;fill-opacity:1;-inkscape-font-specification:Sans Bold">Z</tspan></text>
+    <g
+       id="g4251-6-40"
+       transform="matrix(0.07788126,0,0,0.00366043,-116.41172,379.81947)"
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4253-5-7"
+         d="m 729.9506,263181.96 -40.32876,-1101.24 0,672.19 -72.59177,0 0,-672.19 -40.90489,1101.24 40.90489,1115.55 0,-672.19 72.59177,0 0,672.19 40.32876,-1115.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:transform-center-y="-7.0620451e-005"
+       inkscape:transform-center-x="39.289793"
+       transform="matrix(0.49257792,0,0,0.43309248,-88.857768,1329.7131)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3-2-1"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\BADA_PROJECTS\StarGuide\Res\240x400\SortByStarName.png"
+       inkscape:transform-center-y="-7.0620451e-005"
+       inkscape:transform-center-x="39.289793"
+       transform="matrix(0.49257792,0,0,0.43309248,-50.774064,1327.6968)"
+       d="M 3.7452277,23.677271 6.4920681,16.910106 -0.03783358,13.639015 6.9655757,11.567323 5.4516909,4.4225481 l 5.9862681,4.1838071 4.642118,-5.638297 0.461345,7.2888138 7.302512,0.113934 -5.41098,4.905195 4.463964,5.78037 -7.208727,-1.172136 -1.736039,7.09407 -3.578155,-6.366825 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.7811884"
+       sodipodi:arg1="2.3323895"
+       sodipodi:r2="6.1810622"
+       sodipodi:r1="12.362123"
+       sodipodi:cy="14.730339"
+       sodipodi:cx="12.276024"
+       sodipodi:sides="7"
+       id="path4054-14-0-6-3-2-1-2"
+       style="fill:#d9e7ea;fill-opacity:1;stroke:none"
+       sodipodi:type="star" />
   </g>
 </svg>
