@@ -118,9 +118,38 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 	//zoomedVertexesStart -> AddItems(*zoomedVertexesEnd);
 
 	canvas -> SetForegroundColor(COLOR_CONSTEL_BORDER);
-	canvas -> DrawPolygon(*zoomedVertexesStart);
-	canvas -> SetForegroundColor(COLOR_SELECTED_STAR);
-	canvas -> DrawPolygon(*zoomedVertexesEnd);
+//	canvas -> DrawPolygon(*zoomedVertexesStart);
+//	canvas -> SetForegroundColor(COLOR_SELECTED_STAR);
+//	canvas -> DrawPolygon(*zoomedVertexesEnd);
+	AppLog("A");
+	DrawPolygons(canvas, zoomedVertexesStart);
+	AppLog("B");
+	DrawPolygons(canvas, zoomedVertexesEnd);
+	AppLog("C");
+}
 
+void
+ConstellationBuilder::DrawPolygons(Canvas* canvas, IList* vertexes) {
+	if (vertexes == null || vertexes -> GetCount() == 0) {
+		return;
+	}
+	AppLog("list has %d elements ", vertexes -> GetCount());
+	IEnumerator* e = vertexes -> GetEnumeratorN();
+	AppLog("0");
+	e ->MoveNext();
+	AppLog("1");
+	Point* startPoint = (Point*)(e ->GetCurrent());
+	AppLog("2");
+	Point* nextPoint;
+	AppLog("3");
+	while (e -> MoveNext() == E_SUCCESS) {
+		AppLog("4");
+		nextPoint = (Point*)(e -> GetCurrent());
+		AppLog("5");
+		canvas -> DrawLine(*startPoint, *nextPoint);
+		AppLog("6");
+		startPoint = nextPoint;
+		AppLog("7");
+	}
 }
 
