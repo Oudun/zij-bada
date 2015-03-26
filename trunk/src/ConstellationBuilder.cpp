@@ -80,10 +80,21 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 
 			starAtMiddle -> setDED((i*(starAtEnd -> getDED()) + (GRANULARITY - i)*(starAtStart -> getDED()))/GRANULARITY);
 			starAtMiddle -> setRAH((i*(starAtEnd -> getRAH()) + (GRANULARITY - i)*(starAtStart -> getRAH()))/GRANULARITY);
-			starAtMiddle -> setSign(starAtStart->isNorthern()); //todo - rewrite
+			//starAtMiddle -> setSign(starAtStart->isNorthern()); //todo - rewrite
+			if (starAtStart->isNorthern()==starAtEnd->isNorthern()) {
+				starAtMiddle -> setSign(starAtStart->isNorthern());
+			} else {
+				float f1 = starAtStart -> getDED() * (starAtStart->isNorthern()? 1.0 : -1.0);
+				float f2 = starAtEnd -> getDED()* (starAtEnd->isNorthern()? 1.0 : -1.0);
+				float f = (f1*((float)(GRANULARITY-i)) + f2*(float)i)/(float)GRANULARITY;
+				AppLog("Start %f Middle %f End %f", f1, f, f2);
+				starAtMiddle -> setSign(f > 0 ? 1 : 0);
+			}
 
-			AppLog("Start DED %f RAH %f Middle #%d DED %f RAH %f      DIFF %f", starAtStart->getDED(), starAtStart->getRAH(),
-					i, starAtMiddle ->getDED(), starAtMiddle -> getRAH(), starAtStart->getDED()-starAtMiddle->getDED());
+			//starAtMiddle -> setSign(starAtStart->isNorthern())
+
+			//AppLog("Start DED %f RAH %f Middle #%d DED %f RAH %f      DIFF %f", starAtStart->getDED(), starAtStart->getRAH(),
+			//		i, starAtMiddle ->getDED(), starAtMiddle -> getRAH(), starAtStart->getDED()-starAtMiddle->getDED());
 
 			PrecisePoint* zoomedVertex = Projector::
 					GetProjection(
@@ -115,41 +126,32 @@ ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shift
 
 	AppLog("Constellation sequence %S", sequence.GetPointer());
 
-	//zoomedVertexesStart -> AddItems(*zoomedVertexesEnd);
-
 	canvas -> SetForegroundColor(COLOR_CONSTEL_BORDER);
-//	canvas -> DrawPolygon(*zoomedVertexesStart);
-//	canvas -> SetForegroundColor(COLOR_SELECTED_STAR);
-//	canvas -> DrawPolygon(*zoomedVertexesEnd);
-	AppLog("A");
-	DrawPolygons(canvas, zoomedVertexesStart);
-	AppLog("B");
-	DrawPolygons(canvas, zoomedVertexesEnd);
-	AppLog("C");
+	zoomedVertexesStart -> AddItems(*zoomedVertexesEnd);
+	DrawPolygons(canvas, zoomedVertexesStart, __isTorn);
+	//DrawPolygons(canvas, zoomedVertexesEnd);
+
 }
 
 void
-ConstellationBuilder::DrawPolygons(Canvas* canvas, IList* vertexes) {
+ConstellationBuilder::DrawPolygons(Canvas* canvas, IList* vertexes, bool isTorn) {
 	if (vertexes == null || vertexes -> GetCount() == 0) {
 		return;
 	}
 	AppLog("list has %d elements ", vertexes -> GetCount());
 	IEnumerator* e = vertexes -> GetEnumeratorN();
-	AppLog("0");
 	e ->MoveNext();
-	AppLog("1");
+	Point* firstPoint = (Point*)(e ->GetCurrent());
 	Point* startPoint = (Point*)(e ->GetCurrent());
-	AppLog("2");
+	canvas -> FillEllipse(Color::COLOR_RED, Rectangle((startPoint->x)-2, (startPoint->y)-2, 4, 4));
 	Point* nextPoint;
-	AppLog("3");
 	while (e -> MoveNext() == E_SUCCESS) {
-		AppLog("4");
 		nextPoint = (Point*)(e -> GetCurrent());
-		AppLog("5");
 		canvas -> DrawLine(*startPoint, *nextPoint);
-		AppLog("6");
 		startPoint = nextPoint;
-		AppLog("7");
+	}
+	if (!isTorn) {
+		canvas -> DrawLine(*nextPoint, *firstPoint);
 	}
 }
 

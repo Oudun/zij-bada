@@ -25,7 +25,7 @@ class ConstellationBuilder {
 		static ConstellationDbIterator* constelDbIterator;
 
 	private:
-		static void DrawPolygons(Canvas* canvas, IList* vertexes);
+		static void DrawPolygons(Canvas* canvas, IList* vertexes, bool isTorn);
 
 
 };
