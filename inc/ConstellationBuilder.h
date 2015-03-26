@@ -24,6 +24,9 @@ class ConstellationBuilder {
 		static const int CONSTELLATION_READY = 50;
 		static ConstellationDbIterator* constelDbIterator;
 
+	private:
+		static void DrawPolygons(Canvas* canvas, IList* vertexes);
+
 
 };
 

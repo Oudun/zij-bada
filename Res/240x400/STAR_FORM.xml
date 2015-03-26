@@ -11,18 +11,23 @@
         <layout mode="Landscape" style="FORM_STYLE_INDICATOR"/>
     </Form>
     <Button id="IDC_BUTTON_SORT_BRIGHTNESS" parent="STAR_FORM">
-        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="Sort by brightness" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="40" mode="Portrait" width="80" x="0" y="340"/>
+        <property NormalBGBitmapPath="\240x400\SortByBrightness.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="40" mode="Portrait" width="66" x="0" y="340"/>
         <layout height="24" mode="Landscape" width="166" x="48" y="197"/>
     </Button>
     <Button id="IDC_BUTTON_SORT_CONSTELLATION" parent="STAR_FORM">
-        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="Sort by constellation" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="39" mode="Portrait" width="80" x="79" y="340"/>
+        <property NormalBGBitmapPath="\240x400\SortByStarName.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="39" mode="Portrait" width="66" x="66" y="340"/>
         <layout height="24" mode="Landscape" width="166" x="216" y="193"/>
     </Button>
     <Button id="IDC_BUTTON_SORT_NAME" parent="STAR_FORM">
-        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="Sort by star name" textSize="14" vAlign="ALIGN_MIDDLE"/>
-        <layout height="39" mode="Portrait" width="80" x="158" y="340"/>
+        <property NormalBGBitmapPath="\240x400\SortByConstName.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="39" mode="Portrait" width="66" x="132" y="340"/>
         <layout height="24" mode="Landscape" width="86" x="313" y="197"/>
+    </Button>
+    <Button id="IDC_BUTTON1" parent="STAR_FORM">
+        <property NormalBGBitmapPath="\240x400\Help.png" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="40" mode="Portrait" width="43" x="197" y="340"/>
+        <layout height="24" mode="Landscape" width="71" x="328" y="197"/>
     </Button>
 </Scene>
