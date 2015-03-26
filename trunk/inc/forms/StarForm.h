@@ -37,6 +37,7 @@ class StarForm :
 		Osp::Ui::Controls::Button* __buttonSortBrightness;
 		Osp::Ui::Controls::Button* __buttonSortConstellation;
 		Osp::Ui::Controls::Button* __buttonSortStarName;
+		Osp::Ui::Controls::Button* __buttonStarHelp;
 
 		static const int ID_BUTTON_SORT_BRIGHTNESS = 1;
 		static const int ID_BUTTON_SORT_CONSTELLATION = 2;

@@ -49,6 +49,7 @@ StarForm::OnInitializing(void) {
 	Bitmap* __bitmapSortByBrightness = pAppResource -> GetBitmapN(L"SortByBrightness.png");
 	Bitmap* __bitmapSortByStarName = pAppResource -> GetBitmapN(L"SortByStarName.png");
 	Bitmap* __bitmapSortByConstName = pAppResource -> GetBitmapN(L"SortByConstName.png");
+	Bitmap* __bitmapHelp = pAppResource -> GetBitmapN(L"Help.png");
 
 	__buttonSortBrightness = static_cast<Button *>(GetControl(L"IDC_BUTTON_SORT_BRIGHTNESS"));
 	__buttonSortBrightness -> SetActionId(ID_BUTTON_SORT_BRIGHTNESS);
@@ -64,6 +65,10 @@ StarForm::OnInitializing(void) {
 	__buttonSortStarName -> SetActionId(ID_BUTTON_SORT_NAME);
 	__buttonSortStarName -> AddActionEventListener(*this);
 	__buttonSortStarName -> SetNormalBackgroundBitmap(*__bitmapSortByConstName);
+
+	__buttonStarHelp = static_cast<Button *>(GetControl(L"IDC_BUTTON_HELP"));
+	__buttonStarHelp -> AddActionEventListener(*this);
+	__buttonStarHelp -> SetNormalBackgroundBitmap(*__bitmapHelp);
 
 	return E_SUCCESS;
 
