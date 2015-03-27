@@ -36,6 +36,9 @@ static String STRING_LOC_TEMP_UNAVAIL("LOC_TEMP_UNAVAIL");
 static String STRING_LOC_STATE_UNKNOWN("LOC_STATE_UNKNOWN");
 static String STRING_SKY_COORDS("SKY_COORDS");
 static String STRING_SKY_TIME("SKY_TIME");
+static String STRING_SORT_STAR_BRIGHTNESS("SORT_STAR_BRIGHTNESS");
+static String STRING_SORT_STAR_NAME("SORT_STAR_NAME");
+static String STRING_SORT_STAR_CONST_NAME("SORT_STAR_CONST_NAME");
 
 static String STRING_ALPHA("α");
 static String STRING_BETA("β");
@@ -58,6 +61,9 @@ static const int EVENT_USE_PREV_LOCATION = 50;
 static const int EVENT_USE_MAP_LOCATION = 51;
 static const int EVENT_INFO_CLOSED = 80;
 static const int EVENT_HELP_CLOSED = 81;
+static const int EVENT_STAR_HELP = 90;
+static const int EVENT_STAR_HELP_CLOSED = 91;
+
 
 static const Osp::Graphics::Color COLOR_SKY(Color(0, 41, 50));
 static const Osp::Graphics::Color COLOR_BUTTON_BKG(Color(0, 41, 50));

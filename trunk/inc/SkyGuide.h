@@ -14,12 +14,12 @@
 #include "forms/HelpForm.h"
 #include "forms/InfoForm.h"
 #include "forms/StarForm.h"
+#include "forms/StarHelpForm.h"
 
 #include "TimeAndPlace.h"
 #include "SkyBuilder.h"
 #include "SkyCanvas.h"
 #include "ConstellationBuilder.h"
-//#include "Shared.h"
 
 
 /**
@@ -47,6 +47,7 @@ class SkyGuide : public Osp::App::Application {
 		InfoForm* infoForm;
 		SkyForm* skyForm;
 		StarForm* starForm;
+		StarHelpForm* starHelpForm;
 
 
 };

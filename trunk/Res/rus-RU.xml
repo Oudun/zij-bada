@@ -101,4 +101,8 @@
 	<text id="BACK">Назад</text>
 	<text id="SKY_TIME">Время</text>
 	<text id="SKY_COORDS">Местоположение</text>
+	<text id="SORT_STAR_BRIGHTNESS">Сортировать звезды по яркости начиная с самой яркой</text>
+	<text id="SORT_STAR_NAME">Сортировать звезды по имени</text>
+	<text id="SORT_STAR_CONST_NAME">Сортировать звезды по имени созвездия</text>
+
 </string_table>

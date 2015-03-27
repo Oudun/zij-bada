@@ -42,6 +42,7 @@ class StarForm :
 		static const int ID_BUTTON_SORT_BRIGHTNESS = 1;
 		static const int ID_BUTTON_SORT_CONSTELLATION = 2;
 		static const int ID_BUTTON_SORT_NAME = 3;
+		static const int ID_BUTTON_HELP = 4;
 
 
 	private:
