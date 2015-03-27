@@ -67,6 +67,7 @@ StarForm::OnInitializing(void) {
 	__buttonSortStarName -> SetNormalBackgroundBitmap(*__bitmapSortByConstName);
 
 	__buttonStarHelp = static_cast<Button *>(GetControl(L"IDC_BUTTON_HELP"));
+	__buttonStarHelp -> SetActionId(ID_BUTTON_HELP);
 	__buttonStarHelp -> AddActionEventListener(*this);
 	__buttonStarHelp -> SetNormalBackgroundBitmap(*__bitmapHelp);
 
@@ -148,6 +149,11 @@ StarForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 			stars -> Sort(*starNameComparer);
 			Update(stars);
 			RequestRedraw(true);
+			break;
+		}
+		case ID_BUTTON_HELP: {
+			AppLog("ID_BUTTON_HELP pressed");
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_STAR_HELP, null);
 			break;
 		}
 	}

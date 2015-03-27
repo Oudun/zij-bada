@@ -6,7 +6,6 @@
  */
 
 #include "SkyGuide.h"
-#include "forms/StarForm.h"
 
 
 using namespace Osp::App;
@@ -62,6 +61,9 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	starForm = new StarForm();
 	starForm -> Initialize();
 
+	starHelpForm = new StarHelpForm();
+	starHelpForm -> Initialize();
+
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
 	pFrame -> AddControl(*locationForm);
@@ -72,6 +74,8 @@ SkyGuide::OnAppInitializing(AppRegistry& appRegistry) {
 	pFrame -> AddControl(*helpForm);
 	pFrame -> AddControl(*infoForm);
 	pFrame -> AddControl(*starForm);
+	pFrame -> AddControl(*starHelpForm);
+
 	pFrame -> SetCurrentForm(*locationForm);
 
 	locationForm -> Draw();
@@ -219,11 +223,20 @@ SkyGuide::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::ILis
 			skyForm -> Update();
 			break;
 		}
+		case EVENT_STAR_HELP: {
+			AppLog("Star form help");
+			pFrame->SetCurrentForm(*starHelpForm);
+			starHelpForm -> RequestRedraw(true);
+			break;
+		}
+		case EVENT_STAR_HELP_CLOSED: {
+			AppLog("Close help and show named stars");
+			pFrame->SetCurrentForm(*starForm);
+			starForm -> Update();
+			starForm -> RequestRedraw(true);
+			break;
+		}
 	}
-
-
-
-
 }
 
 

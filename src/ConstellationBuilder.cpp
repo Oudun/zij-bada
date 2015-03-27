@@ -29,8 +29,6 @@ ConstellationBuilder::~ConstellationBuilder() {
 void
 ConstellationBuilder::DrawCanvas(Canvas* canvas, int zoom, int shiftX, int shiftY) {
 
-
-
 	String sequence(L"");
 	String* constellationName = SkyCanvas::GetSelectedConstellation();
 	sequence.Append(*constellationName);

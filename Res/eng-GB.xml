@@ -102,6 +102,9 @@
 	<text id="BACK">Back</text>
 	<text id="SKY_TIME">Map creation time</text>
 	<text id="SKY_COORDS">Your location</text>
+	<text id="SORT_STAR_BRIGHTNESS">Sort stars by brightness, brightest first</text>
+	<text id="SORT_STAR_NAME">Sort stars by name</text>
+	<text id="SORT_STAR_CONST_NAME">Sort stars by constellation name</text>
 		<!-- STARS -->
 <text id="ALP_ERI">Achernar</text>
 <text id="ALP_AND">Alpheratz</text>
