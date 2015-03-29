@@ -141,7 +141,6 @@ ConstellationBuilder::DrawPolygons(Canvas* canvas, IList* vertexes, bool isTorn)
 	e ->MoveNext();
 	Point* firstPoint = (Point*)(e ->GetCurrent());
 	Point* startPoint = (Point*)(e ->GetCurrent());
-	canvas -> FillEllipse(Color::COLOR_RED, Rectangle((startPoint->x)-2, (startPoint->y)-2, 4, 4));
 	Point* nextPoint;
 	while (e -> MoveNext() == E_SUCCESS) {
 		nextPoint = (Point*)(e -> GetCurrent());
