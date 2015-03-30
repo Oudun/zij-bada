@@ -214,6 +214,10 @@ SkyForm::Update(void) {
 	Osp::Graphics::Canvas* canvas;
 	Control* control = GetControl(L"SKY_FORM");
 	canvas = control -> GetCanvasN();
+	if (canvas == null) {
+		AppLog("Canvas is null");
+		return;
+	}
 	canvas -> SetBackgroundColor(COLOR_SKY);
 
 	canvas -> Clear();

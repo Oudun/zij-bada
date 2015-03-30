@@ -97,7 +97,7 @@ SkyGuide::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 void
 SkyGuide::OnForeground(void) {
 //	skyForm -> Draw();
-//	skyForm -> Update();
+	skyForm -> Update();
 }
 
 void
