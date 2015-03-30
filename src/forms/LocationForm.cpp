@@ -82,14 +82,12 @@ void
 LocationForm::OnLocationUpdated(Osp::Locations::Location& location) {
 	AppLog("Location Updated\n");
 
-	//const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
+	const QualifiedCoordinates* coordinates = location.GetQualifiedCoordinates();
 
 	//just for testing:
-	QualifiedCoordinates* coordinates = new QualifiedCoordinates();
-	coordinates -> SetLatitude(55.0);
-	coordinates -> SetLongitude(37.0);
-//	coordinates -> SetLatitude(0.0);
-//	coordinates -> SetLongitude(60.0);
+//	QualifiedCoordinates* coordinates = new QualifiedCoordinates();
+//	coordinates -> SetLatitude(55.0);
+//	coordinates -> SetLongitude(37.0);
 
 	if (coordinates != 0) {
 		AppLog("Coordinates taken lon %f lat %f \n", coordinates->GetLongitude(), coordinates->GetLatitude());
