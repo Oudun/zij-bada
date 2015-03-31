@@ -1,0 +1,322 @@
+    -> ;
++--------+--------------------------------------------------------+-----------+----------+------------+-----------------------------------+
+| id     | names_name_code                                        | longitude | latitude | population | countries_name                    |
++--------+--------------------------------------------------------+-----------+----------+------------+-----------------------------------+
+|      2 | Amundsen-Scott - permanent station of the US           |     -9000 |    13927 |         53 | Antarctica                        |
+|      4 | Vostok - permanent station of Russia                   |     -7847 |    10680 |         20 | Antarctica                        |
+|      5 | General Belgrano II - permanent station of Argentina   |     -7787 |    -3463 |         32 | Antarctica                        |
+|      6 | MacMurdo - permanent station of the US                 |     -7785 |    16662 |        296 | Antarctica                        |
+|      8 | Halley V - permanent station of the UK                 |     -7558 |    -2673 |         23 | Antarctica                        |
+|      9 | Novolazarovskaya - permanent station of Russia         |     -7077 |     1183 |         48 | Antarctica                        |
+|     11 | Neumayer - permanent station of Germany                |     -7065 |     -825 |         14 | Antarctica                        |
+|     13 | Zhongshan - permanent station of China                 |     -6937 |     7642 |         23 | Antarctica                        |
+|     15 | Syowa - permanent station of Japan                     |     -6900 |     3958 |         63 | Antarctica                        |
+|     17 | General San Martin - permanent station of Argentina    |     -6813 |    -6707 |         31 | Antarctica                        |
+|     18 | Molodezhnaya - permanent station of Russia             |     -6767 |     4585 |        125 | Antarctica                        |
+|     19 | Mawson - permanent station of Australia                |     -6760 |     6289 |         31 | Antarctica                        |
+|     21 | Dumont d'Urville - permanent station of France         |     -6667 |    14002 |         27 | Antarctica                        |
+|     22 | Mirnyy                                                 |     -6655 |     9302 |         94 | Antarctica                        |
+|     23 | Casey - permanent station of Australia                 |     -6628 |    11053 |         33 | Antarctica                        |
+|     26 | Vicecomodoro Marambio - permanent station of Argentina |     -6427 |    -5672 |         86 | Antarctica                        |
+|     39 | Orcadas - permanent station of Argentina               |     -6074 |    -4474 |         22 | Antarctica                        |
+|     40 | Cabo de Hornos                                         |     -5598 |    -6727 |       2175 | Chile                             |
+|     44 | Grytviken                                              |     -5424 |    -3651 |         20 | Falkland Islands                  |
+|     46 | Bahía Chilota                                          |     -5330 |    -7043 |         77 | Chile                             |
+|     50 | Goose Green                                            |     -5183 |    -5898 |         68 | Falkland Islands                  |
+|     59 | Comandante Luis Piedrabuena                            |     -4998 |    -6890 |       5027 | Argentina                         |
+|     60 | Tres Lagos                                             |     -4962 |    -7150 |        336 | Argentina                         |
+|     61 | Port-aux-Français                                      |     -4935 |     7026 |         70 | French Southern Territories       |
+|     76 | Bluff                                                  |     -4660 |    16833 |       1604 | New Zealand                       |
+|     83 | Alfred-Faure                                           |     -4643 |     5186 |         25 | French Southern Territories       |
+|    107 | Dunedin                                                |     -4588 |    17048 |     112470 | New Zealand                       |
+|    191 | Dover                                                  |     -4333 |    14700 |        439 | Australia                         |
+|    487 | Reumén                                                 |     -3998 |    -7283 |        889 | Chile                             |
+|    489 | Currie                                                 |     -3993 |    14387 |        688 | Australia                         |
+|    490 | Wanganui                                               |     -3993 |    17503 |      37752 | New Zealand                       |
+|    492 | Villalonga                                             |     -3988 |    -6258 |       5197 | Argentina                         |
+|    621 | Balneario Orense                                       |     -3882 |    -5977 |         80 | Argentina                         |
+|    891 | Martin-de-Viviès                                       |     -3783 |     7757 |         25 | French Southern Territories       |
+|   1103 | Robe                                                   |     -3718 |    13975 |       1672 | Australia                         |
+|   1144 | Edinburgh                                              |     -3706 |    -1232 |        231 | Saint Helena                      |
+|   1348 | Bermagui                                               |     -3642 |    15005 |       1287 | Australia                         |
+|   1883 | Albany                                                 |     -3502 |    11788 |      28652 | Australia                         |
+|   2193 | Bredasdorp                                             |     -3453 |     2003 |      15616 | South Africa                      |
+|   2287 | Hermanus                                               |     -3441 |     1923 |      26299 | South Africa                      |
+|   2564 | Hopetoun                                               |     -3395 |    12012 |        987 | Australia                         |
+|   4005 | Margate                                                |     -3085 |     3037 |      35662 | South Africa                      |
+|   4269 | El Tambo                                               |     -3000 |    -7083 |       1268 | Chile                             |
+|   4270 | Chañar Viejo                                           |     -3000 |    -6388 |        214 | Argentina                         |
+|   4272 | Formigueiro                                            |     -3000 |    -5343 |       2794 | Brazil                            |
+|   4276 | Red Rock                                               |     -2998 |    15322 |        259 | Australia                         |
+|   4289 | Leeman                                                 |     -2995 |    11498 |        298 | Australia                         |
+|   4290 | Brewarrina                                             |     -2995 |    14687 |       1052 | Australia                         |
+|   4311 | Durban                                                 |     -2987 |     3099 |    3720953 | South Africa                      |
+|   4321 | Mafeteng                                               |     -2983 |     2725 |      43200 | Lesotho                           |
+|   4359 | Springbok                                              |     -2967 |     1788 |      16186 | South Africa                      |
+|   4443 | Três Cachoeiras                                        |     -2945 |    -4993 |       8174 | Brazil                            |
+|   4570 | Kingston                                               |     -2903 |    16805 |        910 | Norfolk Island                    |
+|   4573 | Coober Pedy                                            |     -2902 |    13472 |        963 | Australia                         |
+|   4625 | Leonora                                                |     -2888 |    12132 |        311 | Australia                         |
+|   5125 | Rapa                                                   |     -2760 |   -14433 |        466 | French Polynesia                  |
+|   5378 | Hangaroa                                               |     -2715 |   -10943 |        589 | Smaller Territories of Chile      |
+|   6047 | Tsihombe                                               |     -2532 |     4548 |      33890 | Madagascar                        |
+|   6126 | Adamstown                                              |     -2505 |   -13010 |         39 | Smaller Territories of the UK     |
+|   6917 | Mutuaura                                               |     -2265 |   -15285 |        290 | French Polynesia                  |
+|   7481 | Saint-Joseph                                           |     -2136 |     5562 |      36583 | Reunion                           |
+|   7489 | Ohonua                                                 |     -2134 |   -17495 |       1270 | Tonga                             |
+|   8187 | São José do Mantimento                                 |     -2000 |    -4173 |       1484 | Brazil                            |
+|   8188 | Mbambezi                                               |     -2000 |     2893 |       2966 | Zimbabwe                          |
+|   8189 | Petit Raffray                                          |     -2000 |     5758 |       9419 | Mauritius                         |
+|   8190 | Bowen                                                  |     -2000 |    14821 |       6753 | Australia                         |
+|   8193 | Huara                                                  |     -1998 |    -6978 |       2166 | Chile                             |
+|   8194 | Mira Estrela                                           |     -1998 |    -5017 |       1874 | Brazil                            |
+|   8220 | Camooweal                                              |     -1992 |    13812 |        170 | Australia                         |
+|   8223 | Hereheretue                                            |     -1990 |   -14497 |         58 | French Polynesia                  |
+|   8227 | Mahanoro                                               |     -1990 |     4880 |      46824 | Madagascar                        |
+|   8248 | Beira                                                  |     -1983 |     3484 |     441723 | Mozambique                        |
+|   8250 | Mitiaro                                                |     -1982 |   -15772 |         73 | Cook Islands                      |
+|   8256 | Pangai                                                 |     -1981 |   -17436 |       1556 | Tonga                             |
+|   8280 | Waala                                                  |     -1973 |    16367 |        952 | New Caledonia                     |
+|   8301 | Otavi                                                  |     -1964 |     1734 |       4968 | Namibia                           |
+|   8310 | Pisagua                                                |     -1960 |    -7022 |        379 | Chile                             |
+|   8321 | Isangel                                                |     -1954 |   -16928 |       1734 | Vanuatu                           |
+|   8369 | Vairaatea                                              |     -1932 |   -13933 |        105 | French Polynesia                  |
+|   8531 | São Mateus                                             |     -1873 |    -3986 |      87911 | Brazil                            |
+|   8540 | La Grange                                              |     -1868 |    12177 |        356 | Australia                         |
+|   8651 | Deuba                                                  |     -1825 |    17790 |       1943 | Fiji Islands                      |
+|   9294 | Cooran                                                 |     -1633 |    15283 |        995 | Australia                         |
+|   9382 | Sandy Bay                                              |     -1600 |     -572 |        126 | Saint Helena                      |
+|  10807 | West Island                                            |     -1217 |     9683 |        201 | External Territories of Australia |
+|  11624 | The Settlement                                         |     -1023 |    10565 |       1065 | External Territories of Australia |
+|  11697 | Cotaparaco                                             |     -1000 |    -7760 |        458 | Peru                              |
+|  11698 | Calulo                                                 |     -1000 |     1490 |       6225 | Angola                            |
+|  11699 | Mbekenyera                                             |     -1000 |     3898 |       6102 | Tanzania                          |
+|  11701 | Rio Branco                                             |      -998 |    -6782 |     328076 | Brazil                            |
+|  11702 | Gararu                                                 |      -998 |    -3708 |       2831 | Brazil                            |
+|  11705 | Tahuata                                                |      -995 |   -13908 |        669 | French Polynesia                  |
+|  11706 | Vila Rica                                              |      -995 |    -5111 |      14966 | Brazil                            |
+|  11707 | Lubudi                                                 |      -995 |     2597 |      22290 | Congo (Dem. Rep.)                 |
+|  11710 | Aparecida do Rio Negro                                 |      -994 |    -4785 |       3480 | Brazil                            |
+|  11715 | Sukiki                                                 |      -993 |    16061 |        602 | Solomon Islands                   |
+|  11747 | Soe                                                    |      -984 |    12428 |      30992 | Indonesia                         |
+|  11878 | Port Moresby                                           |      -948 |    14718 |     317374 | Papua New Guinea                  |
+|  11884 | Honiara                                                |      -944 |    15995 |      66168 | Solomon Islands                   |
+|  11897 | Hakamaii                                               |      -940 |   -14012 |        532 | French Polynesia                  |
+|  11903 | Fakaofo                                                |      -939 |   -17119 |        253 | Tokelau                           |
+|  11920 | Fangaua                                                |      -937 |    17983 |        326 | Tuvalu                            |
+|  12093 | Omoka                                                  |      -900 |   -15807 |        105 | Cook Islands                      |
+|  12230 | Kuta                                                   |      -872 |    11517 |      32233 | Indonesia                         |
+|  12627 | Georgetown                                             |      -795 |    -1444 |        464 | Saint Helena                      |
+|  12767 | Kutoarjo                                               |      -772 |    10990 |      31148 | Indonesia                         |
+|  13612 | Mórrope                                                |      -653 |    -8001 |      10614 | Peru                              |
+|  14251 | Tual                                                   |      -563 |    13274 |      28914 | Indonesia                         |
+|  14783 | Victoria                                               |      -462 |     5545 |      21184 | Seychelles                        |
+|  15356 | Malindi                                                |      -321 |     4010 |      88209 | Kenya                             |
+|  15891 | Omboué                                                 |      -157 |      925 |       2298 | Gabon                             |
+|  16136 | Puerto Ayora                                           |       -76 |    -9033 |      15565 | Ecuador                           |
+|  16162 | Feydhoo                                                |       -68 |     7313 |       2577 | Maldives                          |
+|  11990 | Dilolo                                                 |         0 |     9999 |      18364 | Congo (Dem. Rep.)                 |
+|  16247 | Oyo                                                    |         1 |     1586 |      15392 | Congo                             |
+|  16248 | Nanyuki                                                |         2 |     3706 |      40009 | Kenya                             |
+|  16249 | Macapá                                                 |         4 |    -5105 |     411062 | Brazil                            |
+|  16252 | Cayambe                                                |         5 |    -7816 |      36305 | Ecuador                           |
+|  16257 | Pedernales                                             |         7 |    -8005 |       8868 | Ecuador                           |
+|  16258 | Jamaame                                                |         7 |     4275 |       9216 | Somalia                           |
+|  16260 | Katwa                                                  |        10 |     2932 |      63422 | Congo (Dem. Rep.)                 |
+|  16266 | Bontang                                                |        14 |    11749 |     151795 | Indonesia                         |
+|  16267 | Takaeang                                               |        16 |    17362 |        818 | Kiribati                          |
+|  16273 | Fares                                                  |        20 |     7319 |       1562 | Maldives                          |
+|  16287 | Santana                                                |        26 |      623 |       7410 | São Tomé and Príncipe             |
+|  16318 | Mobagu                                                 |        39 |    12398 |      72597 | Indonesia                         |
+|  16338 | Taraira                                                |        49 |    -6967 |        130 | Colombia                          |
+|  16350 | Pekan Baru                                             |        56 |    10143 |     966826 | Indonesia                         |
+|  16650 | London                                                 |       199 |    15778 |        921 | Kiribati                          |
+|  16954 | Hatohobei                                              |       301 |    13118 |         66 | Palau                             |
+|  17236 | Nabari                                                 |       391 |   -15973 |        329 | Kiribati                          |
+|  17426 | Harper                                                 |       439 |     -772 |      19306 | Liberia                           |
+|  17526 | Enilok                                                 |       460 |    16867 |        117 | Marshall Islands                  |
+|  17573 | Washington                                             |       471 |   -16076 |       1582 | Kiribati                          |
+|  18538 | Buchanan                                               |       588 |    -1005 |      35411 | Liberia                           |
+|  18642 | M?tara                                                 |       596 |     8053 |      47420 | Sri Lanka                         |
+|  19507 | Eauripik                                               |       669 |    14308 |        122 | Micronesia                        |
+|  22396 | Bandarbeyla                                            |       950 |     5081 |       3343 | Somalia                           |
+|  22943 | Macacona                                               |      1000 |    -8462 |        946 | Costa Rica                        |
+|  22948 | Sokoura                                                |      1000 |     -435 |        878 | Burkina Faso                      |
+|  22949 | Bununu Dass                                            |      1000 |      952 |       3489 | Nigeria                           |
+|  22950 | Consuelo                                               |      1000 |    12275 |       4941 | Philippines                       |
+|  22954 | Gobo                                                   |      1001 |     1544 |      16145 | Cameroon                          |
+|  22955 | Waaciye                                                |      1001 |     4904 |       7127 | Somalia                           |
+|  22956 | Bodin?yakkan?r                                         |      1001 |     7735 |      85265 | India                             |
+|  22964 | Chivolo                                                |      1002 |    -7464 |      10303 | Colombia                          |
+|  22968 | Gohatsion                                              |      1002 |     3825 |       9650 | Ethiopia                          |
+|  22975 | R?ch Giá                                               |      1002 |    10508 |     282550 | Vietnam                           |
+|  22983 | Cabudare                                               |      1003 |    -6927 |      90990 | Venezuela                         |
+|  22994 | Faranah                                                |      1004 |    -1075 |     112923 | Guinea                            |
+|  23175 | Caramay                                                |      1018 |    11923 |       3168 | Philippines                       |
+|  23181 | Wotho                                                  |      1018 |    16600 |        224 | Marshall Islands                  |
+|  23312 | Birao                                                  |      1028 |     2279 |       8133 | Central African Republic          |
+|  23313 | Iskushuban                                             |      1028 |     5023 |       2484 | Somalia                           |
+|  23756 | Hut Bay                                                |      1063 |     9260 |       7719 | India                             |
+|  26176 | Bikeer                                                 |      1220 |    17010 |          6 | Marshall Islands                  |
+|  26414 | Chey?r                                                 |      1235 |     8000 |      11182 | India                             |
+|  27509 | Oistins                                                |      1307 |    -5955 |       1471 | Barbados                          |
+|  27902 | Merizo                                                 |      1326 |    14467 |       1906 | Guam                              |
+|  29317 | San Francisco Menéndez                                 |      1385 |    -9002 |       1560 | El Salvador                       |
+|  30766 | Nova Sintra                                            |      1481 |    -2472 |       1049 | Cape Verde                        |
+|  33774 | Zacoalpan                                              |      1708 |   -10033 |       2442 | Mexico                            |
+|  35019 | Tabernacle                                             |      1738 |     6277 |        845 | Saint Kitts and Nevis             |
+|  38740 | Naalehu                                                |      1906 |   -15559 |        854 | United States of America          |
+|  41939 | Andarsul                                               |      2000 |     7457 |      14867 | India                             |
+|  41942 | Qiongshan                                              |      2000 |    11035 |      96191 | China                             |
+|  41966 | Santiago de Cuba                                       |      2001 |    -7582 |     449234 | Cuba                              |
+|  41967 | B?šah                                                  |      2001 |     4260 |     111677 | Saudi Arabia                      |
+|  41969 | Taungdwingyi                                           |      2001 |     9554 |      85142 | Myanmar                           |
+|  41970 | Waimea                                                 |      2002 |   -15565 |       9656 | United States of America          |
+|  39934 | Rincón de Nicolás Romero                               |      2002 |   -10255 |       6467 | Mexico                            |
+|  41999 | Dhanora                                                |      2002 |     8145 |       3563 | India                             |
+|  42003 | Settlement                                             |      2002 |    14519 |          8 | Northern Mariana Islands          |
+|  42045 | Sabán                                                  |      2003 |    -8854 |       2344 | Mexico                            |
+|  42153 | Biên S?n                                               |      2006 |    10585 |      51639 | Vietnam                           |
+|  42832 | Tessalit                                               |      2028 |       98 |       3563 | Mali                              |
+|  43334 | Basco                                                  |      2045 |    12197 |       8242 | Philippines                       |
+|  43388 | Šingati                                                |      2047 |    -1237 |       4407 | Mauritania                        |
+|  44924 | Gabait                                                 |      2106 |     3632 |      14878 | Sudan                             |
+|  35879 | Zaragoza                                               |      2128 |    -9772 |       9922 | Mexico                            |
+|  45537 | Navabandar                                             |      2143 |     6980 |      11380 | India                             |
+|  45972 | Aouzou                                                 |      2181 |     1745 |       9271 | Chad                              |
+|  46337 | Ban? B? H?assan                                        |      2208 |     5928 |      34463 | Oman                              |
+|  47177 | Taoudenni                                              |      2267 |     -398 |       3444 | Mali                              |
+|  47955 | El Pescadero                                           |      2336 |   -11017 |       2501 | Mexico                            |
+|  48671 | T?b?t                                                  |      2417 |     2329 |       2999 | Libya                             |
+|  55202 | Wimberley                                              |      3000 |    -9810 |       2663 | United States of America          |
+|  55209 | Har?yj?n                                               |      3000 |     5205 |       1313 | Iran                              |
+|  55212 | Bah?walnagar                                           |      3000 |     7325 |     108169 | Pakistan                          |
+|  55214 | Heyang                                                 |      3000 |    10627 |      88439 | China                             |
+|  55215 | Shaoxing                                               |      3000 |    12057 |     664554 | China                             |
+|  55216 | Banámichi                                              |      3001 |   -11022 |       1275 | Mexico                            |
+|  55217 | Colonia Le Barón                                       |      3001 |   -10757 |       2146 | Mexico                            |
+|  55223 | Gizeh                                                  |      3001 |     3121 |    3628062 | Egypt                             |
+|  55224 | Arvand Ken?r                                           |      3001 |     4853 |      10505 | Iran                              |
+|  55226 | Lake Butler                                            |      3002 |    -8234 |      15803 | United States of America          |
+|  55289 | Fuyang                                                 |      3006 |    11994 |      81885 | China                             |
+|  55340 | Harnai                                                 |      3010 |     6793 |       9223 | Pakistan                          |
+|  55373 | Beni Abbes                                             |      3013 |     -217 |      12341 | Algeria                           |
+|  55374 | Gad?mis                                                |      3013 |      949 |      12709 | Libya                             |
+|  55420 | Darj                                                   |      3016 |     1046 |       4284 | Libya                             |
+|  56172 | Ajd?biy?                                               |      3075 |     2022 |      79723 | Libya                             |
+|  58319 | Hamilton                                               |      3230 |    -6479 |       1012 | Bermuda                           |
+|  59090 | Câmara de Lobos                                        |      3263 |    -1696 |      34178 | Portugal                          |
+|  59145 | Folly Beach                                            |      3266 |    -7994 |       2733 | United States of America          |
+|  62441 | Orcutt                                                 |      3452 |   -12026 |      28889 | United States of America          |
+|  73381 | Vila Franca do Campo                                   |      3772 |    -2542 |       4839 | Portugal                          |
+|  83735 | Jiuquan                                                |      3975 |     9851 |      71755 | China                             |
+|  85141 | Genola                                                 |      4000 |   -11184 |       1453 | United States of America          |
+|  85143 | Byron                                                  |      4000 |    -9777 |         76 | United States of America          |
+|  85145 | Advance                                                |      4000 |    -8662 |        465 | United States of America          |
+|  85155 | South Connellsville                                    |      4000 |    -7959 |       1919 | United States of America          |
+|  85163 | Louriçal                                               |      4000 |     -872 |       4951 | Portugal                          |
+|  85173 | Ciutadella de Menorca                                  |      4000 |      383 |      30262 | Spain                             |
+|  85177 | Castelluccio Inferiore                                 |      4000 |     1597 |       2126 | Italy                             |
+|  85179 | Skála Foúrkas                                          |      4000 |     2338 |        951 | Greece                            |
+|  85192 | Demirköy                                               |      4000 |     3002 |        621 | Turkey                            |
+|  85200 | ?eyhyusuf                                              |      4000 |     4240 |        475 | Turkey                            |
+|  85207 | Belden                                                 |      4001 |   -12125 |         21 | United States of America          |
+|  85210 | Lochbuie                                               |      4001 |   -10472 |       5474 | United States of America          |
+|  85241 | Pihy?n                                                 |      4001 |    12462 |       9058 | Korea (North)                     |
+|  85338 | Türkmenba?i                                            |      4002 |     5296 |     102906 | Turkmenistan                      |
+|  85339 | Vobkent                                                |      4002 |     6452 |      18500 | Uzbekistan                        |
+|  85581 | Shurob                                                 |      4005 |     7054 |       4084 | Tajikistan                        |
+|  85771 | Datong                                                 |      4008 |    11330 |    1082379 | China                             |
+|  91354 | Linhe                                                  |      4083 |    10750 |     178269 | China                             |
+|  94062 | Aksu                                                   |      4115 |     8025 |     534750 | China                             |
+|  97944 | West Chatham                                           |      4168 |    -6999 |       1399 | United States of America          |
+| 101835 | Rajin                                                  |      4225 |    13030 |      67183 | Korea (North)                     |
+| 106286 | Hami                                                   |      4280 |     9345 |     156051 | China                             |
+| 119168 | Yuzhno-Kurilsk                                         |      4403 |    14586 |       6546 | Russia                            |
+| 143292 | Saint-Pierre                                           |      4679 |    -5618 |       5460 | Saint Pierre and Miquelon         |
+| 176978 | Monchy-sur-Eu                                          |      5000 |      145 |        508 | France                            |
+| 177033 | Bergrheinfeld                                          |      5000 |     1018 |       5076 | Germany                           |
+| 177084 | Kosh-Agach                                             |      5000 |     8867 |       5815 | Russia                            |
+| 177097 | Tarnów                                                 |      5001 |     2099 |     113225 | Poland                            |
+| 177099 | Sharivka                                               |      5001 |     3544 |       1833 | Ukraine                           |
+| 177246 | Nikolajevsk                                            |      5002 |     4543 |      13988 | Russia                            |
+| 177247 | Claresholm                                             |      5003 |   -11358 |       3776 | Canada                            |
+| 177248 | Rivers                                                 |      5003 |   -10022 |       1278 | Canada                            |
+| 177249 | Mullion                                                |      5003 |     -524 |       2029 | United Kingdom                    |
+| 177405 | Port-Cartier                                           |      5004 |    -6686 |       5230 | Canada                            |
+| 177544 | Krasnokamensk                                          |      5005 |    11802 |      55183 | Russia                            |
+| 177567 | Ulyanovskiy                                            |      5006 |     7372 |       5383 | Kazakhstan                        |
+| 177568 | Stony Mountain                                         |      5007 |    -9722 |       1815 | Canada                            |
+| 177856 | Tyrma                                                  |      5008 |    13217 |       2252 | Russia                            |
+| 178029 | Tambovka                                               |      5010 |    12807 |       7641 | Russia                            |
+| 178039 | Merritt                                                |      5012 |   -12078 |       7098 | Canada                            |
+| 178782 | Chapaevsk                                              |      5019 |     5114 |       8439 | Kazakhstan                        |
+| 179186 | Sühbaatar                                              |      5023 |    10619 |      26507 | Mongolia                          |
+| 179347 | Ar?al??                                                |      5025 |     6690 |      56524 | Kazakhstan                        |
+| 179349 | Erzin                                                  |      5025 |     9517 |       3043 | Russia                            |
+| 182706 | Severo-Kurilsk                                         |      5068 |    15613 |       2242 | Russia                            |
+| 183567 | Due                                                    |      5083 |    14210 |        187 | Russia                            |
+| 185044 | Saint-Augustin                                         |      5123 |    -5865 |       6950 | Canada                            |
+| 186704 | Waterville-Spunkane                                    |      5185 |    -1019 |        697 | Ireland                           |
+| 186789 | Adak                                                   |      5188 |   -17666 |        327 | United States of America          |
+| 189186 | Nikolski                                               |      5294 |   -16887 |         16 | United States of America          |
+| 191460 | Chisasibi                                              |      5379 |    -7894 |       2028 | Canada                            |
+| 192766 | Prince Rupert                                          |      5432 |   -13031 |      10691 | Canada                            |
+| 194079 | Nikolskoye                                             |      5519 |    16599 |        758 | Russia                            |
+| 195220 | Ivanof Bay                                             |      5590 |   -15948 |          6 | United States of America          |
+| 199709 | Ipiutaq                                                |      5988 |    -4421 |          1 | Greenland                         |
+| 199781 | Narsaq Kujalleq                                        |      6000 |    -4465 |        135 | Greenland                         |
+| 199782 | Bekkjarvik                                             |      6000 |      520 |        382 | Norway                            |
+| 199784 | Leirsund                                               |      6000 |     1110 |       1728 | Norway                            |
+| 199794 | Föglö                                                  |      6002 |     2042 |        527 | Finland                           |
+| 199795 | Vsevolozhsk                                            |      6002 |     3068 |      46700 | Russia                            |
+| 199796 | Syamzha                                                |      6002 |     4107 |       3679 | Russia                            |
+| 199807 | Ninilchik                                              |      6005 |   -15167 |        914 | United States of America          |
+| 199820 | Gornopravdinsk                                         |      6005 |     6990 |       5352 | Russia                            |
+| 199821 | Stekolnyy                                              |      6005 |    15075 |       1867 | Russia                            |
+| 199824 | Salym                                                  |      6006 |     7148 |       5943 | Russia                            |
+| 199825 | Lowell Point                                           |      6007 |   -14944 |         78 | United States of America          |
+| 199871 | Scalloway                                              |      6013 |     -130 |        787 | United Kingdom                    |
+| 199896 | Pokrovsk-Uralskiy                                      |      6015 |     5983 |       1552 | Russia                            |
+| 199898 | Chefornak                                              |      6016 |   -16427 |        423 | United States of America          |
+| 199967 | Ynykchan                                               |      6025 |    13772 |        155 | Russia                            |
+| 200013 | Vanavara                                               |      6034 |    10228 |       3127 | Russia                            |
+| 200028 | Severo-Yeniseyskiy                                     |      6037 |     9305 |       6824 | Russia                            |
+| 200042 | Olyokminsk                                             |      6038 |    12020 |       8314 | Russia                            |
+| 200106 | Tilichiki                                              |      6047 |    16610 |       1724 | Russia                            |
+| 200267 | Whitehorse                                             |      6073 |   -13505 |      19620 | Canada                            |
+| 200280 | Lensk                                                  |      6073 |    11493 |      24314 | Russia                            |
+| 200337 | Hay River                                              |      6086 |   -11575 |       2838 | Canada                            |
+| 200477 | Ust-Omchug                                             |      6115 |    14963 |       3782 | Russia                            |
+| 201158 | Kangerdlinerk                                          |      6282 |    -9212 |       2584 | Canada                            |
+| 201234 | Beringovskiy                                           |      6305 |    17932 |       1263 | Russia                            |
+| 201241 | Qeqertarsuatsiaat                                      |      6308 |    -5066 |        223 | Greenland                         |
+| 201344 | Vík í Mırdal                                           |      6342 |    -1902 |        325 | Iceland                           |
+| 201357 | Vestmannaeyjar                                         |      6344 |    -2027 |       4130 | Iceland                           |
+| 201414 | Savoonga                                               |      6369 |   -17048 |        678 | United States of America          |
+| 201431 | Iqaluit                                                |      6374 |    -6855 |       7524 | Canada                            |
+| 201754 | Isortoq                                                |      6553 |    -3897 |         93 | Greenland                         |
+| 201794 | Krasnoselkup                                           |      6570 |     8247 |       4472 | Russia                            |
+| 202174 | Qeqertaq                                               |      7000 |    -5131 |        144 | Greenland                         |
+| 202176 | Rafsbotn                                               |      7002 |     2353 |        431 | Norway                            |
+| 202177 | Ust-Kuyga                                              |      7002 |    13560 |       1359 | Russia                            |
+| 202181 | Karaul                                                 |      7008 |     8319 |        834 | Russia                            |
+| 202184 | Kaktovik                                               |      7013 |   -14362 |        233 | United States of America          |
+| 202186 | Nuiqsut                                                |      7022 |   -15098 |        399 | United States of America          |
+| 202188 | Kiberg                                                 |      7028 |     3100 |        206 | Norway                            |
+| 202191 | Uunartoq                                               |      7040 |    -2196 |          0 | Greenland                         |
+| 202199 | Chokurdakh                                             |      7062 |    14787 |       2041 | Russia                            |
+| 202202 | Wainwright                                             |      7064 |   -16004 |        558 | United States of America          |
+| 202221 | Belushya Guba                                          |      7155 |     5232 |       2633 | Russia                            |
+| 202222 | Tiksi                                                  |      7163 |    12887 |       5264 | Russia                            |
+| 202223 | Olonkinbyen                                            |      7191 |     -864 |         21 | Svalbard and Jan Mayen            |
+| 202224 | Saskylakh                                              |      7192 |    11408 |       1976 | Russia                            |
+| 202225 | Khatanga                                               |      7197 |    10250 |       3243 | Russia                            |
+| 202230 | Tununirusiq                                            |      7304 |    -8520 |        998 | Canada                            |
+| 202237 | Bjørnøya                                               |      7450 |     1900 |         11 | Svalbard and Jan Mayen            |
+| 202239 | Savissivik                                             |      7602 |    -6507 |         86 | Greenland                         |
+| 202245 | Qeqertarsuaq                                           |      7743 |    -7018 |        764 | Greenland                         |
++--------+--------------------------------------------------------+-----------+----------+------------+-----------------------------------+
+314 rows in set (36.69 sec)
+
+mysql> quit
