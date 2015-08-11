@@ -1,0 +1,1 @@
+Mobile application for Bada platform designed to display and guid through local visible night sky.
